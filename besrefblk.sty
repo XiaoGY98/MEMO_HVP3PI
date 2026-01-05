@@ -1,0 +1,195 @@
+\NeedsTeXFormat{LaTeX2e}[1995/06/01]
+\ProvidesPackage{besrefblk}
+
+\newcommand\Reffont{\normalfont}
+\newcommand\Refaffilfont{\normalfont}
+
+\newcommand\Refsep{, }
+\newcommand\Refands{, }
+\newcommand\Refand{ and }
+\newlength{\refaffilsep}\setlength{\refaffilsep}{1em}
+
+\newlength{\@refaffilsep}
+\newcounter{Maxrefaffil}
+\setcounter{Maxrefaffil}{2}
+
+\newlength{\@refbffilsep}
+\newcounter{Maxrefbffil}
+\setcounter{Maxrefbffil}{2}
+
+\newcounter{refmembers}
+\newcounter{refeditors}
+
+\newcounter{refaffil}
+\newif\ifnewrefaffil \newrefaffiltrue
+
+\newcounter{refbffil}
+\newif\ifnewrefbffil \newrefbffiltrue
+
+\newcommand\MY@Refnote[1]{\textsuperscript{\normalfont#1}}
+\newcommand\MY@refaffilnote[1]{\textsuperscript{\normalfont#1}}
+
+
+
+\providecommand\textsuperscript[1]{$^{#1}$}
+\newcommand\MY@blk@and{\protect\Reffont\protect\MY@setsep}
+\newcommand\MY@pand{\protect\and \protect\Reffont \protect\MY@setsep}
+\@namedef{@sep1}{}
+\@namedef{@sep2}{\Refand}
+\newcommand\MY@refaffilsep{\protect\Refaffilfont}
+\newcommand\MY@refaffilsepx{\protect\\\protect\Refaffilfont}
+\newcommand\MY@setsep{\setlength{\@refaffilsep}{\refaffilsep}}
+
+
+\newcommand\MY@refbffilsep{\protect\Refaffilfont}
+\newcommand\MY@refbffilsepx{\protect\\\protect\Refaffilfont}
+%\newcommand\MY@setsep{\setlength{\@refbffilsep}{\refbffilsep}}
+
+\newcommand\MY@resetsep{\setlength{\@refaffilsep}{\z@}}
+%\newcommand\MY@resetsep{\setlength{\@refbffilsep}{\z@}}
+
+\newcommand\MY@Reflist{}
+\newcommand\MY@refaffillist{}
+
+\newcommand\MYb@Reflist{}
+
+\newcommand\MYb@refbffillist{}
+
+\newcommand\MY@refmembers{}
+\newcommand\MYb@refeditors{}
+
+\newcommand\MY@empty{}
+\def\@refmember{}
+\xdef\MY@refmember{\noexpand\MY@blk@and\@refmember}
+
+\def\@refeditor{}
+\xdef\MYb@refeditor{\noexpand\MY@blk@and\@refeditor}
+
+
+\newcommand\refmember[2][]{%
+      \ifnewrefaffil\addtocounter{refaffil}{1}%
+       \edef\MY@thenote{\arabic{refaffil}}\fi
+      \if\relax#1\relax\def\MY@note{\MY@thenote}\else\def\MY@note{#1}%
+        \setcounter{Maxrefaffil}{0}\fi
+      \ifnum\value{refmembers}>1\relax
+      \@namedef{@sep\number\c@refmembers}{\Refsep}\fi
+      \addtocounter{refmembers}{1}%
+      \begingroup
+          \let\protect\@unexpandable@protect \let\and\MY@pand
+          \def\thanks{\protect\thanks}\def\footnote{\protect\footnote}%
+         \@temptokena=\expandafter{\MY@refmembers}%
+         {\def\\{\protect\\[\@refaffilsep]\protect\Refaffilfont
+              \protect\MY@resetsep}%
+              \xdef\MY@refmember{\MY@blk@and#2}%
+       \ifnewrefaffil\gdef\MY@las{}\gdef\MY@lasx{\protect\Refand}\gdef\MY@as{}%
+           \xdef\MY@refmembers{\the\@temptokena\MY@blk@and}%
+       \else
+          \xdef\MY@refmembers{\the\@temptokena\MY@as\MY@au@str}%
+          \global\let\MY@las\MY@lasx\gdef\MY@lasx{\protect\Refands}%
+          \gdef\MY@as{\Refsep}%
+       \fi
+       \gdef\MY@au@str{#2}}%
+         \@temptokena=\expandafter{\MY@Reflist}%
+         \let\\=\refmembercr
+         \xdef\MY@Reflist{\the\@temptokena
+           \protect\@nameuse{@sep\number\c@refmembers}%
+           \protect\Reffont#2\MY@Refnote{\MY@note}}%
+      \endgroup
+      \ifnum\value{refmembers}>2\relax
+      \@namedef{@sep\number\c@refmembers}{\Refands}\fi
+      \newrefaffilfalse
+}
+\newcommand\refmembercr{\protect\\ \protect\Reffont \protect\MY@setsep}%
+\newcommand\refaffil[2][]%
+   {\newrefaffiltrue\let\MY@blk@and\MY@pand
+      \if\relax#1\relax\def\MY@note{\MY@thenote}\else\def\MY@note{#1}%
+        \setcounter{Maxrefaffil}{0}\fi
+      \begingroup
+        \let\protect\@unexpandable@protect
+        \def\thanks{\protect\thanks}\def\footnote{\protect\footnote}%
+        \@temptokena=\expandafter{\MY@refmembers}%
+        {\def\\{\protect\\\protect\Refaffilfont}\xdef\MY@temp{#2}}%
+         \xdef\MY@refmembers{\the\@temptokena\MY@las\MY@au@str
+         \protect\\[\refaffilsep]\protect\Refaffilfont\MY@temp}%
+         \gdef\MY@las{}\gdef\MY@au@str{}%
+        {\def\\{, \ignorespaces}\xdef\MY@temp{#2}}%
+        \@temptokena=\expandafter{\MY@refaffillist}%
+        \xdef\MY@refaffillist{\the\@temptokena \MY@refaffilsep
+          \MY@refaffilnote{\MY@note}\protect\Refaffilfont\MY@temp}%
+      \endgroup
+       \let\MY@refaffilsep\MY@refaffilsepx
+}
+\def\@refmember{}
+\renewcommand\@refmember{\ifx\MY@refaffillist\MY@empty\MY@refmember\else
+      \ifnum\value{refaffil}>\value{Maxrefaffil}\def\rlap##1{##1}%
+    \MY@Reflist\\[\refaffilsep]\MY@refaffillist
+    \else  \MY@refmembers\fi\fi}
+    
+   
+\newcommand\refeditor[2][]{%
+      \ifnewrefbffil\addtocounter{refbffil}{1}%
+       \edef\MY@thenote{\arabic{refbffil}}\fi
+      \if\relax#1\relax\def\MY@note{\MY@thenote}\else\def\MY@note{#1}%
+        \setcounter{Maxrefbffil}{0}\fi
+      \ifnum\value{refeditors}>1\relax
+      \@namedef{@sep\number\c@refeditors}{\Refsep}\fi
+      \addtocounter{refeditors}{1}%
+      \begingroup
+          \let\protect\@unexpandable@protect \let\and\MY@pand
+          \def\thanks{\protect\thanks}\def\footnote{\protect\footnote}%
+         \@temptokena=\expandafter{\MYb@refeditors}%
+         {\def\\{\protect\\[\@refaffilsep]\protect\Refaffilfont
+              \protect\MY@resetsep}%
+              \xdef\MYb@refeditor{\MY@blk@and#2}%
+       \ifnewrefbffil\gdef\MY@las{}\gdef\MY@lasx{\protect\Refand}\gdef\MY@as{}%
+           \xdef\MYb@refeditors{\the\@temptokena\MY@blk@and}%
+       \else
+          \xdef\MYb@refeditors{\the\@temptokena\MY@as\MY@au@str}%
+          \global\let\MY@las\MY@lasx\gdef\MY@lasx{\protect\Refands}%
+          \gdef\MY@as{\Refsep}%
+       \fi
+       \gdef\MY@au@str{#2}}%
+         \@temptokena=\expandafter{\MYb@Reflist}%
+         \let\\=\refeditorcr
+         \xdef\MYb@Reflist{\the\@temptokena
+           \protect\@nameuse{@sep\number\c@refeditors}%
+           \protect\Reffont#2\MY@Refnote{\MY@note}}%
+      \endgroup
+      \ifnum\value{refeditors}>2\relax
+      \@namedef{@sep\number\c@refeditors}{\Refands}\fi
+      \newrefaffilfalse
+}
+\newcommand\refeditorcr{\protect\\ \protect\Reffont \protect\MY@setsep}%
+\newcommand\refbffil[2][]%
+   {\newrefbffiltrue\let\MY@blk@and\MY@pand
+      \if\relax#1\relax\def\MY@note{\MY@thenote}\else\def\MY@note{#1}%
+        \setcounter{Maxrefbffil}{0}\fi
+      \begingroup
+        \let\protect\@unexpandable@protect
+        \def\thanks{\protect\thanks}\def\footnote{\protect\footnote}%
+        \@temptokena=\expandafter{\MYb@refeditors}%
+        {\def\\{\protect\\\protect\Refaffilfont}\xdef\MY@temp{#2}}%
+         \xdef\MYb@refeditors{\the\@temptokena\MY@las\MY@au@str
+         \protect\\[\refaffilsep]\protect\Refaffilfont\MY@temp}%
+         \gdef\MY@las{}\gdef\MY@au@str{}%
+        {\def\\{, \ignorespaces}\xdef\MY@temp{#2}}%
+        \@temptokena=\expandafter{\MYb@refbffillist}%
+        \xdef\MYb@refbffillist{\the\@temptokena \MY@refbffilsep
+          \MY@refaffilnote{\MY@note}\protect\Refaffilfont\MY@temp}%
+      \endgroup
+       \let\MY@refbffilsep\MY@refbffilsepx
+}
+\def\@refeditor{}
+\renewcommand\@refeditor{\ifx\MYb@refbffillist\MY@empty\MYb@refeditor\else
+      \ifnum\value{refbffil}>\value{Maxrefbffil}\def\rlap##1{##1}%
+    \MYb@Reflist\\[\refaffilsep]\MYb@refbffillist
+    \else  \MYb@refeditors\fi\fi}
+    
+    
+\let\MY@maketitle=\maketitle
+
+
+\def\maketitle
+  {{\renewenvironment{tabular}[2][]{\begin{center}}
+                                   {\end{center}}
+  \MY@maketitle}}

@@ -1,0 +1,195 @@
+\documentclass[12pt,a4paper]{besnote}
+
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{2212}{-}
+
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{besphysics}
+\usepackage{besrefblk}
+\usepackage{authblk}
+\usepackage[toc,page]{appendix}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{rotating}
+%\floatstyle{boxed}
+%\restylefloat{figure}
+\usepackage{subfig}
+\captionsetup[subfloat]{position=bottom}
+
+\usepackage{overpic}
+\usepackage{colortbl}
+%\usepackage{epsfig}
+%\usepackage{psfrag}
+%\usepackage{pstricks}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{multicol}
+%\usepackage[square,comma,numbers,sort&compress]{natbib} % needed to order and compress multiple references%
+\usepackage{diagbox}
+\usepackage{units}
+\usepackage{fancyhdr}
+\usepackage{hangcaption}
+\usepackage{xspace}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+%\usepackage[colorlinks,
+%            linkcolor=blue,
+%            anchorcolor=blue,
+%            citecolor=blue
+%            ]{hyperref}
+%\usepackage[a4paper=true, pdfhighlight=/I, ps2pdf=true, dvips, dvipdfm ]{hyperref}
+%\usepackage{hypernat}  %needed to let natbib with compress option work together with hyperref
+%\usepackage{verbatim}
+
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amssymb,bm,mathrsfs,bbm,amscd}
+\usepackage{lastpage}
+\usepackage{geometry}
+\usepackage{color}
+\usepackage{tabularx}
+
+
+
+
+
+
+\bibliographystyle{unsrtnat}
+
+\usepackage{lineno}
+%to avoid the hyphenation of Upper-case acronyms
+\uchyph=0
+\righthyphenmin=2
+\lefthyphenmin=2
+
+\hypersetup{
+  breaklinks=true,
+  colorlinks = true,
+  linkcolor = blue,
+  anchorcolor = blue,
+  citecolor = blue,
+  filecolor = blue,
+  pagecolor = blue,
+  urlcolor = blue
+}
+\hypersetup{
+  bookmarks=true,
+  bookmarksnumbered=true,
+  bookmarkstype=toc,
+  linktocpage=true
+}
+
+%\RequirePackage{lineno}
+
+%\setlength{\parskip}{2ex}
+\setlength{\parindent}{4ex}
+\setlength{\oddsidemargin}{-0.5cm}
+\setlength{\evensidemargin}{-0.5cm}
+\setlength{\textwidth}{17cm}
+\setlength{\topmargin}{-1cm}
+\setlength{\textheight}{22cm}
+\setlength{\headheight}{14pt}
+\renewcommand{\arraystretch}{1}
+
+% you can put a figure caption inside a table environment
+% by command \figcaption.
+% you can put a table caption inside a figure environment
+% by command \tabcaption.
+\makeatletter
+    \newcommand\figcaption{\def\@captype{figure}\caption}
+    \newcommand\tabcaption{\def\@captype{table}\caption}
+\makeatother
+
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3.5cm}
+%\newcommand{\xiaohao}{\fontsize{15pt}\baselineskip\linespread{0.5}\selectfont}
+
+\title{Cross section measurement of process $\ee\to\pip\pim\piz$ from threshold to 2.0 GeV via ISR technique}
+
+\author{
+    Guang-Yan~Xiao~$^{a,c}$\footnote{E-mail:~{xiaogy@smail.nju.edu.cn}}~~
+    Ya-Qian~Wang~$^{b}$~~
+    Lei~Zhang~$^{a}$~~
+    Shen-Jian~Chen~$^{a}$~~
+    Chang-Zheng~Yuan~$^{c}$~~
+    \\~\\
+    $^a$Nanjing University\\
+    $^b$Hebei University\\
+    $^c$Institute of High Energy Physics, CAS\\
+}
+
+%Add the referee committee here
+
+\refmember[d]{XXX (Chair)}
+\refmember[e]{XXX}
+\refmember[f]{XXX}
+\refaffil[d]{\it XXX University}
+\refaffil[e]{\it XXX University}
+\refaffil[f]{\it XXX University}
+
+\refeditor[g]{Editor A}
+\refeditor[h]{Editor B}
+
+\refbffil[g]{\it Uni. G}
+\refbffil[h]{\it Uni. H}
+
+% for the draft version
+\besmemoversion{2.0} 
+
+\besmemoid{xxx}
+
+\date{\it \small \bf BESIII Analysis Memo (\today) }
+
+%\pagestyle{fancy}
+%\fancyhf{}
+%\lhead{\nouppercase\leftmark}
+%\cfoot{\thepage}
+
+
+\abstracttext{ 
+    XXX
+}
+\usepackage{perpage}  % 引入 perpage 包
+\MakePerPage{footnote}  % 使脚注每页重新编号
+
+
+\begin{document}
+
+%\setpagewiselinenumbers
+%\modulolinenumbers[2]
+%\linenumbers
+
+\input{changes.tex}
+\clearpage
+\tableofcontents
+\clearpage
+
+%\setpagewiselinenumbers
+%\modulolinenumbers[2]
+%\linenumbers
+\setrunninglinenumbers
+\begin{linenumbers}
+
+    % \input{table_test.tex}
+    \input{1_introduction.tex}
+    \input{2_detector.tex}
+    \input{3_sample.tex}
+    \input{4_selections.tex}
+    \input{5_summary.tex}
+
+    \clearpage
+    \input{bibitem.tex}
+
+    \newpage
+    \appendix
+    \section*{APPENDIX}  % use *-form to suppress numbering
+    % \input{Appendix_BDTG_REWEIGHTING.tex}
+    \clearpage
+\end{linenumbers}
+
+\end{document}

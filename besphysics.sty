@@ -1,0 +1,839 @@
+%
+%   besphysics.sty for BESIII  papers
+%
+% In your own directory, you may of course change this
+% as you like. If you don't understand it or want to change
+% or add something publicly, contact the BESIII Publications
+% Committee.
+%
+
+%
+%\usepackage{xspace}
+%
+\let\sst=\scriptscriptstyle % Needed for some definitions (psi and eta prime, etc.) (EE)
+\chardef\letterchar=11
+\chardef\otherchar=12
+\chardef\eolinechar=5
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Hours:minutes macro                                               |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+%\newcount\hrs\newcount\minu\newcount\temptime
+%\def\hm{\hrs=\time \divide\hrs by 60 \minu=\time\temptime=\hrs
+%\multiply\temptime by 60%
+%\advance\minu by -\temptime
+%\ifnum\minu<10 \let\zerofill=0\else \let\zerofill=\relax\fi
+% \the\hrs:\zerofill\the\minu}
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Useful symbols for use in or out of math mode                     |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\ra{\ensuremath{\rightarrow}}%  "GOES TO" arrow.
+\def\la{\ensuremath{\leftarrow}}%   "GETS" arrow.
+\let\rarrow=\ra
+\let\larrow=\la
+\let\ar=\ra
+\def\lapprox{\ensuremath{\sim\kern-1em\raise 0.65ex\hbox{$<$}}}%  Or use \lsim
+\def\rapprox{\ensuremath{\sim\kern-1em\raise 0.65ex\hbox{$>$}}}%  and \rsim.
+\def\gam{\ensuremath{\gamma}}
+\def\rts {\ensuremath{\sqrt{s}}}
+\def\stat{\mbox{$\;$(stat.)}}
+\def\syst{\mbox{$\;$(syst.)}}
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Particle-antiparticle pair notations                              |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\antibar#1{\ensuremath{#1\bar{#1}}}
+\def\tbar{\ensuremath{\bar{t}}}
+\def\ttbar{\antibar{t}}
+\def\bbar{\ensuremath{\bar{b}}}
+\def\bbbar{\antibar{b}}
+\def\cbar{\ensuremath{\bar{c}}}
+\def\ccbar{\antibar{c}}
+\def\sbar{\ensuremath{\bar{s}}}
+\def\ssbar{\antibar{s}}
+\def\ubar{\ensuremath{\bar{u}}}
+\def\uubar{\antibar{u}}
+\def\dbar{\ensuremath{\bar{d}}}
+\def\ddbar{\antibar{d}}
+\def\fbar{\ensuremath{\bar{f}}}
+\def\ffbar{\antibar{f}}
+\def\qbar{\ensuremath{\bar{q}}}
+\def\qqbar{\antibar{q}}
+\def\nbar{\ensuremath{\bar{\nu}}}
+\def\pbar{\ensuremath{\bar{p}}}
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  CKM matrix                                                        |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\Vcb{\ensuremath{\vert V_{cb} \vert}}
+\def\Vub{\ensuremath{\vert V_{ub} \vert}}
+\def\Vtd{\ensuremath{\vert V_{td} \vert}}
+\def\Vts{\ensuremath{\vert V_{ts} \vert}}
+\def\Vtb{\ensuremath{\vert V_{tb} \vert}}
+\def\Vcs{\ensuremath{\vert V_{cs} \vert}}
+\def\Vud{\ensuremath{\vert V_{ud} \vert}}
+\def\Vus{\ensuremath{\vert V_{us} \vert}}
+\def\Vcd{\ensuremath{\vert V_{cd} \vert}}
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  pi, pi0, pi+, pi-, pi+-,                                          |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+%
+\newcommand{\pimp}{\pi^{\mp}}
+\newcommand{\pipm}{\pi^{\pm}}
+\newcommand{\pip}{\pi^+}
+\newcommand{\pim}{\pi^-}
+\newcommand{\pizero}{\pi^0}
+\newcommand{\Ks}{K_{S}^0}
+\newcommand{\gm}{\gamma}
+\newcommand{\Sigmazero}{\Sigma^0}
+\newcommand{\Sigmapm}{\Sigma^{\pm}}
+\newcommand{\Sigmap}{\Sigma^+}
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  K0, K+, K-, K0L, K0S                                              |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\kzero{\ensuremath{K^0}}%
+\def\kzerobar{\ensuremath{\overline{K}\vphantom{K}^0}}%
+\def\kaon{K}%
+\def\kp{K^+}%
+\def\km{K^-}%
+\def\kpm{K^{\pm}}%
+\def\kmp{K^{\mp}}%
+\def\ks{K^0_{\mathrm{S}}}
+\def\kl{K^0_{\mathrm{L}}}
+%\def\kstarzero{K^*(892)^0}
+%\def\kstarzerobar{\overline{K}^*(892)^0}
+%\def\kstarp{K^*(892)^+}
+%\def\kstarpm{K^*(892)^\pm}
+% +--------------------------------------------------------------------+
+% | Luminosity                                                         |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\newcommand{\invpb}{pb^{-1}}
+\newcommand{\invfb}{fb^{-1}}
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% | Some usefull symbos                                                |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%%%%
+\newcommand {\eg}       {\emph{e}.\emph{g}.\xspace}
+\newcommand {\ie}       {\emph{i}.\emph{e}.\xspace}
+\newcommand {\adhoc}    {\emph{ad hoc}\xspace}
+\newcommand {\apriori}  {\emph{a priori}\xspace}
+\newcommand {\cf}       {\emph{cf}.\xspace}
+
+\def\<{\langle}
+\def\>{\rangle}
+
+%%%%Lambdac
+\newcommand{\bA}{\textbf{A}}
+\newcommand{\bB}{\textbf{B}}
+\newcommand{\bc}{\textbf{c}}
+\newcommand{\bG}{\textbf{G}}
+\newcommand{\bV}{\textbf{V}}
+\newcommand{\bE}{\textbf{E}}
+\newcommand{\bF}{\textbf{F}}
+\newcommand{\bn}{\textbf{n}}
+\newcommand{\bbb}{\textbf{b}}
+\newcommand{\by}{\textbf{y}}
+\newcommand{\bt}{\textbf{t}}
+\newcommand{\bbm}{\textbf{m}}
+\newcommand{\Eta}{\boldsymbol{\eta}}
+\newcommand{\Alpha}{\boldsymbol{\alpha}}
+\newcommand{\Beta}{\boldsymbol{\beta}}
+\newcommand{\LLambda}{\boldsymbol{\lambda}}
+%\newcommand{\grad}{\ensuremath{^{\circ}}}
+\newcommand{\basic}{$K^{\pm}$, $\pipm$, $p^{\pm}$, $\Ks$ , $\pizero$, $\Lambda$ , $\Sigmazero$, $\Sigmapm$, $\omega$}
+\newcommand{\lambdacpm}{\Lambda_{c}^{\pm}}
+\newcommand{\lambdacp}{\Lambda_{c}^{+}}
+\newcommand{\lambdacm}{\overline{\Lambda}{}_{c}^{-}}
+\newcommand{\XiK}{\Xi^{0}K^{+}}
+\newcommand{\XisK}{\Xi{(1530)}^{0}K^{+}}
+\newcommand{\modea}{pK_{S}}
+\newcommand{\modeb}{pK^{-}\pi^+}
+\newcommand{\modec}{pK_{S}\pi^0}
+\newcommand{\moded}{pK_{S}\pi^+\pi^-}
+\newcommand{\modee}{pK^{-}\pi^+\pi^0}
+\newcommand{\modef}{p\pi^+\pi^-}
+\newcommand{\modeaa}{\Lambda\pi^+}
+\newcommand{\modebb}{\Lambda\pi^+\pi^0}
+\newcommand{\modedd}{\Lambda\pi^+\pi^-\pi^+}
+\newcommand{\modeaaa}{\Sigma^{0}\pi^+}
+\newcommand{\modeccc}{\Sigma^{+}\pi^0}
+\newcommand{\modeddd}{\Sigma^{+}\pi^+\pi^-}
+\newcommand{\modeeee}{\Sigma^{+}\omega}
+\newcommand{\Modea}{p^-K_{S}}
+\newcommand{\Modeb}{p^-K^{+}\pi^-}
+\newcommand{\Modec}{p^-K_{S}\pi^0}
+\newcommand{\Moded}{p^-K_{S}\pi^-\pi^+}
+\newcommand{\Modee}{p^-K^{+}\pi^-\pi^0}
+\newcommand{\Modef}{p^-\pi^-\pi^+}
+\newcommand{\Modeaa}{\overline{\Lambda}{}\pi^-}
+\newcommand{\Modebb}{\overline{\Lambda}{}\pi^-\pi^0}
+\newcommand{\Modedd}{\overline{\Lambda}{}\pi^-\pi^+\pi^-}
+\newcommand{\Modeaaa}{\overline{\Sigma}{}^{0}\pi^-}
+\newcommand{\Modeccc}{\overline{\Sigma}{}^{-}\pi^0}
+\newcommand{\Modeddd}{\overline{\Sigma}{}^{-}\pi^-\pi^+}
+\newcommand{\Modeeee}{\overline{\Sigma}{}^{-}\omega}
+\newcommand{\LLpair}{e^+e^- \to \Lambda_{c}^{+}\overline{\Lambda}{}_{c}^{-}}
+\newcommand{\LtoXiK}{\Lambda_{c}^{+}\to \Xi^{0}K^{+}}
+\newcommand{\LtoXisK}{\Lambda_{c}^{+}\to \Xi{(1530)}^{0}K^{+}}
+\newcommand{\Lmodea}{\Lambda_{c}^{+}\to pK_{S}^0}
+\newcommand{\Lmodeb}{\Lambda_{c}^{+}\to pK^{-}\pi^+}
+\newcommand{\Lmodec}{\Lambda_{c}^{+}\to pK_{S}^0\pi^0}
+\newcommand{\Lmoded}{\Lambda_{c}^{+}\to pK_{S}^0\pi^+\pi^-}
+\newcommand{\Lmodee}{\Lambda_{c}^{+}\to pK^{-}\pi^+\pi^0}
+\newcommand{\Lmodef}{\Lambda_{c}^{+}\to p\pi^+\pi^-}
+\newcommand{\Lmodeaa}{\Lambda_{c}^{+}\to \Lambda\pi^+}
+\newcommand{\Lmodebb}{\Lambda_{c}^{+}\to \Lambda\pi^+\pi^0}
+\newcommand{\Lmodecc}{\Lambda_{c}^{+}\to \Lambda\pi^+\eta}
+\newcommand{\Lmodedd}{\Lambda_{c}^{+}\to \Lambda\pi^+\pi^-\pi^+}
+\newcommand{\Lmodeaaa}{\Lambda_{c}^{+}\to \Sigma^{0}\pi^+}
+\newcommand{\Lmodeccc}{\Lambda_{c}^{+}\to \Sigma^{+}\pi^0}
+\newcommand{\Lmodeddd}{\Lambda_{c}^{+}\to \Sigma^{+}\pi^+\pi^-}
+\newcommand{\Lmodeeee}{\Lambda_{c}^{+}\to \Sigma^{+}\omega}
+\newcommand{\LModea}{\overline{\Lambda}{}_{c}^{-}\to p^-K_{S}^0}
+\newcommand{\LModeb}{\overline{\Lambda}{}_{c}^{-}\to p^-K^{+}\pi^-}
+\newcommand{\LModec}{\overline{\Lambda}{}_{c}^{-}\to p^-K_{S}^0\pi^0}
+\newcommand{\LModed}{\overline{\Lambda}{}_{c}^{-}\to p^-K_{S}^0\pi^-\pi^+}
+\newcommand{\LModee}{\overline{\Lambda}{}_{c}^{-}\to p^-K^{+}\pi^-\pi^0}
+\newcommand{\LModef}{\overline{\Lambda}{}_{c}^{-}\to p^-\pi^-\pi^+}
+\newcommand{\LModeaa}{\overline{\Lambda}{}_{c}^{-}\to \overline{\Lambda}{}\pi^-}
+\newcommand{\LModebb}{\overline{\Lambda}{}_{c}^{-}\to \overline{\Lambda}{}\pi^-\pi^0}
+\newcommand{\LModecc}{\overline{\Lambda}{}_{c}^{-}\to \overline{\Lambda}{}\pi^-\eta}
+\newcommand{\LModedd}{\overline{\Lambda}{}_{c}^{-}\to \overline{\Lambda}{}\pi^-\pi^+\pi^-}
+\newcommand{\LModeaaa}{\overline{\Lambda}{}_{c}^{-}\to \overline{\Sigma}{}^{0}\pi^-}
+\newcommand{\LModeccc}{\overline{\Lambda}{}_{c}^{-}\to \overline{\Sigma}{}^{-}\pi^0}
+\newcommand{\LModeddd}{\overline{\Lambda}{}_{c}^{-}\to \overline{\Sigma}{}^{-}\pi^-\pi^+}
+\newcommand{\LModeeee}{\overline{\Lambda}{}_{c}^{-}\to \overline{\Sigma}{}^{-}\omega}
+
+
+
+\newcommand{\cherenkov}{$\check{\mbox C}$erenkov }
+\newcommand{\labeq}{\stackrel{\mathrm{lab}}{=}}
+\newcommand{\gevsqr}{\,\unit{GeV$^\text{2}$}}
+\newcommand{\gev}{\,\unit{GeV}}
+\newcommand{\gevc}{\,\unit{GeV}/\unit{c}}
+\newcommand{\gevcc}{\,\unit{GeV}/\unit{c}^2}
+\newcommand{\mev}{\,\unit{MeV}}
+\newcommand{\mevc}{\,\unit{MeV}/\unit{c}}
+\newcommand{\mevcc}{\,\unit{MeV}/\unit{c}^2}
+
+%%%DDbar
+\newcommand{\dst}{D^{*}}
+\newcommand{\dstplus}{D^{*+}}
+\newcommand{\dstminus}{D^{*-}}
+
+\newcommand{\Dp}{D^{+}}
+\newcommand{\dplus}{D^{+}}
+
+\newcommand{\Dm}{D^{-}}
+\newcommand{\dminus}{D^{-}}
+
+\newcommand{\Dz}{D^{0}}
+\newcommand{\dzero}{D^{0}}
+
+\newcommand{\Dzbar}{\bar{D}^{0}}
+\newcommand{\dzerobar}{\overline{D}{}^{0}}
+
+\newcommand{\dstzerobar}{\overline{D}{}^{*0}}
+\newcommand{\dstzero}{D^{*0}}
+
+\newcommand{\DpDm}{D^{+}D^{-}}
+\newcommand{\DDzbar}{D^{0}\bar{D}^{0}}
+\newcommand{\DDbar}{D\bar{D}}
+
+\newcommand{\kpipi}{K^{+}\pi^{-}\pi^{-}}
+\newcommand{\kpipipiz}{K^{+}\pi^{-}\pi^{-}\pi^{0}}
+\newcommand{\kspipiz}{\Ks\pi^{-}\pi^{0}}
+\newcommand{\kspi}{\Ks\pi^{-}}
+\newcommand{\kspipipi}{\Ks\pi^{-}\pi^{-}\pi^{+}}
+\newcommand{\kkpi}{K^{+}K^{-}\pi^{-}}
+%\newcommand{\kpi}{K^{-}\pi^{+}}
+\newcommand{\kpipiz}{K^{-}\pi^{+}\pi^{0}}
+
+
+%% single particle
+%\newcommand{\psiprime}{\psi(3686)}
+\newcommand{\psip}{\psi(3686)}
+\newcommand{\psipp}{\psi(3770)}
+\newcommand{\jpsi}{J/\psi}
+\newcommand{\chicj}{\chi_{cJ}}
+\newcommand{\chiczero}{\chi_{c0}}
+\newcommand{\chicone}{\chi_{c1}}
+\newcommand{\chictwo}{\chi_{c2}}
+\newcommand{\etap}{\eta^{\prime}}
+\let\jp=\jpsi
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\nn}{\nonumber}
+\newcommand{\gone}{\mathrm{g}_1}
+\newcommand{\gtwo}{\mathrm{g}_2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\BR}{\mathcal{B}}
+\newcommand{\br}[1]{\mathcal{B}(#1)}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\mll}{\mathrm{LL}}
+
+\newcommand{\afs}{\alpha_s}
+\newcommand{\bgp}{\beta\gamma}
+\newcommand{\eff}{\varepsilon}
+\newcommand{\sintht}{\sin{\theta}}
+\newcommand{\costht}{\cos{\theta}}
+\newcommand{\dedx}{dE/dx}
+\newcommand{\vxy}{V_{xy}}
+\newcommand{\vz}{V_z}
+\newcommand{\vr}{V_r}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%event selection
+\newcommand{\chifc}{\chi^2_{4c}}
+\newcommand{\probfc}{Prob_{\chi^2}}
+\newcommand{\probpi}{Prob_{\pi}}
+\newcommand{\probka}{Prob_{K}}
+\newcommand{\probpr}{Prob_{p}}
+\newcommand{\proball}{Prob_{all}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 2 charged  particles
+\newcommand{\LL}{\ell^+\ell^-}
+\newcommand{\EE}{e^+e^-}
+\newcommand{\ee}{e^+e^-}
+\newcommand{\MM}{\mu^+\mu^-}
+\newcommand{\uu}{\mu^+\mu^-}
+\newcommand{\mumu}{\mu^+\mu^-}
+\newcommand{\pp}{\pi^+\pi^-}
+\newcommand{\kk}{K^+K^-}
+\newcommand{\kmpp}{K^-\pi^+}
+\newcommand{\ppb}{p\bar{p}}
+\newcommand{\ppbar}{p\bar{p}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 2 neutron particles
+\newcommand{\GG}{\gamma\gamma}
+\newcommand{\ppz}{\pi^0\pi^0}
+\newcommand{\ksks}{K_SK_S}
+\newcommand{\kskl}{K_SK_L}
+\newcommand{\nnb}{n\bar{n}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 4 charged particles
+\newcommand{\ppee}{\pi^+\pi^- e^+e^-}
+\newcommand{\ppuu}{\pi^+\pi^-\mu^+\mu^-}
+\newcommand{\pppp}{\pi^+\pi^-\pi^+\pi^-}
+\newcommand{\ppkk}{\pi^+\pi^-K^+K^-}
+\newcommand{\ppppb}{\pi^+\pi^-p\bar{p}}
+\newcommand{\kkkk}{K^+K^-K^+K^-}
+\newcommand{\kkppb}{K^+K^-p\bar{p}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 6 charged particles
+\newcommand{\tpp}{3(\pi^+\pi^-)}
+\newcommand{\tppkk}{2(\pi^+\pi^-)(K^+K^-)}
+\newcommand{\pptkk}{(\pi^+\pi^-)2(K^+K^-)}
+\newcommand{\tkk}{3(K^+K^-)}
+\newcommand{\pppppp}{\pi^+\pi^-\pi^+\pi^-\pi^+\pi^-}
+\newcommand{\ppppkk}{\pi^+\pi^-\pi^+\pi^-K^+K^-}
+\newcommand{\ppkkkk}{\pi^+\pi^-K^+K^-K^+K^-}
+\newcommand{\kkkkkk}{K^+K^-K^+K^-K^+K^-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 1 neutron + 2charged particles
+\newcommand{\gpp}{\gamma \pi^+\pi^-}
+\newcommand{\gkk}{\gamma K^+K^-}
+\newcommand{\gppb}{\gamma p\bar{p}}
+\newcommand{\ppp}{\pi^+\pi^-\pi^0}
+\newcommand{\kkp}{K^+K^-\pi^0}
+\newcommand{\ppbp}{p\bar{p}\pi^0}
+\newcommand{\kskp}{K^0_s K^+ \pi^- + c.c.}
+\newcommand{\kskppm}{K^0_s K^{\pm} \pi^{\mp}}
+\newcommand{\kskpp}{K^0_s K^+ \pi^-}
+\newcommand{\kskpm}{K^0_s K^- \pi^+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 1 neutron + 4 charged particles
+\newcommand{\ppppp}{\pi^+\pi^-\pi^+\pi^-\pi^0}
+\newcommand{\kkppp}{K^+K^-\pi^+\pi^-\pi^0}
+\newcommand{\ppbppp}{p\bar{p}\pi^+\pi^-\pi^0}
+\newcommand{\gpppp}{\gamma\pi^+\pi^-\pi^+\pi^-}
+\newcommand{\gkkpp}{\gamma K^+K^-\pi^+\pi^-}
+\newcommand{\gppkk}{\gamma \pi^+\pi^- K^+K^-}
+\newcommand{\gppbpp}{\gamma p\bar{p}\pi^+\pi^-}
+\newcommand{\gppppb}{\gamma \pi^+\pi^-p\bar{p}}
+\newcommand{\gkkkk}{\gamma K^+K^-K^+K^-}
+\newcommand{\ppeta}{\pi^+\pi^-\eta}
+\newcommand{\kketa}{K^+K^-\eta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 1 neutron + 6 charged particles
+\newcommand{\gtpp}{\gamma 3(\pi^+\pi^-)}
+\newcommand{\gtppkk}{\gamma 2(\pi^+\pi^-)(K^+K^-)}
+\newcommand{\gpptkk}{\gamma (\pi^+\pi^-)2(K^+K^-)}
+\newcommand{\gtkk}{\gamma 3(K^+K^-)}
+\newcommand{\ptpp}{\pi^0 3(\pi^+\pi^-)}
+\newcommand{\ptppkk}{\pi^0 2(\pi^+\pi^-)(K^+K^-)}
+\newcommand{\ppptkk}{\pi^0 (\pi^+\pi^-)2(K^+K^-)}
+\newcommand{\ptkk}{\pi^0 3(K^+K^-)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Vector + 2 charge
+\newcommand{\phikk}{\phi K^+K^-}
+\newcommand{\phipp}{\phi\pi^+\pi^-}
+\newcommand{\omegakk}{\omega K^+K^-}
+\newcommand{\omegapp}{\omega\pi^+\pi^-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Vector + Vector
+\newcommand{\phiphi}{\phi \phi}
+\newcommand{\omegaomega}{\omega \omega}
+\newcommand{\rhorho}{\rho^0 \rho^0}
+\newcommand{\rhorhopm}{\rho^+ \rho^-}
+\newcommand{\rhorhop}{\rho^+ \rho^0}
+\newcommand{\rhorhom}{\rho^- \rho^0}
+\newcommand{\omegaphi}{\omega \phi}
+\newcommand{\of}{\omega\phi}
+\let\oo=\omegaomega
+\let\ff=\phiphi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ppjsi}{\psip\ar\pp\jpsi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Vector boson decay
+%\newcommand{omegatoppp}{\omega\rightarrow\pi^+\pi^-\pi^0}
+%\newcommand{rhoztopp}{\rho^0\rightarrow\pi^+\pi^-}
+%\newcommand{rhoptopp}{\rho^+\rightarrow\pi^+\pi^0}
+%\newcommand{rhomtopp}{\rho^-\rightarrow\pi^-\pi^0}
+%\newcommand{phitokk}{\phi\to K^+K^-}
+%\newcommand{phitokskl}{\phi\to K_S K_L}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ppJ}{\pi^{0}\pi^{0}J/\psi}
+%%=================================================
+%% abbreviated commands of LaTeX
+%%=================================================
+\def\ctup#1{$^{\cite{#1}}$}
+\newcommand{\bfg}{\begin{figure}}
+\newcommand{\efg}{\end{figure}}
+\newcommand{\bitm}{\begin{itemize}}
+\newcommand{\eitm}{\end{itemize}}
+\newcommand{\bnum}{\begin{enumerate}}
+\newcommand{\enum}{\end{enumerate}}
+\newcommand{\btbl}{\begin{table}}
+\newcommand{\etbl}{\end{table}}
+\newcommand{\btbu}{\begin{tabular}}
+\newcommand{\etbu}{\end{tabular}}
+%\newcommand{\ol}{\overline}
+\newcommand{\bcl}{\begin{center}}
+\newcommand{\ecl}{\end{center}}
+\newcommand{\bbt}{\bibitem}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\beqr}{\begin{eqnarray}}
+\newcommand{\eeqr}{\end{eqnarray}}
+%%===========================================
+%%  color setting
+%%===========================================
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\yellow}{\color{yellow}}
+\newcommand{\green}{\color{green}}
+\newcommand{\purple}{\color{purple}}
+\newcommand{\brown}{\color{brown}}
+\newcommand{\black}{\color{black}}
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Some useful units                                                 |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\TeV{\ifmmode {\mathrm{\ Te\kern -0.1em V}}\else
+                   \textrm{Te\kern -0.1em V}\fi}%
+\def\GeV{\ifmmode {\mathrm{\ Ge\kern -0.1em V}}\else
+                   \textrm{Ge\kern -0.1em V}\fi}%
+\def\MeV{\ifmmode {\mathrm{\ Me\kern -0.1em V}}\else
+                   \textrm{Me\kern -0.1em V}\fi}%
+\def\keV{\ifmmode {\mathrm{\ ke\kern -0.1em V}}\else
+                   \textrm{ke\kern -0.1em V}\fi}%
+\def\eV{\ifmmode  {\mathrm{\ e\kern -0.1em V}}\else
+                   \textrm{e\kern -0.1em V}\fi}%
+\let\tev=\TeV
+\let\gev=\GeV
+\let\mev=\MeV
+\let\kev=\keV
+\let\ev=\eV
+
+\def\TeVc{\ifmmode {\mathrm{\ Te\kern -0.1em V}/c}\else
+                   {\textrm{Te\kern -0.1em V}/$c$}\fi}%
+\def\GeVc{\ifmmode {\mathrm{\ Ge\kern -0.1em V}/c}\else
+                   {\textrm{Ge\kern -0.1em V}/$c$}\fi}%
+\def\MeVc{\ifmmode {\mathrm{\ Me\kern -0.1em V}/c}\else
+                   {\textrm{Me\kern -0.1em V}/$c$}\fi}%
+\def\keVc{\ifmmode {\mathrm{\ ke\kern -0.1em V}/c}\else
+                   {\textrm{ke\kern -0.1em V}/$c$}\fi}%
+\def\eVc{\ifmmode  {\mathrm{\ e\kern -0.1em V}/c}\else
+                   {\textrm{e\kern -0.1em V}/$c$}\fi}%
+\let\tevc=\TeVc
+\let\gevc=\GeVc
+\let\mevc=\MeVc
+\let\kevc=\keVc
+\let\evc=\eVc
+
+\def\TeVcc{\ifmmode {\mathrm{\ Te\kern -0.1em V}/c^2}\else
+                   {\textrm{Te\kern -0.1em V}/$c^2$}\fi}%
+\def\GeVcc{\ifmmode {\mathrm{\ Ge\kern -0.1em V}/c^2}\else
+                   {\textrm{Ge\kern -0.1em V}/$c^2$}\fi}%
+\def\MeVcc{\ifmmode {\mathrm{\ Me\kern -0.1em V}/c^2}\else
+                   {\textrm{Me\kern -0.1em V}/$c^2$}\fi}%
+\def\keVcc{\ifmmode {\mathrm{\ ke\kern -0.1em V}/c^2}\else
+                   {\textrm{ke\kern -0.1em V}/$c^2$}\fi}%
+\def\eVcc{\ifmmode  {\mathrm{\ e\kern -0.1em V}/c^2}\else
+                   {\textrm{e\kern -0.1em V}/$c^2$}\fi}%
+\let\tevcc=\TeVcc
+\let\gevcc=\GeVcc
+\let\mevcc=\MeVcc
+\let\kevcc=\keVcc
+\let\evcc=\eVcc
+
+\def\cm{\ifmmode  {\mathrm{\ cm}}\else
+                   \textrm{~cm}\fi}%
+%
+\def\ifb{\mbox{fb$^{-1}$}}%  Inverse femtobarns.
+\def\ipb{\mbox{pb$^{-1}$}}%  Inverse picobarns.
+\def\inb{\mbox{nb$^{-1}$}}%  Inverse nanobarns.
+%
+\def\mass#1{\ensuremath{m_{#1#1}}}%  "\mass{\mu}" produces "msub{mumu}".
+\def\twomass#1#2{\ensuremath{m_{#1#2}}}%
+%
+\def\Ecm{\ensuremath{E_{\mathrm{cm}}}} % Subscript roman not italic (EE)
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  "Box-squared" operator, as in Klein-Gordon. Command is "\boxsq".  |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\newbox\boxsqbox
+\newdimen\boxsize\boxsize=1.2ex%
+\def\boxop{%
+\setbox\boxsqbox=\vbox{\hrule depth0.8pt width0.8\boxsize height0pt%
+                       \kern0.8\boxsize
+                       \hrule height0.8pt width0.8\boxsize depth0pt}%
+           \hbox{%
+           \vrule height1.0\boxsize width0.8pt depth0pt%
+           \copy\boxsqbox
+           \vrule height1.0\boxsize width0.8pt depth0pt\kern1.5pt}}%
+\def\boxsq{\ensuremath{\boxop^2}}%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Theoretical notations                                             |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\spinor#1{\ensuremath{\left(\matrix{#1_1\cr#1_2\cr#1_3\cr#1_4\cr}\right)}} % Math mode (EE)
+\def\pmb#1{\setbox0=\hbox{$#1$}%  This is "poor man's boldface".
+  \kern-.025em\copy0\kern-1.0\wd0%
+  \kern.05em\copy0\kern-1.0\wd0%
+  \kern-.025em\raise.0433em\box0}%
+\def\grad{\pmb{\nabla}}%
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  The decay symbol, to be used in \eqalign.                         |
+% |  It works like: \[\eqalign{a\ra &b+c\cr &\dk &e+f\cr &&\dk g+h}\]  |
+% |                                                                    |
+% |                  a  -->  b + c                                     |
+% |                          |                                         |
+% |                          |                                         |
+% |                          +----> e + f                              |
+% |                                 |                                  |
+% |                                 |                                  |
+% |                                 +----> g + h                       |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\newdimen\dkwidth
+\def\dk{%
+   \dkwidth=\baselineskip
+   {\def\to{\rightarrow}%  allows "\rightarrowfill" to work.
+   \kern 3pt%
+   \hbox{%
+      \raise 3pt%
+      \hbox{%
+         \vrule height 0.8\dkwidth width 0.7pt depth0pt%
+      }%
+      \kern-0.4pt%
+      \hbox to 1.5\dkwidth{%
+         \rightarrowfill
+      }%
+   \kern0.6em%
+   }}%
+}%
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Redefine \eqalign to allow more than one column; very             |
+% |  useful for multiple decays as defined above.                      |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+%\unlock
+\def\eqalign#1{%
+   \,
+   \vcenter{%
+      \openup\jot\m@th
+      \ialign{%
+         \strut\hfil$\displaystyle{##}$&&$%
+         \displaystyle{{}##}$\hfil\crcr#1\crcr%
+      }%
+   }%
+   \,
+}%
+%\lock
+%
+
+
+\newcommand{\ii}{{\rm i}}   %% imaginary unit
+\DeclareMathOperator{\de}{{\rm\,d}} %% differential
+\newcommand{\e}{{\rm e}}        %% exponential
+\DeclareMathOperator{\re}{\,{\rm Re}\,}     %% real part
+\DeclareMathOperator{\im}{\,{\rm Im}\,}     %% imaginary part
+\DeclareMathOperator{\tr}{Tr}       %% trace
+\newcommand{\lf}{\left}
+\newcommand{\rg}{\right}
+\newcommand{\rr}{\lvert\bm{R}\rvert}
+\newcommand{\ktt}{\lvert\bm{k}_T\rvert}
+%\newcommand{\sst}{\lf\lvert\bm{S}_T\rg\rvert}
+\newcommand{\pperp}{\lf\lvert\bm{P}_{h \perp}\rg\rvert}
+\newcommand{\h}{\hat{\bm{P}}_{h \perp}}
+\newcommand{\st}{T}
+\newcommand{\sa}{A}
+\newcommand {\SL}       {S_\parallel}                % was S_L in Enzo's part
+\newcommand {\ST}       {S_\perp}
+\newcommand{\etal}{\emph{et~al.}~}
+\renewcommand{\Im}     {\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\xbj}{x_{B}}
+\newcommand{\Strut}{\rule[-1.7ex]{0pt}{4.7ex}}        % a big strut
+\def\sublabel#1{\@bsphack                  % copied from latex.ltx and modified
+  \protected@write\@auxout{}%
+         {\string\newlabel{#1}{{\alph{equation}}{\thepage}}}%
+  \@esphack}
+\newcommand{\sqrtno}{\sqrt{\vphantom0}}               % sqrt without overline
+\newcommand{\newangle}{\sphericalangle}
+%%%% some abbreviations
+\def\d{{\rm\,d}}
+\def\e{{\rm\,e}}
+\def\anti#1{\mathpalette{\@anti}{#1}#1}%              % better "anti" bar
+\def\@anti#1#2{\sbox0{$#1#2$}%                        % auxiliary for above
+  \makebox[0pt][l]{$#1\kern.30\ht0\overline{\kern-.35\ht0\phantom{#2}}$}}
+\newcommand{\Tr}       {\mathop{\mathrm{Tr}}\nolimits}
+\newcommand{\half}{\frac1{2}}
+\newcommand{\I}        {\mathrm{i}}                  % as requested by Elsevier
+%------------------------------------------------------------------------------%
+% PGR's redefinitions of Enzo's and other definitions
+\def\Vec#1{\mathpalette{\@Vec}{#1}}                  % size-respecting bold
+\def\@Vec#1#2{\mbox{\boldmath$#1#2$\unboldmath}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \bra and \ket
+
+\newcommand\bra[1]{{\bigl\langle \textit{#1}\mspace{2mu}\raisebox{-3pt}{\rule{0.7pt}{12pt}}\; }}
+\newcommand\ket[1]{{\;\raisebox{-3pt}{\rule{0.7pt}{12pt}}\, \textit{#1} \bigr\rangle }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% larger \bar
+
+%\newcommand\bbar[1]{
+%    \mspace{5mu}
+%    \makebox[0pt]{$\bar{\phantom{#1}}$}
+%    \mspace{-5mu}
+%    {#1}
+%    \mspace{-5mu}
+%    \makebox[0pt]{$\bar{\phantom{#1}}$}
+%    \mspace{5mu}
+%}
+
+\DeclareSymbolFont{special} {OML}{cmm}{m}{it}
+\DeclareMathSymbol{\sslash}{\mathalpha}{special}{"3D}
+\newcommand{\Pslash}{\makebox[0cm][l]{\hspace{1.2pt}$\sslash$}{P} }
+\newcommand{\Rslash}{\makebox[0cm][l]{\hspace{1.2pt}$\sslash$}{R} }
+\newcommand{\Sslash}{\makebox[0cm][l]{\hspace{0.5pt}$\sslash$}{S} }
+\newcommand{\pslash}{\makebox[0cm][l]{\hspace{1.3pt}$\sslash$}{p} }
+\newcommand{\qslash}{\makebox[0cm][l]{\hspace{0.3pt}$\sslash$}{q} }
+\newcommand{\nslash}{\makebox[0cm][l]{\hspace{1pt}$\sslash$}{n} }
+\newcommand{\kslash}{\makebox[0cm][l]{\hspace{-0.2pt}$\sslash$}{k} }
+\newcommand{\lslash}{\makebox[0cm][l]{\hspace{-0.9pt}$\sslash$}{l} }
+\newcommand{\derslash}{\makebox[0cm][l]{$\sslash$}{\partial} }
+\newcommand{\Aslash}{\makebox[0cm][l]{\hspace{0.5pt}$\sslash$}{A} }
+\newcommand{\Vslash}{\makebox[0cm][l]{\hspace{0.5pt}$\sslash$}{V} }
+
+
+
+
+
+
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  JOURNALS (for MISC definitions, see also ../biblio/BESIIIstyle.bst)|
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\newcommand {\AcPA}   {Acta Phys. Austriaca{} }
+\newcommand {\ARevNS} {Ann.{} Rev.{} Nucl.{} Sci.{} }
+\newcommand {\CPC}    {Comp.{} Phys.{} Comm.{} }
+\newcommand {\FortP}  {Fortschr.{} Phys.{} }
+\newcommand {\IJMP}   {Int.{} J.{} Mod.{} Phys.{} }
+\newcommand {\JETP}   {Sov.{} Phys.{} JETP{} }
+\newcommand {\JETPL}  {JETP Lett.{} }
+\newcommand {\JaFi}   {Jad.{} Fiz.{} }
+\newcommand {\JMP}    {J.{} Math.{} Phys.{} }
+\newcommand {\MPL}    {Mod.{} Phys.{} Lett.{} }
+\newcommand {\NCim}   {Nuovo Cimento{} }
+\newcommand {\NIM}    {Nucl.{} Instrum.{} Meth.{} }
+\newcommand {\NP}     {Nucl.{} Phys.{} }
+\newcommand {\PL}     {Phys.{} Lett.{} }
+\newcommand {\PR}     {Phys.{} Rev.{} }
+\newcommand {\PRL}    {Phys.{} Rev.{} Lett.{} }
+\newcommand {\PRep}   {Phys.{} Rep.{} }
+\newcommand {\RMP}    {Rev.{} Mod.{} Phys.{} }
+\newcommand {\ZfP}    {Z.{} Phys.{} }
+\newcommand {\EPJ}    {Eur.{} Phys.{} J.{} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------------------------%
+% italicised foreign abbreviations and phrases (periods NOT italicised)
+
+
+%-------myself
+%\def \ks    {K_{S}^{0}}
+%\def \kp    {K^{+}}
+\def \piz  {\pi^{0}}
+\def \ss {\sqrt{s}}
+%\def \pip  {\pi^{+}}
+%\def \pim  {\pi^{-}}
+%\def \dp {D^{+}}
+%\def \dm {D^{-}}
+%\def \dpm {D^{+}D^{-}}
+%\def \dzdz {D^{0}\overline{D}^{0}}
+%\def \ddbar {D\overline{D}}
+%
+%\def \qqbar {q\bar{q}}
+%
+%\def \kpkm  {K^+K^-}
+%\def \kpm {K^{\pm}}
+%\def \kmp {K^{\mp}}
+%\def \ee   {e^+e^-}
+%\def \gev  {\mbox{GeV}}
+%\def \gevc {\mbox{GeV/$c$}}
+%\def \gevcc{\mbox{GeV/$c^2$}}
+%\def \mev  {\mbox{MeV}}
+%\def \mevcc{\mbox{MeV/$c^2$}}
+%\def \ipb  {\mbox{pb$^{-1}$}}
+%\def \ifb  {\mbox{fb$^{-1}$}}
+%\def \vr   {V_{r}}
+%\def \vz   {V_{z}}
+%\def \BR   {\mathcal{B}}
+%\def \R    {\mathcal{R}}
+%\def \L {\mathcal{L}}
+%
+%\def \epem {e^+e^-}
+%\def \pppm {\pi^{+}\pi^{-}}
+%\def \csq  {c^{2}}
+%\def \costht {\cos\theta}
+%\def \bgp  {\beta\gamma}
+%\def \eff  {\varepsilon}
+%\def \sintht {\sin{\theta}}
+%\def \costht {\cos{\theta}}
+%\def \dedx {\mbox{d}E/\mbox{d}x}
+\def \mbc {M_{\rm{BC}}}
+
+\def \lc {\Lambda_{c}}
+\def \lcp {\Lambda_{c}^{+}}
+\def \lcm {\bar{\Lambda}_{c}^{-}}
+\def \lcplcm {\Lambda_{c}^{+}\bar{\Lambda}_{c}^{-}}
+\def \Ks {K_{S}^{0}}
+\def \KL {K_{L}^{0}}
+
+\def \mbcst {M^{\rm{ST}}_{\rm{BC}}}
+\def \dEst {\Delta E_{\rm{ST}}}
+
+\def \mbctag {M^{\rm{tag}}_{\rm{BC}}}
+\def \mbcsig {M^{\rm{sig}}_{\rm{BC}}}
+\def \dE {\Delta E}
+\def \dEtag {\Delta E_{\rm{tag}}}
+\def \dEsig {\Delta E_{\rm{sig}}}
+\def \ebeam {E_{\rm{beam}}}
+\def \mrec {M_{\rm{rec}}}
+\def \mkppiz {M_{K^{+}\pi^{0}}}
+\def \mkspiz {M_{K_{S}^{0}\pi^{0}}}
+\def \mkpks {M_{K^{+}K_{S}^{0}}}
+
+\def \kstarp {K^{*}(892)^{+}}
+\def \kstarz {\bar{K}^*(892)^0}
+
+\def \kppizswave {(K^{+}\pi^{0})_{\mathrm{S-wave}}}
+\def \kspizswave {(K_{S}^{0}\pi^{0})_{\mathrm{S-wave}}}
+
+\def \ksstarp {K^{*}(1410)^{+}}
+\def \ksstarz{\bar{K}^{*}(1410)^{0}}
+
+\def \ap {a_{0}(980)^{+}}
+\def \app {a_{0}(1450)^{+}}
+
+\def \modea {pK_{S}^0}
+\def \modeb {pK^{-}\pi^+}
+\def \modec {pK_{S}^0\pi^0}
+\def \moded {pK_{S}^0\pi^+\pi^-}
+\def \modee {pK^{-}\pi^+\pi^0}
+\def \modef {p\pi^+\pi^-}
+
+\def \modeaa {\Lambda\pi^+}
+\def \modebb {\Lambda\pi^+\pi^0}
+\def \modecc {\Lambda\pi^+\pi^-\pi^+}
+
+\def \modeaaa {\Sigma^{0}\pi^+}
+\def \modebbb {\Sigma^{+}\pi^0}
+\def \modeccc {\Sigma^{+}\pi^+\pi^-}
+
+\def \Modea {p^-K_{S}^0}
+\def \Modeb {p^-K^{+}\pi^-}
+\def \Modec {p^-K_{S}^0\pi^0}
+\def \Moded {p^-K_{S}^0\pi^-\pi^+}
+\def \Modee {p^-K^{+}\pi^-\pi^0}
+\def \Modef {p^-\pi^-\pi^+}
+
+\def \Modeaa {\bar{\Lambda}\pi^-}
+\def \Modebb {\bar{\Lambda}\pi^-\pi^0}
+\def \Modecc {\bar{\Lambda}\pi^-\pi^+\pi^-}
+
+\def \Modeaaa {\bar{\Sigma}^{0}\pi^-}
+\def \Modebbb {\bar{\Sigma}^{-}\pi^0}
+\def \Modeccc {\bar{\Sigma}^{-}\pi^-\pi^+}
+
+\def \NST {N^{\mathrm{ST}}}
+\def \NDT {N^{\mathrm{DT}}}
+
+\def \NSTA {N^{\mathrm{ST},\alpha}}
+\def \NDTA {N^{\mathrm{DT},\alpha}}
+
+\def \effST {\varepsilon^{\mathrm{ST}}}
+\def \effDT {\varepsilon^{\mathrm{DT}}}
+
+\def \effSTA {\varepsilon^{\mathrm{ST},\alpha}}
+\def \effDTA {\varepsilon^{\mathrm{DT},\alpha}}
+
+\def \MM {M_{\mathrm{miss}}}
+\def \MMsq {M^2_{\mathrm{miss}}}
+
+\def \romanOne   {\uppercase\expandafter{\romannumeral1}}
+\def \romanTwo   {\uppercase\expandafter{\romannumeral2}}
+\def \romanThree {\uppercase\expandafter{\romannumeral3}}
+\def \romanFour  {\uppercase\expandafter{\romannumeral4}}
+\def \romanFive  {\uppercase\expandafter{\romannumeral5}}
+\def \romanSix   {\uppercase\expandafter{\romannumeral6}}
+\def \romanSeven {\uppercase\expandafter{\romannumeral7}}
+\def \romanEight {\uppercase\expandafter{\romannumeral8}}
+%
