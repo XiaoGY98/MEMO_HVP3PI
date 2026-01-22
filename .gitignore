@@ -1,0 +1,19 @@
+# LaTeX intermediate files
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*eps-converted-to.pdf
+diff.tex
+diff_fixed.aux
+diff_fixed.out
+diff_fixed.bbl
+diff_fixed.pdf
+diff_fixed.tex
+diff_fixed.toc
+memo_hvp3pi.aux
+memo_hvp3pi.out
+memo_hvp3pi.pdf
+*.pdf
+memo_hvp3pi.toc
+# PDF files (如果你不想跟踪生成的PDF)
