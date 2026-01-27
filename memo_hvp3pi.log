@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.9.26)  22 JAN 2026 15:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.9.26)  27 JAN 2026 15:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1035,7 +1035,7 @@ Package epstopdf Info: Source file: <AT_bes3logo.eps>
 (epstopdf)             Command: <repstopdf --outfile=AT_bes3logo-eps-converted-to.pdf AT_bes3logo.eps>
 (epstopdf)             \includegraphics on input line 161.
 Package epstopdf Info: Output file is already uptodate.
-<AT_bes3logo-eps-converted-to.pdf, id=24, 597.23125pt x 845.1575pt>
+<AT_bes3logo-eps-converted-to.pdf, id=48, 597.23125pt x 845.1575pt>
 File: AT_bes3logo-eps-converted-to.pdf Graphic file (type pdf)
 <use AT_bes3logo-eps-converted-to.pdf>
 Package pdftex.def Info: AT_bes3logo-eps-converted-to.pdf  used on input line 161.
@@ -1123,48 +1123,300 @@ l.168 \clearpage
 
 ] [5
 
-]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/4_selections.tex [6]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/5_summary.tex [7
+]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/4_selections.tex [6]
+Package epstopdf Info: Source file: <fig/hist_omega_region_with_truth.eps>
+(epstopdf)                    date: 2026-01-27 12:59:51
+(epstopdf)                    size: 11275 bytes
+(epstopdf)             Output file: <fig/hist_omega_region_with_truth-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-01-27 13:00:17
+(epstopdf)                    size: 7788 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/hist_omega_region_with_truth-eps-converted-to.pdf fig/hist_omega_region_with_truth.eps>
+(epstopdf)             \includegraphics on input line 47.
+Package epstopdf Info: Output file is already uptodate.
+<fig/hist_omega_region_with_truth-eps-converted-to.pdf, id=140, 569.12625pt x 369.38pt>
+File: fig/hist_omega_region_with_truth-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/hist_omega_region_with_truth-eps-converted-to.pdf>
+Package pdftex.def Info: fig/hist_omega_region_with_truth-eps-converted-to.pdf  used on input line 47.
+(pdftex.def)             Requested size: 145.68144pt x 94.55418pt.
 
-]) [8
+Overfull \hbox (104.4218pt too wide) in paragraph at lines 47--47
+[] [] 
+ []
+
+Package epstopdf Info: Source file: <fig/hist_phi_region_with_truth.eps>
+(epstopdf)                    date: 2026-01-27 12:59:58
+(epstopdf)                    size: 11183 bytes
+(epstopdf)             Output file: <fig/hist_phi_region_with_truth-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-01-27 13:00:17
+(epstopdf)                    size: 7507 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/hist_phi_region_with_truth-eps-converted-to.pdf fig/hist_phi_region_with_truth.eps>
+(epstopdf)             \includegraphics on input line 52.
+Package epstopdf Info: Output file is already uptodate.
+<fig/hist_phi_region_with_truth-eps-converted-to.pdf, id=141, 569.12625pt x 369.38pt>
+File: fig/hist_phi_region_with_truth-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/hist_phi_region_with_truth-eps-converted-to.pdf>
+Package pdftex.def Info: fig/hist_phi_region_with_truth-eps-converted-to.pdf  used on input line 52.
+(pdftex.def)             Requested size: 145.68144pt x 94.55418pt.
+
+Overfull \hbox (104.4218pt too wide) in paragraph at lines 52--52
+[] [] 
+ []
+
+Package epstopdf Info: Source file: <fig/hist_omegap_region_with_truth.eps>
+(epstopdf)                    date: 2026-01-27 12:59:55
+(epstopdf)                    size: 12092 bytes
+(epstopdf)             Output file: <fig/hist_omegap_region_with_truth-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-01-27 13:00:18
+(epstopdf)                    size: 8405 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/hist_omegap_region_with_truth-eps-converted-to.pdf fig/hist_omegap_region_with_truth.eps>
+(epstopdf)             \includegraphics on input line 57.
+Package epstopdf Info: Output file is already uptodate.
+<fig/hist_omegap_region_with_truth-eps-converted-to.pdf, id=142, 569.12625pt x 369.38pt>
+File: fig/hist_omegap_region_with_truth-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/hist_omegap_region_with_truth-eps-converted-to.pdf>
+Package pdftex.def Info: fig/hist_omegap_region_with_truth-eps-converted-to.pdf  used on input line 57.
+(pdftex.def)             Requested size: 145.68144pt x 94.55418pt.
+
+Overfull \hbox (104.4218pt too wide) in paragraph at lines 57--57
+[] [] 
+ []
+
+) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/5_background_study.tex [7
+
+] [8 </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/hist_omega_region_with_truth-eps-converted-to.pdf> </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/hist_phi_region_with_truth-eps-converted-to.pdf> </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/hist_omegap_region_with_truth-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <fig/kmfitchisq.eps>
+(epstopdf)                    date: 2026-01-27 14:52:23
+(epstopdf)                    size: 36177 bytes
+(epstopdf)             Output file: <fig/kmfitchisq-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-01-27 14:53:08
+(epstopdf)                    size: 17891 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/kmfitchisq-eps-converted-to.pdf fig/kmfitchisq.eps>
+(epstopdf)             \includegraphics on input line 13.
+Package epstopdf Info: Output file is already uptodate.
+<fig/kmfitchisq-eps-converted-to.pdf, id=173, 569.12625pt x 426.59375pt>
+File: fig/kmfitchisq-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/kmfitchisq-eps-converted-to.pdf>
+Package pdftex.def Info: fig/kmfitchisq-eps-converted-to.pdf  used on input line 13.
+(pdftex.def)             Requested size: 218.51521pt x 163.79321pt.
+
+Overfull \hbox (68.00491pt too wide) in paragraph at lines 13--13
+[] [] 
+ []
+
+<fig/OptimizeChisq4C_scan.png, id=174, 798.985pt x 574.145pt>
+File: fig/OptimizeChisq4C_scan.png Graphic file (type png)
+<use fig/OptimizeChisq4C_scan.png>
+Package pdftex.def Info: fig/OptimizeChisq4C_scan.png  used on input line 18.
+(pdftex.def)             Requested size: 218.51521pt x 157.01866pt.
+
+Overfull \hbox (68.00491pt too wide) in paragraph at lines 18--18
+[] [] 
+ []
+
+Package epstopdf Info: Source file: <fig/mass3pi.eps>
+(epstopdf)                    date: 2026-01-27 14:52:15
+(epstopdf)                    size: 57712 bytes
+(epstopdf)             Output file: <fig/mass3pi-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-01-27 14:53:09
+(epstopdf)                    size: 24330 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/mass3pi-eps-converted-to.pdf fig/mass3pi.eps>
+(epstopdf)             \includegraphics on input line 27.
+Package epstopdf Info: Output file is already uptodate.
+<fig/mass3pi-eps-converted-to.pdf, id=176, 569.12625pt x 426.59375pt>
+File: fig/mass3pi-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/mass3pi-eps-converted-to.pdf>
+Package pdftex.def Info: fig/mass3pi-eps-converted-to.pdf  used on input line 27.
+(pdftex.def)             Requested size: 273.14923pt x 204.74965pt.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\to' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\pi' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\pi' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\pi' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\pi' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 33.
+
+[9
+
+ </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/kmfitchisq-eps-converted-to.pdf> </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/OptimizeChisq4C_scan.png>] [10 </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/mass3pi-eps-converted-to.pdf>]
+
+LaTeX Warning: File `fig/4pi_3pi_mass.eps' not found on input line 78.
+
+Package epstopdf Info: Source file: <fig/4pi_3pi_mass.eps>
+(epstopdf)             Output file: <fig/4pi_3pi_mass-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-01-27 15:40:05
+(epstopdf)                    size: 17245 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/4pi_3pi_mass-eps-converted-to.pdf fig/4pi_3pi_mass.eps>
+(epstopdf)             \includegraphics on input line 78.
+Package epstopdf Info: Output file is already uptodate.
+<fig/4pi_3pi_mass-eps-converted-to.pdf, id=214, 569.12625pt x 426.59375pt>
+File: fig/4pi_3pi_mass-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/4pi_3pi_mass-eps-converted-to.pdf>
+Package pdftex.def Info: fig/4pi_3pi_mass-eps-converted-to.pdf  used on input line 78.
+(pdftex.def)             Requested size: 273.14923pt x 204.74965pt.
+LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <8> not available
+(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 84.
+LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <6> not available
+(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 84.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\to' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\pi' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\pi' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\pi' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\pi' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\gamma' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 84.
+
+[11 </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/4pi_3pi_mass-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <fig/isr4pi_3pi_mass.eps>
+(epstopdf)                    date: 2026-01-27 15:44:50
+(epstopdf)                    size: 28412 bytes
+(epstopdf)             Output file: <fig/isr4pi_3pi_mass-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-01-27 15:45:13
+(epstopdf)                    size: 19385 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/isr4pi_3pi_mass-eps-converted-to.pdf fig/isr4pi_3pi_mass.eps>
+(epstopdf)             \includegraphics on input line 113.
+Package epstopdf Info: Output file is already uptodate.
+<fig/isr4pi_3pi_mass-eps-converted-to.pdf, id=232, 569.12625pt x 426.59375pt>
+File: fig/isr4pi_3pi_mass-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/isr4pi_3pi_mass-eps-converted-to.pdf>
+Package pdftex.def Info: fig/isr4pi_3pi_mass-eps-converted-to.pdf  used on input line 113.
+(pdftex.def)             Requested size: 273.14923pt x 204.74965pt.
+ [12 </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/isr4pi_3pi_mass-eps-converted-to.pdf>]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/6_unfolding.tex [13]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/7_efficiency_corr.tex [14
+
+]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/8_systematic.tex [15
+
+]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/9_summary.tex [16
+
+]) [17
 
 ] (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/bibitem.tex
 Underfull \hbox (badness 10000) in paragraph at lines 52--56
 []\OT1/txr/m/n/10.95 G. Rodrigo, A. Gehrmann-De Ridder, M. Guilleaume, and J. H. K[]uhn, [][]DOI:
  []
 
-) [9
+) [18
 
-] [10]
-
-Package caption Warning: Unused \captionsetup[subfloat] on input line 20.
-See the caption package documentation for explanation.
-
-
+] [19] 
 AED: lastpage setting LastPage
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 199.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 199.
 (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/memo_hvp3pi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 199.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 199.
 Package rerunfilecheck Info: File `memo_hvp3pi.out' has not changed.
-(rerunfilecheck)             Checksum: 04AFA887188E195DFCC274787843D9D8;265.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 195.
+(rerunfilecheck)             Checksum: 234F33CE927FF76A0AD861010A629DA4;634.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 199.
  ) 
 Here is how much of TeX's memory you used:
- 12180 strings out of 481239
- 173146 string characters out of 5920377
- 470376 words of memory out of 5000000
- 27005 multiletter control sequences out of 15000+600000
- 609563 words of font info for 205 fonts, out of 8000000 for 9000
+ 12341 strings out of 481239
+ 177263 string characters out of 5920377
+ 474879 words of memory out of 5000000
+ 27109 multiletter control sequences out of 15000+600000
+ 620569 words of font info for 230 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,14n,48p,1781b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 50i,14n,51p,1779b,522s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /mnt/e/WorkSpace/Physics/MEMO_HVP3PI/memo_hvp3pi.pdf (11 pages, 243795 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on /mnt/e/WorkSpace/Physics/MEMO_HVP3PI/memo_hvp3pi.pdf (20 pages, 362354 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 354 PDF objects out of 1000 (max. 8388607)
+ 289 compressed objects within 3 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 134 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,121 @@
+\clearpage
+\section{Background Study}
+\label{sec:bkg_stu}
+In the study of background processes, we categorize the main backgrounds into $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$, $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0} \gamma_{\text{ISR}}$, QED processes, and others. The primary backgrounds originate from processes with additional $\pi^{0}$s, such as $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ and $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0} \gamma_{\text{ISR}}$. In the inclusive analysis, the cross sections for these processes were not correctly configured. The $\mathcal{L} \times \sigma_{\text{hadron}}$ method (where $\mathcal{L}$ is the luminosity and $\sigma_{\text{hadron}}$ is the hadronic cross section) was employed to verify that these processes constitute the dominant backgrounds. (cross section calculation fill here). Precise yield estimates for these two components will subsequently be obtained using data-driven methods. 
+
+Based on the rough background estimate from $\mathcal{L} \times \sigma_{\text{hadron}}$, the signal yield was approximated by subtracting the background from the data, allowing for a preliminary significance calculation. Using this approach, a figure of merit (FOM) defined as $S / \sqrt{S + B}$ was constructed to evaluate the signal significance. To optimize the event selection, a scan over the kinematic fit $\chi^2$ was performed, with the result shown in Fig.~\ref{fig:chisq_optimization}. The Round 16 optimization yields an optimal cut of $\chi^{2}_{\mathrm{KF}} < 24$.
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[$\chi^2$ distribution for the 4C kinematic fit]{
+        \includegraphics[width=0.48\textwidth]{fig/kmfitchisq.eps}
+        \label{fig:kmfitchisq}
+    }
+    \hfill
+    \subfloat[FOM scan as a function of the $\chi^2$ cut]{
+        \includegraphics[width=0.48\textwidth]{fig/OptimizeChisq4C_scan.png}
+        \label{fig:optimize_chisq_scan}
+    }
+    \caption{(a) Distribution of the kinematic fit $\chi^2$ for the four-constraint (4C) fit. (b) The corresponding figure of merit ($S/\sqrt{S+B}$) as a function of the applied $\chi^2$ cut value. The vertical dashed line indicates the chosen optimal cut of $\chi^{2}_{\mathrm{KF}} < 24$ from Round 16 optimization.}
+    \label{fig:chisq_optimization}
+\end{figure}
+
+The $3\pi$ invariant mass distribution obtained with the $\chi^{2}_{\mathrm{KF}} < 24$ selection is presented in Fig.~\ref{fig:mass3pi_stacked}. The plot displays the data in comparison with the stacked Monte Carlo predictions for the signal and background components.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/mass3pi.eps}
+    \caption{The $3\pi$ invariant mass distribution after applying the $\chi^{2}_{\mathrm{KF}} < 24$ selection. The stacked histogram shows the contributions from the signal process $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}$ and various background processes, including the dominant $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ and $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ backgrounds.}
+    \label{fig:mass3pi_stacked}
+\end{figure}
+
+
+\subsection{estimate of $\ee\to\pip\pim\piz\piz$}
+In estimating the $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ background, the following strategy was adopted:
+
+It is assumed that the total yield of $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events produced in the data is a fixed quantity. This process enters our signal region primarily when a photon from one of the $\pi^{0}$ decays is misidentified as an initial-state radiation photon ($\gamma_{\text{ISR}}$). Consequently, two distinct selection efficiencies can be calculated: $\epsilon_{\text{sig}}$ (the efficiency for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events to be selected as signal candidates) and $\epsilon_{\text{bkg}}$ (the efficiency for the same process to enter the signal region as background).
+
+When $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events are selected as signal, the same analysis procedure as for the signal is applied to construct the $3\pi$ invariant mass spectrum, thereby obtaining the distribution of this process in data. Using the ratio of these two efficiencies, $R = \epsilon_{\text{bkg}} / \epsilon_{\text{sig}}$, the observed $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ signal distribution can be converted into an estimate of its background distribution in the signal region. Specifically:
+\[
+N_{\text{bkg}} = R \times N_{\text{sig}}^{\text{obs}} = \frac{\epsilon_{\text{bkg}}}{\epsilon_{\text{sig}}} \times N_{\text{sig}}^{\text{obs}},
+\]
+where $N_{\text{sig}}^{\text{obs}}$ is the number of observed $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ signal events in data, and $N_{\text{bkg}}$ is the estimated number of background events from this process in the signal region.
+
+This method provides a data-driven conversion from the observed signal distribution to the background distribution through efficiency correction.
+
+When treating $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ as the signal, the selection criteria are designed such that the same event sample also satisfies a loose selection for $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$. This ensures that the invariant mass of the three-pion system is automatically defined within the latter process.
+
+The combined selection proceeds as follows: events are required to meet the criteria for both processes. The first step applies the full $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ selection:
+\begin{itemize}
+    \item \textbf{$\pi^{+}\pi^{-}\pi^{0}\pi^{0}$ Candidate Selection:}
+    \begin{itemize}
+        \item Exactly two good charged tracks.
+        \item $\text{nPi0} \geq 2$ \& \& $\text{nGoodShowers} \geq 4$ (ensuring at least two $\pi^{0}$s).
+        \item Application of a total 4-momentum constraint to the initial $e^{+}e^{-}$ collision (4C kinematic fit).
+        \item The candidate with the minimum $\chi_{\mathrm{4C}}^2$ is chosen.
+        \item A requirement of $\chi_{\mathrm{KF}}^{2} < 10$ on the kinematic fit.
+    \end{itemize}
+\end{itemize}
+
+Subsequently, within the same event, a candidate for $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ is formed by reinterpreting one of the $\pi^{0}$s as the $\gamma_{\mathrm{ISR}}$:
+\begin{itemize}
+    \item \textbf{$\gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ Candidate Selection:}
+    \begin{itemize}
+        \item The same two good charged tracks.
+        \item $\text{nPi0} \geq 1$ \& \& $\text{nGoodShowers} \geq 3$ (ensuring at least one $\pi^{0}$ and one photon assigned as $\gamma_{\mathrm{ISR}}$).
+        \item Application of the same total 4-momentum constraint to the initial $e^{+}e^{-}$ collision (4C kinematic fit).
+        \item The candidate with the minimum $\chi_{\mathrm{4C}}^2$ is chosen.
+        \item No additional kinematic fit $\chi^2$ requirement is applied at this stage.
+    \end{itemize}
+\end{itemize}
+
+This dual-tag strategy guarantees that the reconstructed $3\pi$ system from the $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ hypothesis is kinematically well-defined, and its invariant mass can be reliably calculated for the subsequent analysis.
+
+The selection described above results in a highly pure sample of $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events. The invariant mass spectrum of the corresponding three-pion system from these events, which directly enters the background estimation, is shown in Fig.~\ref{fig:4pi_background_spectrum}. This observed distribution in data will be scaled by the efficiency ratio $R = \epsilon_{\text{bkg}} / \epsilon_{\text{sig}}$ to estimate the final background contribution in the signal region. All other backgrounds will be subtracted directly.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/4pi_3pi_mass.eps}
+    \caption{The $3\pi$ invariant mass spectrum from selected $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events (red points), overlaid with the scaled Monte Carlo simulation (blue histogram). The distribution is obtained after applying the dual-tag selection criteria and represents the pure $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ component in data.}
+    \label{fig:4pi_background_spectrum}
+\end{figure}
+
+
+\subsection{estimate of $\ee\to\pip\pim\piz\piz\gamma_{\text{ISR}}$}
+The second dominant background, $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}\pi^{0}$, is estimated using an analogous data-driven approach. The selection follows a similar dual-tag strategy to obtain a sample. The selection criteria are outlined below:
+
+Simultaneously, events must satisfy both the $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}\pi^{0}$ selection, where the $\gamma_{\mathrm{ISR}}$ is treated as an untagged missing momentum, and the tagged $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ loose selection criteria.
+
+\begin{itemize}
+    \item \textbf{$e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}\pi^{0}$ Candidate Selection (Untagged $\gamma_{\mathrm{ISR}}$):}
+    \begin{itemize}
+        \item Exactly two good charged tracks.
+        \item $\text{nPi0} \geq 2$ \&\& $\text{nGoodShowers} \geq 4$ (requiring at least two $\pi^{0}$s).
+        \item The $\gamma_{\mathrm{ISR}}$ is not explicitly reconstructed from a shower. Instead, its 4-momentum is inferred as a \textit{missing} component within the kinematic fit.
+        \item A total 4-momentum constraint to the initial $e^{+}e^{-}$ collision is applied (4C fit).
+        \item The candidate with the minimum $\chi_{\mathrm{4C}}^2$ is chosen.
+        \item A requirement of $|\cos\theta_{\text{Miss}}| > 0.99$ is applied to the direction of the missing 4-momentum to ensure it is consistent with an ISR photon along the beam axis.
+        \item A kinematic fit quality cut of $\chi_{\mathrm{KF}}^2 < 10$ is applied.
+    \end{itemize}
+    \item \textbf{$\gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ Candidate Selection (within the same event):}
+    \begin{itemize}
+        \item The same two good charged tracks.
+        \item $\text{nPi0} \geq 1$ \& \& $\text{nGoodShowers} \geq 3$ (ensuring at least one $\pi^{0}$ and one photon tagged as $\gamma_{\mathrm{ISR}}$).
+        \item A total 4-momentum constraint to the initial $e^{+}e^{-}$ collision is applied (4C fit).
+        \item The candidate with the minimum $\chi_{\mathrm{4C}}^2$ is chosen.
+        \item No additional kinematic fit $\chi^2$ requirement is applied.
+    \end{itemize}
+\end{itemize}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/isr4pi_3pi_mass.eps}
+    \caption{The $3\pi$ invariant mass spectrum from selected $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events (green points). The distribution is obtained after applying the dual-tag selection and serves as a clean template for background estimation.}
+    \label{fig:isr4pi_background_spectrum}
+\end{figure}
+
+The application of this dual-tag selection strategy resulted in a sample with minimal contamination from other processes. The high purity observed is a consequence of the stringent criteria. The corresponding $3\pi$ invariant mass distribution from this sample, which will be used for the background estimation, is shown in Fig.~\ref{fig:isr4pi_background_spectrum}.
+
+
+The observed distribution will be similarly scaled by the appropriate efficiency ratio $R' = \epsilon_{\text{bkg}}' / \epsilon_{\text{sig}}'$ to estimate its contribution in the signal region.
