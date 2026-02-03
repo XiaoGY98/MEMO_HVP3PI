@@ -6,17 +6,17 @@ In the study of background processes, the main backgrounds are categorized into 
 To verify that these processes constitute the primary backgrounds, the $\mathcal{L} \times \sigma_{\text{hadron}}$ method is employed, where $\mathcal{L}$ is the integrated luminosity and $\sigma_{\text{hadron}}$ is the hadronic cross section. The luminosity values for each data-taking period are listed in Table~\ref{tab:datalumi}. The background yield is estimated as a function of the $\pi^{+}\pi^{-}\pi^{0}$ invariant mass ($m$) using the effective luminosity spectrum, which is related to the mass spectrum via:
 
 \begin{equation}
-\frac{d L_{\text{eff}}}{d m} = \frac{2 m}{s} \cdot F(s, m) \cdot L_{\text{int}},
+\frac{d L_{\text{eff}}}{d m} = \frac{2 m}{s} \cdot F(s, m) \cdot \mathcal{L}_{\text{int}},
 \end{equation}
 
-where $s = 4E^{2}$, $E$ is the beam energy, $L_{\text{int}}$ is the total integrated luminosity, and $F(s, m)$ is the probability function for initial-state photon emission. This function can be written as~\cite{Kuraev1985}:
+where $s = 4E^{2}$, $E$ is the beam energy, $\mathcal{L}_{\text{int}}$ is the total integrated luminosity, and $F(s, m)$ is the probability function for initial-state photon emission. This function can be written as~\cite{Kuraev1985}:
 
 \begin{align}
 \beta & = \frac{2\alpha}{\pi} \left[ \ln\left( \frac{s}{m_e^{2}} \right) - 1 \right], \\
 x & = 1 - \frac{m^{2}}{s}, \\
 \frac{d L_{\text{eff}}}{d m} & = \frac{2 m}{s} \cdot \Bigg\{ \beta x^{\beta-1} \Bigg[ 1 + \frac{\alpha}{\pi} \left( \frac{\pi^{2}}{3} - \frac{1}{2} \right) + \frac{3}{4} \beta \nonumber \\
 & \quad + \beta^{2} \left( \frac{37}{96} - \frac{\pi^{2}}{12} - \frac{1}{72} \ln \frac{s}{m_e^{2}} \right) \Bigg] \nonumber \\
-& \quad - \beta \left(1 - \frac{x}{2}\right) \ln\frac{1}{x} - \frac{1+3(1-x)^{2}}{x} \ln(1-x) - 6 + x \Bigg\} \cdot L_{\text{int}},
+& \quad - \beta \left(1 - \frac{x}{2}\right) \ln\frac{1}{x} - \frac{1+3(1-x)^{2}}{x} \ln(1-x) - 6 + x \Bigg\} \cdot \mathcal{L}_{\text{int}},
 \end{align}
 
 where $\alpha = 1/137$ is the fine-structure constant, $m_e = 0.5110034 \times 10^{-3}~\text{GeV}/c^{2}$ is the electron mass, and $\sqrt{s} = 3.773~\text{GeV}$ is the center-of-mass energy of the primary $e^{+}e^{-}$ system.
@@ -26,15 +26,17 @@ The effective luminosity spectrum calculated using this formula for round16 is s
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{fig/luminosity_spectrum.eps}
-    \caption{Effective luminosity spectrum as a function of the $\pi^{+}\pi^{-}\pi^{0}$ invariant mass ($m_{3\pi}$) calculated for round16 with total integrated luminosity $L_{\text{int}} = 8157~\text{pb}^{-1}$. The spectrum is shown with logarithmic scale on the vertical axis.}
+    \caption{Effective luminosity spectrum as a function of the $\pi^{+}\pi^{-}\pi^{0}$ invariant mass ($m_{3\pi}$) calculated for round16 with total integrated luminosity $\mathcal{L}_{\text{int}} = 8157~\text{pb}^{-1}$. The spectrum is shown with logarithmic scale on the vertical axis.}
     \label{fig:luminosity_spectrum}
 \end{figure}
 
-Based on this method, rough yield estimates for the two dominant background processes, $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ (non-ISR) and $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ (ISR), were calculated for the four data-taking periods (round03/04, round15, round16, round17). The results are summarized in Table~\ref{tab:background_yield_estimate}. It is important to note that the values listed in the table are initial yield estimates without any selection efficiency corrections; the actual background contribution to the signal region is obtained by multiplying these yields by the corresponding selection efficiency relevant to the specific analysis cuts. These estimates serve only to confirm that these processes constitute the main sources of background and to provide guidance for optimizing subsequent selection criteria.
+Based on this method, rough yield estimates for the two dominant background processes, $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ (non-ISR) and $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ (ISR), were calculated for the four data-taking periods (round03/04, round15, round16, round17). The results are summarized in Table~\ref{tab:background_yield_estimate}. For the ISR channel, the estimation relies on the $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ cross section measured by the BaBar collaboration~\cite{BaBar2017_4pi0}.
+
+It is important to note that the values listed in the table are initial yield estimates without any selection efficiency corrections; the actual background contribution to the signal region is obtained by multiplying these yields by the corresponding selection efficiency relevant to the specific analysis cuts. These estimates serve only to confirm that these processes constitute the main sources of background and to provide guidance for optimizing subsequent selection criteria.
 
 \begin{table}[t]
     \begin{center}
-        \caption{Rough estimates of the expected yields for the two dominant background processes before applying any selection efficiency. The integrated luminosities are taken from Table~\ref{tab:datalumi}, and the cross sections used are $\sigma(e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}) = 0.22$~nb at $\sqrt{s}=3.773$~GeV and the energy-dependent $\sigma(e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}})$ from the measured $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ cross section. The final background contribution is obtained by multiplying these yields by the corresponding selection efficiency.}
+        \caption{Rough estimates of the expected yields for the two dominant background processes before applying any selection efficiency. The integrated luminosities are taken from Table~\ref{tab:datalumi}. The cross section for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ is taken as $\sigma = 0.22$~nb at $\sqrt{s}=3.773$~GeV, while the energy-dependent cross section for the ISR process is derived from the measured $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ cross section~\cite{BaBar2017_4pi0}. The final background contribution is obtained by multiplying these yields by the corresponding selection efficiency.}
         \vspace{4mm}
         \begin{tabular}{c | c | c}
             \hline \hline
@@ -55,7 +57,7 @@ Based on this method, rough yield estimates for the two dominant background proc
 
 The final background yield is then obtained by multiplying the effective luminosity spectrum by the cross section and a selection-efficiency factor that varies dynamically with the analysis cuts. This method is used solely to confirm that $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ and $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ are the dominant backgrounds and to optimize the selection criteria. It is not used to derive the final background estimates; precise yields for these two components will be determined using data-driven methods.
 
-Based on the rough background estimate from $\mathcal{L} \times \sigma_{\text{hadron}}$, the signal yield was approximated by subtracting the background from the data, allowing for a preliminary significance calculation. Using this approach, a figure of merit (FOM) defined as $S / \sqrt{S + B}$ was constructed to evaluate the signal significance. To optimize the event selection, a scan over the kinematic fit $\chi^2$ was performed, with the result shown in Fig.~\ref{fig:chisq_optimization}. The Round 16 optimization yields an optimal cut of $\chi^{2}_{\mathrm{KF}} < 24$.
+Based on the rough background estimate from $\mathcal{L} \times \sigma_{\text{hadron}}$, the signal yield was approximated by subtracting the background from the data, allowing for a preliminary significance calculation. Using this approach, a figure of merit (FOM) defined as $S / \sqrt{S + B}$ was constructed to evaluate the signal significance. To optimize the event selection, a scan over the kinematic fit $\chi^2$ was performed, with the result shown in Fig.~\ref{fig:chisq_optimization}. The Round 16 optimization yields an optimal cut of $\chi^{2}_{\mathrm{KF}} < 50$.
 
 \begin{figure}[htbp]
     \centering
@@ -65,19 +67,19 @@ Based on the rough background estimate from $\mathcal{L} \times \sigma_{\text{ha
     }
     \hfill
     \subfloat[FOM scan as a function of the $\chi^2$ cut]{
-        \includegraphics[width=0.48\textwidth]{fig/OptimizeChisq4C_scan.png}
+        \includegraphics[width=0.48\textwidth]{fig/OptimizeChisq4C_scan.eps}
         \label{fig:optimize_chisq_scan}
     }
-    \caption{(a) Distribution of the kinematic fit $\chi^2$ for the four-constraint (4C) fit. (b) The corresponding figure of merit ($S/\sqrt{S+B}$) as a function of the applied $\chi^2$ cut value. The vertical dashed line indicates the chosen optimal cut of $\chi^{2}_{\mathrm{KF}} < 24$ from Round 16 optimization.}
+    \caption{(a) Distribution of the kinematic fit $\chi^2$ for the four-constraint (4C) fit using the Round~16 data sample. (b) The corresponding figure of merit ($S/\sqrt{S+B}$) as a function of the applied $\chi^2$ cut value for the Round~16 data. The vertical dashed line indicates the chosen optimal cut of $\chi^{2}_{\mathrm{KF}} < 50$ from Round~16 optimization, which is then applied to all data-taking periods.}
     \label{fig:chisq_optimization}
 \end{figure}
 
-The $3\pi$ invariant mass distribution obtained with the $\chi^{2}_{\mathrm{KF}} < 24$ selection is presented in Fig.~\ref{fig:mass3pi_stacked}. The plot displays the data in comparison with the stacked Monte Carlo predictions for the signal and background components.
+The $3\pi$ invariant mass distribution obtained with the $\chi^{2}_{\mathrm{KF}} < 50$ selection is presented in Fig.~\ref{fig:mass3pi_stacked}. This plot, using the Round~16 data sample, displays the data in comparison with the stacked MC predictions for the signal and background components.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{fig/mass3pi.eps}
-    \caption{The $3\pi$ invariant mass distribution after applying the $\chi^{2}_{\mathrm{KF}} < 24$ selection. The stacked histogram shows the contributions from the signal process $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}$ and various background processes, including the dominant $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ and $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ backgrounds.}
+    \caption{The $3\pi$ invariant mass distribution after applying the $\chi^{2}_{\mathrm{KF}} < 50$ selection to the Round~16 data sample. The stacked histogram shows the contributions from the signal process $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}$ and various background processes, including the dominant $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ and $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ backgrounds.}
     \label{fig:mass3pi_stacked}
 \end{figure}
 
