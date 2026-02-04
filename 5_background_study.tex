@@ -70,24 +70,55 @@ Based on the rough background estimate from $\mathcal{L} \times \sigma_{\text{ha
         \includegraphics[width=0.48\textwidth]{fig/OptimizeChisq4C_scan.eps}
         \label{fig:optimize_chisq_scan}
     }
-    \caption{(a) Distribution of the kinematic fit $\chi^2$ for the four-constraint (4C) fit using the Round~16 data sample. (b) The corresponding figure of merit ($S/\sqrt{S+B}$) as a function of the applied $\chi^2$ cut value for the Round~16 data. The vertical dashed line indicates the chosen optimal cut of $\chi^{2}_{\mathrm{KF}} < 50$ from Round~16 optimization, which is then applied to all data-taking periods.}
+    \caption{(a) Distribution of the kinematic fit $\chi^2$ for the four-constraint (4C) fit using the Round~16 data sample. (b) The corresponding figure of merit ($S/\sqrt{S+B}$) as a function of the applied $\chi^2$ cut value for the Round~16 data.}
     \label{fig:chisq_optimization}
 \end{figure}
 
-The $3\pi$ invariant mass distribution obtained with the $\chi^{2}_{\mathrm{KF}} < 50$ selection is presented in Fig.~\ref{fig:mass3pi_stacked}. This plot, using the Round~16 data sample, displays the data in comparison with the stacked MC predictions for the signal and background components.
+Based on the optimal $\chi^2_{\mathrm{KF}}$ selection, the invariant mass spectrum of the $3\pi$ system ($M_{3\pi}$) can be divided into three distinct regions for further study: the $\omega(782)$ region, the $\phi(1020)$ region, and a higher-mass region associated with possible $\omega^{\prime}/\omega^{\prime\prime}$ excitations. In the high-mass $\omega^{\prime}/\omega^{\prime\prime}$ region, a significant background component from events containing additional $\pi^0$ mesons was observed. To quantify this, the number of $\pi^0$ candidates per event was counted, where any $\pi^0$ candidate satisfying a one-constraint kinematic fit $\chi^2 < 200$ was accepted. The distribution of this $\pi^0$ multiplicity is shown in Fig.~\ref{fig:pi0_multiplicity}. To suppress this specific background, a requirement of exactly one $\pi^0$ candidate per event was applied exclusively in the $\omega^{\prime}/\omega^{\prime\prime}$ mass region. No such restriction was applied to the $\omega(782)$ and $\phi(1020)$ signal regions. The following studies and distributions are based on the Round~16 data sample.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{fig/mass3pi.eps}
-    \caption{The $3\pi$ invariant mass distribution after applying the $\chi^{2}_{\mathrm{KF}} < 50$ selection to the Round~16 data sample. The stacked histogram shows the contributions from the signal process $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}$ and various background processes, including the dominant $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ and $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ backgrounds.}
-    \label{fig:mass3pi_stacked}
+    \includegraphics[width=0.7\textwidth]{fig/nloosepi0_origin.eps}
+    \caption{Distribution of the number of $\pi^0$ candidates per event in the $\omega^{\prime}/\omega^{\prime\prime}$ mass region using the Round~16 data. A $\pi^0$ candidate is counted if its 1C kinematic fit $\chi^2 < 200$.}
+    \label{fig:pi0_multiplicity}
 \end{figure}
 
+The resulting $M_{3\pi}$ invariant mass spectra, after applying all selection criteria including the region-specific $\pi^0$ multiplicity cut, are presented separately for the three mass regions in Fig.~\ref{fig:mass_spectra_regions}.
 
+\begin{figure}[htbp]
+    \centering
+    \subfloat[$\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mass_spectrum_omega.eps}
+        \label{fig:mass_omega}
+    }
+    \hfill
+    \subfloat[$\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mass_spectrum_phi.eps}
+        \label{fig:mass_phi}
+    }
+    \hfill
+    \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mass_spectrum_omegaprime.eps}
+        \label{fig:mass_omegaprime}
+    }
+    \caption{Invariant mass spectra $M_{3\pi}$ for the (a) $\omega(782)$, (b) $\phi(1020)$, and (c) $\omega^{\prime}/\omega^{\prime\prime}$ mass regions obtained from the Round~16 data. The selection for the high-mass region (c) includes the requirement $N_{\pi^0}=1$, while regions (a) and (b) have no $\pi^0$ multiplicity cut.}
+    \label{fig:mass_spectra_regions}
+\end{figure}
+
+% The $3\pi$ invariant mass distribution obtained with the $\chi^{2}_{\mathrm{KF}} < 50$ selection is presented in Fig.~\ref{fig:mass3pi_stacked}. This plot, using the Round~16 data sample, displays the data in comparison with the stacked MC predictions for the signal and background components.
+
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{fig/mass3pi.eps}
+%     \caption{The $3\pi$ invariant mass distribution after applying the $\chi^{2}_{\mathrm{KF}} < 50$ selection to the Round~16 data sample. The stacked histogram shows the contributions from the signal process $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}$ and various background processes, including the dominant $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ and $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ backgrounds.}
+%     \label{fig:mass3pi_stacked}
+% \end{figure}
+
+\clearpage
 \subsection{estimate of $\ee\to\pip\pim\piz\piz$}
 In estimating the $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ background, the following strategy was adopted:
 
-It is assumed that the total yield of $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events produced in the data is a fixed quantity. This process enters our signal region primarily when a photon from one of the $\pi^{0}$ decays is misidentified as an initial-state radiation photon ($\gamma_{\text{ISR}}$). Consequently, two distinct selection efficiencies can be calculated: $\epsilon_{\text{sig}}$ (the efficiency for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events to be selected as signal candidates) and $\epsilon_{\text{bkg}}$ (the efficiency for the same process to enter the signal region as background).
+It is assumed that the total yield of $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events produced in the data is a fixed quantity. This process enters our signal region primarily when a photon from one of the $\pi^{0}$ decays is misidentified as an initial-state radiation photon ($\gamma_{\text{ISR}}$). Consequently, two distinct selection efficiencies can be calculated: $\epsilon_{\text{sig}}$ (the efficiency for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events to be selected as signal candidates) and $\epsilon_{\text{bkg}}$ (the efficiency for the same process to enter the $3\pi$ signal region as background).
 
 When $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events are selected as signal, the same analysis procedure as for the signal is applied to construct the $3\pi$ invariant mass spectrum, thereby obtaining the distribution of this process in data. Using the ratio of these two efficiencies, $R = \epsilon_{\text{bkg}} / \epsilon_{\text{sig}}$, the observed $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ signal distribution can be converted into an estimate of its background distribution in the signal region. Specifically:
 \[
@@ -134,7 +165,7 @@ The selection described above results in a highly pure sample of $e^{+}e^{-} \to
     \label{fig:4pi_background_spectrum}
 \end{figure}
 
-
+\clearpage
 \subsection{estimate of $\ee\to\pip\pim\piz\piz\gamma_{\text{ISR}}$}
 The second dominant background, $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}\pi^{0}$, is estimated using an analogous data-driven approach. The selection follows a similar dual-tag strategy to obtain a sample. The selection criteria are outlined below:
 
