@@ -156,12 +156,12 @@ Subsequently, within the same event, a candidate for $e^{+}e^{-} \to \gamma_{\ma
 
 This dual-tag strategy guarantees that the reconstructed $3\pi$ system from the $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ hypothesis is kinematically well-defined, and its invariant mass can be reliably calculated for the subsequent analysis.
 
-The selection described above results in a highly pure sample of $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events. The invariant mass spectrum of the corresponding three-pion system from these events, which directly enters the background estimation, is shown in Fig.~\ref{fig:4pi_background_spectrum}. This observed distribution in data will be scaled by the efficiency ratio $R = \epsilon_{\text{bkg}} / \epsilon_{\text{sig}}$ to estimate the final background contribution in the signal region. All other backgrounds will be subtracted directly.
+The selection described above results in a highly pure sample of $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events. The invariant mass spectrum of the corresponding three-pion system from this pure sample, which serves as the input template for background estimation, is shown in Fig.~\ref{fig:4pi_background_spectrum}. The observed distribution in the data, after applying the $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ selection criteria, will be scaled by the efficiency ratio $R = \epsilon_{\text{bkg}} / \epsilon_{\text{sig}}$ to estimate the final background contribution of this process in the signal region of the measurement channel. As can be seen in the figure, the background contamination within this selected sample is negligible. Therefore, we simply subtract the inclusive background histogram from the data histogram in a symbolic manner to obtain the pure $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ event yield. All other backgrounds will be subtracted directly.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{fig/4pi_3pi_mass.eps}
-    \caption{The $3\pi$ invariant mass spectrum from selected $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events (red points), overlaid with the scaled Monte Carlo simulation (blue histogram). The distribution is obtained after applying the dual-tag selection criteria and represents the pure $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ component in data.}
+    \caption{The $3\pi$ invariant mass spectrum from selected $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events in the Round~16 dataset. This distribution, obtained from data after applying the dual-tag selection criteria for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$, represents the pure signal sample used as the template for background estimation.}
     \label{fig:4pi_background_spectrum}
 \end{figure}
 
@@ -192,15 +192,34 @@ Simultaneously, events must satisfy both the $e^{+}e^{-} \to \gamma_{\mathrm{ISR
     \end{itemize}
 \end{itemize}
 
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{fig/isr4pi_3pi_mass.eps}
-    \caption{The $3\pi$ invariant mass spectrum from selected $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events (green points). The distribution is obtained after applying the dual-tag selection and serves as a clean template for background estimation.}
+    \caption{The $3\pi$ invariant mass spectrum from selected $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events (green points) using data from round 16. The distribution is obtained after applying the dual-tag selection and serves as a clean template for background estimation.}
     \label{fig:isr4pi_background_spectrum}
 \end{figure}
 
 The application of this dual-tag selection strategy resulted in a sample with minimal contamination from other processes. The high purity observed is a consequence of the stringent criteria. The corresponding $3\pi$ invariant mass distribution from this sample, which will be used for the background estimation, is shown in Fig.~\ref{fig:isr4pi_background_spectrum}.
 
-
 The observed distribution will be similarly scaled by the appropriate efficiency ratio $R' = \epsilon_{\text{bkg}}' / \epsilon_{\text{sig}}'$ to estimate its contribution in the signal region.
+
+% 添加结果图（三个物理区域）
+\begin{figure}[htbp]
+    \centering
+    \subfloat[$\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/isr4pi_region1_plot.eps}
+        \label{fig:isr4pi_region1}
+    }
+    \hfill
+    \subfloat[$\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/isr4pi_region2_plot.eps}
+        \label{fig:isr4pi_region2}
+    }
+    \hfill
+    \subfloat[$\omega^{\prime}$ and $\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/isr4pi_region3_plot.eps}
+        \label{fig:isr4pi_region3}
+    }
+    \caption{Estimated background contributions from $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}\pi^{0}$ in the signal region after scaling, using data from round 16. The three panels correspond to different $3\pi$ invariant mass regions: (a) the $\omega(782)$ region, (b) the $\phi(1020)$ region, and (c) the higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region.}
+    \label{fig:isr4pi_all_regions}
+\end{figure}

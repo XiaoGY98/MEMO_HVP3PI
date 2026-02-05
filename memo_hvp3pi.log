@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.9.26)  4 FEB 2026 15:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.9.26)  5 FEB 2026 17:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1254,9 +1254,11 @@ File: fig/nloosepi0_origin-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/nloosepi0_origin-eps-converted-to.pdf>
 Package pdftex.def Info: fig/nloosepi0_origin-eps-converted-to.pdf  used on input line 81.
 (pdftex.def)             Requested size: 318.66948pt x 238.87134pt.
+
+
+LaTeX Warning: File `fig/mass_spectrum_omega.eps' not found on input line 93.
+
 Package epstopdf Info: Source file: <fig/mass_spectrum_omega.eps>
-(epstopdf)                    date: 2026-02-04 15:18:24
-(epstopdf)                    size: 27929 bytes
 (epstopdf)             Output file: <fig/mass_spectrum_omega-eps-converted-to.pdf>
 (epstopdf)                    date: 2026-02-04 15:18:36
 (epstopdf)                    size: 14935 bytes
@@ -1273,9 +1275,10 @@ Overfull \hbox (104.4218pt too wide) in paragraph at lines 93--93
 [] [] 
  []
 
+
+LaTeX Warning: File `fig/mass_spectrum_phi.eps' not found on input line 98.
+
 Package epstopdf Info: Source file: <fig/mass_spectrum_phi.eps>
-(epstopdf)                    date: 2026-02-04 15:18:26
-(epstopdf)                    size: 26779 bytes
 (epstopdf)             Output file: <fig/mass_spectrum_phi-eps-converted-to.pdf>
 (epstopdf)                    date: 2026-02-04 15:18:36
 (epstopdf)                    size: 14550 bytes
@@ -1292,9 +1295,10 @@ Overfull \hbox (104.4218pt too wide) in paragraph at lines 98--98
 [] [] 
  []
 
+
+LaTeX Warning: File `fig/mass_spectrum_omegaprime.eps' not found on input line 103.
+
 Package epstopdf Info: Source file: <fig/mass_spectrum_omegaprime.eps>
-(epstopdf)                    date: 2026-02-04 15:18:27
-(epstopdf)                    size: 47963 bytes
 (epstopdf)             Output file: <fig/mass_spectrum_omegaprime-eps-converted-to.pdf>
 (epstopdf)                    date: 2026-02-04 15:18:37
 (epstopdf)                    size: 22342 bytes
@@ -1367,13 +1371,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 [13
 
 ]
-
-LaTeX Warning: File `fig/4pi_3pi_mass.eps' not found on input line 163.
-
 Package epstopdf Info: Source file: <fig/4pi_3pi_mass.eps>
+(epstopdf)                    date: 2026-02-05 16:59:59
+(epstopdf)                    size: 23394 bytes
 (epstopdf)             Output file: <fig/4pi_3pi_mass-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-01-27 15:40:05
-(epstopdf)                    size: 17245 bytes
+(epstopdf)                    date: 2026-02-05 17:18:30
+(epstopdf)                    size: 17123 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/4pi_3pi_mass-eps-converted-to.pdf fig/4pi_3pi_mass.eps>
 (epstopdf)             \includegraphics on input line 163.
 Package epstopdf Info: Output file is already uptodate.
@@ -1382,7 +1385,7 @@ File: fig/4pi_3pi_mass-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/4pi_3pi_mass-eps-converted-to.pdf>
 Package pdftex.def Info: fig/4pi_3pi_mass-eps-converted-to.pdf  used on input line 163.
 (pdftex.def)             Requested size: 273.14923pt x 204.74965pt.
-[14 </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/4pi_3pi_mass-eps-converted-to.pdf>]
+ [14 </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/4pi_3pi_mass-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <8> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 169.
 LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <6> not available
@@ -1449,22 +1452,79 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 169.
 
 Package epstopdf Info: Source file: <fig/isr4pi_3pi_mass.eps>
-(epstopdf)                    date: 2026-01-27 15:44:50
-(epstopdf)                    size: 28412 bytes
+(epstopdf)                    date: 2026-02-05 10:22:41
+(epstopdf)                    size: 28080 bytes
 (epstopdf)             Output file: <fig/isr4pi_3pi_mass-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-01-27 15:45:13
-(epstopdf)                    size: 19385 bytes
+(epstopdf)                    date: 2026-02-05 10:42:28
+(epstopdf)                    size: 19260 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/isr4pi_3pi_mass-eps-converted-to.pdf fig/isr4pi_3pi_mass.eps>
-(epstopdf)             \includegraphics on input line 198.
+(epstopdf)             \includegraphics on input line 197.
 Package epstopdf Info: Output file is already uptodate.
 <fig/isr4pi_3pi_mass-eps-converted-to.pdf, id=371, 569.12625pt x 426.59375pt>
 File: fig/isr4pi_3pi_mass-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/isr4pi_3pi_mass-eps-converted-to.pdf>
-Package pdftex.def Info: fig/isr4pi_3pi_mass-eps-converted-to.pdf  used on input line 198.
+Package pdftex.def Info: fig/isr4pi_3pi_mass-eps-converted-to.pdf  used on input line 197.
 (pdftex.def)             Requested size: 273.14923pt x 204.74965pt.
+Package epstopdf Info: Source file: <fig/isr4pi_region1_plot.eps>
+(epstopdf)                    date: 2026-02-05 11:13:02
+(epstopdf)                    size: 24542 bytes
+(epstopdf)             Output file: <fig/isr4pi_region1_plot-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-02-05 11:13:18
+(epstopdf)                    size: 18564 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/isr4pi_region1_plot-eps-converted-to.pdf fig/isr4pi_region1_plot.eps>
+(epstopdf)             \includegraphics on input line 212.
+Package epstopdf Info: Output file is already uptodate.
+<fig/isr4pi_region1_plot-eps-converted-to.pdf, id=373, 571.13374pt x 426.59375pt>
+File: fig/isr4pi_region1_plot-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/isr4pi_region1_plot-eps-converted-to.pdf>
+Package pdftex.def Info: fig/isr4pi_region1_plot-eps-converted-to.pdf  used on input line 212.
+(pdftex.def)             Requested size: 145.68144pt x 108.80925pt.
+
+Overfull \hbox (104.4218pt too wide) in paragraph at lines 212--212
+[] [] 
+ []
+
+Package epstopdf Info: Source file: <fig/isr4pi_region2_plot.eps>
+(epstopdf)                    date: 2026-02-05 11:13:05
+(epstopdf)                    size: 22006 bytes
+(epstopdf)             Output file: <fig/isr4pi_region2_plot-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-02-05 11:13:18
+(epstopdf)                    size: 16497 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/isr4pi_region2_plot-eps-converted-to.pdf fig/isr4pi_region2_plot.eps>
+(epstopdf)             \includegraphics on input line 217.
+Package epstopdf Info: Output file is already uptodate.
+<fig/isr4pi_region2_plot-eps-converted-to.pdf, id=374, 571.13374pt x 426.59375pt>
+File: fig/isr4pi_region2_plot-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/isr4pi_region2_plot-eps-converted-to.pdf>
+Package pdftex.def Info: fig/isr4pi_region2_plot-eps-converted-to.pdf  used on input line 217.
+(pdftex.def)             Requested size: 145.68144pt x 108.80925pt.
+
+Overfull \hbox (104.4218pt too wide) in paragraph at lines 217--217
+[] [] 
+ []
+
+Package epstopdf Info: Source file: <fig/isr4pi_region3_plot.eps>
+(epstopdf)                    date: 2026-02-05 11:13:07
+(epstopdf)                    size: 27950 bytes
+(epstopdf)             Output file: <fig/isr4pi_region3_plot-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-02-05 11:13:18
+(epstopdf)                    size: 24820 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/isr4pi_region3_plot-eps-converted-to.pdf fig/isr4pi_region3_plot.eps>
+(epstopdf)             \includegraphics on input line 222.
+Package epstopdf Info: Output file is already uptodate.
+<fig/isr4pi_region3_plot-eps-converted-to.pdf, id=375, 571.13374pt x 426.59375pt>
+File: fig/isr4pi_region3_plot-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/isr4pi_region3_plot-eps-converted-to.pdf>
+Package pdftex.def Info: fig/isr4pi_region3_plot-eps-converted-to.pdf  used on input line 222.
+(pdftex.def)             Requested size: 145.68144pt x 108.80925pt.
+
+Overfull \hbox (104.4218pt too wide) in paragraph at lines 222--222
+[] [] 
+ []
+
 ) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/6_unfolding.tex [15
 
-] [16 </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/isr4pi_3pi_mass-eps-converted-to.pdf>]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/7_efficiency_corr.tex [17
+] [16 </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/isr4pi_3pi_mass-eps-converted-to.pdf> </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/isr4pi_region1_plot-eps-converted-to.pdf> </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/isr4pi_region2_plot-eps-converted-to.pdf> </mnt/e/WorkSpace/Physics/MEMO_HVP3PI/fig/isr4pi_region3_plot-eps-converted-to.pdf>]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/7_efficiency_corr.tex [17
 
 ]) (/mnt/e/WorkSpace/Physics/MEMO_HVP3PI/8_systematic.tex [18
 
@@ -1491,20 +1551,20 @@ Package rerunfilecheck Info: File `memo_hvp3pi.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 199.
  ) 
 Here is how much of TeX's memory you used:
- 12391 strings out of 481239
- 178920 string characters out of 5920377
- 478176 words of memory out of 5000000
- 27140 multiletter control sequences out of 15000+600000
+ 12450 strings out of 481239
+ 181015 string characters out of 5920377
+ 478795 words of memory out of 5000000
+ 27190 multiletter control sequences out of 15000+600000
  620569 words of font info for 230 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,14n,51p,1779b,522s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /mnt/e/WorkSpace/Physics/MEMO_HVP3PI/memo_hvp3pi.pdf (23 pages, 425363 bytes).
+Output written on /mnt/e/WorkSpace/Physics/MEMO_HVP3PI/memo_hvp3pi.pdf (23 pages, 476889 bytes).
 PDF statistics:
- 501 PDF objects out of 1000 (max. 8388607)
- 371 compressed objects within 4 object streams
- 74 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 584 PDF objects out of 1000 (max. 8388607)
+ 387 compressed objects within 4 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 
