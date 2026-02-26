@@ -1,4 +1,46 @@
 \clearpage
 \section{Unfolding}
 \label{sec:unfolding}
-to fill
+
+To extract the dressed cross section $\sigma_{3\pi}^{\text{dress}}(m)$, we need the generator-level yield $\left( \frac{dN}{dm} \right)^{\text{gen}}$, which is related to the cross section within each mass interval by:
+\begin{equation}
+\left( \frac{dN}{dm} \right)^{\text{gen}} = \sigma_{3\pi}^{\text{dress}}(m) \cdot \frac{dL}{dm} \cdot \varepsilon \cdot \mathcal{B}(\pi^0 \to \gamma\gamma)
+\label{eq:cross_section_relation}
+\end{equation}
+where $\frac{dL}{dm}$ is the integrated luminosity in that interval, and $\mathcal{B}(\pi^0 \to \gamma\gamma)$ is the branching fraction of the $\pi^0 \to \gamma\gamma$ decay.
+
+From data, we have obtained the observed signal yield $\left( \frac{dN}{dm} \right)_{i}^{\text{obs}}$ in each mass interval by fitting the $U_{\text{miss}}$ distribution. Due to detector effects, events can migrate between different mass intervals, so these observed yields do not directly give the generator-level yields in Eq.~\eqref{eq:cross_section_relation}. The migration is described by the response matrix $P_{ij}$, which relates the observed yield in bin $i$ to the generator-level yield in bin $j$:
+\begin{equation}
+\left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_{j} P_{ij} \left( \frac{dN}{dm} \right)_{j}^{\text{gen}}
+\label{eq:response_matrix}
+\end{equation}
+
+\begin{figure}[htbp]
+\centering
+\subfloat[$\omega(782)$ region]{
+\includegraphics[width=0.32\textwidth]{fig/migration_omega.png}
+\label{fig:migration_omega}
+}
+\hfill
+\subfloat[$\phi(1020)$ region]{
+\includegraphics[width=0.32\textwidth]{fig/migration_phi.png}
+\label{fig:migration_phi}
+}
+\hfill
+\subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
+\includegraphics[width=0.32\textwidth]{fig/migration_high.png}
+\label{fig:migration_high}
+}
+\caption{Response matrices $A_{ij}$ for three representative mass regions, showing the migration of events between generator-level and reconstructed $M_{3\pi}$ bins. The diagonal structure indicates good resolution, while off-diagonal entries reflect the effects of finite detector resolution and acceptance.}
+\label{fig:migration_matrices}
+\end{figure}
+
+
+Let $A_{ij}$ denote the number of MC events that are generated in true bin $j$ and reconstructed in bin $i$, where $i$ and $j$ index the observed and generator-level mass bins, respectively. The migration matrices $A_{ij}$ for three representative mass regions are shown in Fig.~\ref{fig:migration_matrices}, illustrating how events generated in a given true bin are distributed across observed bins due to detector effects. This matrix is then normalized column-wise to obtain the response matrix used in Eq.~\eqref{eq:response_matrix}:
+\begin{equation}
+P_{ij} = \frac{A_{ij}}{\sum_{k=1}^{n_d} A_{kj}}, \qquad \sum_{i=1}^{n_d} P_{ij} = 1,
+\label{eq:response_matrix_norm}
+\end{equation}
+where $n_d$ is the number of reconstructed bins.
+
+
