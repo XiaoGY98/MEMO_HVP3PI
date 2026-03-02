@@ -130,7 +130,28 @@ where $\mathbf{u}$ and $\mathbf{t}^{\text{truth}}$ are vectors of bin contents, 
 
 In cases where the covariance matrix is singular or ill-conditioned, a small diagonal perturbation $\lambda_{\text{reg}} I$ is added before inversion to ensure numerical stability, with $\lambda_{\text{reg}} = 10^{-6}$ in this analysis.
 
-The optimal parameter combination is chosen based on several considerations: the number of iterations $n_{\text{iter}}$ should be as small as possible to avoid unnecessary complexity; the $\chi^2$ value defined in Eq.~\eqref{eq:chi2_fom} should be small, indicating good agreement between the unfolded and true spectra; and the $\chi^2$ per degree of freedom, $\chi^2 / n_{\text{dof}}$, should be close to or less than one, indicating that the uncertainties are well estimated. Using the MC sample as a stand-in for data, a scan is performed over a grid of $\lambda_L$, $\lambda_U$, and $n_{\text{iter}}$ values, and the combination that best satisfies these criteria is selected for the final unfolding of the data. The unfolding results obtained with the optimized parameters for the three representative mass regions are shown in Fig.~\ref{fig:mc_unfold_results}.
+
+The optimal parameter combination is chosen based on several considerations: the number of iterations $n_{\text{iter}}$ should be as small as possible to avoid unnecessary complexity; the $\chi^2$ value defined in Eq.~\eqref{eq:chi2_fom} should be small, indicating good agreement between the unfolded and true spectra; and the $\chi^2$ per degree of freedom, $\chi^2 / n_{\text{dof}}$, should be close to or less than one, indicating that the uncertainties are well estimated. Using the MC sample as a stand-in for data, a scan is performed over a grid of $\lambda_L$, $\lambda_U$, and $n_{\text{iter}}$ values, and the combination that best satisfies these criteria is selected for the final unfolding of the data. The optimized parameters obtained from this procedure for the three representative mass regions are summarized in Table~\ref{tab:optimized_parameters}. The unfolding results obtained with these optimized parameters are shown in Fig.~\ref{fig:mc_unfold_results}.
+
+\begin{table}[t]
+    \begin{center}
+        \caption{Optimized unfolding parameters for the three representative mass regions. For each region, the parameters $\lambda_L$, $\lambda_U$, $\lambda_M$, and number of iterations $n_{\text{iter}}$ were selected based on the $\chi^2$ minimization procedure described in the text. The resulting $\chi^2/\text{ndf}$ values indicate good agreement between the unfolded and true MC distributions.}
+        \vspace{4mm}
+        \renewcommand{\arraystretch}{1.3} % 增加行高
+        \begin{tabular}{c | c | c | c | c | c}
+            \hline \hline
+            Region & $\lambda_L$ & $\lambda_U$ & $\lambda_M$ & $n_{\text{iter}}$ & $\chi^2/\text{ndf}$ \\
+            \hline
+            $\omega(782)$ & $1\times10^{-3}$ & $1\times10^{-4}$ & $1$ & $4$ & $28.31/40$ \\[2pt] % 添加额外垂直间距
+            \hline
+            $\phi(1020)$ & $1\times10^{-4}$ & $1\times10^{-4}$ & $1\times10^{-3}$ & $4$ & $23.86/30$ \\[2pt]
+            \hline
+            $\omega'/\omega''$ & $1\times10^{-3}$ & $1$ & $11$ & $5$ & $76.18/76$ \\[2pt]
+            \hline \hline
+        \end{tabular}
+        \label{tab:optimized_parameters}
+    \end{center}
+\end{table}
 
 \begin{figure}[htbp]
 \centering
@@ -148,6 +169,18 @@ The optimal parameter combination is chosen based on several considerations: the
 \includegraphics[width=0.32\textwidth]{fig/mc_unfold_high.eps}
 \label{fig:unfold_high}
 }
-\caption{Unfolded results for three representative mass regions using the IDS method with optimized parameters. Each panel shows the true MC distribution (blue), the smeared MC distribution (black), and the unfolded result (red points) with its statistical uncertainties. The iteration number and regularization parameters ($\lambda_L$, $\lambda_U$) are indicated in each panel. The MC sample has been normalized to match the data statistics shown in Fig.~\ref{fig:signal_yields}, ensuring that the uncertainties properly reflect the data statistical power.}
-\label{fig:unfold_results}
+\caption{Unfolded results for three representative mass regions using the IDS method with optimized parameters. Each panel shows the true MC distribution (black), the measured MC distribution (red), and the unfolded result (blue points) with its statistical uncertainties. The MC sample has been normalized to match the data statistics shown in Fig.~\ref{fig:signal_yields}, ensuring that the uncertainties properly reflect the data statistical power.}
+\label{fig:mc_unfold_results}
 \end{figure}
+
+To validate the unfolding procedure, we compare the relative statistical uncertainty of the unfolded spectrum with that of the test MC sample. The relative uncertainty of the test MC spectrum, $\delta_{\text{test}}$, is computed by summing in quadrature the Poisson errors of each bin and dividing by the total yield:
+\begin{equation}
+\delta_{\text{test}} = \frac{\sqrt{\sum_{i} \sigma_i^2}}{\sum_i N_i},
+\end{equation}
+where $N_i$ and $\sigma_i$ are the content and Poisson error of bin $i$ in the test MC distribution, respectively. This represents the Poisson statistical uncertainty of the test MC sample.
+
+The relative uncertainty of the unfolded spectrum, $\delta_{\text{unfolded}}$, is derived from the full covariance matrix $\Sigma$ obtained from the toy MC ensemble:
+\begin{equation}
+\delta_{\text{unfolded}} = \frac{\sqrt{\sum_{i,j} \Sigma_{ij}}}{\sum_i u_i},
+\end{equation}
+where $u_i$ are the bin contents of the unfolded spectrum. The relative uncertainty of the unfolded spectrum should not be smaller than the Poisson uncertainty of the test MC sample.
