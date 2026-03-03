@@ -1,4 +1,156 @@
 \clearpage
-\section{Efficiency correction}
+\section{Correction of response matrix, and unfolding of data}
 \label{sec:eff_corr}
-to fill
+
+With the optimized unfolding parameters determined from the MC validation studies (summarized in Table~\ref{tab:optimized_parameters}), we now proceed to unfold the data. However, before applying the IDS method to data, several corrections must be applied to the response matrix derived from MC simulation to account for discrepancies between data and MC. These discrepancies arise from various sources: the tracking efficiency of charged particles, PID performance, the reconstruction efficiency of neutral $\pi^0$ mesons, the detection efficiency of ISR photons, and differences in the production rate of additional ISR photons (NLO) between the Phokhara generator and data. The following subsections address each of these corrections in detail.
+
+\subsection{Tracking and PID efficiencies}
+
+The tracking and PID efficiencies for charged pions are adopted from the dedicated study in Ref.~\cite{BESIII_tracking_pid_2024}, where they are measured using $D^0\bar{D}^0$ and $D^+D^-$ events. The kinematic coverage of that study matches the momentum range of charged pions in this analysis. For each momentum bin, the correction factors $c_{\text{trk}}(p)$ and $c_{\text{pid}}(p)$ are derived separately for tracking and PID.
+
+\subsection{$\pi^0$ reconstruction efficiency}
+
+The reconstruction efficiency for $\pi^0$ mesons is studied using a dedicated control sample of $e^+e^- \to \omega \pi^0_{\text{tag}}$ events at $\sqrt{s} = 3.773$\,GeV, with $\omega \to \pi^+\pi^-\pi^0_{\text{pred}}$. This process provides a clean environment to study $\pi^0$ efficiency due to the distinct kinematic properties of the two neutral pions: the $\pi^0_{\text{tag}}$ carries approximately half of the center-of-mass momentum, while the $\pi^0_{\text{pred}}$ from $\omega$ decay has a momentum spectrum ranging from 0 to $\sqrt{s}/2$, making it well suited for a momentum-dependent efficiency study.
+
+The measurement is performed independently for each data-taking period (rounds 0304, 15, 16, and 17) using the $\psi(3770)$ data sample. The selection criteria are as follows:
+\begin{itemize}
+    \item The selection requirements for charged pions and $\pi^0$ reconstruction are identical to those used in the signal channel $e^+e^- \to \pip\pim\piz$.
+    \item Events are required to have at least one reconstructed $\pi^0$ candidate.
+    \item In events with multiple $\pi^0$ candidates, the two with the best fit quality from 1C kinematic fitting are retained for further analysis.
+    \item The $\pi^0_{\text{tag}}$ is identified as the $\pi^0$ candidate whose energy is closest to half the center-of-mass energy ($\sqrt{s}/2$), with a requirement that the difference be within 0.3\,GeV.
+    \item A 1C kinematic fit is then performed: the recoil momentum of the $\pi^+\pi^-\pi^0_{\text{tag}}$ system against the initial $e^+e^-$ system is calculated in the center-of-mass frame; this recoil momentum is constrained to the $\pi^0$ mass, corresponding to the missing $\pi^0_{\text{pred}}$; subsequently, the $\pi^+\pi^-$ system together with the $\pi^0_{\text{tag}}$ is constrained to the center-of-mass system.
+\end{itemize}
+The 1C kinematic fit is required to satisfy $\chi^2 < 15$. After the fit, the four-momentum of the $\pi^0_{\text{pred}}$ is updated. The invariant mass of the $\pi^+\pi^-\pi^0_{\text{pred}}$ system is then calculated, and events are required to have this invariant mass within the $\omega$ meson mass window of $0.7$--$0.86$\,GeV.
+
+Before applying the momentum-dependent efficiency study, we first examine the overall $\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distribution without requiring a matching reconstructed $\pi^0$ in the predicted direction. Figure~\ref{fig:pi0_eff_full} shows this distribution for all events passing the selection criteria, with data, MC, and estimated background contributions overlaid. The signal region $0.7$--$0.86$\,GeV exhibits a clean peak with negligible background, confirming the purity of the control sample.
+
+\begin{figure}[htbp]
+\centering
+\subfloat[]{
+\includegraphics[width=0.48\textwidth]{fig/pi0_eff_full.eps}
+\label{fig:pi0_eff_full}
+}
+\hfill
+\subfloat[]{
+\includegraphics[width=0.48\textwidth]{fig/pi0_eff_dalpha.eps}
+\label{fig:pi0_eff_dalpha}
+}
+\caption{(a) Full $\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distribution for all selected events, showing data (points), MC (green), and estimated background (other colors). The vertical dashed lines indicate the $\omega$ mass window used for event selection. (b) Angular separation $\Delta \theta$ between the predicted $\pi^0_{\text{pred}}$ direction and additional reconstructed $\pi^0$ candidates. The vertical dashed line indicates the $20^\circ$ matching cone used in this analysis.}
+\label{fig:pi0_eff_combined}
+\end{figure}
+
+To associate a reconstructed $\pi^0$ with the predicted $\pi^0_{\text{pred}}$, we examine the angular separation $\Delta \theta$ between the direction of the predicted $\pi^0_{\text{pred}}$ and any additional reconstructed $\pi^0$ candidate (excluding the $\pi^0_{\text{tag}}$). Figure~\ref{fig:pi0_eff_dalpha} shows the distribution of this angular separation for events where an additional $\pi^0$ is found. A clear peak at small angles is observed, corresponding to correctly matched $\pi^0$ candidates. Based on this distribution, we define a matching cone of $20^\circ$: if an additional reconstructed $\pi^0$ lies within $20^\circ$ of the predicted direction, it is considered as the reconstructed $\pi^0_{\text{pred}}$.
+
+For each momentum bin, Fig.~\ref{fig:pi0_eff_bins} shows the $\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distribution for events where a matching reconstructed $\pi^0$ is found within the $20^\circ$ cone. The distributions for $p_{\pi^0} < 0.2$\,GeV, $0.2 \le p_{\pi^0} < 0.4$\,GeV, $0.4 \le p_{\pi^0} < 0.6$\,GeV, $0.6 \le p_{\pi^0} < 0.8$\,GeV, $0.8 \le p_{\pi^0} < 1.0$\,GeV, $1.0 \le p_{\pi^0} < 1.2$\,GeV, $1.2 \le p_{\pi^0} < 1.4$\,GeV, and $p_{\pi^0} \ge 1.4$\,GeV all show clean signal peaks, demonstrating that the matching procedure is effective for the entire momentum range.
+
+\begin{figure}[htbp]
+\centering
+\subfloat[Bin 0: $p < 0.2$\,GeV]{
+\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_0.eps}
+\label{fig:pi0_eff_bin0}
+}
+\hfill
+\subfloat[Bin 1: $0.2 \le p < 0.4$\,GeV]{
+\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_1.eps}
+\label{fig:pi0_eff_bin1}
+}
+\hfill
+\subfloat[Bin 2: $0.4 \le p < 0.6$\,GeV]{
+\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_2.eps}
+\label{fig:pi0_eff_bin2}
+}
+\\
+\subfloat[Bin 3: $0.6 \le p < 0.8$\,GeV]{
+\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_3.eps}
+\label{fig:pi0_eff_bin3}
+}
+\hfill
+\subfloat[Bin 4: $0.8 \le p < 1.0$\,GeV]{
+\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_4.eps}
+\label{fig:pi0_eff_bin4}
+}
+\hfill
+\subfloat[Bin 5: $1.0 \le p < 1.2$\,GeV]{
+\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_5.eps}
+\label{fig:pi0_eff_bin5}
+}
+\\
+\subfloat[Bin 6: $1.2 \le p < 1.4$\,GeV]{
+\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_6.eps}
+\label{fig:pi0_eff_bin6}
+}
+\hfill
+\subfloat[Bin 7: $p \ge 1.4$\,GeV]{
+\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_7.eps}
+\label{fig:pi0_eff_bin7}
+}
+\caption{$\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distributions for events with a matching reconstructed $\pi^0$ within $20^\circ$, shown for each $\pi^0_{\text{pred}}$ momentum bin. Data (points), MC (histogram), and background (shaded) are overlaid. The vertical dashed lines indicate the $\omega$ mass window used for event selection.}
+\label{fig:pi0_eff_bins}
+\end{figure}
+
+Given the negligible background in the signal region, the $\pi^0$ reconstruction efficiency can be directly determined by counting events. For each momentum bin, we define:
+\begin{itemize}
+    \item $N_{\text{data}}^{\text{total}}(p)$: number of data events in the $\omega$ mass window, regardless of whether a matching $\pi^0$ is found.
+    \item $N_{\text{data}}^{\text{matched}}(p)$: number of data events in the $\omega$ mass window with a matching reconstructed $\pi^0$ within $20^\circ$ of the predicted direction.
+    \item $N_{\text{MC}}^{\text{total}}(p)$ and $N_{\text{MC}}^{\text{matched}}(p)$: corresponding quantities for MC.
+\end{itemize}
+
+The efficiencies in data and MC are then computed as:
+\begin{equation}
+\varepsilon_{\text{data}}(p) = \frac{N_{\text{data}}^{\text{matched}}(p)}{N_{\text{data}}^{\text{total}}(p)}, \quad
+\varepsilon_{\text{MC}}(p) = \frac{N_{\text{MC}}^{\text{matched}}(p)}{N_{\text{MC}}^{\text{total}}(p)}.
+\label{eq:pi0_efficiency}
+\end{equation}
+
+The correction factor for $\pi^0$ reconstruction is then derived as the ratio of data efficiency to MC efficiency:
+\begin{equation}
+c_{\pi^0}(p) = \frac{\varepsilon_{\text{data}}(p)}{\varepsilon_{\text{MC}}(p)}.
+\label{eq:pi0_correction}
+\end{equation}
+
+The calculated efficiencies and correction factors are presented in Table~\ref{tab:pi0_correction}. Each entry is shown as central value $\pm$ its statistical uncertainty.
+
+\begin{table}[htbp]
+    \begin{center}
+        \caption{The $\pi^0$ reconstruction efficiencies in data and MC, and the derived correction factors with their statistical uncertainties for different $\pi^0$ momentum intervals.}
+        \vspace{4mm}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{c | c | c | c}
+            \hline \hline
+            $p_{\pi^0}$ (GeV) & $\varepsilon_{\text{data}}$ & $\varepsilon_{\text{MC}}$ & $c_{\pi^0}$ \\
+            \hline
+            $< 0.2$ & $0.3892 \pm 0.0080$ & $0.3958 \pm 0.0064$ & $0.9833 \pm 0.0254$ \\
+            \hline
+            $0.2$ -- $0.4$ & $0.4579 \pm 0.0061$ & $0.4782 \pm 0.0050$ & $0.9575 \pm 0.0168$ \\
+            \hline
+            $0.4$ -- $0.6$ & $0.5442 \pm 0.0067$ & $0.5636 \pm 0.0059$ & $0.9656 \pm 0.0163$ \\
+            \hline
+            $0.6$ -- $0.8$ & $0.6265 \pm 0.0068$ & $0.6471 \pm 0.0060$ & $0.9682 \pm 0.0150$ \\
+            \hline
+            $0.8$ -- $1.0$ & $0.6946 \pm 0.0068$ & $0.7124 \pm 0.0060$ & $0.9750 \pm 0.0142$ \\
+            \hline
+            $1.0$ -- $1.2$ & $0.7540 \pm 0.0074$ & $0.7785 \pm 0.0064$ & $0.9685 \pm 0.0139$ \\
+            \hline
+            $1.2$ -- $1.4$ & $0.8089 \pm 0.0094$ & $0.8161 \pm 0.0082$ & $0.9912 \pm 0.0167$ \\
+            \hline
+            $\ge 1.4$ & $0.8017 \pm 0.0215$ & $0.8574 \pm 0.0155$ & $0.9350 \pm 0.0283$ \\
+            \hline \hline
+        \end{tabular}
+        \label{tab:pi0_correction}
+    \end{center}
+\end{table}
+
+
+% Unlike the migration matrix $A_{ij}$, which only counts events that are successfully reconstructed, the efficiency correction must account for all generated events, including those lost due to detector inefficiencies. Therefore, we apply the correction at the generator level to the full MC sample before filling the migration matrix. For each generated event, we assign a weight:
+% \begin{equation}
+% w = c_{\text{trk}}(\pi^+) \cdot c_{\text{pid}}(\pi^+) \cdot c_{\text{trk}}(\pi^-) \cdot c_{\text{pid}}(\pi^-),
+% \label{eq:tracking_pid_weight}
+% \end{equation}
+% where each factor depends on the momentum of the corresponding pion. This weight represents the factor by which the event's contribution should be scaled in data relative to MC.
+
+% The corrected migration matrix is then filled using these weights:
+% \begin{equation}
+% A_{ij}^{\text{corr}} = \sum_{\text{generated events in true bin }j} w \cdot \mathbb{I}(\text{event reconstructed in bin }i),
+% \label{eq:corrected_migration}
+% \end{equation}
+% where $\mathbb{I}$ is the indicator function. This procedure ensures that events failing reconstruction are properly accounted for through their absence from the migration matrix, while the weights adjust the relative normalization between data and MC. The corrected response matrix $P_{ij}^{\text{corr}}$ is obtained by applying Eq.~\eqref{eq:response_matrix_norm} to $A_{ij}^{\text{corr}}$.

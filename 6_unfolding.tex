@@ -44,9 +44,9 @@ where $n_d$ is the number of reconstructed bins.
 \label{fig:migration_matrices}
 \end{figure}
 
-\subsection{Unfolding the generator-level yield with IDS}
+\subsection{The IDS unfolding method}
 
-To extract the generator-level yield $\left( \frac{dN}{dm} \right)_{j}^{\text{gen}}$ from the observed yields $\left( \frac{dN}{dm} \right)_{i}^{\text{obs}}$ and the response matrix $P_{ij}$, we employ the Iterative Dynamically Stabilized (IDS) unfolding method~\cite{...}. This section introduces the mathematical formulation of the method; the specific implementation, parameter optimization, and iteration strategy are described in the following sections.
+To extract the generator-level yield $\left( \frac{dN}{dm} \right)_{j}^{\text{gen}}$ from the observed yields $\left( \frac{dN}{dm} \right)_{i}^{\text{obs}}$ and the response matrix $P_{ij}$, we employ the Iterative Dynamically Stabilized (IDS) unfolding method~\cite{Malaescu2009}. This section introduces the mathematical formulation of the method; the specific implementation, parameter optimization, and iteration strategy are described in the following sections.
 
 From the MC simulation, we have constructed the migration matrix $A_{ij}$ (shown in Fig.~\ref{fig:migration_matrices}) and the response matrix $P_{ij}$ normalized column-wise as in Eq.~\eqref{eq:response_matrix_norm}. The corresponding unfolding matrix is defined row-wise:
 \begin{equation}
