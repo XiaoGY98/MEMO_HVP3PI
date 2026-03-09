@@ -8,11 +8,11 @@ With the optimized unfolding parameters determined from the MC validation studie
 
 The tracking and PID efficiencies for charged pions are adopted from the dedicated study in Ref.~\cite{BESIII_tracking_pid_2024}, where they are measured using $D^0\bar{D}^0$ and $D^+D^-$ events. The kinematic coverage of that study matches the momentum range of charged pions in this analysis. For each momentum bin, the correction factors $c_{\text{trk}}(p)$ and $c_{\text{pid}}(p)$ are derived separately for tracking and PID.
 
-\subsection{$\pi^0$ reconstruction efficiency}
+\subsection{The $\pi^0$ reconstruction efficiency}
 
 The reconstruction efficiency for $\pi^0$ mesons is studied using a dedicated control sample of $e^+e^- \to \omega \pi^0_{\text{tag}}$ events at $\sqrt{s} = 3.773$\,GeV, with $\omega \to \pi^+\pi^-\pi^0_{\text{pred}}$. This process provides a clean environment to study $\pi^0$ efficiency due to the distinct kinematic properties of the two neutral pions: the $\pi^0_{\text{tag}}$ carries approximately half of the center-of-mass momentum, while the $\pi^0_{\text{pred}}$ from $\omega$ decay has a momentum spectrum ranging from 0 to $\sqrt{s}/2$, making it well suited for a momentum-dependent efficiency study.
 
-The measurement is performed independently for each data-taking period (rounds 0304, 15, 16, and 17) using the $\psi(3770)$ data sample. The selection criteria are as follows:
+The measurement is performed independently for each data-taking period (rounds 0304, 15, 16, and 17) using the $3.773$ GeV data sample. The selection criteria are as follows:
 \begin{itemize}
     \item The selection requirements for charged pions and $\pi^0$ reconstruction are identical to those used in the signal channel $e^+e^- \to \pip\pim\piz$.
     \item Events are required to have at least one reconstructed $\pi^0$ candidate.
@@ -25,18 +25,18 @@ The 1C kinematic fit is required to satisfy $\chi^2 < 15$. After the fit, the fo
 Before applying the momentum-dependent efficiency study, we first examine the overall $\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distribution without requiring a matching reconstructed $\pi^0$ in the predicted direction. Figure~\ref{fig:pi0_eff_full} shows this distribution for all events passing the selection criteria, with data, MC, and estimated background contributions overlaid. The signal region $0.7$--$0.86$\,GeV exhibits a clean peak with negligible background, confirming the purity of the control sample.
 
 \begin{figure}[htbp]
-\centering
-\subfloat[]{
-\includegraphics[width=0.48\textwidth]{fig/pi0_eff_full.eps}
-\label{fig:pi0_eff_full}
-}
-\hfill
-\subfloat[]{
-\includegraphics[width=0.48\textwidth]{fig/pi0_eff_dalpha.eps}
-\label{fig:pi0_eff_dalpha}
-}
-\caption{(a) Full $\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distribution for all selected events, showing data (points), MC (green), and estimated background (other colors). The vertical dashed lines indicate the $\omega$ mass window used for event selection. (b) Angular separation $\Delta \theta$ between the predicted $\pi^0_{\text{pred}}$ direction and additional reconstructed $\pi^0$ candidates. The vertical dashed line indicates the $20^\circ$ matching cone used in this analysis.}
-\label{fig:pi0_eff_combined}
+    \centering
+    \subfloat[]{
+        \includegraphics[width=0.48\textwidth]{fig/pi0_eff_full.eps}
+        \label{fig:pi0_eff_full}
+    }
+    \hfill
+    \subfloat[]{
+        \includegraphics[width=0.48\textwidth]{fig/pi0_eff_dalpha.eps}
+        \label{fig:pi0_eff_dalpha}
+    }
+    \caption{(a) Full $\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distribution for all selected events, showing data (points), MC (green), and estimated background (other colors). The vertical dashed lines indicate the $\omega$ mass window used for event selection. (b) Angular separation $\Delta \theta$ between the predicted $\pi^0_{\text{pred}}$ direction and additional reconstructed $\pi^0$ candidates. The vertical dashed line indicates the $20^\circ$ matching cone used in this analysis.}
+    \label{fig:pi0_eff_combined}
 \end{figure}
 
 To associate a reconstructed $\pi^0$ with the predicted $\pi^0_{\text{pred}}$, we examine the angular separation $\Delta \theta$ between the direction of the predicted $\pi^0_{\text{pred}}$ and any additional reconstructed $\pi^0$ candidate (excluding the $\pi^0_{\text{tag}}$). Figure~\ref{fig:pi0_eff_dalpha} shows the distribution of this angular separation for events where an additional $\pi^0$ is found. A clear peak at small angles is observed, corresponding to correctly matched $\pi^0$ candidates. Based on this distribution, we define a matching cone of $20^\circ$: if an additional reconstructed $\pi^0$ lies within $20^\circ$ of the predicted direction, it is considered as the reconstructed $\pi^0_{\text{pred}}$.
@@ -44,48 +44,48 @@ To associate a reconstructed $\pi^0$ with the predicted $\pi^0_{\text{pred}}$, w
 For each momentum bin, Fig.~\ref{fig:pi0_eff_bins} shows the $\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distribution for events where a matching reconstructed $\pi^0$ is found within the $20^\circ$ cone. The distributions for $p_{\pi^0} < 0.2$\,GeV, $0.2 \le p_{\pi^0} < 0.4$\,GeV, $0.4 \le p_{\pi^0} < 0.6$\,GeV, $0.6 \le p_{\pi^0} < 0.8$\,GeV, $0.8 \le p_{\pi^0} < 1.0$\,GeV, $1.0 \le p_{\pi^0} < 1.2$\,GeV, $1.2 \le p_{\pi^0} < 1.4$\,GeV, and $p_{\pi^0} \ge 1.4$\,GeV all show clean signal peaks, demonstrating that the matching procedure is effective for the entire momentum range.
 
 \begin{figure}[htbp]
-\centering
-\subfloat[Bin 0: $p < 0.2$\,GeV]{
-\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_0.eps}
-\label{fig:pi0_eff_bin0}
-}
-\hfill
-\subfloat[Bin 1: $0.2 \le p < 0.4$\,GeV]{
-\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_1.eps}
-\label{fig:pi0_eff_bin1}
-}
-\hfill
-\subfloat[Bin 2: $0.4 \le p < 0.6$\,GeV]{
-\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_2.eps}
-\label{fig:pi0_eff_bin2}
-}
-\\
-\subfloat[Bin 3: $0.6 \le p < 0.8$\,GeV]{
-\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_3.eps}
-\label{fig:pi0_eff_bin3}
-}
-\hfill
-\subfloat[Bin 4: $0.8 \le p < 1.0$\,GeV]{
-\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_4.eps}
-\label{fig:pi0_eff_bin4}
-}
-\hfill
-\subfloat[Bin 5: $1.0 \le p < 1.2$\,GeV]{
-\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_5.eps}
-\label{fig:pi0_eff_bin5}
-}
-\\
-\subfloat[Bin 6: $1.2 \le p < 1.4$\,GeV]{
-\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_6.eps}
-\label{fig:pi0_eff_bin6}
-}
-\hfill
-\subfloat[Bin 7: $p \ge 1.4$\,GeV]{
-\includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_7.eps}
-\label{fig:pi0_eff_bin7}
-}
-\caption{$\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distributions for events with a matching reconstructed $\pi^0$ within $20^\circ$, shown for each $\pi^0_{\text{pred}}$ momentum bin. Data (points), MC (histogram), and background (shaded) are overlaid. The vertical dashed lines indicate the $\omega$ mass window used for event selection.}
-\label{fig:pi0_eff_bins}
+    \centering
+    \subfloat[Bin 0: $p < 0.2$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_0.eps}
+        \label{fig:pi0_eff_bin0}
+    }
+    \hfill
+    \subfloat[Bin 1: $0.2 \le p < 0.4$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_1.eps}
+        \label{fig:pi0_eff_bin1}
+    }
+    \hfill
+    \subfloat[Bin 2: $0.4 \le p < 0.6$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_2.eps}
+        \label{fig:pi0_eff_bin2}
+    }
+    \\
+    \subfloat[Bin 3: $0.6 \le p < 0.8$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_3.eps}
+        \label{fig:pi0_eff_bin3}
+    }
+    \hfill
+    \subfloat[Bin 4: $0.8 \le p < 1.0$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_4.eps}
+        \label{fig:pi0_eff_bin4}
+    }
+    \hfill
+    \subfloat[Bin 5: $1.0 \le p < 1.2$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_5.eps}
+        \label{fig:pi0_eff_bin5}
+    }
+    \\
+    \subfloat[Bin 6: $1.2 \le p < 1.4$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_6.eps}
+        \label{fig:pi0_eff_bin6}
+    }
+    \hfill
+    \subfloat[Bin 7: $p \ge 1.4$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/found_pi0_massomega_bin_7.eps}
+        \label{fig:pi0_eff_bin7}
+    }
+    \caption{$\pi^+\pi^-\pi^0_{\text{pred}}$ invariant mass distributions for events with a matching reconstructed $\pi^0$ within $20^\circ$, shown for each $\pi^0_{\text{pred}}$ momentum bin. Data (points), MC (green), and estimated background (other colors) are overlaid. The vertical dashed lines indicate the $\omega$ mass window used for event selection.}
+    \label{fig:pi0_eff_bins}
 \end{figure}
 
 Given the negligible background in the signal region, the $\pi^0$ reconstruction efficiency can be directly determined by counting events. For each momentum bin, we define:
@@ -97,15 +97,15 @@ Given the negligible background in the signal region, the $\pi^0$ reconstruction
 
 The efficiencies in data and MC are then computed as:
 \begin{equation}
-\varepsilon_{\text{data}}(p) = \frac{N_{\text{data}}^{\text{matched}}(p)}{N_{\text{data}}^{\text{total}}(p)}, \quad
-\varepsilon_{\text{MC}}(p) = \frac{N_{\text{MC}}^{\text{matched}}(p)}{N_{\text{MC}}^{\text{total}}(p)}.
-\label{eq:pi0_efficiency}
+    \varepsilon_{\text{data}}(p) = \frac{N_{\text{data}}^{\text{matched}}(p)}{N_{\text{data}}^{\text{total}}(p)}, \quad
+    \varepsilon_{\text{MC}}(p) = \frac{N_{\text{MC}}^{\text{matched}}(p)}{N_{\text{MC}}^{\text{total}}(p)}.
+    \label{eq:pi0_efficiency}
 \end{equation}
 
 The correction factor for $\pi^0$ reconstruction is then derived as the ratio of data efficiency to MC efficiency:
 \begin{equation}
-c_{\pi^0}(p) = \frac{\varepsilon_{\text{data}}(p)}{\varepsilon_{\text{MC}}(p)}.
-\label{eq:pi0_correction}
+    c_{\pi^0}(p) = \frac{\varepsilon_{\text{data}}(p)}{\varepsilon_{\text{MC}}(p)}.
+    \label{eq:pi0_correction}
 \end{equation}
 
 The calculated efficiencies and correction factors are presented in Table~\ref{tab:pi0_correction}. Each entry is shown as central value $\pm$ its statistical uncertainty.
@@ -117,29 +117,199 @@ The calculated efficiencies and correction factors are presented in Table~\ref{t
         \renewcommand{\arraystretch}{1.3}
         \begin{tabular}{c | c | c | c}
             \hline \hline
-            $p_{\pi^0}$ (GeV) & $\varepsilon_{\text{data}}$ & $\varepsilon_{\text{MC}}$ & $c_{\pi^0}$ \\
+            $p_{\pi^0}$ (GeV) & $\varepsilon_{\text{data}}$ & $\varepsilon_{\text{MC}}$ & $c_{\pi^0}$         \\
             \hline
-            $< 0.2$ & $0.3892 \pm 0.0080$ & $0.3958 \pm 0.0064$ & $0.9833 \pm 0.0254$ \\
+            $< 0.2$           & $0.3892 \pm 0.0080$         & $0.3958 \pm 0.0064$       & $0.9833 \pm 0.0254$ \\
             \hline
-            $0.2$ -- $0.4$ & $0.4579 \pm 0.0061$ & $0.4782 \pm 0.0050$ & $0.9575 \pm 0.0168$ \\
+            $0.2$ -- $0.4$    & $0.4579 \pm 0.0061$         & $0.4782 \pm 0.0050$       & $0.9575 \pm 0.0168$ \\
             \hline
-            $0.4$ -- $0.6$ & $0.5442 \pm 0.0067$ & $0.5636 \pm 0.0059$ & $0.9656 \pm 0.0163$ \\
+            $0.4$ -- $0.6$    & $0.5442 \pm 0.0067$         & $0.5636 \pm 0.0059$       & $0.9656 \pm 0.0163$ \\
             \hline
-            $0.6$ -- $0.8$ & $0.6265 \pm 0.0068$ & $0.6471 \pm 0.0060$ & $0.9682 \pm 0.0150$ \\
+            $0.6$ -- $0.8$    & $0.6265 \pm 0.0068$         & $0.6471 \pm 0.0060$       & $0.9682 \pm 0.0150$ \\
             \hline
-            $0.8$ -- $1.0$ & $0.6946 \pm 0.0068$ & $0.7124 \pm 0.0060$ & $0.9750 \pm 0.0142$ \\
+            $0.8$ -- $1.0$    & $0.6946 \pm 0.0068$         & $0.7124 \pm 0.0060$       & $0.9750 \pm 0.0142$ \\
             \hline
-            $1.0$ -- $1.2$ & $0.7540 \pm 0.0074$ & $0.7785 \pm 0.0064$ & $0.9685 \pm 0.0139$ \\
+            $1.0$ -- $1.2$    & $0.7540 \pm 0.0074$         & $0.7785 \pm 0.0064$       & $0.9685 \pm 0.0139$ \\
             \hline
-            $1.2$ -- $1.4$ & $0.8089 \pm 0.0094$ & $0.8161 \pm 0.0082$ & $0.9912 \pm 0.0167$ \\
+            $1.2$ -- $1.4$    & $0.8089 \pm 0.0094$         & $0.8161 \pm 0.0082$       & $0.9912 \pm 0.0167$ \\
             \hline
-            $\ge 1.4$ & $0.8017 \pm 0.0215$ & $0.8574 \pm 0.0155$ & $0.9350 \pm 0.0283$ \\
+            $\ge 1.4$         & $0.8017 \pm 0.0215$         & $0.8574 \pm 0.0155$       & $0.9350 \pm 0.0283$ \\
             \hline \hline
         \end{tabular}
         \label{tab:pi0_correction}
     \end{center}
 \end{table}
 
+\subsection{The ISR photon detection efficiency}
+
+The ISR photon detection efficiency is studied using the same control sample of $e^+e^- \to \omega \pi^0$ events at $\sqrt{s} = 3.773$\,GeV, with $\omega \to \pi^+\pi^-\pi^0$. Unlike the previous $\pi^0$ efficiency study which tagged one $\pi^0$ and studied the other from $\omega$ decay, here we identify one $\pi^0$ as coming from $\omega$ decay and study the photon detection efficiency using the two photons from the decay of the remaining $\pi^0$. This remaining $\pi^0$, which balances the $\omega$ in the event, carries approximately half of the center-of-mass energy ($\sqrt{s}/2$).
+
+The measurement is performed independently for each data-taking period using the $3.773$ GeV data sample. The selection criteria are as follows:
+\begin{itemize}
+    \item The selection requirements for charged pions are identical to those used in the signal channel $e^+e^- \to \pip\pim\piz$.
+
+    \item Events are required to have at least one reconstructed $\pi^0$ candidate.
+
+    \item For each reconstructed $\pi^0$ candidate, the invariant mass of the $\pi^+\pi^-$ system combined with this $\pi^0$ is calculated. Among all $\pi^0$ candidates, the one that yields an invariant mass closest to the nominal $\omega$ mass and within $\pm0.3$\,GeV is identified as originating from the $\omega$ decay ($\pi^0_{\omega}$).
+
+    \item The other $\pi^0$ in the event (denoted as $\pi^0_{\text{bal}}$) balances the $\omega$ system and has a characteristic energy of approximately $\sqrt{s}/2$. It decays into two photons: $\pi^0_{\text{bal}} \to \gamma\gamma$. Note that this $\pi^0_{\text{bal}}$ itself is not required to be reconstructed; we only study its decay photons, and its existence is inferred from the $\omega$ system and momentum conservation.
+
+    \item All remaining photon candidates in the event (excluding those used in $\pi^0_{\omega}$ reconstruction) are considered as potential tagged photons. For each such photon candidate, we treat it as the tagged photon ($\gamma_{\text{tag}}$) and perform a 2C kinematic fit where the other photon ($\gamma_{\text{pred}}$) is inferred via momentum conservation.
+
+    \item A 2C kinematic fit is performed for each photon candidate with the following constraints:
+          \begin{itemize}
+              \item The invariant mass of the missing momentum (corresponding to $\gamma_{\text{pred}}$) is constrained to zero (photon mass).
+              \item The invariant mass of the tagged photon and the predicted photon is constrained to the $\pi^0$ mass.
+              \item The total four-momentum of the event is constrained to the center-of-mass system ($\sqrt{s} = 3.773$\,GeV).
+          \end{itemize}
+
+    \item Entries with $\chi^2 < 5$ from the kinematic fit are classified as good entries. Events are required to have at least one good entry.
+
+    \item For events with multiple good entries, the two with the smallest $\chi^2$ are retained. From these two, the entry with the smaller tagged photon energy (correspondingly larger predicted photon energy) is selected for further analysis. This selection ensures that the predicted photon energy lies in the region of interest above 1\,GeV.
+
+    \item The selected entry is required to satisfy the kinematic fit quality $\chi^2 < 5$.
+\end{itemize}
+
+Before applying the energy-dependent efficiency study, we first examine the overall $\pi^+\pi^-\pi^0_{\omega}$ invariant mass distribution without requiring a matching reconstructed photon in the predicted direction. Figure~\ref{fig:isr_eff_full} shows this distribution for all events passing the selection criteria, with data, MC, and estimated background contributions overlaid. The signal region $0.7$--$0.86$\,GeV exhibits a clean peak with negligible background, confirming the purity of the control sample.
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[]{
+        \includegraphics[width=0.48\textwidth]{fig/isr_eff_full.eps}
+        \label{fig:isr_eff_full}
+    }
+    \hfill
+    \subfloat[]{
+        \includegraphics[width=0.48\textwidth]{fig/isr_eff_dalpha.eps}
+        \label{fig:isr_eff_dalpha}
+    }
+    \caption{(a) Full $\pi^+\pi^-\pi^0_{\omega}$ invariant mass distribution for all selected events, showing data (points), MC (green), and estimated background (other colors). The vertical dashed lines indicate the $\omega$ mass window used for event selection. (b) Angular separation $\Delta \theta$ between the predicted photon $\gamma_{\text{pred}}$ direction and reconstructed photon candidates. The vertical dashed line indicates the $4^\circ$ matching cone used in this analysis.}
+    \label{fig:isr_eff_combined}
+\end{figure}
+
+To associate a reconstructed photon with the predicted photon $\gamma_{\text{pred}}$, we examine the angular separation $\Delta \theta$ between the direction of the predicted photon and any reconstructed photon candidate (excluding those used in $\pi^0_{\omega}$ reconstruction). Figure~\ref{fig:isr_eff_dalpha} shows the distribution of this angular separation for events where a photon is found. A clear peak at small angles is observed, corresponding to correctly matched photon candidates. Based on this distribution, we define a matching cone of $4\circ$: if a reconstructed photon lies within $4^\circ$ of the predicted direction, it is considered as the reconstructed $\gamma_{\text{pred}}$.
+
+For each energy bin, Fig.~\ref{fig:isr_eff_bins} shows the $\pi^+\pi^-\pi^0_{\omega}$ invariant mass distribution for events where a matching reconstructed photon is found within the $4^\circ$ cone. The distributions for $1.0 \le E_{\gamma} < 1.1$\,GeV, $1.1 \le E_{\gamma} < 1.2$\,GeV, $1.2 \le E_{\gamma} < 1.3$\,GeV, $1.3 \le E_{\gamma} < 1.4$\,GeV, $1.4 \le E_{\gamma} < 1.5$\,GeV, $1.5 \le E_{\gamma} < 1.6$\,GeV, $1.6 \le E_{\gamma} < 1.7$\,GeV, and $E_{\gamma} \ge 1.8$\,GeV all show clean signal peaks, demonstrating that the matching procedure is effective for the entire energy range.
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[Bin 1: $1.0 \le E < 1.1$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/notcare_photon_massomega_bin_0.eps}
+        \label{fig:isr_eff_bin1}
+    }
+    \hfill
+    \subfloat[Bin 2: $1.1 \le E < 1.2$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/notcare_photon_massomega_bin_1.eps}
+        \label{fig:isr_eff_bin2}
+    }
+    \hfill
+    \subfloat[Bin 3: $1.2 \le E < 1.3$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/notcare_photon_massomega_bin_2.eps}
+        \label{fig:isr_eff_bin3}
+    }
+    \\
+    \subfloat[Bin 4: $1.3 \le E < 1.4$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/notcare_photon_massomega_bin_3.eps}
+        \label{fig:isr_eff_bin4}
+    }
+    \hfill
+    \subfloat[Bin 5: $1.4 \le E < 1.5$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/notcare_photon_massomega_bin_4.eps}
+        \label{fig:isr_eff_bin5}
+    }
+    \hfill
+    \subfloat[Bin 6: $1.5 \le E < 1.6$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/notcare_photon_massomega_bin_5.eps}
+        \label{fig:isr_eff_bin6}
+    }
+    \\
+    \subfloat[Bin 7: $1.6 \le E < 1.7$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/notcare_photon_massomega_bin_6.eps}
+        \label{fig:isr_eff_bin7}
+    }
+    \hfill
+    \subfloat[Bin 8: $E \ge 1.8$\,GeV]{
+        \includegraphics[width=0.32\textwidth]{fig/notcare_photon_massomega_bin_7.eps}
+        \label{fig:isr_eff_bin8}
+    }
+    \caption{$\pi^+\pi^-\pi^0_{\omega}$ invariant mass distributions for events with a matching reconstructed photon within $4^\circ$, shown for each predicted photon energy bin. Data (points), MC (green), and estimated background (other colors) are overlaid. The vertical dashed lines indicate the $\omega$ mass window used for event selection.}
+    \label{fig:isr_eff_bins}
+\end{figure}
+
+Given the negligible background in the signal region, the photon detection efficiency can be directly determined by counting events. For each energy bin, we define:
+\begin{itemize}
+    \item $N_{\text{data}}^{\text{total}}(E)$: number of data events in the $\omega$ mass window, regardless of whether a matching photon is found.
+    \item $N_{\text{data}}^{\text{matched}}(E)$: number of data events in the $\omega$ mass window with a matching reconstructed photon within $4^\circ$ of the predicted direction.
+    \item $N_{\text{MC}}^{\text{total}}(E)$ and $N_{\text{MC}}^{\text{matched}}(E)$: corresponding quantities for MC.
+\end{itemize}
+
+The efficiencies in data and MC are then computed as:
+\begin{equation}
+    \varepsilon_{\text{data}}(E) = \frac{N_{\text{data}}^{\text{matched}}(E)}{N_{\text{data}}^{\text{total}}(E)}, \quad
+    \varepsilon_{\text{MC}}(E) = \frac{N_{\text{MC}}^{\text{matched}}(E)}{N_{\text{MC}}^{\text{total}}(E)}.
+    \label{eq:isr_efficiency}
+\end{equation}
+
+The correction factor for photon detection is then derived as the ratio of data efficiency to MC efficiency:
+\begin{equation}
+    c_{\gamma}(E) = \frac{\varepsilon_{\text{data}}(E)}{\varepsilon_{\text{MC}}(E)}.
+    \label{eq:isr_correction}
+\end{equation}
+
+The calculated efficiencies and correction factors are presented in Table~\ref{tab:isr_correction}. Each entry is shown as central value $\pm$ its statistical uncertainty.
+
+\begin{table}[htbp]
+    \begin{center}
+        \caption{The photon detection efficiencies in data and MC, and the derived correction factors with their statistical uncertainties for different photon energy intervals. The correction factor uncertainties are calculated using error propagation.}
+        \vspace{4mm}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{c | c | c | c}
+            \hline \hline
+            $E_{\gamma}$ (GeV) & $\varepsilon_{\text{data}}$ & $\varepsilon_{\text{MC}}$ & $c_{\gamma}$        \\
+            \hline
+            $1.0$ -- $1.1$     & $0.9744 \pm 0.0036$         & $0.9791 \pm 0.0027$       & $0.9952 \pm 0.0045$ \\
+            \hline
+            $1.1$ -- $1.2$     & $0.9726 \pm 0.0038$         & $0.9799 \pm 0.0026$       & $0.9926 \pm 0.0046$ \\
+            \hline
+            $1.2$ -- $1.3$     & $0.9755 \pm 0.0035$         & $0.9798 \pm 0.0026$       & $0.9956 \pm 0.0044$ \\
+            \hline
+            $1.3$ -- $1.4$     & $0.9724 \pm 0.0037$         & $0.9799 \pm 0.0026$       & $0.9923 \pm 0.0045$ \\
+            \hline
+            $1.4$ -- $1.5$     & $0.9748 \pm 0.0035$         & $0.9821 \pm 0.0025$       & $0.9926 \pm 0.0043$ \\
+            \hline
+            $1.5$ -- $1.6$     & $0.9796 \pm 0.0032$         & $0.9873 \pm 0.0021$       & $0.9922 \pm 0.0039$ \\
+            \hline
+            $1.6$ -- $1.7$     & $0.9690 \pm 0.0040$         & $0.9846 \pm 0.0024$       & $0.9842 \pm 0.0047$ \\
+            \hline
+            $\ge 1.8$          & $0.9740 \pm 0.0040$         & $0.9824 \pm 0.0028$       & $0.9915 \pm 0.0049$ \\
+            \hline \hline
+        \end{tabular}
+        \label{tab:isr_correction}
+    \end{center}
+\end{table}
+
+\subsection{PHOKHARA Extra Photon Fraction}
+
+A BaBar study of the PHOKHARA generator used for signal simulation found a 20\% excess of events with an additional energetic ISR photon along the beam line, in PHOKHARA relative to data in their \( e^+e^- \to \pi^+\pi^- \) process~\cite{PhysRevD.108.L111103}. The ISR-based analysis at BaBar is not impacted as it relied on a different generator, but given that our signal process \( e^+e^- \to \pi^+\pi^-\pi^0 \) is also simulated using PHOKHARA and involves ISR photon emission, this discrepancy warrants a cross-check in our analysis.
+
+To investigate this effect in our channel, we examine the fraction of events with an additional ISR photon directly within our signal process \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}} \). This corresponds to studying events of the type \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}} \), where two ISR photons are present in the final state. NNLO contributions are not considered, as their production probability is significantly lower and the additional photons are typically too soft to be reliably identified given our detector resolution and event statistics. Moreover, the limited data sample size does not provide sufficient statistical power to meaningfully extract an NNLO contribution.
+
+In this study, we rely on the ISR photon identified through the 4C kinematic fit procedure described in Sec.~\ref{sec:selections}, which selects the optimal candidate event and tags the leading order (LO) ISR photon with high confidence. Based on this tagged photon, we proceed to investigate the presence of additional photons in the event.
+
+Due to the finite coverage of the BESIII electromagnetic calorimeter, the study of NLO photons is divided into two independent categories based on their angular distribution:
+
+\begin{itemize}
+    \item \textbf{Large Angle (LA) category}: NLO photons emitted at large angles fall within the detector acceptance and can be directly reconstructed from electromagnetic showers. In the candidate selection, no special treatment is applied beyond the standard reconstruction: among all photon candidates in the event, the one that minimizes the 4C kinematic fit \(\chi^2\) when included in the fit is identified as the NLO LA photon candidate. The kinematic fit for LA events is performed in the laboratory frame, constraining the total four-momentum of all final state particles (\(\pi^+\), \(\pi^-\), \(\pi^0\), the LO ISR photon, and the NLO LA photon) to the initial \(e^+e^-\) center-of-mass energy.
+
+    \item \textbf{Small Angle (SA) category}: NLO photons emitted at very small angles along the beam direction escape detection, and their kinematic properties must be inferred indirectly. The momentum of this undetected photon is calculated from the missing momentum, with the constraint that its transverse components are zero in the center-of-mass frame (\(p_x^{\text{CM}} = p_y^{\text{CM}} = 0\)). It is important to note that the beam direction in the laboratory frame is not aligned with the definition of transverse momentum in this context; therefore, we first boost the event to the center-of-mass frame, enforce the transverse momentum condition, and then boost back to the laboratory frame to obtain the four-momentum of the SA photon. The particle is further constrained to have zero mass (photon identity). A 3C kinematic fit is then performed in the laboratory frame, including the detected particles \(\pi^+\), \(\pi^-\), \(\pi^0\), and the LO ISR photon, together with the inferred SA photon, to enforce overall energy and momentum conservation.
+\end{itemize}
+
+\subsubsection{Results for Large Angle (LA) NLO photons}
+
+
+
+\subsubsection{Results for Small Angle (SA) NLO photons}
+to fill
 
 % Unlike the migration matrix $A_{ij}$, which only counts events that are successfully reconstructed, the efficiency correction must account for all generated events, including those lost due to detector inefficiencies. Therefore, we apply the correction at the generator level to the full MC sample before filling the migration matrix. For each generated event, we assign a weight:
 % \begin{equation}
