@@ -294,22 +294,83 @@ A BaBar study of the PHOKHARA generator used for signal simulation found a 20\% 
 
 To investigate this effect in our channel, we examine the fraction of events with an additional ISR photon directly within our signal process \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}} \). This corresponds to studying events of the type \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}} \), where two ISR photons are present in the final state. NNLO contributions are not considered, as their production probability is significantly lower and the additional photons are typically too soft to be reliably identified given our detector resolution and event statistics. Moreover, the limited data sample size does not provide sufficient statistical power to meaningfully extract an NNLO contribution.
 
-In this study, we rely on the ISR photon identified through the 4C kinematic fit procedure described in Sec.~\ref{sec:selections}, which selects the optimal candidate event and tags the leading order (LO) ISR photon with high confidence. Based on this tagged photon, we proceed to investigate the presence of additional photons in the event.
+In this study, we rely on the ISR photon identified through the 4C kinematic fit procedure described in Sec.~\ref{sec:selections}, which selects the optimal candidate event and tags the leading order (LO) ISR photon with high confidence. Based on this tagged photon, we proceed to investigate the presence of additional photons in the event. Due to the finite coverage of the BESIII electromagnetic calorimeter, the study of NLO photons is divided into two independent categories based on their angular distribution.
 
-Due to the finite coverage of the BESIII electromagnetic calorimeter, the study of NLO photons is divided into two independent categories based on their angular distribution:
+\subsubsection{Large Angle NLO Photons}
 
+NLO photons emitted at large angles fall within the detector acceptance and can be directly reconstructed from electromagnetic showers. Events containing a large-angle NLO photon are selected by first inverting the nominal signal criterion described in Sec.~\ref{sec:selections}: we require the 4C kinematic fit under the \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}} \) hypothesis to have \(\chi^2 > 50\), as events passing the \(\chi^2 < 50\) signal selection are, by construction, depleted of additional photons. From this complementary sample, we identify the NLO photon candidate as the extra reconstructed photon that minimizes the \(\chi^2\) of a subsequent 4C kinematic fit to the \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}} \) hypothesis, which explicitly includes both ISR photons in the final state. The kinematic fit is performed in the laboratory frame, constraining the total four-momentum of all final state particles (\(\pi^+\), \(\pi^-\), \(\pi^0\), the LO ISR photon, and the NLO LA photon) to the initial \(e^+e^-\) center-of-mass energy. To ensure a well-reconstructed NLO topology, we further require this 4C fit to satisfy \(\chi^2 < 50\).
+
+To suppress background contributions from events where the two ISR photons originate from \(\pi^0\) or \(\eta\) decays, we examine the invariant mass squared distribution of the LO and NLO LA photon pair, \(M^2(\gamma_{\text{ISR}}\gamma_{\text{NLO}})\). Clear peaks corresponding to the \(\pi^0\) and \(\eta\) mesons are observed, as shown in Fig.~\ref{fig:twoISRgamma_M2}. Accordingly, we apply veto requirements of \(M^2(\gamma_{\text{ISR}}\gamma_{\text{NLO}}) < 0.05\)~GeV\(^2/c^4\) to exclude the \(\pi^0\) region, and \(0.23 < M^2(\gamma_{\text{ISR}}\gamma_{\text{NLO}}) < 0.33\)~GeV\(^2/c^4\) to exclude the \(\eta\) region.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/m2_2gam_isr3pi_NLOLA.eps}
+    \caption{Invariant mass squared distribution of the two ISR photons.}
+    \label{fig:twoISRgamma_M2}
+\end{figure}
+
+To further validate the selection and extract the NLO LA photon yield, we examine the invariant mass squared of the missing system: the total laboratory four-momentum minus the sum of the \(\pi^+\), \(\pi^-\), \(\pi^0\), and LO ISR photon four-momenta. For signal events, the remaining system corresponds exactly to the NLO ISR photon, and this quantity should therefore peak at zero. Figure~\ref{fig:miss_mass_squared_dist} shows this distribution for events passing the inverted single-ISR selection (\(\chi^2 > 50\)) with an additional photon candidate.
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[]{
+        \includegraphics[width=0.48\textwidth]{fig/m2_gammiss_ISRLA.eps}
+        \label{fig:miss_mass_squared_dist}
+    }
+    \hfill
+    \subfloat[]{
+        \includegraphics[width=0.48\textwidth]{fig/la_nlo_fit_result.eps}
+        \label{fig:miss_mass_squared_fit}
+    }
+    \caption{(a) Invariant mass squared of the missing system (total momentum minus \(\pi^+\pi^-\pi^0\gamma_{\text{ISR}}\)). (b) Fit to the distribution.}
+    \label{fig:miss_mass_squared}
+\end{figure}
+
+To extract the signal yield, we perform a fit to this distribution, as shown in Figure~\ref{fig:miss_mass_squared_fit}:
 \begin{itemize}
-    \item \textbf{Large Angle (LA) category}: NLO photons emitted at large angles fall within the detector acceptance and can be directly reconstructed from electromagnetic showers. In the candidate selection, no special treatment is applied beyond the standard reconstruction: among all photon candidates in the event, the one that minimizes the 4C kinematic fit \(\chi^2\) when included in the fit is identified as the NLO LA photon candidate. The kinematic fit for LA events is performed in the laboratory frame, constraining the total four-momentum of all final state particles (\(\pi^+\), \(\pi^-\), \(\pi^0\), the LO ISR photon, and the NLO LA photon) to the initial \(e^+e^-\) center-of-mass energy.
-
-    \item \textbf{Small Angle (SA) category}: NLO photons emitted at very small angles along the beam direction escape detection, and their kinematic properties must be inferred indirectly. The momentum of this undetected photon is calculated from the missing momentum, with the constraint that its transverse components are zero in the center-of-mass frame (\(p_x^{\text{CM}} = p_y^{\text{CM}} = 0\)). It is important to note that the beam direction in the laboratory frame is not aligned with the definition of transverse momentum in this context; therefore, we first boost the event to the center-of-mass frame, enforce the transverse momentum condition, and then boost back to the laboratory frame to obtain the four-momentum of the SA photon. The particle is further constrained to have zero mass (photon identity). A 3C kinematic fit is then performed in the laboratory frame, including the detected particles \(\pi^+\), \(\pi^-\), \(\pi^0\), and the LO ISR photon, together with the inferred SA photon, to enforce overall energy and momentum conservation.
+    \item The signal shape is taken from simulated \(e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}}\) events and convolved with a Gaussian to account for possible resolution differences between data and MC. The signal yield is left free in the fit. The Gaussian resolution parameters are extracted from the fit.
+    \item The dominant background from \(e^+e^- \to \pi^+\pi^-\pi^0\pi^0\) events is modeled using the shape extracted from simulation. Its yield is constrained using a Gaussian penalty term based on the expected number of events, calculated from the luminosity, the cross-section, and the selection efficiency estimated from MC, with a Poisson error incorporated to account for statistical fluctuations.
+    \item All other remaining background contributions are modeled using shapes extracted from MC samples, with their yields left free in the fit.
 \end{itemize}
 
-\subsubsection{Results for Large Angle (LA) NLO photons}
+The fitted NLO LA signal yield is $379 \pm 63$. The large uncertainty is due to the low production rate of these events and the significant photon background, which makes it difficult to improve the significance.
 
 
 
-\subsubsection{Results for Small Angle (SA) NLO photons}
-to fill
+\subsubsection{Small Angle NLO Photons}
+
+NLO photons emitted at very small angles along the beam direction escape detection, and their kinematic properties must be inferred indirectly. The momentum of this undetected photon is calculated from the missing momentum, with the constraint that its transverse components are zero in the center-of-mass frame (\(p_x^{\text{CM}} = p_y^{\text{CM}} = 0\)). It is important to note that the beam direction in the laboratory frame is not aligned with the definition of transverse momentum in this context; therefore, we first boost the event to the center-of-mass frame, enforce the transverse momentum condition, and then boost back to the laboratory frame to obtain the four-momentum of the SA photon. The particle is further constrained to have zero mass (photon identity). A 3C kinematic fit is then performed in the laboratory frame, including the detected particles \(\pi^+\), \(\pi^-\), \(\pi^0\), and the LO ISR photon, together with the inferred SA photon, to enforce overall energy and momentum conservation.
+
+\subsubsection{Data-MC Comparison of NLO Photon Fractions}
+
+Following the selection procedures described above for both LA and SA categories, we obtain samples of events containing an identified NLO ISR photon. For each category, we define the NLO photon fraction as:
+
+\[
+    R_{\text{NLO}} = \frac{N_{e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}}}}{N_{e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}}}
+\]
+
+where the denominator corresponds to events passing the nominal signal selection (4C fit \(\chi^2 < 50\) with a single ISR photon), and the numerator is the number of events from this sample that also satisfy the respective LA or SA NLO photon selection criteria. The fractions are computed separately for data and for the PHOKHARA signal MC sample.
+
+Table~\ref{tab:nlo_fraction} presents the measured NLO photon fractions for both categories. The statistical uncertainties are calculated assuming Poisson statistics. To quantify the level of agreement between data and simulation, we compute the ratio \(R_{\text{NLO}}^{\text{Data}} / R_{\text{NLO}}^{\text{MC}}\) for each category.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lcc}
+        \hline
+        Category         & \(R_{\text{NLO}}^{\text{Data}}\) & \(R_{\text{NLO}}^{\text{MC}}\) \\
+        \hline
+        Large Angle (LA) & \(0.XX \pm 0.XX\)                & \(0.XX \pm 0.XX\)              \\
+        Small Angle (SA) & \(0.XX \pm 0.XX\)                & \(0.XX \pm 0.XX\)              \\
+        \hline
+    \end{tabular}
+    \caption{Comparison of NLO photon fractions between data and PHOKHARA MC for large angle and small angle categories.}
+    \label{tab:nlo_fraction}
+\end{table}
+
+The observed ratios indicate whether PHOKHARA overestimates or underestimates the production of additional ISR photons in our channel. A significant deviation from unity, particularly in the small angle category where the BaBar effect was observed, would suggest a similar discrepancy in our simulation. This comparison serves as an important cross-check of the generator's accuracy for our signal process and will inform any necessary adjustments to systematic uncertainties associated with ISR modeling.
+
+
+
 
 % Unlike the migration matrix $A_{ij}$, which only counts events that are successfully reconstructed, the efficiency correction must account for all generated events, including those lost due to detector inefficiencies. Therefore, we apply the correction at the generator level to the full MC sample before filling the migration matrix. For each generated event, we assign a weight:
 % \begin{equation}
