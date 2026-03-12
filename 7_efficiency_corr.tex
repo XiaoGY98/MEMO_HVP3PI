@@ -341,6 +341,34 @@ The fitted NLO LA signal yield is $379 \pm 63$. The large uncertainty is due to 
 
 NLO photons emitted at very small angles along the beam direction escape detection, and their kinematic properties must be inferred indirectly. The momentum of this undetected photon is calculated from the missing momentum, with the constraint that its transverse components are zero in the center-of-mass frame (\(p_x^{\text{CM}} = p_y^{\text{CM}} = 0\)). It is important to note that the beam direction in the laboratory frame is not aligned with the definition of transverse momentum in this context; therefore, we first boost the event to the center-of-mass frame, enforce the transverse momentum condition, and then boost back to the laboratory frame to obtain the four-momentum of the SA photon. The particle is further constrained to have zero mass (photon identity). A 3C kinematic fit is then performed in the laboratory frame, including the detected particles \(\pi^+\), \(\pi^-\), \(\pi^0\), and the LO ISR photon, together with the inferred SA photon, to enforce overall energy and momentum conservation.
 
+Events containing a small-angle NLO photon are selected by first inverting the nominal signal criterion described in Sec.~\ref{sec:selections}: we require the 4C kinematic fit under the \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}} \) hypothesis to have \(\chi^2 > 50\). From this complementary sample, we infer the SA photon candidate using the missing momentum technique described above. To ensure a well-constrained NLO topology, we require the 3C kinematic fit to satisfy \(\chi^2 < 5\). Additionally, we examine the angular distribution of the inferred SA photon in the center-of-mass frame and require \(|\cos\theta_{\gamma_{\text{NLO}}}^{\text{CM}}| > 0.99\), consistent with the small-angle region where photons escape detection.
+
+To further validate the selection and extract the NLO SA photon yield, we examine the energy distribution of the inferred SA photon, \(E_{\gamma_{\text{NLO}}}^{\text{lab}}\). For signal events, this energy should exhibit a characteristic spectrum determined by the NLO radiation process. Figure~\ref{fig:sa_photon_energy} shows this distribution for events passing the inverted single-ISR selection and the additional SA photon requirements.
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[]{
+        \includegraphics[width=0.48\textwidth]{fig/NLO_SA_Energy.eps}
+        \label{fig:sa_photon_energy_dist}
+    }
+    \hfill
+    \subfloat[]{
+        \includegraphics[width=0.48\textwidth]{fig/sa_nlo_fit_result.eps}
+        \label{fig:sa_photon_energy_fit}
+    }
+    \caption{(a) Laboratory energy distribution of the inferred SA photon candidate. (b) Fit to the distribution.}
+    \label{fig:sa_photon_energy}
+\end{figure}
+
+To extract the signal yield, we perform a fit to this distribution, as shown in Figure~\ref{fig:sa_photon_energy_fit}:
+\begin{itemize}
+    \item The signal shape is taken from simulated \(e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}}\) events and convolved with a Gaussian to account for possible resolution differences between data and MC. The signal yield is left free in the fit. The Gaussian resolution parameters are extracted from the fit.
+    \item The dominant background from \(e^+e^- \to \pi^+\pi^-\pi^0\pi^0\) events is modeled using the shape extracted from simulation. Its yield is constrained using a Gaussian penalty term based on the expected number of events, calculated from the luminosity, the cross-section, and the selection efficiency estimated from MC, with a Poisson error incorporated to account for statistical fluctuations.
+    \item All other remaining background contributions are modeled using shapes extracted from MC samples, with their yields left free in the fit.
+\end{itemize}
+
+The fitted NLO SA signal yield is $771 \pm 53$. 
+
 \subsubsection{Data-MC Comparison of NLO Photon Fractions}
 
 Following the selection procedures described above for both LA and SA categories, we obtain samples of events containing an identified NLO ISR photon. For each category, we define the NLO photon fraction as:
