@@ -2,7 +2,7 @@
 \section{Correction of response matrix, and unfolding of data}
 \label{sec:eff_corr}
 
-With the optimized unfolding parameters determined from the MC validation studies (summarized in Table~\ref{tab:optimized_parameters}), we now proceed to unfold the data. However, before applying the IDS method to data, several corrections must be applied to the response matrix derived from MC simulation to account for discrepancies between data and MC. These discrepancies arise from various sources: the tracking efficiency of charged particles, PID performance, the reconstruction efficiency of neutral $\pi^0$ mesons, the detection efficiency of ISR photons, and differences in the production rate of additional ISR photons (NLO) between the Phokhara generator and data. The following subsections address each of these corrections in detail.
+With the optimized unfolding parameters determined from the MC validation studies (summarized in Table~\ref{tab:optimized_parameters}), we now proceed to unfold the data. However, before applying the IDS method to data, several corrections must be applied to the response matrix derived from MC simulation to account for discrepancies between data and MC. These discrepancies arise from various sources: the tracking efficiency of charged particles, PID performance, the reconstruction efficiency of neutral $\pi^0$ mesons, the detection efficiency of ISR photons, differences in the production rate of additional ISR photons (NLO) between the Phokhara generator and data, and the discrepancy in the $\chi^2_{4C}$ distribution between data and MC. The following subsections address each of these corrections in detail.
 
 \subsection{Tracking and PID efficiencies}
 
@@ -294,11 +294,12 @@ A BaBar study of the PHOKHARA generator used for signal simulation found a 20\% 
 
 To investigate this effect in our channel, we examine the fraction of events with an additional ISR photon directly within our signal process \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}} \). This corresponds to studying events of the type \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}} \), where two ISR photons are present in the final state. NNLO contributions are not considered, as their production probability is significantly lower and the additional photons are typically too soft to be reliably identified given our detector resolution and event statistics. Moreover, the limited data sample size does not provide sufficient statistical power to meaningfully extract an NNLO contribution.
 
-In this study, we rely on the ISR photon identified through the 4C kinematic fit procedure described in Sec.~\ref{sec:selections}, which selects the optimal candidate event and tags the leading order (LO) ISR photon with high confidence. Based on this tagged photon, we proceed to investigate the presence of additional photons in the event. Due to the finite coverage of the BESIII electromagnetic calorimeter, the study of NLO photons is divided into two independent categories based on their angular distribution.
+In this study, we rely on the ISR photon identified through the 4C kinematic fit procedure described in Sec.~\ref{sec:selections}, which selects the optimal candidate event and tags the leading order (LO) ISR photon with high confidence. Based on this tagged photon, we proceed to investigate the presence of additional photons in the event. Due to the finite coverage of the BESIII electromagnetic calorimeter, the study of NLO photons is divided into two independent categories based on their angular distribution. As this study focuses on the intrinsic discrepancy between data and the PHOKHARA generator, the potential differences between different data-taking rounds are not considered. We perform this investigation using the Round16 dataset and assume the observed effect is representative and can be generalized to the other rounds.
 
 \subsubsection{Large Angle NLO Photons}
+\label{sec:nlo_la}
 
-NLO photons emitted at large angles fall within the detector acceptance and can be directly reconstructed from electromagnetic showers. Events containing a large-angle NLO photon are selected by first inverting the nominal signal criterion described in Sec.~\ref{sec:selections}: we require the 4C kinematic fit under the \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}} \) hypothesis to have \(\chi^2 > 50\), as events passing the \(\chi^2 < 50\) signal selection are, by construction, depleted of additional photons. From this complementary sample, we identify the NLO photon candidate as the extra reconstructed photon that minimizes the \(\chi^2\) of a subsequent 4C kinematic fit to the \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}} \) hypothesis, which explicitly includes both ISR photons in the final state. The kinematic fit is performed in the laboratory frame, constraining the total four-momentum of all final state particles (\(\pi^+\), \(\pi^-\), \(\pi^0\), the LO ISR photon, and the NLO LA photon) to the initial \(e^+e^-\) center-of-mass energy. To ensure a well-reconstructed NLO topology, we further require this 4C fit to satisfy \(\chi^2 < 50\).
+NLO photons emitted at large angles fall within the detector acceptance and can be directly reconstructed from electromagnetic showers. Events containing a large-angle NLO photon are selected by first inverting the nominal signal criterion described in Sec.~\ref{sec:selections}: we require the 4C kinematic fit under the \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}} \) hypothesis to have \(\chi^2 > 50\), as events passing the \(\chi^2 < 50\) signal selection are, by construction, depleted of additional photons. From this complementary sample, we identify the NLO photon candidate as the extra reconstructed photon that minimizes the \(\chi^2\) of a subsequent 4C kinematic fit to the \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}} \) hypothesis, which explicitly includes both ISR photons in the final state. The kinematic fit is performed in the laboratory frame, constraining the total four-momentum of all final state particles (\(\pi^+\), \(\pi^-\), \(\pi^0\), the LO ISR photon, and the NLO LA photon) to the initial \(e^+e^-\) center-of-mass energy. To ensure a well-reconstructed NLO topology, we further require this 4C fit to satisfy \(\chi^2 < 50\). The invariant mass $M(\pi^+\pi^-\pi^0)$ must be within the range $0.7 < M(3\pi) < 2.0$~GeV/$c^2$.
 
 To suppress background contributions from events where the two ISR photons originate from \(\pi^0\) or \(\eta\) decays, we examine the invariant mass squared distribution of the LO and NLO LA photon pair, \(M^2(\gamma_{\text{ISR}}\gamma_{\text{NLO}})\). Clear peaks corresponding to the \(\pi^0\) and \(\eta\) mesons are observed, as shown in Fig.~\ref{fig:twoISRgamma_M2}. Accordingly, we apply veto requirements of \(M^2(\gamma_{\text{ISR}}\gamma_{\text{NLO}}) < 0.05\)~GeV\(^2/c^4\) to exclude the \(\pi^0\) region, and \(0.23 < M^2(\gamma_{\text{ISR}}\gamma_{\text{NLO}}) < 0.33\)~GeV\(^2/c^4\) to exclude the \(\eta\) region.
 
@@ -338,8 +339,9 @@ The fitted NLO LA signal yield is $379 \pm 63$. The large uncertainty is due to 
 
 
 \subsubsection{Small Angle NLO Photons}
+\label{sec:nlo_sa}
 
-NLO photons emitted at very small angles along the beam direction escape detection, and their kinematic properties must be inferred indirectly. The momentum of this undetected photon is calculated from the missing momentum, with the constraint that its transverse components are zero in the center-of-mass frame (\(p_x^{\text{CM}} = p_y^{\text{CM}} = 0\)). It is important to note that the beam direction in the laboratory frame is not aligned with the definition of transverse momentum in this context; therefore, we first boost the event to the center-of-mass frame, enforce the transverse momentum condition, and then boost back to the laboratory frame to obtain the four-momentum of the SA photon. The particle is further constrained to have zero mass (photon identity). A 3C kinematic fit is then performed in the laboratory frame, including the detected particles \(\pi^+\), \(\pi^-\), \(\pi^0\), and the LO ISR photon, together with the inferred SA photon, to enforce overall energy and momentum conservation.
+NLO photons emitted at very small angles along the beam direction escape detection, and their kinematic properties must be inferred indirectly. The momentum of this undetected photon is calculated from the missing momentum, with the constraint that its transverse components are zero in the center-of-mass frame (\(p_x^{\text{CM}} = p_y^{\text{CM}} = 0\)). It is important to note that the beam direction in the laboratory frame is not aligned with the definition of transverse momentum in this context; therefore, we first boost the event to the center-of-mass frame, enforce the transverse momentum condition, and then boost back to the laboratory frame to obtain the four-momentum of the SA photon. The particle is further constrained to have zero mass (photon identity). A 3C kinematic fit is then performed in the laboratory frame, including the detected particles \(\pi^+\), \(\pi^-\), \(\pi^0\), and the LO ISR photon, together with the inferred SA photon, to enforce overall energy and momentum conservation. The invariant mass $M(\pi^+\pi^-\pi^0)$ must be within the range $0.7 < M(3\pi) < 2.0$~GeV/$c^2$.
 
 Events containing a small-angle NLO photon are selected by first inverting the nominal signal criterion described in Sec.~\ref{sec:selections}: we require the 4C kinematic fit under the \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}} \) hypothesis to have \(\chi^2 > 50\). From this complementary sample, we infer the SA photon candidate using the missing momentum technique described above. To ensure a well-constrained NLO topology, we require the 3C kinematic fit to satisfy \(\chi^2 < 5\). Additionally, we examine the angular distribution of the inferred SA photon in the center-of-mass frame and require \(|\cos\theta_{\gamma_{\text{NLO}}}^{\text{CM}}| > 0.99\), consistent with the small-angle region where photons escape detection.
 
@@ -367,38 +369,89 @@ To extract the signal yield, we perform a fit to this distribution, as shown in 
     \item All other remaining background contributions are modeled using shapes extracted from MC samples, with their yields left free in the fit.
 \end{itemize}
 
-The fitted NLO SA signal yield is $771 \pm 53$. 
+The fitted NLO SA signal yield is $771 \pm 53$.
 
 \subsubsection{Data-MC Comparison of NLO Photon Fractions}
 
-Following the selection procedures described above for both LA and SA categories, we obtain samples of events containing an identified NLO ISR photon. For each category, we define the NLO photon fraction as:
+Following the selection procedures described above for both LA and SA categories, we obtain samples of events containing an identified NLO ISR photon in data. To compare the production rates between data and the PHOKHARA generator, we need to account for the overall selection efficiency that encompasses both detector effects and reconstruction requirements.
+
+Using the PHOKHARA MC sample, we first classify events at generator level according to the criteria defined as follows, with an additional requirement on the invariant mass of the three pions consistent with our analysis region:
+\begin{itemize}
+    \item The invariant mass $M(\pi^+\pi^-\pi^0)$ must be within the range $0.7 < M(3\pi) < 2.0$~GeV/$c^2$.
+    \item \textbf{LO events}: Events with no NLO photon, or where the NLO photon energy is below 0.05~GeV.
+    \item \textbf{NLO LA events}: Events with a NLO photon of energy $\ge$ 0.05~GeV and $|\cos\theta_{\gamma_{\text{NLO}}}| < 0.99$.
+    \item \textbf{NLO SA events}: Events with a NLO photon of energy $\ge$ 0.05~GeV and $|\cos\theta_{\gamma_{\text{NLO}}}| > 0.99$.
+\end{itemize}
+
+For each category, we determine the overall selection efficiency $\varepsilon_i$ from the PHOKHARA MC sample, defined as the fraction of generator-level events in that category that pass the corresponding reconstruction and selection criteria described in the previous sections. These efficiencies are assumed to be consistent between data and MC.
+
+The yields in data for each category ($N_i^{\text{Data, reco}}$) are obtained from the fits described in Sections~\ref{sec:nlo_la} and~\ref{sec:nlo_sa} for NLO LA and SA categories, while the LO yield in data is taken from the nominal signal selection (4C fit $\chi^2 < 50$ with a single ISR photon). Using the MC-determined efficiencies, we can obtain the generator-level yields in data:
 
 \[
-    R_{\text{NLO}} = \frac{N_{e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}}}}{N_{e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}}}
+    N_i^{\text{Data, gen}} = \frac{N_i^{\text{Data, reco}}}{\varepsilon_i}
 \]
 
-where the denominator corresponds to events passing the nominal signal selection (4C fit \(\chi^2 < 50\) with a single ISR photon), and the numerator is the number of events from this sample that also satisfy the respective LA or SA NLO photon selection criteria. The fractions are computed separately for data and for the PHOKHARA signal MC sample.
+where $i$ denotes the event category (LO, NLO LA, or NLO SA). The total number of generated events in data is then the sum over all categories:
 
-Table~\ref{tab:nlo_fraction} presents the measured NLO photon fractions for both categories. The statistical uncertainties are calculated assuming Poisson statistics. To quantify the level of agreement between data and simulation, we compute the ratio \(R_{\text{NLO}}^{\text{Data}} / R_{\text{NLO}}^{\text{MC}}\) for each category.
+\[
+    N_{\text{total}}^{\text{Data, gen}} = \sum_i N_i^{\text{Data, gen}}
+\]
+
+The fraction of events in each category at generator level is then calculated as:
+
+\[
+    f_i^{\text{Data}} = \frac{N_i^{\text{Data, gen}}}{N_{\text{total}}^{\text{Data, gen}}}
+\]
+
+These fractions represent the true production rates of LO, NLO LA, and NLO SA events in data, corrected for selection efficiencies.
+
+For comparison, we directly compute the generator-level fractions from the PHOKHARA MC sample using the truth-level classification (including the same $M(3\pi)$ requirement):
+
+\[
+    f_i^{\text{MC}} = \frac{N_i^{\text{MC, gen}}}{N_{\text{total}}^{\text{MC, gen}}}
+\]
+
+where $N_i^{\text{MC, gen}}$ are the counts of MC events in each truth category satisfying the $M(3\pi)$ requirement, and $N_{\text{total}}^{\text{MC, gen}}$ is the total number of generated MC events within the same $M(3\pi)$ range.
+
+Table~\ref{tab:nlo_fraction} presents the comparison between data and MC for the three categories. The statistical uncertainties on $f_i^{\text{Data}}$ are propagated from the uncertainties on the fitted yields and the statistical uncertainties on the efficiencies. The uncertainties on $f_i^{\text{MC}}$ are purely statistical from the MC sample size.
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{lcc}
+    \caption{Selection efficiencies and generator-level event fractions for LO, NLO LA, and NLO SA categories. The efficiencies are determined from PHOKHARA MC and represent the fraction of generator-level events that pass the corresponding reconstruction and selection criteria. The MC fractions are normalized such that $f_{\text{LO}} + f_{\text{NLO LA}} + f_{\text{NLO SA}} = 100\%$.}
+    \vspace{4mm}
+    \begin{tabular}{lcccc}
         \hline
-        Category         & \(R_{\text{NLO}}^{\text{Data}}\) & \(R_{\text{NLO}}^{\text{MC}}\) \\
+        Category & Efficiency (\%)   & $f_i^{\text{MC}}$ (\%) & $f_i^{\text{Data}}$ (\%) & $c_{\text{NLO}}$          \\
         \hline
-        Large Angle (LA) & \(0.XX \pm 0.XX\)                & \(0.XX \pm 0.XX\)              \\
-        Small Angle (SA) & \(0.XX \pm 0.XX\)                & \(0.XX \pm 0.XX\)              \\
+        LO       & $3.092 \pm 0.006$ & $76.879 \pm 0.032$     & $87.408 \pm 0.903$       & $1.137 \pm 0.012$ \\
+        NLO LA   & $0.275 \pm 0.006$ & $6.543 \pm 0.007$      & $5.376 \pm 0.853$        & $0.822 \pm 0.130$ \\
+        NLO SA   & $0.417 \pm 0.004$ & $16.578 \pm 0.012$     & $7.216 \pm 0.471$        & $0.435 \pm 0.028$ \\
         \hline
     \end{tabular}
-    \caption{Comparison of NLO photon fractions between data and PHOKHARA MC for large angle and small angle categories.}
+
     \label{tab:nlo_fraction}
 \end{table}
 
-The observed ratios indicate whether PHOKHARA overestimates or underestimates the production of additional ISR photons in our channel. A significant deviation from unity, particularly in the small angle category where the BaBar effect was observed, would suggest a similar discrepancy in our simulation. This comparison serves as an important cross-check of the generator's accuracy for our signal process and will inform any necessary adjustments to systematic uncertainties associated with ISR modeling.
+The ratios $f_i^{\text{Data}} / f_i^{\text{MC}}$ reveal a discrepancy between data and the PHOKHARA generator simulation. We observe that PHOKHARA overestimates the production rate of events with additional ISR photons, consistent with the findings from the BaBar study~\cite{PhysRevD.108.L111103}. This discrepancy will be corrected in the unfolding procedure through the response matrix.
 
 
+\subsection{The $\chi^2_{4C}$ distribution}
+The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is corrected following the method established in a dedicated study using $e^+e^- \to K^+K^-\pi^+\pi^-$ events~\cite{BESIII_chisq4C_correction_2025}. That analysis, performed under BOSS version 7.1.2, investigated the differences in helix parameters between data and MC simulation across various data-taking periods at the center-of-mass energy of 3.773~GeV. For the signal process $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$, we apply helix parameter corrections to the charged tracks. Figures~\ref{fig:chisq4c_before} and~\ref{fig:chisq4c_after} show the comparison of $\chi^2_{4C}$ distributions between data and MC before and after the correction, respectively. As illustrated, a slight improvement in the agreement between data and MC is observed in the low $\chi^2_{4C}$ region, where the majority of events are populated, after applying the helix parameter corrections.
 
+\begin{figure}[htbp]
+    \centering
+    \subfloat[Before correction]{
+        \includegraphics[width=0.48\textwidth]{fig/LO_kmfit4C_comparison_comparison.eps}
+        \label{fig:chisq4c_before}
+    }
+    \hfill
+    \subfloat[After correction]{
+        \includegraphics[width=0.48\textwidth]{fig/LO_kmfit4C_corr_comparison_comparison.eps}
+        \label{fig:chisq4c_after}
+    }
+    \caption{Comparison of $\chi^2_{4C}$ distributions between data and MC for the $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$ process (a) before and (b) after applying helix parameter corrections.}
+    \label{fig:chisq4c_comparison}
+\end{figure}
 
 % Unlike the migration matrix $A_{ij}$, which only counts events that are successfully reconstructed, the efficiency correction must account for all generated events, including those lost due to detector inefficiencies. Therefore, we apply the correction at the generator level to the full MC sample before filling the migration matrix. For each generated event, we assign a weight:
 % \begin{equation}
