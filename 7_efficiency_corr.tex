@@ -423,20 +423,19 @@ Table~\ref{tab:nlo_fraction} presents the comparison between data and MC for the
         \hline
         Category & Efficiency (\%)   & $f_i^{\text{MC}}$ (\%) & $f_i^{\text{Data}}$ (\%) & $c_{\text{NLO}}$          \\
         \hline
-        LO       & $3.092 \pm 0.006$ & $76.879 \pm 0.032$     & $87.408 \pm 0.903$       & $1.137 \pm 0.012$ \\
-        NLO LA   & $0.275 \pm 0.006$ & $6.543 \pm 0.007$      & $5.376 \pm 0.853$        & $0.822 \pm 0.130$ \\
-        NLO SA   & $0.417 \pm 0.004$ & $16.578 \pm 0.012$     & $7.216 \pm 0.471$        & $0.435 \pm 0.028$ \\
+        LO       & $3.092 \pm 0.006$ & $76.879 \pm 0.032$     & $87.422 \pm 0.903$       & $1.137 \pm 0.012$ \\
+        NLO LA   & $0.275 \pm 0.006$ & $6.543 \pm 0.007$      & $5.370 \pm 0.852$        & $0.821 \pm 0.130$ \\
+        NLO SA   & $0.417 \pm 0.004$ & $16.578 \pm 0.012$     & $7.207 \pm 0.471$        & $0.435 \pm 0.028$ \\
         \hline
     \end{tabular}
 
     \label{tab:nlo_fraction}
 \end{table}
-
 The ratios $f_i^{\text{Data}} / f_i^{\text{MC}}$ reveal a discrepancy between data and the PHOKHARA generator simulation. We observe that PHOKHARA overestimates the production rate of events with additional ISR photons, consistent with the findings from the BaBar study~\cite{PhysRevD.108.L111103}. This discrepancy will be corrected in the unfolding procedure through the response matrix.
 
 
-\subsection{The $\chi^2_{4C}$ distribution}
-The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is corrected following the method established in a dedicated study using $e^+e^- \to K^+K^-\pi^+\pi^-$ events~\cite{BESIII_chisq4C_correction_2025}. That analysis, performed under BOSS version 7.1.2, investigated the differences in helix parameters between data and MC simulation across various data-taking periods at the center-of-mass energy of 3.773~GeV. For the signal process $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$, we apply helix parameter corrections to the charged tracks. Figures~\ref{fig:chisq4c_before} and~\ref{fig:chisq4c_after} show the comparison of $\chi^2_{4C}$ distributions between data and MC before and after the correction, respectively. As illustrated, a slight improvement in the agreement between data and MC is observed in the low $\chi^2_{4C}$ region, where the majority of events are populated, after applying the helix parameter corrections.
+\subsection{The $\chi^2_{4C}$ distribution and correcting the signal yields}
+The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is corrected following the method established in a dedicated study using $e^+e^- \to K^+K^-\pi^+\pi^-$ events~\cite{BESIII_chisq4C_correction_2025}. That analysis, performed under BOSS version 7.1.2, investigated the differences in helix parameters between data and MC simulation across various data-taking periods at the center-of-mass energy of 3.773~GeV. For the signal process $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$, we apply helix parameter corrections to the charged tracks. Figures~\ref{fig:chisq4c_before} and~\ref{fig:chisq4c_after} show the comparison of $\chi^2_{4C}$ distributions between data and MC before and after the correction, respectively. As illustrated, a slight improvement in the agreement between data and MC is observed in the low $\chi^2_{4C}$ region, where the majority of events are populated, after applying the helix parameter corrections. With these corrections applied to the signal MC, we subsequently impose a selection requirement of $\chi^2_{4C} < 50$ and refit the signal yields in each $M_{3\pi}$ interval.
 
 \begin{figure}[htbp]
     \centering
@@ -453,16 +452,61 @@ The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is correct
     \label{fig:chisq4c_comparison}
 \end{figure}
 
-% Unlike the migration matrix $A_{ij}$, which only counts events that are successfully reconstructed, the efficiency correction must account for all generated events, including those lost due to detector inefficiencies. Therefore, we apply the correction at the generator level to the full MC sample before filling the migration matrix. For each generated event, we assign a weight:
-% \begin{equation}
-% w = c_{\text{trk}}(\pi^+) \cdot c_{\text{pid}}(\pi^+) \cdot c_{\text{trk}}(\pi^-) \cdot c_{\text{pid}}(\pi^-),
-% \label{eq:tracking_pid_weight}
-% \end{equation}
-% where each factor depends on the momentum of the corresponding pion. This weight represents the factor by which the event's contribution should be scaled in data relative to MC.
+The extracted signal yields after applying the $\chi^2_{4C}$ correction and selection are shown in Fig.~\ref{fig:signal_yields_corr} as a function of $M_{3\pi}$. It should be noted that the helix parameter corrections are applied only to the signal MC samples, while the data events remain uncorrected. Clear peaks corresponding to the $\omega(782)$ and $\phi(1020)$ resonances are observed, while the higher-mass region exhibits broader structures indicative of excited $\omega$ states.
 
-% The corrected migration matrix is then filled using these weights:
-% \begin{equation}
-% A_{ij}^{\text{corr}} = \sum_{\text{generated events in true bin }j} w \cdot \mathbb{I}(\text{event reconstructed in bin }i),
-% \label{eq:corrected_migration}
-% \end{equation}
-% where $\mathbb{I}$ is the indicator function. This procedure ensures that events failing reconstruction are properly accounted for through their absence from the migration matrix, while the weights adjust the relative normalization between data and MC. The corrected response matrix $P_{ij}^{\text{corr}}$ is obtained by applying Eq.~\eqref{eq:response_matrix_norm} to $A_{ij}^{\text{corr}}$.
+\begin{figure}[htbp]
+\centering
+\subfloat[$\omega(782)$ region]{
+\includegraphics[width=0.32\textwidth]{fig/yields_omega_corr.eps}
+\label{fig:yields_omega_corr}
+}
+\hfill
+\subfloat[$\phi(1020)$ region]{
+\includegraphics[width=0.32\textwidth]{fig/yields_phi_corr.eps}
+\label{fig:yields_phi_corr}
+}
+\hfill
+\subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
+\includegraphics[width=0.32\textwidth]{fig/yields_high_corr.eps}
+\label{fig:yields_high_corr}
+}
+\caption{Extracted signal yields as a function of $M_{3\pi}$ after applying helix parameter corrections to the signal MC and the $\chi^2_{4C} < 50$ selection requirement. The three mass regions are shown separately. The error bars represent the statistical uncertainties from the fits. The $\omega(782)$ and $\phi(1020)$ resonances appear as clear peaks, while the higher-mass region reveals broader structures corresponding to excited $\omega$ states.}
+\label{fig:signal_yields_corr}
+\end{figure}
+
+\clearpage
+\subsection{Correcting the Response Matrix for Unfolding}
+To construct the migration matrix for unfolding, we start from the signal MC samples that have been corrected for helix parameters and satisfy the $\chi^2_{4C} < 50$ selection requirement. For each truth bin $j$ (defined in $M_{3\pi}$), we have three basic quantities from the original MC:
+\begin{itemize}
+    \item $N_{\text{total},j}$: the total number of generated events in that truth bin (before any corrections);
+    \item $N_{\text{pass},j}$: the number of events that are successfully reconstructed and pass all selection criteria, which are distributed among various reconstructed bins $i$;
+    \item $N_{\text{miss},j} = N_{\text{total},j} - N_{\text{pass},j}$: the number of events that fail reconstruction or selection.
+\end{itemize}
+
+The migration matrix element $A_{ij}$ is intended to represent the number of events that truly belong to bin $j$ and are reconstructed in bin $i$. However, the MC simulation does not perfectly describe data; discrepancies arise from the NLO ISR photon production rate and from the efficiencies of tracking, PID, $\pi^0$ reconstruction, and ISR photon detection. These must be corrected before the matrix can be used for unfolding.
+
+The correction is applied in two steps. First, the NLO photon fraction discrepancy is corrected at the generator level. For each truth bin $j$, the corrected total number of generated events becomes
+\[
+N_{\text{total},j}^{\text{corr}} = c_{\text{NLO}} \cdot N_{\text{total},j},
+\]
+where $c_{\text{NLO}}$ is the bin-dependent NLO correction factor.
+
+Second, each reconstructed event is assigned a weight that accounts for the efficiency corrections:
+\[
+w_p = c_{\text{trk}}(\pi^+) \cdot c_{\text{pid}}(\pi^+) \cdot c_{\text{trk}}(\pi^-) \cdot c_{\text{pid}}(\pi^-) \cdot c_{\pi^0} \cdot c_{\gamma_{\text{ISR}}},
+\]
+where each factor depends on the momentum of the corresponding particle. This weight adjusts the MC reconstruction yield to match the data. The sum of these weights over all reconstructed events originating from truth bin $j$ gives the corrected number of weighted passing events:
+\[
+N_{\text{pass},j}^{\text{corr}} = \sum_{\text{reconstructed events from truth bin }j} w_p.
+\]
+
+To preserve the total number of truth events after correction, the missing events must also be weighted appropriately. Let $w_m$ be the weight applied to each missing event from truth bin $j$. The condition
+\[
+N_{\text{total},j}^{\text{corr}} = N_{\text{pass},j}^{\text{corr}} + w_m \cdot N_{\text{miss},j}
+\]
+yields
+\[
+w_m = \frac{N_{\text{total},j}^{\text{corr}} - N_{\text{pass},j}^{\text{corr}}}{N_{\text{miss},j}}.
+\]
+
+Finally, the corrected migration matrix $A_{ij}^{\text{corr}}$ is filled by iterating over all reconstructed events: for an event from truth bin $j$ that falls into reconstructed bin $i$, we add its weight $w_p$ to $A_{ij}^{\text{corr}}$. The missing events, weighted by $w_m$, are not placed into any reconstructed bin, thereby correctly accounting for the overall efficiency loss. The normalized response matrix $P_{ij}^{\text{corr}}$ is then obtained by applying Eq.~\eqref{eq:response_matrix_norm} to $A_{ij}^{\text{corr}}$.
