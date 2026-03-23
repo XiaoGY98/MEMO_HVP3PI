@@ -108,7 +108,7 @@ The IDS method involves three regularization parameters: $\lambda_L$ for the ini
 \end{enumerate}
 These three steps can be repeated for a chosen number of iterations. 
 
-In this analysis, the four parameters $\lambda_M$, $\lambda_L$, $\lambda_U$, and $n_{\text{iter}}$ are optimized by scanning over a grid of possible values. For each parameter combination $(\lambda_M, \lambda_L, \lambda_U, n_{\text{iter}})$, we perform the IDS unfolding and evaluate the quality of the result using a $\chi^2$ figure of merit. The $\chi^2$ is computed by comparing the unfolded spectrum $u_j$ to the true generator-level distribution $t_j^{\text{truth}}$ from MC simulation. The MC sample used for this comparison has been normalized such that its total integral matches the total number of signal events observed in data (shown in Fig.~\ref{fig:signal_yields}), ensuring that the statistical uncertainties from the toy ensembles properly reflect the data statistics.
+In this analysis, the four parameters $\lambda_M$, $\lambda_L$, $\lambda_U$, and $n_{\text{iter}}$ are optimized by scanning over a grid of possible values. For each parameter combination $(\lambda_M, \lambda_L, \lambda_U, n_{\text{iter}})$, we perform the IDS unfolding and evaluate the quality of the result using a $\chi^2$ figure of merit. The $\chi^2$ is computed by comparing the unfolded spectrum $u_j$ to the true generator-level distribution $t_j^{\text{truth}}$ from the MC simulation. The MC sample used for this comparison has been corrected following the procedure described in Sec.~\ref{sec:correction_method} and is normalized such that its total integral matches the total number of signal events observed in data (shown in Fig.~\ref{fig:signal_yields}), ensuring that the statistical uncertainties from the toy ensembles properly reflect the data statistics.
 
 \begin{equation}
 \chi^2 = \left( \mathbf{u} - \mathbf{t}^{\text{truth}} \right)^T \, \Sigma^{-1} \, \left( \mathbf{u} - \mathbf{t}^{\text{truth}} \right),
@@ -142,11 +142,11 @@ The optimal parameter combination is chosen based on several considerations: the
             \hline \hline
             Region & $\lambda_L$ & $\lambda_U$ & $\lambda_M$ & $n_{\text{iter}}$ & $\chi^2/\text{ndf}$ \\
             \hline
-            $\omega(782)$ & $1\times10^{-3}$ & $1\times10^{-4}$ & $1$ & $4$ & $28.31/40$ \\[2pt] % 添加额外垂直间距
+            $\omega(782)$ & $1\times10^{-2}$ & $1\times10^{-2}$ & $1$ & $4$ & $26.48/40$ \\[2pt] % 添加额外垂直间距
             \hline
-            $\phi(1020)$ & $1\times10^{-4}$ & $1\times10^{-4}$ & $1\times10^{-3}$ & $4$ & $23.86/30$ \\[2pt]
+            $\phi(1020)$ & $1\times10^{-4}$ & $1\times10^{-4}$ & $1\times10^{-2}$ & $4$ & $30.52/30$ \\[2pt]
             \hline
-            $\omega'/\omega''$ & $1\times10^{-3}$ & $1$ & $11$ & $5$ & $76.18/76$ \\[2pt]
+            $\omega'/\omega''$ & $1\times10^{-3}$ & $1$ & $12$ & $6$ & $90.68/76$ \\[2pt]
             \hline \hline
         \end{tabular}
         \label{tab:optimized_parameters}

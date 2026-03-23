@@ -2,7 +2,7 @@
 \section{Correction of response matrix, and unfolding of data}
 \label{sec:eff_corr}
 
-With the optimized unfolding parameters determined from the MC validation studies (summarized in Table~\ref{tab:optimized_parameters}), we now proceed to unfold the data. However, before applying the IDS method to data, several corrections must be applied to the response matrix derived from MC simulation to account for discrepancies between data and MC. These discrepancies arise from various sources: the tracking efficiency of charged particles, PID performance, the reconstruction efficiency of neutral $\pi^0$ mesons, the detection efficiency of ISR photons, differences in the production rate of additional ISR photons (NLO) between the Phokhara generator and data, and the discrepancy in the $\chi^2_{4C}$ distribution between data and MC. The following subsections address each of these corrections in detail.
+With the optimized unfolding parameters determined from the MC validation studies (summarized in Table~\ref{tab:optimized_parameters}), the next step is to apply the necessary corrections to the response matrix before unfolding the data. Since the unfolding procedure relies on the response matrix derived from MC simulation, any discrepancies between data and MC can lead to biased results. Therefore, the MC sample used to construct the response matrix must be corrected to ensure that it accurately reflects the data. These discrepancies arise from various sources: the tracking efficiency of charged particles, PID performance, the reconstruction efficiency of neutral $\pi^0$ mesons, the detection efficiency of ISR photons, differences in the production rate of additional ISR photons (NLO) between the Phokhara generator and data, and the discrepancy in the $\chi^2_{4C}$ distribution between data and MC. The following subsections address each of these corrections in detail.
 
 \subsection{Tracking and PID efficiencies}
 
@@ -476,6 +476,7 @@ The extracted signal yields after applying the $\chi^2_{4C}$ correction and sele
 
 \clearpage
 \subsection{Correcting the Response Matrix for Unfolding}
+\label{sec:correction_method}
 To construct the migration matrix for unfolding, we start from the signal MC samples that have been corrected for helix parameters and satisfy the $\chi^2_{4C} < 50$ selection requirement. For each truth bin $j$ (defined in $M_{3\pi}$), we have three basic quantities from the original MC:
 \begin{itemize}
     \item $N_{\text{total},j}$: the total number of generated events in that truth bin (before any corrections);
