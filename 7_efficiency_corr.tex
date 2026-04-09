@@ -435,6 +435,7 @@ The ratios $f_i^{\text{Data}} / f_i^{\text{MC}}$ reveal a discrepancy between da
 
 
 \subsection{The $\chi^2_{4C}$ distribution and correcting the signal yields}
+\label{corr_signal_yields}
 The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is corrected following the method established in a dedicated study using $e^+e^- \to K^+K^-\pi^+\pi^-$ events~\cite{BESIII_chisq4C_correction_2025}. That analysis, performed under BOSS version 7.1.2, investigated the differences in helix parameters between data and MC simulation across various data-taking periods at the center-of-mass energy of 3.773~GeV. For the signal process $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$, we apply helix parameter corrections to the charged tracks. Figures~\ref{fig:chisq4c_before} and~\ref{fig:chisq4c_after} show the comparison of $\chi^2_{4C}$ distributions between data and MC before and after the correction, respectively. As illustrated, a slight improvement in the agreement between data and MC is observed in the low $\chi^2_{4C}$ region, where the majority of events are populated, after applying the helix parameter corrections. With these corrections applied to the signal MC, we subsequently impose a selection requirement of $\chi^2_{4C} < 50$ and refit the signal yields in each $M_{3\pi}$ interval.
 
 \begin{figure}[htbp]
@@ -511,3 +512,25 @@ w_m = \frac{N_{\text{total},j}^{\text{corr}} - N_{\text{pass},j}^{\text{corr}}}{
 \]
 
 Finally, the corrected migration matrix $A_{ij}^{\text{corr}}$ is filled by iterating over all reconstructed events: for an event from truth bin $j$ that falls into reconstructed bin $i$, we add its weight $w_p$ to $A_{ij}^{\text{corr}}$. The missing events, weighted by $w_m$, are not placed into any reconstructed bin, thereby correctly accounting for the overall efficiency loss. The normalized response matrix $P_{ij}^{\text{corr}}$ is then obtained by applying Eq.~\eqref{eq:response_matrix_norm} to $A_{ij}^{\text{corr}}$.
+
+Using the corrected migration matrix $A_{ij}^{\text{corr}}$, the unfolding of the $M_{3\pi}$ distribution is performed on data from Sec.~\ref{corr_signal_yields}. To avoid edge effects, the mass range for each resonance region is appropriately extended during the unfolding procedure, then truncated back to the nominal interval defined in Tab.~\ref{tab:optimized_parameters} for the final results. Figure~\ref{fig:unfolded_data_results} presents the unfolded $M_{3\pi}$ distributions for data in the three regions.
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[$\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/unfolded_omega.eps}
+        \label{fig:unfolded_omega}
+    }
+    \hfill
+    \subfloat[$\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/unfolded_phi.eps}
+        \label{fig:unfolded_phi}
+    }
+    \hfill
+    \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/unfolded_high.eps}
+        \label{fig:unfolded_high}
+    }
+    \caption{Unfolded $M_{3\pi}$ distributions for data after applying the corrected response matrix. The results are shown only within the nominal mass ranges defined in Tab.~\ref{tab:optimized_parameters}. }
+    \label{fig:unfolded_data_results}
+\end{figure}
