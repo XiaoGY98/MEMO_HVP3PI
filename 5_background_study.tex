@@ -1,3 +1,4 @@
+
 \clearpage
 \section{Background Study}
 \label{sec:bkg_stu}
@@ -90,29 +91,50 @@ confirm that $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ and $e^{+}e^{-} \to
 and to optimize the selection criteria. It is not used to derive the final
 background estimates; precise yields for these two components will be
 determined using data-driven methods.
-
 Based on the rough background estimate from $\mathcal{L} \times
-    \sigma_{\text{hadron}}$, the signal yield was approximated by subtracting the
+\sigma_{\text{hadron}}$, the signal yield was approximated by subtracting the
 background from the data, allowing for a preliminary significance calculation.
 Using this approach, a figure of merit (FOM) defined as $S / \sqrt{S + B}$ was
 constructed to evaluate the signal significance. To optimize the event
 selection, a scan over the kinematic fit $\chi^2$ was performed, with the
-result shown in Fig.~\ref{fig:chisq_optimization}. The Round 16 optimization
-yields an optimal cut of $\chi^{2}_{\mathrm{KF}} < 50$.
+result for Round~16 shown in Fig.~\ref{fig:chisq_optimization_round16}.  
+The Round~16 optimization yields an optimal cut of $\chi^{2}_{\mathrm{KF}} < 50$. 
+As shown in Fig.~\ref{fig:chisq_optimization_rounds}, consistent convergence of 
+significance is also observed for Rounds~03/04, 15, and 17 with the same cut.
 
 \begin{figure}[htbp]
     \centering
     \subfloat[$\chi^2$ distribution for the 4C kinematic fit]{
-        \includegraphics[width=0.48\textwidth]{fig/kmfitchisq.eps}
-        \label{fig:kmfitchisq}
+        \includegraphics[width=0.48\textwidth]{fig/kmfitchisq_round16.eps}
+        \label{fig:kmfitchisq_round16}
     }
     \hfill
     \subfloat[FOM scan as a function of the $\chi^2$ cut]{
-        \includegraphics[width=0.48\textwidth]{fig/OptimizeChisq4C_scan.eps}
-        \label{fig:optimize_chisq_scan}
+        \includegraphics[width=0.48\textwidth]{fig/OptimizeChisq4C_scan_round16.eps}
+        \label{fig:optimize_chisq_scan_round16}
     }
     \caption{(a) Distribution of the kinematic fit $\chi^2$ for the four-constraint (4C) fit using the Round~16 data sample. (b) The corresponding figure of merit ($S/\sqrt{S+B}$) as a function of the applied $\chi^2$ cut value for the Round~16 data.}
-    \label{fig:chisq_optimization}
+    \label{fig:chisq_optimization_round16}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[Round 03/04]{
+        \includegraphics[width=0.40\textwidth]{fig/OptimizeChisq4C_scan_round0304.eps}
+        \label{fig:optimize_chisq_scan_round0304}
+    }
+    \hfill
+    \subfloat[Round 15]{
+        \includegraphics[width=0.40\textwidth]{fig/OptimizeChisq4C_scan_round15.eps}
+        \label{fig:optimize_chisq_scan_round15}
+    }
+    \hfill
+    \subfloat[Round 17]{
+        \includegraphics[width=0.40\textwidth]{fig/OptimizeChisq4C_scan_round17.eps}
+        \label{fig:optimize_chisq_scan_round17}
+    }
+    \caption{FOM ($S/\sqrt{S+B}$) as a function of the applied $\chi^2$ cut value for (a) Round~03/04, (b) Round~15, and (c) Round~17 data samples.}
+    \label{fig:chisq_optimization_rounds}
 \end{figure}
 
 Based on the optimal $\chi^2_{\mathrm{KF}}$ selection, the invariant mass
@@ -141,33 +163,80 @@ studies and distributions are based on the Round~16 data sample.
 The resulting $M_{3\pi}$ invariant mass spectra, after applying all selection
 criteria including the region-specific $\pi^0$ multiplicity cut, are presented
 separately for the three mass regions in
-Fig.~\ref{fig:mass_spectra_regions}.The $e^{+}e^{-} \to
+Fig.~\ref{fig:all_rounds_3pi}. The $e^{+}e^{-} \to
     \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ contribution is negligible and
 will not be treated as a separate background in the subsequent fitting
 procedure; only the non-ISR $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$
 process will be explicitly estimated using data-driven methods and constrained
 in the fit.
-
 \begin{figure}[htbp]
-    \centering
-    \subfloat[$\omega(782)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/mass_spectrum_omega.eps}
-        \label{fig:mass_omega}
-    }
-    \hfill
-    \subfloat[$\phi(1020)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/mass_spectrum_phi.eps}
-        \label{fig:mass_phi}
-    }
-    \hfill
-    \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/mass_spectrum_omegaprime.eps}
-        \label{fig:mass_omegaprime}
-    }
-    \caption{Invariant mass spectra $M_{3\pi}$ for the (a) $\omega(782)$, (b) $\phi(1020)$, and (c) $\omega^{\prime}/\omega^{\prime\prime}$ mass regions obtained from the Round~16 data. The selection for the high-mass region (c) includes the requirement $N_{\pi^0}=1$, while regions (a) and (b) have no $\pi^0$ multiplicity cut.}
-    \label{fig:mass_spectra_regions}
-\end{figure}
+\centering
 
+% === Row 1: Round 03/04 ===
+\subfloat[Round 03/04, $\omega(782)$]{
+    \includegraphics[width=0.32\textwidth]{fig/round0304_omega.eps}
+    \label{fig:r0304_omega}
+}\hfill
+\subfloat[Round 03/04, $\phi(1020)$]{
+    \includegraphics[width=0.32\textwidth]{fig/round0304_phi.eps}
+    \label{fig:r0304_phi}
+}\hfill
+\subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$]{
+    \includegraphics[width=0.32\textwidth]{fig/round0304_omegaprime.eps}
+    \label{fig:r0304_omegaprime}
+}
+
+% \vspace{0.5\baselineskip}
+
+% === Row 2: Round 15 ===
+\subfloat[Round 15, $\omega(782)$]{
+    \includegraphics[width=0.32\textwidth]{fig/round15_omega.eps}
+    \label{fig:r15_omega}
+}\hfill
+\subfloat[Round 15, $\phi(1020)$]{
+    \includegraphics[width=0.32\textwidth]{fig/round15_phi.eps}
+    \label{fig:r15_phi}
+}\hfill
+\subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$]{
+    \includegraphics[width=0.32\textwidth]{fig/round15_omegaprime.eps}
+    \label{fig:r15_omegaprime}
+}
+
+% \vspace{0.5\baselineskip}
+
+% === Row 3: Round 16 ===
+\subfloat[Round 16, $\omega(782)$]{
+    \includegraphics[width=0.32\textwidth]{fig/round16_omega.eps}
+    \label{fig:r16_omega}
+}\hfill
+\subfloat[Round 16, $\phi(1020)$]{
+    \includegraphics[width=0.32\textwidth]{fig/round16_phi.eps}
+    \label{fig:r16_phi}
+}\hfill
+\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$]{
+    \includegraphics[width=0.32\textwidth]{fig/round16_omegaprime.eps}
+    \label{fig:r16_omegaprime}
+}
+
+% \vspace{0.5\baselineskip}
+
+% === Row 4: Round 17 ===
+\subfloat[Round 17, $\omega(782)$]{
+    \includegraphics[width=0.32\textwidth]{fig/round17_omega.eps}
+    \label{fig:r17_omega}
+}\hfill
+\subfloat[Round 17, $\phi(1020)$]{
+    \includegraphics[width=0.32\textwidth]{fig/round17_phi.eps}
+    \label{fig:r17_phi}
+}\hfill
+\subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$]{
+    \includegraphics[width=0.32\textwidth]{fig/round17_omegaprime.eps}
+    \label{fig:r17_omegaprime}
+}
+
+\caption{Invariant mass spectra $M_{3\pi}$ for different data rounds and mass regions with $N_{\pi^0}=1$ (other columns no $\pi^0$ multiplicity cut).}
+\label{fig:all_rounds_3pi}
+\end{figure}
 % The $3\pi$ invariant mass distribution obtained with the $\chi^{2}_{\mathrm{KF}} < 50$ selection is presented in Fig.~\ref{fig:mass3pi_stacked}. This plot, using the Round~16 data sample, displays the data in comparison with the stacked MC predictions for the signal and background components.
 
 % \begin{figure}[htbp]
@@ -253,15 +322,33 @@ kinematically well-defined, and its invariant mass can be reliably calculated
 for the subsequent analysis.
 
 The selection described above results in a highly pure sample of $e^{+}e^{-}
-    \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events. The invariant mass spectrum of the
+\to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events. The invariant mass spectrum of the
 corresponding three-pion system from this pure sample, which serves as the
 input template for background estimation, is shown in
 Fig.~\ref{fig:4pi_background_spectrum}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.45\textwidth]{fig/4pi_3pi_mass.eps}
-    \caption{The $3\pi$ invariant mass spectrum from selected $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events in the Round~16 dataset. This distribution, obtained from data after applying the dual-tag selection criteria for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$, represents the pure signal sample used as the template for background estimation.}
+    \subfloat[Round 03/04]{
+        \includegraphics[width=0.40\textwidth]{fig/4pi_3pi_mass_round0304.eps}
+        \label{fig:4pi_background_spectrum_round0304}
+    }
+    \hfill
+    \subfloat[Round 15]{
+        \includegraphics[width=0.40\textwidth]{fig/4pi_3pi_mass_round15.eps}
+        \label{fig:4pi_background_spectrum_round15}
+    }
+    \\
+    \subfloat[Round 16]{
+        \includegraphics[width=0.40\textwidth]{fig/4pi_3pi_mass_round16.eps}
+        \label{fig:4pi_background_spectrum_round16}
+    }
+    \hfill
+    \subfloat[Round 17]{
+        \includegraphics[width=0.40\textwidth]{fig/4pi_3pi_mass_round17.eps}
+        \label{fig:4pi_background_spectrum_round17}
+    }
+    \caption{The $3\pi$ invariant mass spectrum from selected $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events in the (a) Round~03/04, (b) Round~15, (c) Round~16, and (d) Round~17 datasets. These distributions, obtained from data after applying the dual-tag selection criteria for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$, represent the pure signal samples used as templates for background estimation.}
     \label{fig:4pi_background_spectrum}
 \end{figure}
 
@@ -278,22 +365,74 @@ background-subtracted signal distributions in the three $3\pi$ invariant mass
 regions are presented in Fig.~\ref{fig:nonisr4pi_all_regions}. All other
 backgrounds will be subtracted directly.
 
-% 添加结果图（三个物理区域）
+% 添加结果图（四个物理区域，四个数据周期）
 \begin{figure}[htbp]
-    \centering
-    \subfloat[$\omega(782)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_region1_plot.eps}
-    }
-    \hfill
-    \subfloat[$\phi(1020)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_region2_plot.eps}
-    }
-    \hfill
-    \subfloat[$\omega^{\prime}$ and $\omega^{\prime\prime}$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_region3_plot.eps}
-    }
-    \caption{Estimated background contributions from $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ in the signal region after scaling, using data from round 16. The three panels correspond to different $3\pi$ invariant mass regions: (a) the $\omega(782)$ region, (b) the $\phi(1020)$ region, and (c) the higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region.}
-    \label{fig:nonisr4pi_all_regions}
+\centering
+
+% === Row 1: Round 03/04 ===
+\subfloat[Round 03/04, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round0304_region1_plot.eps}
+    \label{fig:nonisr4pi_r0304_region1}
+}\hfill
+\subfloat[Round 03/04, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round0304_region2_plot.eps}
+    \label{fig:nonisr4pi_r0304_region2}
+}\hfill
+\subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round0304_region3_plot.eps}
+    \label{fig:nonisr4pi_r0304_region3}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 2: Round 15 ===
+\subfloat[Round 15, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round15_region1_plot.eps}
+    \label{fig:nonisr4pi_r15_region1}
+}\hfill
+\subfloat[Round 15, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round15_region2_plot.eps}
+    \label{fig:nonisr4pi_r15_region2}
+}\hfill
+\subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round15_region3_plot.eps}
+    \label{fig:nonisr4pi_r15_region3}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 3: Round 16 ===
+\subfloat[Round 16, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round16_region1_plot.eps}
+    \label{fig:nonisr4pi_r16_region1}
+}\hfill
+\subfloat[Round 16, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round16_region2_plot.eps}
+    \label{fig:nonisr4pi_r16_region2}
+}\hfill
+\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round16_region3_plot.eps}
+    \label{fig:nonisr4pi_r16_region3}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 4: Round 17 ===
+\subfloat[Round 17, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round17_region1_plot.eps}
+    \label{fig:nonisr4pi_r17_region1}
+}\hfill
+\subfloat[Round 17, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round17_region2_plot.eps}
+    \label{fig:nonisr4pi_r17_region2}
+}\hfill
+\subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/nonisr4pi_round17_region3_plot.eps}
+    \label{fig:nonisr4pi_r17_region3}
+}
+
+\caption{Estimated background contributions from $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ in the signal region after scaling, shown for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right).}
+\label{fig:nonisr4pi_all_rounds_regions}
 \end{figure}
 
 % \clearpage
@@ -447,45 +586,45 @@ constructed as follows:
 The fit procedure is validated by examining the quality of the fits to data in representative $M_{3\pi}$ bins across the three mass regions. Figure~\ref{fig:fit_examples} presents typical fit results for three selected bins, one from each region, demonstrating the ability of the fit model to accurately describe the data. The signal component, peaking background from $\pi^{+}\pi^{-}\pi^{0}\pi^{0}$, and polynomial continuum background are clearly distinguished, and the total PDF provides an excellent description of the data distribution in each case.
 
 \begin{figure}[htbp]
-\centering
-\subfloat[Example bin in the $\omega(782)$ region]{
-\includegraphics[width=0.32\textwidth]{fig/fit_example_omega.eps}
-\label{fig:fit_example_omega}
-}
-\hfill
-\subfloat[Example bin in the $\phi(1020)$ region]{
-\includegraphics[width=0.32\textwidth]{fig/fit_example_phi.eps}
-\label{fig:fit_example_phi}
-}
-\hfill
-\subfloat[Example bin in the $\omega^{\prime}/\omega^{\prime\prime}$ region]{
-\includegraphics[width=0.32\textwidth]{fig/fit_example_high.eps}
-\label{fig:fit_example_high}
-}
-\caption{Typical $U_{\text{miss}}$ fit results for representative $M_{3\pi}$ bins from each of the three mass regions.}
-\label{fig:fit_examples}
+    \centering
+    \subfloat[Example bin in the $\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/fit_example_omega.eps}
+        \label{fig:fit_example_omega}
+    }
+    \hfill
+    \subfloat[Example bin in the $\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/fit_example_phi.eps}
+        \label{fig:fit_example_phi}
+    }
+    \hfill
+    \subfloat[Example bin in the $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/fit_example_high.eps}
+        \label{fig:fit_example_high}
+    }
+    \caption{Typical $U_{\text{miss}}$ fit results for representative $M_{3\pi}$ bins from each of the three mass regions.}
+    \label{fig:fit_examples}
 \end{figure}
 
 Applying this fitting procedure to all $M_{3\pi}$ bins yields the extracted signal yields across the entire mass spectrum. Figure~\ref{fig:signal_yields} shows the measured signal yields as a function of $M_{3\pi}$ for the three regions. The $\omega(782)$ resonance is clearly visible as a prominent peak around $0.78~\text{GeV}/c^{2}$, while the $\phi(1020)$ resonance appears as a distinct but smaller peak near $1.02~\text{GeV}/c^{2}$. In the higher mass region, broad structures corresponding to the $\omega^{\prime}$ and $\omega^{\prime\prime}$ excitations are observed, with significantly reduced yields due to the decreasing cross section and lower ISR photon probability at larger momentum transfers.
 
 \begin{figure}[htbp]
-\centering
-\subfloat[$\omega(782)$ region]{
-\includegraphics[width=0.32\textwidth]{fig/yields_omega.eps}
-\label{fig:yields_omega}
-}
-\hfill
-\subfloat[$\phi(1020)$ region]{
-\includegraphics[width=0.32\textwidth]{fig/yields_phi.eps}
-\label{fig:yields_phi}
-}
-\hfill
-\subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
-\includegraphics[width=0.32\textwidth]{fig/yields_high.eps}
-\label{fig:yields_high}
-}
-\caption{Extracted signal yields as a function of $M_{3\pi}$ for the three mass regions. The error bars represent the statistical uncertainties from the fits. The $\omega(782)$ and $\phi(1020)$ resonances appear as clear peaks, while the higher-mass region reveals broader structures corresponding to excited $\omega$ states.}
-\label{fig:signal_yields}
+    \centering
+    \subfloat[$\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/yields_omega.eps}
+        \label{fig:yields_omega}
+    }
+    \hfill
+    \subfloat[$\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/yields_phi.eps}
+        \label{fig:yields_phi}
+    }
+    \hfill
+    \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/yields_high.eps}
+        \label{fig:yields_high}
+    }
+    \caption{Extracted signal yields as a function of $M_{3\pi}$ for the three mass regions. The error bars represent the statistical uncertainties from the fits. The $\omega(782)$ and $\phi(1020)$ resonances appear as clear peaks, while the higher-mass region reveals broader structures corresponding to excited $\omega$ states.}
+    \label{fig:signal_yields}
 \end{figure}
 
 The signal yields obtained from this fitting procedure provide the foundation for calculating the Born cross section for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}$ as a function of $M_{3\pi}$. After applying efficiency corrections, unfolding for resolution effects, and subtracting residual background contributions, the cross section will be determined and compared with previous measurements and theoretical predictions.
