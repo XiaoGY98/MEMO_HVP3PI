@@ -130,54 +130,106 @@ where $\mathbf{u}$ and $\mathbf{t}^{\text{truth}}$ are vectors of bin contents, 
 
 In cases where the covariance matrix is singular or ill-conditioned, a small diagonal perturbation $\lambda_{\text{reg}} I$ is added before inversion to ensure numerical stability, with $\lambda_{\text{reg}} = 10^{-6}$ in this analysis.
 
-
 The optimal parameter combination is chosen based on several considerations: the number of iterations $n_{\text{iter}}$ should be as small as possible to avoid unnecessary complexity; the $\chi^2$ value defined in Eq.~\eqref{eq:chi2_fom} should be small, indicating good agreement between the unfolded and true spectra; and the $\chi^2$ per degree of freedom, $\chi^2 / n_{\text{dof}}$, should be close to or less than one, indicating that the uncertainties are well estimated.
 
-It is emphasized that both the $\chi^2$ and the uncertainty estimates are computed strictly within the three intervals and corresponding bin widths defined in Section~\ref{DataYields}. Using the MC sample as a stand-in for data, a scan is performed over a grid of $\lambda_L$, $\lambda_U$, and $n_{\text{iter}}$ values, and the combination that best satisfies these criteria is selected for the final unfolding of the data. The optimized parameters obtained from this procedure for the three representative mass regions are summarized in Table~\ref{tab:optimized_parameters}.
+It is emphasized that both the $\chi^2$ and the uncertainty estimates are computed strictly within the three intervals and corresponding bin widths defined in Section~\ref{DataYields}. Since reconstructed events near the boundaries may have truth-level counterparts originating from outside the region of interest, we extend the boundaries for each mass region during the training of the unfolding procedure. This extension is applied solely to preserve the completeness of information within the defined region and does not affect the $\chi^2$ or uncertainty calculations, which remain confined to the intervals in Section~\ref{DataYields}. Events falling outside the region of interest are not considered further.
 
-Since reconstructed events near the boundaries may have truth-level counterparts originating from outside the region of interest, we extend the boundaries for each mass region during the training of the unfolding procedure. This extension is applied solely to preserve the completeness of information within the defined region and does not affect the $\chi^2$ or uncertainty calculations, which remain confined to the intervals in Section~\ref{DataYields}. Events falling outside the region of interest are not considered further. The unfolding results obtained with these optimized parameters are shown in Fig.~\ref{fig:mc_unfold_results}.
+Using the MC sample from Round~16 as a stand-in for data, a scan is performed over a grid of $\lambda_L$, $\lambda_U$, and $n_{\text{iter}}$ values. The combination that best satisfies the above criteria is selected for the final unfolding of the data. The optimized parameters obtained from this procedure for the three representative mass regions are summarized in Table~\ref{tab:optimized_parameters}, along with the resulting $\chi^2/\text{ndf}$ values for all four data-taking rounds to demonstrate consistency.
 
 \begin{table}[t]
     \begin{center}
-        \caption{Optimized unfolding parameters for the three representative mass regions. For each region, the parameters $\lambda_L$, $\lambda_U$, $\lambda_M$, and number of iterations $n_{\text{iter}}$ were selected based on the $\chi^2$ minimization procedure described in the text. The resulting $\chi^2/\text{ndf}$ values indicate good agreement between the unfolded and true MC distributions.}
+        \caption{Optimized unfolding parameters for the three representative mass regions, determined using the Round~16 MC sample. For each region, the parameters $\lambda_L$, $\lambda_U$, $\lambda_M$, and number of iterations $n_{\text{iter}}$ were selected based on the $\chi^2$ minimization procedure described in the text. The $\chi^2/\text{ndf}$ values are shown for all four rounds to demonstrate the consistency of the unfolding performance across different data-taking conditions.}
         \vspace{4mm}
-        \renewcommand{\arraystretch}{1.3} % 增加行高
-        \begin{tabular}{c | c | c | c | c | c}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{c | c | c | c | c | c | c | c | c}
             \hline \hline
-            Region             & $\lambda_L$ & $\lambda_U$ & $\lambda_M$ & $n_{\text{iter}}$ & $\chi^2/\text{ndf}$ \\
+            \multirow{2}{*}{Region} & \multirow{2}{*}{$\lambda_L$} & \multirow{2}{*}{$\lambda_U$} & \multirow{2}{*}{$\lambda_M$} & \multirow{2}{*}{$n_{\text{iter}}$} & \multicolumn{4}{c}{$\chi^2/\text{ndf}$}                                        \\
+            \cline{6-9}
+                                    &                              &                              &                              &                                    & Round~03/04                             & Round~15   & Round~16   & Round~17   \\
             \hline
-            $\omega(782)$      & $0.01$      & $0.01$      & $1.0$       & $3$               & $29.32/40$          \\[2pt] % 添加额外垂直间距
+            $\omega(782)$           & $0.1$                        & $0.1$                        & $1.0$                        & $3$                                & $61.00/40$                              & $19.25/40$ & $23.81/40$ & $11.97/40$ \\[2pt]
             \hline
-            $\phi(1020)$       & $0.1$       & $0.1$       & $1.0$       & $1$               & $21.91/30$          \\[2pt]
+            $\phi(1020)$            & $0.1$                        & $0.1$                        & $1.0$                        & $3$                                & $8.01/30$                               & $25.49/30$ & $10.50/30$ & $28.35/30$ \\[2pt]
             \hline
-            $\omega'/\omega''$ & $0.1$       & $0.1$       & $1.0$       & $3$               & $12.72/76$          \\[2pt]
+            $\omega'/\omega''$      & $0.1$                        & $0.1$                        & $1.0$                        & $3$                                & $0.92/76$                               & $13.21/76$ & $10.48/76$ & $14.91/76$ \\[2pt]
             \hline \hline
         \end{tabular}
         \label{tab:optimized_parameters}
     \end{center}
 \end{table}
 
+To validate the stability of the unfolding procedure across different data-taking conditions, the same set of optimized parameters (from Table~\ref{tab:optimized_parameters}) is applied to the MC samples of other rounds: Round~03/04, Round~15, and Round~17. Figure~\ref{fig:mc_unfold_results_all_rounds} shows the unfolding results for each round and each mass region.
+
 \begin{figure}[htbp]
     \centering
-    \subfloat[$\omega(782)$ region with IDS unfolding]{
-        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_omega.eps}
-        \label{fig:unfold_omega}
+
+    % === Row 1: Round 03/04 ===
+    \subfloat[Round 03/04, $\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round0304_omega.eps}
+        \label{fig:unfold_round0304_omega}
+    }\hfill
+    \subfloat[Round 03/04, $\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round0304_phi.eps}
+        \label{fig:unfold_round0304_phi}
+    }\hfill
+    \subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round0304_high.eps}
+        \label{fig:unfold_round0304_high}
     }
-    \hfill
-    \subfloat[$\phi(1020)$ region with IDS unfolding]{
-        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_phi.eps}
-        \label{fig:unfold_phi}
+
+    \vspace{0.5\baselineskip}
+
+    % === Row 2: Round 15 ===
+    \subfloat[Round 15, $\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round15_omega.eps}
+        \label{fig:unfold_round15_omega}
+    }\hfill
+    \subfloat[Round 15, $\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round15_phi.eps}
+        \label{fig:unfold_round15_phi}
+    }\hfill
+    \subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round15_high.eps}
+        \label{fig:unfold_round15_high}
     }
-    \hfill
-    \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region with IDS unfolding]{
-        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_high.eps}
-        \label{fig:unfold_high}
+
+    \vspace{0.5\baselineskip}
+
+    % === Row 3: Round 16 ===
+    \subfloat[Round 16, $\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round16_omega.eps}
+        \label{fig:unfold_round16_omega}
+    }\hfill
+    \subfloat[Round 16, $\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round16_phi.eps}
+        \label{fig:unfold_round16_phi}
+    }\hfill
+    \subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round16_high.eps}
+        \label{fig:unfold_round16_high}
     }
-    \caption{Unfolded results for three representative mass regions using the IDS method with optimized parameters. Each panel shows the true MC distribution (black), the measured MC distribution (red), and the unfolded result (blue points) with its statistical uncertainties. The MC sample has been normalized to match the data statistics shown in Fig.~\ref{fig:signal_yields}, ensuring that the uncertainties properly reflect the data statistical power.}
-    \label{fig:mc_unfold_results}
+
+    \vspace{0.5\baselineskip}
+
+    % === Row 4: Round 17 ===
+    \subfloat[Round 17, $\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round17_omega.eps}
+        \label{fig:unfold_round17_omega}
+    }\hfill
+    \subfloat[Round 17, $\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round17_phi.eps}
+        \label{fig:unfold_round17_phi}
+    }\hfill
+    \subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/mc_unfold_round17_high.eps}
+        \label{fig:unfold_round17_high}
+    }
+
+    \caption{Unfolded results for four data-taking periods (Round~03/04, Round~15, Round~16, Round~17) using the IDS method. The unfolding parameters were optimized using the Round~16 MC sample (third row) and then applied to all rounds.}
+    \label{fig:mc_unfold_results_all_rounds}
 \end{figure}
 
-To validate the unfolding procedure, we compare the relative statistical uncertainty of the unfolded spectrum with that of the test MC sample. The relative uncertainty of the test MC spectrum, $\delta_{\text{test}}$, is computed by summing in quadrature the Poisson errors of each bin and dividing by the total yield:
+To further validate the unfolding procedure, we compare the relative statistical uncertainty of the unfolded spectrum with that of the test MC sample. The relative uncertainty of the test MC spectrum, $\delta_{\text{test}}$, is computed by summing in quadrature the Poisson errors of each bin and dividing by the total yield:
 \begin{equation}
     \delta_{\text{test}} = \frac{\sqrt{\sum_{i} \sigma_i^2}}{\sum_i N_i},
 \end{equation}
