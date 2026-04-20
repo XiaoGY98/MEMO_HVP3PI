@@ -2,22 +2,36 @@
 \section{Unfolding}
 \label{sec:unfolding}
 
-To extract the dressed cross section $\sigma_{3\pi}^{\text{dress}}(m)$, we need the generator-level yield $\left( \frac{dN}{dm} \right)^{\text{gen}}$, which is related to the cross section within each mass interval by:
+To extract the dressed cross section $\sigma_{3\pi}^{\text{dress}}(m)$, we need
+the generator-level yield $\left( \frac{dN}{dm} \right)^{\text{gen}}$, which is
+related to the cross section within each mass interval by:
 \begin{equation}
     \left( \frac{dN}{dm} \right)^{\text{gen}} = \sigma_{3\pi}^{\text{dress}}(m) \cdot \frac{dL}{dm} \cdot \varepsilon \cdot \mathcal{B}(\pi^0 \to \gamma\gamma)
     \label{eq:cross_section_relation}
 \end{equation}
 where $\frac{dL}{dm}$ is the integrated luminosity in that interval, and $\mathcal{B}(\pi^0 \to \gamma\gamma)$ is the branching fraction of the $\pi^0 \to \gamma\gamma$ decay.
 
-From data, we have obtained the observed signal yield $\left( \frac{dN}{dm} \right)_{i}^{\text{obs}}$ in each mass interval by fitting the $U_{\text{miss}}$ distribution,
-as shown in Fig.~\ref{fig:signal_yields}. Due to detector effects, events can migrate between different mass intervals, so these observed yields do not directly give the generator-level yields in Eq.~\eqref{eq:cross_section_relation}. The migration is described by the response matrix $P_{ij}$, which relates the observed yield in bin $i$ to the generator-level yield in bin $j$:
+From data, we have obtained the observed signal yield $\left( \frac{dN}{dm}
+    \right)_{i}^{\text{obs}}$ in each mass interval by fitting the
+$U_{\text{miss}}$ distribution, as shown in Fig.~\ref{fig:signal_yields}. Due
+to detector effects, events can migrate between different mass intervals, so
+these observed yields do not directly give the generator-level yields in
+Eq.~\eqref{eq:cross_section_relation}. The migration is described by the
+response matrix $P_{ij}$, which relates the observed yield in bin $i$ to the
+generator-level yield in bin $j$:
 \begin{equation}
     \left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_{j} P_{ij} \left( \frac{dN}{dm} \right)_{j}^{\text{gen}}
     \label{eq:response_matrix}
 \end{equation}
 
-Let $A_{ij}$ denote the number of MC events that are generated in true bin $j$ and reconstructed in bin $i$, where $i$ and $j$ index the observed and generator-level mass bins, respectively. The migration matrices $A_{ij}$ for three representative mass regions are shown in Fig.~\ref{fig:migration_matrices}, illustrating how events generated in a given true bin are distributed across observed bins due to detector effects.
-This matrix is then normalized column-wise to obtain the response matrix used in Eq.~\eqref{eq:response_matrix}:
+Let $A_{ij}$ denote the number of MC events that are generated in true bin $j$
+and reconstructed in bin $i$, where $i$ and $j$ index the observed and
+generator-level mass bins, respectively. The migration matrices $A_{ij}$ for
+three representative mass regions are shown in
+Fig.~\ref{fig:migration_matrices}, illustrating how events generated in a given
+true bin are distributed across observed bins due to detector effects. This
+matrix is then normalized column-wise to obtain the response matrix used in
+Eq.~\eqref{eq:response_matrix}:
 \begin{equation}
     P_{ij} = \frac{A_{ij}}{\sum_{k=1}^{n_d} A_{kj}}, \qquad \sum_{i=1}^{n_d} P_{ij} = 1,
     \label{eq:response_matrix_norm}
@@ -46,16 +60,33 @@ where $n_d$ is the number of reconstructed bins.
 
 \subsection{The IDS unfolding method}
 
-To extract the generator-level yield $\left( \frac{dN}{dm} \right)_{j}^{\text{gen}}$ from the observed yields $\left( \frac{dN}{dm} \right)_{i}^{\text{obs}}$ and the response matrix $P_{ij}$, we employ the Iterative Dynamically Stabilized (IDS) unfolding method~\cite{Malaescu2009}. This section introduces the mathematical formulation of the method; the specific implementation, parameter optimization, and iteration strategy are described in the following sections.
+To extract the generator-level yield $\left( \frac{dN}{dm}
+    \right)_{j}^{\text{gen}}$ from the observed yields $\left( \frac{dN}{dm}
+    \right)_{i}^{\text{obs}}$ and the response matrix $P_{ij}$, we employ the
+Iterative Dynamically Stabilized (IDS) unfolding method~\cite{Malaescu2009}.
+This section introduces the mathematical formulation of the method; the
+specific implementation, parameter optimization, and iteration strategy are
+described in the following sections.
 
-From the MC simulation, we have constructed the migration matrix $A_{ij}$ (shown in Fig.~\ref{fig:migration_matrices}) and the response matrix $P_{ij}$ normalized column-wise as in Eq.~\eqref{eq:response_matrix_norm}. The corresponding unfolding matrix is defined row-wise:
+From the MC simulation, we have constructed the migration matrix $A_{ij}$
+(shown in Fig.~\ref{fig:migration_matrices}) and the response matrix $P_{ij}$
+normalized column-wise as in Eq.~\eqref{eq:response_matrix_norm}. The
+corresponding unfolding matrix is defined row-wise:
 \begin{equation}
     \tilde{P}_{ij} = \frac{A_{ij}}{\sum_{k=1}^{n_u} A_{ik}},
     \label{eq:unfolding_matrix}
 \end{equation}
 which gives the probability that an event reconstructed in bin $i$ originated from true bin $j$.
 
-The IDS method uses a regularization function $f\left(|\Delta|, \tilde{\sigma}, \lambda\right)$ that dynamically distinguishes statistical fluctuations from genuine signals. Here, $|\Delta|$ represents the absolute difference between data and the model prediction (e.g., $|\Delta d_i|$ for the discrepancy in reconstructed bin $i$, or $|\Delta u_j|$ for the discrepancy in true bin $j$), $\tilde{\sigma}$ denotes the corresponding statistical uncertainty ($\tilde{\sigma} d_i$ or $\tilde{\sigma} u_j$), and $\lambda$ is a tunable regularization parameter. The function satisfies the following asymptotic behavior:
+The IDS method uses a regularization function $f\left(|\Delta|, \tilde{\sigma},
+    \lambda\right)$ that dynamically distinguishes statistical fluctuations from
+genuine signals. Here, $|\Delta|$ represents the absolute difference between
+data and the model prediction (e.g., $|\Delta d_i|$ for the discrepancy in
+reconstructed bin $i$, or $|\Delta u_j|$ for the discrepancy in true bin $j$),
+$\tilde{\sigma}$ denotes the corresponding statistical uncertainty
+($\tilde{\sigma} d_i$ or $\tilde{\sigma} u_j$), and $\lambda$ is a tunable
+regularization parameter. The function satisfies the following asymptotic
+behavior:
 \begin{equation}
     \lim_{\frac{|\Delta|}{\lambda \tilde{\sigma}} \to 0} f(|\Delta|, \tilde{\sigma}, \lambda) = 0, \qquad
     \lim_{\frac{|\Delta|}{\lambda \tilde{\sigma}} \to \infty} f(|\Delta|, \tilde{\sigma}, \lambda) = 1.
@@ -63,7 +94,8 @@ The IDS method uses a regularization function $f\left(|\Delta|, \tilde{\sigma}, 
 \end{equation}
 Thus, for discrepancies much smaller than $\lambda$ times the uncertainty, the function approaches zero, treating the difference as a fluctuation; for discrepancies much larger, it approaches unity, indicating a real signal that should be unfolded. The transition between these regimes is smooth, avoiding sharp cutoffs that could introduce artifacts.
 
-In the IDS method, the unfolding is performed iteratively. At iteration $k$, the unfolded spectrum $u_j^{(k)}$ is given by:
+In the IDS method, the unfolding is performed iteratively. At iteration $k$,
+the unfolded spectrum $u_j^{(k)}$ is given by:
 \begin{equation}
     u_j^{(k)} = \eta \cdot t_j + \sum_{i=1}^{n_d} \left[ f\left(|\Delta d_i^{(k-1)}|, \tilde{\sigma} d_i, \lambda_U\right) \Delta d_i^{(k-1)} \tilde{P}_{ij}^{(k-1)} + \left(1 - f\left(|\Delta d_i^{(k-1)}|, \tilde{\sigma} d_i, \lambda_U\right)\right) \Delta d_i^{(k-1)} \delta_{ij} \right],
     \label{eq:ids_unfolding}
@@ -82,7 +114,9 @@ where:
 \end{itemize}
 The first term on the right-hand side, $\eta \cdot t_j$, represents the normalized true MC spectrum, which serves as a baseline. The remaining sum dynamically partitions the discrepancy $\Delta d_i^{(k-1)}$: a fraction $f$ is unfolded using $\tilde{P}_{ij}^{(k-1)}$, while the complementary fraction $1-f$ is retained in the original bin $j=i$ via the Kronecker delta.
 
-The response matrix itself can be iteratively improved. Using the difference $\Delta u_j = u_j - \eta \cdot t_j$ between the current unfolded result and the normalized true MC, the migration matrix is modified as:
+The response matrix itself can be iteratively improved. Using the difference
+$\Delta u_j = u_j - \eta \cdot t_j$ between the current unfolded result and the
+normalized true MC, the migration matrix is modified as:
 \begin{equation}
     A'_{ij} = A_{ij} + f\left(|\Delta u_j|, \tilde{\sigma} u_j, \lambda_M\right) \Delta u_j P_{ij} \frac{N_{\text{MC}}}{N_d^{\text{MC}}}, \quad \text{for } i \in \{1,\dots,n_d\},
     \label{eq:matrix_modification}
@@ -100,7 +134,10 @@ The updated migration matrix $A'_{ij}$ is then renormalized column-wise to obtai
 
 \subsection{Parameter optimization and figure of merit}
 
-The IDS method involves three regularization parameters: $\lambda_L$ for the initial unfolding, $\lambda_M$ for modifying the response matrix, and $\lambda_U$ for subsequent unfoldings. The iterative procedure consists of the following three steps:
+The IDS method involves three regularization parameters: $\lambda_L$ for the
+initial unfolding, $\lambda_M$ for modifying the response matrix, and
+$\lambda_U$ for subsequent unfoldings. The iterative procedure consists of the
+following three steps:
 \begin{enumerate}
     \item \textbf{Initial unfolding:} Perform an unfolding using Eq.~\eqref{eq:ids_unfolding} with $\lambda = \lambda_L$ and the initial response matrix $P_{ij}$, obtaining $u_j^{(0)}$.
     \item \textbf{Matrix improvement:} Modify the migration matrix via Eq.~\eqref{eq:matrix_modification} using $\lambda_M$ and the current $u_j$. Renormalize to obtain updated $P_{ij}$ and $\tilde{P}_{ij}$.
@@ -108,18 +145,37 @@ The IDS method involves three regularization parameters: $\lambda_L$ for the ini
 \end{enumerate}
 These three steps can be repeated for a chosen number of iterations.
 
-In this analysis, the four parameters $\lambda_M$, $\lambda_L$, $\lambda_U$, and $n_{\text{iter}}$ are optimized by scanning over a grid of possible values. For each parameter combination $(\lambda_M, \lambda_L, \lambda_U, n_{\text{iter}})$, we perform the IDS unfolding and evaluate the quality of the result using a $\chi^2$ figure of merit. The $\chi^2$ is computed by comparing the unfolded spectrum $u_j$ to the true generator-level distribution $t_j^{\text{truth}}$ from the MC simulation. The MC sample used for this comparison has been corrected following the procedure described in Sec.~\ref{sec:correction_method} and is normalized such that its total integral matches the total number of signal events observed in data (shown in Fig.~\ref{fig:signal_yields}), ensuring that the statistical uncertainties from the toy ensembles properly reflect the data statistics.
+In this analysis, the four parameters $\lambda_M$, $\lambda_L$, $\lambda_U$,
+and $n_{\text{iter}}$ are optimized by scanning over a grid of possible values.
+For each parameter combination $(\lambda_M, \lambda_L, \lambda_U,
+    n_{\text{iter}})$, we perform the IDS unfolding and evaluate the quality of the
+result using a $\chi^2$ figure of merit. The $\chi^2$ is computed by comparing
+the unfolded spectrum $u_j$ to the true generator-level distribution
+$t_j^{\text{truth}}$ from the MC simulation. The MC sample used for this
+comparison has been corrected following the procedure described in
+Sec.~\ref{sec:correction_method} and is normalized such that its total integral
+matches the total number of signal events observed in data (shown in
+Fig.~\ref{fig:signal_yields}), ensuring that the statistical uncertainties from
+the toy ensembles properly reflect the data statistics.
 
 \begin{equation}
     \chi^2 = \left( \mathbf{u} - \mathbf{t}^{\text{truth}} \right)^T \, \Sigma^{-1} \, \left( \mathbf{u} - \mathbf{t}^{\text{truth}} \right),
     \label{eq:chi2_fom}
 \end{equation}
 
-where $\mathbf{u}$ and $\mathbf{t}^{\text{truth}}$ are vectors of bin contents, and $\Sigma$ is the covariance matrix of the unfolded spectrum. The covariance matrix accounts for the statistical uncertainties and their correlations introduced by the unfolding procedure. It is estimated using a MC sampling method:
+where $\mathbf{u}$ and $\mathbf{t}^{\text{truth}}$ are vectors of bin contents,
+and $\Sigma$ is the covariance matrix of the unfolded spectrum. The covariance
+matrix accounts for the statistical uncertainties and their correlations
+introduced by the unfolding procedure. It is estimated using a MC sampling
+method:
 
 \begin{enumerate}
-    \item Generate an ensemble of $N_{\text{toy}}$ pseudo-data distributions by fluctuating the original observed spectrum according to its statistical uncertainties, using a random number generator.
-    \item For each pseudo-data distribution, perform the IDS unfolding with the same parameter combination $(\lambda_L, \lambda_U, n_{\text{iter}})$, obtaining an unfolded spectrum $u_j^{(k)}$ for toy $k$.
+    \item Generate an ensemble of $N_{\text{toy}}$ pseudo-data distributions by
+          fluctuating the original observed spectrum according to its statistical
+          uncertainties, using a random number generator.
+    \item For each pseudo-data distribution, perform the IDS unfolding with the same
+          parameter combination $(\lambda_L, \lambda_U, n_{\text{iter}})$, obtaining an
+          unfolded spectrum $u_j^{(k)}$ for toy $k$.
     \item From the ensemble of unfolded spectra, compute the covariance matrix:
           \begin{equation}
               \Sigma_{ij} = \frac{1}{N_{\text{toy}} - 1} \sum_{k=1}^{N_{\text{toy}}} \left( u_i^{(k)} - \bar{u}_i \right) \left( u_j^{(k)} - \bar{u}_j \right),
@@ -128,13 +184,38 @@ where $\mathbf{u}$ and $\mathbf{t}^{\text{truth}}$ are vectors of bin contents, 
           where $\bar{u}_i = \frac{1}{N_{\text{toy}}} \sum_{k} u_i^{(k)}$ is the mean unfolded yield in bin $i$ across the toy ensemble.
 \end{enumerate}
 
-In cases where the covariance matrix is singular or ill-conditioned, a small diagonal perturbation $\lambda_{\text{reg}} I$ is added before inversion to ensure numerical stability, with $\lambda_{\text{reg}} = 10^{-6}$ in this analysis.
+In cases where the covariance matrix is singular or ill-conditioned, a small
+diagonal perturbation $\lambda_{\text{reg}} I$ is added before inversion to
+ensure numerical stability, with $\lambda_{\text{reg}} = 10^{-6}$ in this
+analysis.
 
-The optimal parameter combination is chosen based on several considerations: the number of iterations $n_{\text{iter}}$ should be as small as possible to avoid unnecessary complexity; the $\chi^2$ value defined in Eq.~\eqref{eq:chi2_fom} should be small, indicating good agreement between the unfolded and true spectra; and the $\chi^2$ per degree of freedom, $\chi^2 / n_{\text{dof}}$, should be close to or less than one, indicating that the uncertainties are well estimated.
+The optimal parameter combination is chosen based on several considerations:
+the number of iterations $n_{\text{iter}}$ should be as small as possible to
+avoid unnecessary complexity; the $\chi^2$ value defined in
+Eq.~\eqref{eq:chi2_fom} should be small, indicating good agreement between the
+unfolded and true spectra; and the $\chi^2$ per degree of freedom, $\chi^2 /
+    n_{\text{dof}}$, should be close to or less than one, indicating that the
+uncertainties are well estimated.
 
-It is emphasized that both the $\chi^2$ and the uncertainty estimates are computed strictly within the three intervals and corresponding bin widths defined in Section~\ref{DataYields}. Since reconstructed events near the boundaries may have truth-level counterparts originating from outside the region of interest, we extend the boundaries for each mass region during the training of the unfolding procedure. This extension is applied solely to preserve the completeness of information within the defined region and does not affect the $\chi^2$ or uncertainty calculations, which remain confined to the intervals in Section~\ref{DataYields}. Events falling outside the region of interest are not considered further.
+It is emphasized that both the $\chi^2$ and the uncertainty estimates are
+computed strictly within the three intervals and corresponding bin widths
+defined in Section~\ref{DataYields}. Since reconstructed events near the
+boundaries may have truth-level counterparts originating from outside the
+region of interest, we extend the boundaries for each mass region during the
+training of the unfolding procedure. This extension is applied solely to
+preserve the completeness of information within the defined region and does not
+affect the $\chi^2$ or uncertainty calculations, which remain confined to the
+intervals in Section~\ref{DataYields}. Events falling outside the region of
+interest are not considered further.
 
-Using the MC sample from Round~16 as a stand-in for data, a scan is performed over a grid of $\lambda_L$, $\lambda_U$, and $n_{\text{iter}}$ values. The combination that best satisfies the above criteria is selected for the final unfolding of the data. The optimized parameters obtained from this procedure for the three representative mass regions are summarized in Table~\ref{tab:optimized_parameters}, along with the resulting $\chi^2/\text{ndf}$ values for all four data-taking rounds to demonstrate consistency.
+Using the MC sample from Round~16 as a stand-in for data, a scan is performed
+over a grid of $\lambda_L$, $\lambda_U$, and $n_{\text{iter}}$ values. The
+combination that best satisfies the above criteria is selected for the final
+unfolding of the data. The optimized parameters obtained from this procedure
+for the three representative mass regions are summarized in
+Table~\ref{tab:optimized_parameters}, along with the resulting
+$\chi^2/\text{ndf}$ values for all four data-taking rounds to demonstrate
+consistency.
 
 \begin{table}[t]
     \begin{center}
@@ -147,18 +228,23 @@ Using the MC sample from Round~16 as a stand-in for data, a scan is performed ov
             \cline{6-9}
                                     &                              &                              &                              &                                    & Round~03/04                             & Round~15   & Round~16   & Round~17   \\
             \hline
-            $\omega(782)$           & $0.1$                        & $0.1$                        & $1.0$                        & $3$                                & $61.00/40$                              & $19.25/40$ & $23.81/40$ & $11.97/40$ \\[2pt]
+            $\omega(782)$           & $0.1$                        & $0.1$                        & $1.0$                        & $3$                                & $67.75/40$                              & $20.74/40$ & $23.81/40$ & $11.97/40$ \\[2pt]
             \hline
-            $\phi(1020)$            & $0.1$                        & $0.1$                        & $1.0$                        & $3$                                & $8.01/30$                               & $25.49/30$ & $10.50/30$ & $28.35/30$ \\[2pt]
+            $\phi(1020)$            & $0.1$                        & $0.1$                        & $1.0$                        & $3$                                & $1.09/30$                               & $11.46/30$ & $10.70/30$ & $9.52/30$  \\[2pt]
             \hline
-            $\omega'/\omega''$      & $0.1$                        & $0.1$                        & $1.0$                        & $3$                                & $0.92/76$                               & $13.21/76$ & $10.48/76$ & $14.91/76$ \\[2pt]
+            $\omega'/\omega''$      & $0.1$                        & $0.1$                        & $1.0$                        & $3$                                & $0.90/76$                               & $2.71/76$  & $10.11/76$ & $1.11/76$  \\[2pt]
             \hline \hline
         \end{tabular}
         \label{tab:optimized_parameters}
     \end{center}
 \end{table}
 
-To validate the stability of the unfolding procedure across different data-taking conditions, the same set of optimized parameters (from Table~\ref{tab:optimized_parameters}) is applied to the MC samples of other rounds: Round~03/04, Round~15, and Round~17. Figure~\ref{fig:mc_unfold_results_all_rounds} shows the unfolding results for each round and each mass region.
+To validate the stability of the unfolding procedure across different
+data-taking conditions, the same set of optimized parameters (from
+Table~\ref{tab:optimized_parameters}) is applied to the MC samples of other
+rounds: Round~03/04, Round~15, and Round~17.
+Figure~\ref{fig:mc_unfold_results_all_rounds} shows the unfolding results for
+each round and each mass region.
 
 \begin{figure}[htbp]
     \centering
@@ -229,13 +315,19 @@ To validate the stability of the unfolding procedure across different data-takin
     \label{fig:mc_unfold_results_all_rounds}
 \end{figure}
 
-To further validate the unfolding procedure, we compare the relative statistical uncertainty of the unfolded spectrum with that of the test MC sample. The relative uncertainty of the test MC spectrum, $\delta_{\text{test}}$, is computed by summing in quadrature the Poisson errors of each bin and dividing by the total yield:
+To further validate the unfolding procedure, we compare the relative
+statistical uncertainty of the unfolded spectrum with that of the test MC
+sample. The relative uncertainty of the test MC spectrum,
+$\delta_{\text{test}}$, is computed by summing in quadrature the Poisson errors
+of each bin and dividing by the total yield:
 \begin{equation}
     \delta_{\text{test}} = \frac{\sqrt{\sum_{i} \sigma_i^2}}{\sum_i N_i},
 \end{equation}
 where $N_i$ and $\sigma_i$ are the content and Poisson error of bin $i$ in the test MC distribution, respectively. This represents the Poisson statistical uncertainty of the test MC sample.
 
-The relative uncertainty of the unfolded spectrum, $\delta_{\text{unfolded}}$, is derived from the full covariance matrix $\Sigma$ obtained from the toy MC ensemble:
+The relative uncertainty of the unfolded spectrum, $\delta_{\text{unfolded}}$,
+is derived from the full covariance matrix $\Sigma$ obtained from the toy MC
+ensemble:
 \begin{equation}
     \delta_{\text{unfolded}} = \frac{\sqrt{\sum_{i,j} \Sigma_{ij}}}{\sum_i u_i},
 \end{equation}
