@@ -561,7 +561,7 @@ Based on the understanding from the inclusive MC, the PDFs for the fit are
 constructed as follows:
 
 \begin{itemize}
-    \item \textbf{Signal PDF:} Histogram shape from signal MC, convolved with a Gaussian for resolution correction.
+    \item \textbf{Signal PDF:} Histogram shape from signal MC, convolved with a Gaussian for resolution correction. The $\chi^{2}_{\mathrm{KF}}$ used in the $\chi^{2}_{\mathrm{KF}} < 50$ selection criterion has been corrected for data-MC differences in helix parameters as described in Section~\ref{sec:corr_signal_kmfit}.
 
     \item \textbf{Peaking background PDF:} Shape for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ from dedicated MC, convolved with the same Gaussian as signal. Yield constrained by Gaussian term using data-driven estimate from Section~\ref{sec:bkg_stu}.
 
@@ -583,7 +583,7 @@ constructed as follows:
     \item \textbf{Continuum background PDF:} All remaining minor background processes are collectively described by a polynomial function. A first-order polynomial (linear function) is used for the $\omega(782)$ and $\phi(1020)$ regions, while a second-order Chebyshev polynomial is employed for the $\omega^{\prime}/\omega^{\prime\prime}$ region, as suggested by the shape of the inclusive MC distribution in Fig.~\ref{fig:umiss_inclusiveMC_high}.
 \end{itemize}
 
-The fit procedure is validated by examining the quality of the fits to data in representative $M_{3\pi}$ bins across the three mass regions. Figure~\ref{fig:fit_examples} presents typical fit results for three selected bins, one from each region, demonstrating the ability of the fit model to accurately describe the data. The signal component, peaking background from $\pi^{+}\pi^{-}\pi^{0}\pi^{0}$, and polynomial continuum background are clearly distinguished, and the total PDF provides an excellent description of the data distribution in each case.
+The fit procedure is validated by examining the quality of the fits to data in representative $M_{3\pi}$ bins across the three mass regions, using Round 16 as an illustrative example. Figure~\ref{fig:fit_examples} presents typical fit results for three selected bins, one from each region, demonstrating the ability of the fit model to accurately describe the data. The signal component, peaking background from $\pi^{+}\pi^{-}\pi^{0}\pi^{0}$, and polynomial continuum background are clearly distinguished, and the total PDF provides an excellent description of the data distribution in each case.
 
 \begin{figure}[htbp]
     \centering
@@ -601,30 +601,79 @@ The fit procedure is validated by examining the quality of the fits to data in r
         \includegraphics[width=0.32\textwidth]{fig/fit_example_high.eps}
         \label{fig:fit_example_high}
     }
-    \caption{Typical $U_{\text{miss}}$ fit results for representative $M_{3\pi}$ bins from each of the three mass regions.}
+    \caption{Typical $U_{\text{miss}}$ fit results for representative $M_{3\pi}$ bins from each of the three mass regions, shown for Round 16 data.}
     \label{fig:fit_examples}
 \end{figure}
 
-Applying this fitting procedure to all $M_{3\pi}$ bins yields the extracted signal yields across the entire mass spectrum. Figure~\ref{fig:signal_yields} shows the measured signal yields as a function of $M_{3\pi}$ for the three regions. The $\omega(782)$ resonance is clearly visible as a prominent peak around $0.78~\text{GeV}/c^{2}$, while the $\phi(1020)$ resonance appears as a distinct but smaller peak near $1.02~\text{GeV}/c^{2}$. In the higher mass region, broad structures corresponding to the $\omega^{\prime}$ and $\omega^{\prime\prime}$ excitations are observed, with significantly reduced yields due to the decreasing cross section and lower ISR photon probability at larger momentum transfers.
+Applying this fitting procedure to all $M_{3\pi}$ bins yields the extracted signal yields across the entire mass spectrum. The same fit is performed independently for four data-taking periods: Round~03/04, Round~15, Round~16, and Round~17. Figure~\ref{fig:signal_yields} presents the measured signal yields as a function of $M_{3\pi}$ for all four periods, organized by the three mass regions. In each panel, the $\omega(782)$ resonance is clearly visible as a prominent peak around $0.78~\text{GeV}/c^{2}$, while the $\phi(1020)$ resonance appears as a distinct but smaller peak near $1.02~\text{GeV}/c^{2}$. In the higher mass regions, broad structures corresponding to the $\omega^{\prime}$ and $\omega^{\prime\prime}$ excitations are observed, with significantly reduced yields due to the decreasing cross section and lower ISR photon probability at larger momentum transfers. The results show good consistency across the four data-taking periods, with statistical uncertainties represented by the error bars.
 
 \begin{figure}[htbp]
-    \centering
-    \subfloat[$\omega(782)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/yields_omega.eps}
-        \label{fig:yields_omega}
-    }
-    \hfill
-    \subfloat[$\phi(1020)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/yields_phi.eps}
-        \label{fig:yields_phi}
-    }
-    \hfill
-    \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/yields_high.eps}
-        \label{fig:yields_high}
-    }
-    \caption{Extracted signal yields as a function of $M_{3\pi}$ for the three mass regions. The error bars represent the statistical uncertainties from the fits. The $\omega(782)$ and $\phi(1020)$ resonances appear as clear peaks, while the higher-mass region reveals broader structures corresponding to excited $\omega$ states.}
-    \label{fig:signal_yields}
+\centering
+
+% === Row 1: Round 03/04 ===
+\subfloat[Round 03/04, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round0304_region1.eps}
+    \label{fig:yields_r0304_region1}
+}\hfill
+\subfloat[Round 03/04, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round0304_region2.eps}
+    \label{fig:yields_r0304_region2}
+}\hfill
+\subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round0304_region3.eps}
+    \label{fig:yields_r0304_region3}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 2: Round 15 ===
+\subfloat[Round 15, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round15_region1.eps}
+    \label{fig:yields_r15_region1}
+}\hfill
+\subfloat[Round 15, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round15_region2.eps}
+    \label{fig:yields_r15_region2}
+}\hfill
+\subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round15_region3.eps}
+    \label{fig:yields_r15_region3}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 3: Round 16 ===
+\subfloat[Round 16, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round16_region1.eps}
+    \label{fig:yields_r16_region1}
+}\hfill
+\subfloat[Round 16, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round16_region2.eps}
+    \label{fig:yields_r16_region2}
+}\hfill
+\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round16_region3.eps}
+    \label{fig:yields_r16_region3}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 4: Round 17 ===
+\subfloat[Round 17, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round17_region1.eps}
+    \label{fig:yields_r17_region1}
+}\hfill
+\subfloat[Round 17, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round17_region2.eps}
+    \label{fig:yields_r17_region2}
+}\hfill
+\subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/yields_round17_region3.eps}
+    \label{fig:yields_r17_region3}
+}
+
+\caption{Extracted signal yields as a function of $M_{3\pi}$ for the three mass regions, shown separately for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). Error bars represent the statistical uncertainties from the fits.}
+\label{fig:signal_yields}
 \end{figure}
 
 The signal yields obtained from this fitting procedure provide the foundation for calculating the Born cross section for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}$ as a function of $M_{3\pi}$. After applying efficiency corrections, unfolding for resolution effects, and subtracting residual background contributions, the cross section will be determined and compared with previous measurements and theoretical predictions.
