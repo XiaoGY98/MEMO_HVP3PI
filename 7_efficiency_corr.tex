@@ -436,7 +436,7 @@ The ratios $f_i^{\text{Data}} / f_i^{\text{MC}}$ reveal a discrepancy between da
 
 \subsection{The $\chi^2_{4C}$ distribution and correcting the signal yields}
 \label{sec:corr_signal_kmfit}
-The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is corrected following the method established in a dedicated study using $e^+e^- \to K^+K^-\pi^+\pi^-$ events~\cite{BESIII_chisq4C_correction_2025}. That analysis, performed under BOSS version 7.1.2, investigated the differences in helix parameters between data and MC simulation across various data-taking periods at the center-of-mass energy of 3.773~GeV. For the signal process $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$, we apply helix parameter corrections to the charged tracks. Figures~\ref{fig:chisq4c_before} and~\ref{fig:chisq4c_after} show the comparison of $\chi^2_{4C}$ distributions between data and MC before and after the correction, respectively. As illustrated, a slight improvement in the agreement between data and MC is observed in the low $\chi^2_{4C}$ region, where the majority of events are populated, after applying the helix parameter corrections. With these corrections applied to the signal MC, we subsequently impose a selection requirement of $\chi^2_{4C} < 50$ and refit the signal yields in each $M_{3\pi}$ interval.
+The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is corrected following the method established in a dedicated study using $e^+e^- \to K^+K^-\pi^+\pi^-$ events~\cite{BESIII_chisq4C_correction_2025}. That analysis, performed under BOSS version 7.1.2, investigated the differences in helix parameters between data and MC simulation across various data-taking periods at the center-of-mass energy of 3.773~GeV. For the signal process $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$, we apply helix parameter corrections to the charged tracks. Figures~\ref{fig:chisq4c_before} and~\ref{fig:chisq4c_after} show the comparison of $\chi^2_{4C}$ distributions between data and MC before and after the correction, respectively. As illustrated, a slight improvement in the agreement between data and MC is observed in the low $\chi^2_{4C}$ region, where the majority of events are populated, after applying the helix parameter corrections. 
 
 \begin{figure}[htbp]
     \centering
@@ -453,27 +453,27 @@ The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is correct
     \label{fig:chisq4c_comparison}
 \end{figure}
 
-The extracted signal yields after applying the $\chi^2_{4C}$ correction and selection are shown in Fig.~\ref{fig:signal_yields_corr} as a function of $M_{3\pi}$. It should be noted that the helix parameter corrections are applied only to the signal MC samples, while the data events remain uncorrected. Clear peaks corresponding to the $\omega(782)$ and $\phi(1020)$ resonances are observed, while the higher-mass region exhibits broader structures indicative of excited $\omega$ states.
+% The extracted signal yields after applying the $\chi^2_{4C}$ correction and selection are shown in Fig.~\ref{fig:signal_yields_corr} as a function of $M_{3\pi}$. It should be noted that the helix parameter corrections are applied only to the signal MC samples, while the data events remain uncorrected. Clear peaks corresponding to the $\omega(782)$ and $\phi(1020)$ resonances are observed, while the higher-mass region exhibits broader structures indicative of excited $\omega$ states.
 
-\begin{figure}[htbp]
-\centering
-\subfloat[$\omega(782)$ region]{
-\includegraphics[width=0.32\textwidth]{fig/yields_omega_corr.eps}
-\label{fig:yields_omega_corr}
-}
-\hfill
-\subfloat[$\phi(1020)$ region]{
-\includegraphics[width=0.32\textwidth]{fig/yields_phi_corr.eps}
-\label{fig:yields_phi_corr}
-}
-\hfill
-\subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
-\includegraphics[width=0.32\textwidth]{fig/yields_high_corr.eps}
-\label{fig:yields_high_corr}
-}
-\caption{Extracted signal yields as a function of $M_{3\pi}$ after applying helix parameter corrections to the signal MC and the $\chi^2_{4C} < 50$ selection requirement. The three mass regions are shown separately. The error bars represent the statistical uncertainties from the fits. The $\omega(782)$ and $\phi(1020)$ resonances appear as clear peaks, while the higher-mass region reveals broader structures corresponding to excited $\omega$ states.}
-\label{fig:signal_yields_corr}
-\end{figure}
+% \begin{figure}[htbp]
+% \centering
+% \subfloat[$\omega(782)$ region]{
+% \includegraphics[width=0.32\textwidth]{fig/yields_omega_corr.eps}
+% \label{fig:yields_omega_corr}
+% }
+% \hfill
+% \subfloat[$\phi(1020)$ region]{
+% \includegraphics[width=0.32\textwidth]{fig/yields_phi_corr.eps}
+% \label{fig:yields_phi_corr}
+% }
+% \hfill
+% \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
+% \includegraphics[width=0.32\textwidth]{fig/yields_high_corr.eps}
+% \label{fig:yields_high_corr}
+% }
+% \caption{Extracted signal yields as a function of $M_{3\pi}$ after applying helix parameter corrections to the signal MC and the $\chi^2_{4C} < 50$ selection requirement. The three mass regions are shown separately. The error bars represent the statistical uncertainties from the fits. The $\omega(782)$ and $\phi(1020)$ resonances appear as clear peaks, while the higher-mass region reveals broader structures corresponding to excited $\omega$ states.}
+% \label{fig:signal_yields_corr}
+% \end{figure}
 
 \clearpage
 \subsection{Correcting the Response Matrix for Unfolding}
@@ -513,24 +513,74 @@ w_m = \frac{N_{\text{total},j}^{\text{corr}} - N_{\text{pass},j}^{\text{corr}}}{
 
 Finally, the corrected migration matrix $A_{ij}^{\text{corr}}$ is filled by iterating over all reconstructed events: for an event from truth bin $j$ that falls into reconstructed bin $i$, we add its weight $w_p$ to $A_{ij}^{\text{corr}}$. The missing events, weighted by $w_m$, are not placed into any reconstructed bin, thereby correctly accounting for the overall efficiency loss. The normalized response matrix $P_{ij}^{\text{corr}}$ is then obtained by applying Eq.~\eqref{eq:response_matrix_norm} to $A_{ij}^{\text{corr}}$.
 
-Using the corrected migration matrix $A_{ij}^{\text{corr}}$, the unfolding of the $M_{3\pi}$ distribution is performed on data from Sec.~\ref{corr_signal_yields}. To avoid edge effects, the mass range for each resonance region is appropriately extended during the unfolding procedure, then truncated back to the nominal interval defined in Tab.~\ref{tab:optimized_parameters} for the final results. Figure~\ref{fig:unfolded_data_results} presents the unfolded $M_{3\pi}$ distributions for data in the three regions.
+Using the corrected migration matrix $A_{ij}^{\text{corr}}$, the unfolding of the $M_{3\pi}$ distribution is performed on data from Sec.~\ref{DataYields}. To avoid edge effects, the mass range for each resonance region is appropriately extended during the unfolding procedure, then truncated back to the nominal interval defined in Tab.~\ref{tab:optimized_parameters} for the final results. Figure~\ref{fig:unfolded_data_results} presents the unfolded $M_{3\pi}$ distributions for data in the three regions.
 
+% 添加结果图（四个数据周期，三个物理区域）
 \begin{figure}[htbp]
-    \centering
-    \subfloat[$\omega(782)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/unfolded_omega.eps}
-        \label{fig:unfolded_omega}
-    }
-    \hfill
-    \subfloat[$\phi(1020)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/unfolded_phi.eps}
-        \label{fig:unfolded_phi}
-    }
-    \hfill
-    \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/unfolded_high.eps}
-        \label{fig:unfolded_high}
-    }
-    \caption{Unfolded $M_{3\pi}$ distributions for data after applying the corrected response matrix. The results are shown only within the nominal mass ranges defined in Tab.~\ref{tab:optimized_parameters}. }
-    \label{fig:unfolded_data_results}
+\centering
+
+% === Row 1: Round 03/04 ===
+\subfloat[Round 03/04, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round0304.eps}
+    \label{fig:unfolded_omega_r0304}
+}\hfill
+\subfloat[Round 03/04, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round0304.eps}
+    \label{fig:unfolded_phi_r0304}
+}\hfill
+\subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round0304.eps}
+    \label{fig:unfolded_high_r0304}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 2: Round 15 ===
+\subfloat[Round 15, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round15.eps}
+    \label{fig:unfolded_omega_r15}
+}\hfill
+\subfloat[Round 15, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round15.eps}
+    \label{fig:unfolded_phi_r15}
+}\hfill
+\subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round15.eps}
+    \label{fig:unfolded_high_r15}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 3: Round 16 ===
+\subfloat[Round 16, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round16.eps}
+    \label{fig:unfolded_omega_r16}
+}\hfill
+\subfloat[Round 16, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round16.eps}
+    \label{fig:unfolded_phi_r16}
+}\hfill
+\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round16.eps}
+    \label{fig:unfolded_high_r16}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 4: Round 17 ===
+\subfloat[Round 17, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round17.eps}
+    \label{fig:unfolded_omega_r17}
+}\hfill
+\subfloat[Round 17, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round17.eps}
+    \label{fig:unfolded_phi_r17}
+}\hfill
+\subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round17.eps}
+    \label{fig:unfolded_high_r17}
+}
+
+\caption{Unfolded $M_{3\pi}$ distributions after applying the corrected response matrix, shown for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). The results are shown only within the nominal mass ranges defined in Tab.~\ref{tab:optimized_parameters}.}
+\label{fig:unfolded_data_results_all_rounds}
 \end{figure}
