@@ -1,8 +1,69 @@
 \clearpage
-\section{Correction of response matrix, and unfolding of data}
-\label{sec:eff_corr}
+\section{Correction of Signal Efficiency}
+\label{sec:corr_signal}
 
-With the optimized unfolding parameters determined from the MC validation studies (summarized in Table~\ref{tab:optimized_parameters}), the next step is to apply the necessary corrections to the response matrix before unfolding the data. Since the unfolding procedure relies on the response matrix derived from MC simulation, any discrepancies between data and MC can lead to biased results. Therefore, the MC sample used to construct the response matrix must be corrected to ensure that it accurately reflects the data. These discrepancies arise from various sources: the tracking efficiency of charged particles, PID performance, the reconstruction efficiency of neutral $\pi^0$ mesons, the detection efficiency of ISR photons, differences in the production rate of additional ISR photons (NLO) between the Phokhara generator and data, and the discrepancy in the $\chi^2_{4C}$ distribution between data and MC. The following subsections address each of these corrections in detail.
+To extract the dressed cross section $\sigma_{3\pi}^{\text{dress}}(m)$, we need
+the generator-level yield $\left( \frac{dN}{dm} \right)^{\text{gen}}$, which is
+related to the cross section within each mass interval by:
+\begin{equation}
+    \left( \frac{dN}{dm} \right)^{\text{gen}} = \sigma_{3\pi}^{\text{dress}}(m) \cdot \frac{dL}{dm} \cdot \varepsilon \cdot \mathcal{B}(\pi^0 \to \gamma\gamma)
+    \label{eq:cross_section_relation}
+\end{equation}
+where $\frac{dL}{dm}$ is the integrated luminosity in that interval, and $\mathcal{B}(\pi^0 \to \gamma\gamma)$ is the branching fraction of the $\pi^0 \to \gamma\gamma$ decay.
+
+From data, we have obtained the observed signal yield $\left( \frac{dN}{dm}
+    \right)_{i}^{\text{obs}}$ in each mass interval by fitting the
+$U_{\text{miss}}$ distribution, as shown in Fig.~\ref{fig:signal_yields}. Due
+to detector effects, events can migrate between different mass intervals, so
+these observed yields do not directly give the generator-level yields in
+Eq.~\eqref{eq:cross_section_relation}. The migration is described by the
+response matrix $P_{ij}$, which relates the observed yield in bin $i$ to the
+generator-level yield in bin $j$:
+\begin{equation}
+    \left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_{j} P_{ij} \left( \frac{dN}{dm} \right)_{j}^{\text{gen}}
+    \label{eq:response_matrix}
+\end{equation}
+The generator-level yields \(\left( \frac{dN}{dm}
+\right)_{j}^{\text{gen}}\) are therefore obtained by solving Eq.~\eqref{eq:response_matrix}
+for \(\left( \frac{dN}{dm} \right)_{j}^{\text{gen}}\) given the observed yields
+\(\left( \frac{dN}{dm} \right)_{i}^{\text{obs}}\) and the response matrix
+\(P_{ij}\). This numerical procedure is referred to as unfolding.
+
+Let $A_{ij}$ denote the number of MC events that are generated in true bin $j$
+and reconstructed in bin $i$, where $i$ and $j$ index the observed and
+generator-level mass bins, respectively. The migration matrices $A_{ij}$ for
+three representative mass regions are shown in
+Fig.~\ref{fig:migration_matrices}, illustrating how events generated in a given
+true bin are distributed across observed bins due to detector effects. This
+matrix is then normalized column-wise to obtain the response matrix used in
+Eq.~\eqref{eq:response_matrix}:
+\begin{equation}
+    P_{ij} = \frac{A_{ij}}{\sum_{k=1}^{n_d} A_{kj}}, \qquad \sum_{i=1}^{n_d} P_{ij} = 1,
+    \label{eq:response_matrix_norm}
+\end{equation}
+where $n_d$ is the number of reconstructed bins.
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[$\omega(782)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/migration_omega.eps}
+        \label{fig:migration_omega}
+    }
+    \hfill
+    \subfloat[$\phi(1020)$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/migration_phi.eps}
+        \label{fig:migration_phi}
+    }
+    \hfill
+    \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
+        \includegraphics[width=0.32\textwidth]{fig/migration_high.eps}
+        \label{fig:migration_high}
+    }
+    \caption{Response matrices $A_{ij}$ for three representative mass regions, showing the migration of events between generator-level and reconstructed $M_{3\pi}$ bins. The diagonal structure indicates good resolution, while off-diagonal entries reflect the effects of finite detector resolution and acceptance.}
+    \label{fig:migration_matrices}
+\end{figure}
+
+Since the unfolding procedure relies on the response matrix derived from MC simulation, any discrepancies between data and MC can lead to biased results. Therefore, the MC sample used to construct the response matrix must be corrected to ensure that it accurately reflects the data. These discrepancies arise from various sources: the tracking efficiency of charged particles, PID performance, the reconstruction efficiency of neutral $\pi^0$ mesons, the detection efficiency of ISR photons, differences in the production rate of additional ISR photons (NLO) between the Phokhara generator and data, and the discrepancy in the $\chi^2_{4C}$ distribution between data and MC. The following subsections address each of these corrections in detail.
 
 \subsection{Tracking and PID efficiencies}
 
@@ -434,153 +495,24 @@ Table~\ref{tab:nlo_fraction} presents the comparison between data and MC for the
 The ratios $f_i^{\text{Data}} / f_i^{\text{MC}}$ reveal a discrepancy between data and the PHOKHARA generator simulation. We observe that PHOKHARA overestimates the production rate of events with additional ISR photons, consistent with the findings from the BaBar study~\cite{PhysRevD.108.L111103}. This discrepancy will be corrected in the unfolding procedure through the response matrix.
 
 
-\subsection{The $\chi^2_{4C}$ distribution and correcting the signal yields}
+\subsection{Correcting the signal yields}
 \label{sec:corr_signal_kmfit}
-The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is corrected following the method established in a dedicated study using $e^+e^- \to K^+K^-\pi^+\pi^-$ events~\cite{BESIII_chisq4C_correction_2025}. That analysis, performed under BOSS version 7.1.2, investigated the differences in helix parameters between data and MC simulation across various data-taking periods at the center-of-mass energy of 3.773~GeV. For the signal process $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$, we apply helix parameter corrections to the charged tracks. Figures~\ref{fig:chisq4c_before} and~\ref{fig:chisq4c_after} show the comparison of $\chi^2_{4C}$ distributions between data and MC before and after the correction, respectively. As illustrated, a slight improvement in the agreement between data and MC is observed in the low $\chi^2_{4C}$ region, where the majority of events are populated, after applying the helix parameter corrections. 
+To construct the migration matrix for unfolding, we start from the signal MC samples that have been corrected for helix parameters and satisfy the $\chi^2_{4C} < 50$ selection requirement. The migration matrix element $A_{ij}$ is intended to represent the number of events that truly belong to bin $j$ and are reconstructed in bin $i$. The MC simulation does not perfectly describe data; discrepancies arise from the NLO ISR photon production rate and from the efficiencies of tracking, PID, $\pi^0$ reconstruction, and ISR photon detection. These must be corrected before the matrix can be used for unfolding.
 
-\begin{figure}[htbp]
-    \centering
-    \subfloat[Before correction]{
-        \includegraphics[width=0.48\textwidth]{fig/LO_kmfit4C_comparison_comparison.eps}
-        \label{fig:chisq4c_before}
-    }
-    \hfill
-    \subfloat[After correction]{
-        \includegraphics[width=0.48\textwidth]{fig/LO_kmfit4C_corr_comparison_comparison.eps}
-        \label{fig:chisq4c_after}
-    }
-    \caption{Comparison of $\chi^2_{4C}$ distributions between data and MC for the $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$ process (a) before and (b) after applying helix parameter corrections.}
-    \label{fig:chisq4c_comparison}
-\end{figure}
+Two types of corrections are applied to the MC events. The first correction addresses the discrepancy in the NLO ISR photon production rate. For each event from truth bin $j$, we assign a weight:
+\[
+w_{\text{NLO}} = c_{\text{NLO}}(j),
+\]
+where $c_{\text{NLO}}(j)$ is the bin-dependent NLO correction factor.
 
-% The extracted signal yields after applying the $\chi^2_{4C}$ correction and selection are shown in Fig.~\ref{fig:signal_yields_corr} as a function of $M_{3\pi}$. It should be noted that the helix parameter corrections are applied only to the signal MC samples, while the data events remain uncorrected. Clear peaks corresponding to the $\omega(782)$ and $\phi(1020)$ resonances are observed, while the higher-mass region exhibits broader structures indicative of excited $\omega$ states.
+The second correction accounts for the differences in reconstruction efficiencies. For each successfully reconstructed event, we assign an additional weight:
+\[
+w_{\text{eff}} = c_{\text{trk}}(\pi^+) \cdot c_{\text{pid}}(\pi^+) \cdot c_{\text{trk}}(\pi^-) \cdot c_{\text{pid}}(\pi^-) \cdot c_{\pi^0} \cdot c_{\gamma_{\text{ISR}}}.
+\]
 
-% \begin{figure}[htbp]
-% \centering
-% \subfloat[$\omega(782)$ region]{
-% \includegraphics[width=0.32\textwidth]{fig/yields_omega_corr.eps}
-% \label{fig:yields_omega_corr}
-% }
-% \hfill
-% \subfloat[$\phi(1020)$ region]{
-% \includegraphics[width=0.32\textwidth]{fig/yields_phi_corr.eps}
-% \label{fig:yields_phi_corr}
-% }
-% \hfill
-% \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
-% \includegraphics[width=0.32\textwidth]{fig/yields_high_corr.eps}
-% \label{fig:yields_high_corr}
-% }
-% \caption{Extracted signal yields as a function of $M_{3\pi}$ after applying helix parameter corrections to the signal MC and the $\chi^2_{4C} < 50$ selection requirement. The three mass regions are shown separately. The error bars represent the statistical uncertainties from the fits. The $\omega(782)$ and $\phi(1020)$ resonances appear as clear peaks, while the higher-mass region reveals broader structures corresponding to excited $\omega$ states.}
-% \label{fig:signal_yields_corr}
-% \end{figure}
-
-\clearpage
-\subsection{Correcting the Response Matrix for Unfolding}
-\label{sec:correction_method}
-To construct the migration matrix for unfolding, we start from the signal MC samples that have been corrected for helix parameters and satisfy the $\chi^2_{4C} < 50$ selection requirement. For each truth bin $j$ (defined in $M_{3\pi}$), we have three basic quantities from the original MC:
+The corrected migration matrix is filled using the following prescription. Initially, all generated events are considered to be lost (i.e., placed into the missing category) with weight $w_{\text{NLO}}$. Then, for each reconstructed event that truly belongs to truth bin $j$ and is observed in reconstructed bin $i$, we:
 \begin{itemize}
-    \item $N_{\text{total},j}$: the total number of generated events in that truth bin (before any corrections);
-    \item $N_{\text{pass},j}$: the number of events that are successfully reconstructed and pass all selection criteria, which are distributed among various reconstructed bins $i$;
-    \item $N_{\text{miss},j} = N_{\text{total},j} - N_{\text{pass},j}$: the number of events that fail reconstruction or selection.
+    \item Add $w_{\text{NLO}} \cdot w_{\text{eff}}$ to the migration matrix element $A_{ij}^{\text{corr}}$;
+    \item Subtract $w_{\text{NLO}} \cdot w_{\text{eff}}$ from the missing weight to remove the event's contribution from the missing category.
 \end{itemize}
-
-The migration matrix element $A_{ij}$ is intended to represent the number of events that truly belong to bin $j$ and are reconstructed in bin $i$. However, the MC simulation does not perfectly describe data; discrepancies arise from the NLO ISR photon production rate and from the efficiencies of tracking, PID, $\pi^0$ reconstruction, and ISR photon detection. These must be corrected before the matrix can be used for unfolding.
-
-The correction is applied in two steps. First, the NLO photon fraction discrepancy is corrected at the generator level. For each truth bin $j$, the corrected total number of generated events becomes
-\[
-N_{\text{total},j}^{\text{corr}} = c_{\text{NLO}} \cdot N_{\text{total},j},
-\]
-where $c_{\text{NLO}}$ is the bin-dependent NLO correction factor.
-
-Second, each reconstructed event is assigned a weight that accounts for the efficiency corrections:
-\[
-w_p = c_{\text{trk}}(\pi^+) \cdot c_{\text{pid}}(\pi^+) \cdot c_{\text{trk}}(\pi^-) \cdot c_{\text{pid}}(\pi^-) \cdot c_{\pi^0} \cdot c_{\gamma_{\text{ISR}}},
-\]
-where each factor depends on the momentum of the corresponding particle. This weight adjusts the MC reconstruction yield to match the data. The sum of these weights over all reconstructed events originating from truth bin $j$ gives the corrected number of weighted passing events:
-\[
-N_{\text{pass},j}^{\text{corr}} = \sum_{\text{reconstructed events from truth bin }j} w_p.
-\]
-
-To preserve the total number of truth events after correction, the missing events must also be weighted appropriately. Let $w_m$ be the weight applied to each missing event from truth bin $j$. The condition
-\[
-N_{\text{total},j}^{\text{corr}} = N_{\text{pass},j}^{\text{corr}} + w_m \cdot N_{\text{miss},j}
-\]
-yields
-\[
-w_m = \frac{N_{\text{total},j}^{\text{corr}} - N_{\text{pass},j}^{\text{corr}}}{N_{\text{miss},j}}.
-\]
-
-Finally, the corrected migration matrix $A_{ij}^{\text{corr}}$ is filled by iterating over all reconstructed events: for an event from truth bin $j$ that falls into reconstructed bin $i$, we add its weight $w_p$ to $A_{ij}^{\text{corr}}$. The missing events, weighted by $w_m$, are not placed into any reconstructed bin, thereby correctly accounting for the overall efficiency loss. The normalized response matrix $P_{ij}^{\text{corr}}$ is then obtained by applying Eq.~\eqref{eq:response_matrix_norm} to $A_{ij}^{\text{corr}}$.
-
-Using the corrected migration matrix $A_{ij}^{\text{corr}}$, the unfolding of the $M_{3\pi}$ distribution is performed on data from Sec.~\ref{DataYields}. To avoid edge effects, the mass range for each resonance region is appropriately extended during the unfolding procedure, then truncated back to the nominal interval defined in Tab.~\ref{tab:optimized_parameters} for the final results. Figure~\ref{fig:unfolded_data_results} presents the unfolded $M_{3\pi}$ distributions for data in the three regions.
-
-% 添加结果图（四个数据周期，三个物理区域）
-\begin{figure}[htbp]
-\centering
-
-% === Row 1: Round 03/04 ===
-\subfloat[Round 03/04, $\omega(782)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round0304.eps}
-    \label{fig:unfolded_omega_r0304}
-}\hfill
-\subfloat[Round 03/04, $\phi(1020)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round0304.eps}
-    \label{fig:unfolded_phi_r0304}
-}\hfill
-\subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round0304.eps}
-    \label{fig:unfolded_high_r0304}
-}
-
-\vspace{0.5\baselineskip}
-
-% === Row 2: Round 15 ===
-\subfloat[Round 15, $\omega(782)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round15.eps}
-    \label{fig:unfolded_omega_r15}
-}\hfill
-\subfloat[Round 15, $\phi(1020)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round15.eps}
-    \label{fig:unfolded_phi_r15}
-}\hfill
-\subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round15.eps}
-    \label{fig:unfolded_high_r15}
-}
-
-\vspace{0.5\baselineskip}
-
-% === Row 3: Round 16 ===
-\subfloat[Round 16, $\omega(782)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round16.eps}
-    \label{fig:unfolded_omega_r16}
-}\hfill
-\subfloat[Round 16, $\phi(1020)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round16.eps}
-    \label{fig:unfolded_phi_r16}
-}\hfill
-\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round16.eps}
-    \label{fig:unfolded_high_r16}
-}
-
-\vspace{0.5\baselineskip}
-
-% === Row 4: Round 17 ===
-\subfloat[Round 17, $\omega(782)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round17.eps}
-    \label{fig:unfolded_omega_r17}
-}\hfill
-\subfloat[Round 17, $\phi(1020)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round17.eps}
-    \label{fig:unfolded_phi_r17}
-}\hfill
-\subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round17.eps}
-    \label{fig:unfolded_high_r17}
-}
-
-\caption{Unfolded $M_{3\pi}$ distributions after applying the corrected response matrix, shown for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). The results are shown only within the nominal mass ranges defined in Tab.~\ref{tab:optimized_parameters}.}
-\label{fig:unfolded_data_results_all_rounds}
-\end{figure}
+This procedure ensures that the total corrected weight $N_{\text{total},j}^{\text{corr}} = \sum_i A_{ij}^{\text{corr}} + N_{\text{miss},j}^{\text{corr}}$ is conserved. The normalized response matrix $P_{ij}^{\text{corr}}$ is then obtained by applying Eq.~\eqref{eq:response_matrix_norm} to $A_{ij}^{\text{corr}}$.

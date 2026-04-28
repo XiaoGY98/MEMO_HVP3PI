@@ -1,62 +1,6 @@
 \clearpage
-\section{Unfolding}
-\label{sec:unfolding}
-
-To extract the dressed cross section $\sigma_{3\pi}^{\text{dress}}(m)$, we need
-the generator-level yield $\left( \frac{dN}{dm} \right)^{\text{gen}}$, which is
-related to the cross section within each mass interval by:
-\begin{equation}
-    \left( \frac{dN}{dm} \right)^{\text{gen}} = \sigma_{3\pi}^{\text{dress}}(m) \cdot \frac{dL}{dm} \cdot \varepsilon \cdot \mathcal{B}(\pi^0 \to \gamma\gamma)
-    \label{eq:cross_section_relation}
-\end{equation}
-where $\frac{dL}{dm}$ is the integrated luminosity in that interval, and $\mathcal{B}(\pi^0 \to \gamma\gamma)$ is the branching fraction of the $\pi^0 \to \gamma\gamma$ decay.
-
-From data, we have obtained the observed signal yield $\left( \frac{dN}{dm}
-    \right)_{i}^{\text{obs}}$ in each mass interval by fitting the
-$U_{\text{miss}}$ distribution, as shown in Fig.~\ref{fig:signal_yields}. Due
-to detector effects, events can migrate between different mass intervals, so
-these observed yields do not directly give the generator-level yields in
-Eq.~\eqref{eq:cross_section_relation}. The migration is described by the
-response matrix $P_{ij}$, which relates the observed yield in bin $i$ to the
-generator-level yield in bin $j$:
-\begin{equation}
-    \left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_{j} P_{ij} \left( \frac{dN}{dm} \right)_{j}^{\text{gen}}
-    \label{eq:response_matrix}
-\end{equation}
-
-Let $A_{ij}$ denote the number of MC events that are generated in true bin $j$
-and reconstructed in bin $i$, where $i$ and $j$ index the observed and
-generator-level mass bins, respectively. The migration matrices $A_{ij}$ for
-three representative mass regions are shown in
-Fig.~\ref{fig:migration_matrices}, illustrating how events generated in a given
-true bin are distributed across observed bins due to detector effects. This
-matrix is then normalized column-wise to obtain the response matrix used in
-Eq.~\eqref{eq:response_matrix}:
-\begin{equation}
-    P_{ij} = \frac{A_{ij}}{\sum_{k=1}^{n_d} A_{kj}}, \qquad \sum_{i=1}^{n_d} P_{ij} = 1,
-    \label{eq:response_matrix_norm}
-\end{equation}
-where $n_d$ is the number of reconstructed bins.
-
-\begin{figure}[htbp]
-    \centering
-    \subfloat[$\omega(782)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/migration_omega.eps}
-        \label{fig:migration_omega}
-    }
-    \hfill
-    \subfloat[$\phi(1020)$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/migration_phi.eps}
-        \label{fig:migration_phi}
-    }
-    \hfill
-    \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
-        \includegraphics[width=0.32\textwidth]{fig/migration_high.eps}
-        \label{fig:migration_high}
-    }
-    \caption{Response matrices $A_{ij}$ for three representative mass regions, showing the migration of events between generator-level and reconstructed $M_{3\pi}$ bins. The diagonal structure indicates good resolution, while off-diagonal entries reflect the effects of finite detector resolution and acceptance.}
-    \label{fig:migration_matrices}
-\end{figure}
+\section{Unfolding And Cross-Section Measurement}
+\label{sec:unfolding_data}
 
 \subsection{The IDS unfolding method}
 
@@ -132,7 +76,8 @@ where:
 \end{itemize}
 The updated migration matrix $A'_{ij}$ is then renormalized column-wise to obtain an improved response matrix $P_{ij}$, and row-wise to obtain an improved unfolding matrix $\tilde{P}_{ij}$.
 
-\subsection{Parameter optimization and figure of merit}
+
+\subsection{Parameter optimization and Unfolding}
 
 The IDS method involves three regularization parameters: $\lambda_L$ for the
 initial unfolding, $\lambda_M$ for modifying the response matrix, and
@@ -153,7 +98,7 @@ result using a $\chi^2$ figure of merit. The $\chi^2$ is computed by comparing
 the unfolded spectrum $u_j$ to the true generator-level distribution
 $t_j^{\text{truth}}$ from the MC simulation. The MC sample used for this
 comparison has been corrected following the procedure described in
-Sec.~\ref{sec:correction_method} and is normalized such that its total integral
+Sec.~\ref{sec:corr_signal_kmfit} and is normalized such that its total integral
 matches the total number of signal events observed in data (shown in
 Fig.~\ref{fig:signal_yields}), ensuring that the statistical uncertainties from
 the toy ensembles properly reflect the data statistics.
@@ -219,7 +164,7 @@ consistency.
 
 \begin{table}[t]
     \begin{center}
-        \caption{Optimized unfolding parameters for the three representative mass regions, determined using the Round~16 MC sample. For each region, the parameters $\lambda_L$, $\lambda_U$, $\lambda_M$, and number of iterations $n_{\text{iter}}$ were selected based on the $\chi^2$ minimization procedure described in the text. The $\chi^2/\text{ndf}$ values are shown for all four rounds to demonstrate the consistency of the unfolding performance across different data-taking conditions.}
+        \caption{Optimized unfolding parameters for the three representative mass regions, determined using the Round~16 MC sample. The $\chi^2/\text{ndf}$ values are shown for all four rounds to demonstrate the consistency of the unfolding performance across different data-taking conditions.}
         \vspace{4mm}
         \renewcommand{\arraystretch}{1.3}
         \begin{tabular}{c | c | c | c | c | c | c | c | c}
@@ -332,3 +277,98 @@ ensemble:
     \delta_{\text{unfolded}} = \frac{\sqrt{\sum_{i,j} \Sigma_{ij}}}{\sum_i u_i},
 \end{equation}
 where $u_i$ are the bin contents of the unfolded spectrum. The relative uncertainty of the unfolded spectrum should not be smaller than the Poisson uncertainty of the test MC sample.
+
+% The extracted signal yields after applying the $\chi^2_{4C}$ correction and selection are shown in Fig.~\ref{fig:signal_yields_corr} as a function of $M_{3\pi}$. It should be noted that the helix parameter corrections are applied only to the signal MC samples, while the data events remain uncorrected. Clear peaks corresponding to the $\omega(782)$ and $\phi(1020)$ resonances are observed, while the higher-mass region exhibits broader structures indicative of excited $\omega$ states.
+
+% \begin{figure}[htbp]
+% \centering
+% \subfloat[$\omega(782)$ region]{
+% \includegraphics[width=0.32\textwidth]{fig/yields_omega_corr.eps}
+% \label{fig:yields_omega_corr}
+% }
+% \hfill
+% \subfloat[$\phi(1020)$ region]{
+% \includegraphics[width=0.32\textwidth]{fig/yields_phi_corr.eps}
+% \label{fig:yields_phi_corr}
+% }
+% \hfill
+% \subfloat[$\omega^{\prime}/\omega^{\prime\prime}$ region]{
+% \includegraphics[width=0.32\textwidth]{fig/yields_high_corr.eps}
+% \label{fig:yields_high_corr}
+% }
+% \caption{Extracted signal yields as a function of $M_{3\pi}$ after applying helix parameter corrections to the signal MC and the $\chi^2_{4C} < 50$ selection requirement. The three mass regions are shown separately. The error bars represent the statistical uncertainties from the fits. The $\omega(782)$ and $\phi(1020)$ resonances appear as clear peaks, while the higher-mass region reveals broader structures corresponding to excited $\omega$ states.}
+% \label{fig:signal_yields_corr}
+% \end{figure}
+
+
+Using the corrected migration matrix $A_{ij}^{\text{corr}}$, the unfolding of the $M_{3\pi}$ distribution is performed on data from Sec.~\ref{DataYields}. The mass range for each resonance region is extended during the unfolding procedure and subsequently truncated back to the nominal interval defined in Tab.~\ref{tab:optimized_parameters} for the final results. Figure~\ref{fig:unfolded_data_results_all_rounds} presents the unfolded $M_{3\pi}$ distributions for data in the three regions.
+
+% 添加结果图（四个数据周期，三个物理区域）
+\begin{figure}[htbp]
+\centering
+
+% === Row 1: Round 03/04 ===
+\subfloat[Round 03/04, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round0304.eps}
+    \label{fig:unfolded_omega_r0304}
+}\hfill
+\subfloat[Round 03/04, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round0304.eps}
+    \label{fig:unfolded_phi_r0304}
+}\hfill
+\subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round0304.eps}
+    \label{fig:unfolded_high_r0304}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 2: Round 15 ===
+\subfloat[Round 15, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round15.eps}
+    \label{fig:unfolded_omega_r15}
+}\hfill
+\subfloat[Round 15, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round15.eps}
+    \label{fig:unfolded_phi_r15}
+}\hfill
+\subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round15.eps}
+    \label{fig:unfolded_high_r15}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 3: Round 16 ===
+\subfloat[Round 16, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round16.eps}
+    \label{fig:unfolded_omega_r16}
+}\hfill
+\subfloat[Round 16, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round16.eps}
+    \label{fig:unfolded_phi_r16}
+}\hfill
+\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round16.eps}
+    \label{fig:unfolded_high_r16}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 4: Round 17 ===
+\subfloat[Round 17, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_omega_round17.eps}
+    \label{fig:unfolded_omega_r17}
+}\hfill
+\subfloat[Round 17, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_phi_round17.eps}
+    \label{fig:unfolded_phi_r17}
+}\hfill
+\subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/unfolded_high_round17.eps}
+    \label{fig:unfolded_high_r17}
+}
+
+\caption{Unfolded $M_{3\pi}$ distributions after applying the corrected response matrix, shown for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). The results are shown only within the nominal mass ranges defined in Tab.~\ref{tab:optimized_parameters}.}
+\label{fig:unfolded_data_results_all_rounds}
+\end{figure}

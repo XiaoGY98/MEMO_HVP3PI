@@ -1,4 +1,103 @@
 \clearpage
-\section{Systematic uncertainties}
+\section{Systematic Uncertainties}
 \label{sec:sysU}
-to fill
+
+In this chapter, we discuss the systematic uncertainties considered in this analysis. The primary systematic uncertainty comes from the efficiency correction applied in the unfolding procedure. Additional uncertainties are associated with the 4C kinematic fit, ... 
+
+\subsection{Efficiency correction uncertainties}
+
+The corrections applied to the MC events in the unfolding procedure are designed to mitigate discrepancies between data and simulation, including the NLO ISR photon production rate and the reconstruction efficiencies for tracking, PID, $\pi^0$ reconstruction, and ISR photon detection. The finite precision of these corrections introduces systematic uncertainties in the unfolded results.
+
+The correction factors are grouped into seven independent sources:
+\[
+c_{\text{NLO}}(j),\; c_{\text{trk}}(\pi^+),\; c_{\text{pid}}(\pi^+),\; c_{\text{trk}}(\pi^-),\; c_{\text{pid}}(\pi^-),\; c_{\pi^0},\; c_{\gamma_{\text{ISR}}}.
+\]
+Each factor has an associated uncertainty, derived from auxiliary measurements or theoretical calculations. To propagate these uncertainties to the unfolded spectrum, we perform a toy Monte Carlo procedure.
+
+For each toy variation $k = 1, \dots, N_{\text{toy}}$, we independently sample all seven correction factors according to their respective uncertainty distributions (Gaussian with widths given by the factor's uncertainty). This yields a set of seven parameters:
+\[
+\bigl( c_{\text{NLO}}^{(k)}(j),\; c_{\text{trk}}^{(k)}(\pi^+),\; c_{\text{pid}}^{(k)}(\pi^+),\; c_{\text{trk}}^{(k)}(\pi^-),\; c_{\text{pid}}^{(k)}(\pi^-),\; c_{\pi^0}^{(k)},\; c_{\gamma_{\text{ISR}}}^{(k)} \bigr).
+\]
+
+For each such parameter set, we recompute the corrected migration matrix $A_{ij}^{\text{corr},(k)}$ following the prescription in Sec.~\ref{sec:corr_signal_kmfit}, then derive the normalized response matrix and perform the unfolding to obtain a toy unfolded spectrum $\{ u_i^{(k)} \}$, where $i$ indexes the truth bins.
+
+After processing all $N_{\text{toy}}$ toys, we compute the mean unfolded spectrum:
+\[
+\bar{u}_i = \frac{1}{N_{\text{toy}}} \sum_{k=1}^{N_{\text{toy}}} u_i^{(k)}.
+\]
+
+The covariance matrix of the systematic uncertainty arising from the efficiency corrections is then estimated as:
+\[
+\Sigma_{ij}^{\text{sys}} = \frac{1}{N_{\text{toy}} - 1} \sum_{k=1}^{N_{\text{toy}}} \left( u_i^{(k)} - \bar{u}_i \right) \left( u_j^{(k)} - \bar{u}_j \right).
+\]
+
+The diagonal elements $\sqrt{\Sigma_{ii}^{\text{sys}}}$ provide the systematic uncertainty per bin, while the off-diagonal elements quantify correlations between bins induced by the uncertainties in the correction factors. This covariance matrix is taken as the systematic uncertainty contribution from the efficiency corrections in the final results. This procedure is performed independently for each data-taking period (rounds 0304, 15, 16, and 17) and for each $M_{3\pi}$ region. The resulting diagonal systematic uncertainties per bin, expressed as relative uncertainties, are shown in Fig.~\ref{fig:syst_efficiency_diag} for all periods and regions.
+
+\begin{figure}[htbp]
+\centering
+
+% === Row 1: Round 03/04 ===
+\subfloat[Round 03/04, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round0304.eps}
+    \label{fig:systematic_errors_relative_omega_r0304}
+}\hfill
+\subfloat[Round 03/04, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round0304.eps}
+    \label{fig:systematic_errors_relative_phi_r0304}
+}\hfill
+\subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round0304.eps}
+    \label{fig:systematic_errors_relative_high_r0304}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 2: Round 15 ===
+\subfloat[Round 15, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round15.eps}
+    \label{fig:systematic_errors_relative_omega_r15}
+}\hfill
+\subfloat[Round 15, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round15.eps}
+    \label{fig:systematic_errors_relative_phi_r15}
+}\hfill
+\subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round15.eps}
+    \label{fig:systematic_errors_relative_high_r15}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 3: Round 16 ===
+\subfloat[Round 16, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round16.eps}
+    \label{fig:systematic_errors_relative_omega_r16}
+}\hfill
+\subfloat[Round 16, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round16.eps}
+    \label{fig:systematic_errors_relative_phi_r16}
+}\hfill
+\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round16.eps}
+    \label{fig:systematic_errors_relative_high_r16}
+}
+
+\vspace{0.5\baselineskip}
+
+% === Row 4: Round 17 ===
+\subfloat[Round 17, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round17.eps}
+    \label{fig:systematic_errors_relative_omega_r17}
+}\hfill
+\subfloat[Round 17, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round17.eps}
+    \label{fig:systematic_errors_relative_phi_r17}
+}\hfill
+\subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round17.eps}
+    \label{fig:systematic_errors_relative_high_r17}
+}
+
+\caption{Diagonal relative systematic uncertainties (per bin) from efficiency corrections, shown for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). For each bin, the relative uncertainty is computed as $\sqrt{\Sigma_{ii}^{\text{sys}}} / u_i$, where $u_i$ is the unfolded yield.}
+\label{fig:syst_efficiency_diag}
+\end{figure}
