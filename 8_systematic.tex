@@ -21,17 +21,11 @@ For each toy variation $k = 1, \dots, N_{\text{toy}}$, we independently sample a
 
 For each such parameter set, we recompute the corrected migration matrix $A_{ij}^{\text{corr},(k)}$ following the prescription in Sec.~\ref{sec:corr_signal_kmfit}, then derive the normalized response matrix and perform the unfolding to obtain a toy unfolded spectrum $\{ u_i^{(k)} \}$, where $i$ indexes the truth bins.
 
-After processing all $N_{\text{toy}}$ toys, we compute the mean unfolded spectrum:
+After processing all $N_{\text{toy}}$ toys, the covariance matrix of the systematic uncertainty arising from the efficiency corrections is estimated as:
 \[
-\bar{u}_i = \frac{1}{N_{\text{toy}}} \sum_{k=1}^{N_{\text{toy}}} u_i^{(k)}.
+\Sigma_{ij}^{\text{sys}} = \frac{1}{N_{\text{toy}} - 1} \sum_{k=1}^{N_{\text{toy}}} \left( u_i^{(k)} - u_i^{\text{nom}} \right) \left( u_j^{(k)} - u_j^{\text{nom}} \right),
 \]
-
-The covariance matrix of the systematic uncertainty arising from the efficiency corrections is then estimated as:
-\[
-\Sigma_{ij}^{\text{sys}} = \frac{1}{N_{\text{toy}} - 1} \sum_{k=1}^{N_{\text{toy}}} \left( u_i^{(k)} - \bar{u}_i \right) \left( u_j^{(k)} - \bar{u}_j \right).
-\]
-
-The diagonal elements $\sqrt{\Sigma_{ii}^{\text{sys}}}$ provide the systematic uncertainty per bin, while the off-diagonal elements quantify correlations between bins induced by the uncertainties in the correction factors. This covariance matrix is taken as the systematic uncertainty contribution from the efficiency corrections in the final results. This procedure is performed independently for each data-taking period (rounds 0304, 15, 16, and 17) and for each $M_{3\pi}$ region. The resulting diagonal systematic uncertainties per bin, expressed as relative uncertainties, are shown in Fig.~\ref{fig:syst_efficiency_diag} for all periods and regions.
+where $u_i^{\text{nom}}$ is the nominal unfolded spectrum. The diagonal elements $\sqrt{\Sigma_{ii}^{\text{sys}}}$ provide the systematic uncertainty per bin, while the off-diagonal elements quantify correlations between bins induced by the uncertainties in the correction factors. This covariance matrix is taken as the systematic uncertainty contribution from the efficiency corrections in the final results. This procedure is performed independently for each data-taking period (rounds 0304, 15, 16, and 17) and for each $M_{3\pi}$ region. The resulting diagonal systematic uncertainties per bin, expressed as relative uncertainties, are shown in Fig.~\ref{fig:syst_efficiency_diag} for all periods and regions.
 
 \begin{figure}[htbp]
 \centering

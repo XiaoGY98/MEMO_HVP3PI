@@ -164,7 +164,7 @@ consistency.
 
 \begin{table}[t]
     \begin{center}
-        \caption{Optimized unfolding parameters for the three representative mass regions, determined using the Round~16 MC sample. The $\chi^2/\text{ndf}$ values are shown for all four rounds to demonstrate the consistency of the unfolding performance across different data-taking conditions.}
+        \caption{The resulting unfolding parameters for the three representative mass regions. }
         \vspace{4mm}
         \renewcommand{\arraystretch}{1.3}
         \begin{tabular}{c | c | c | c | c | c | c | c | c}
@@ -301,7 +301,7 @@ where $u_i$ are the bin contents of the unfolded spectrum. The relative uncertai
 % \end{figure}
 
 
-Using the corrected migration matrix $A_{ij}^{\text{corr}}$, the unfolding of the $M_{3\pi}$ distribution is performed on data from Sec.~\ref{DataYields}. The mass range for each resonance region is extended during the unfolding procedure and subsequently truncated back to the nominal interval defined in Tab.~\ref{tab:optimized_parameters} for the final results. Figure~\ref{fig:unfolded_data_results_all_rounds} presents the unfolded $M_{3\pi}$ distributions for data in the three regions.
+Using the corrected migration matrix $A_{ij}^{\text{corr}}$, the unfolding of the $M_{3\pi}$ distribution is performed on data from Sec.~\ref{DataYields}. The unfolding procedure automatically accounts for the reconstruction and selection efficiency of the signal by incorporating information from missing events, rather than relying on the response matrix alone. The mass range for each resonance region is extended during the unfolding procedure and subsequently truncated back to the nominal interval defined in Tab.~\ref{tab:optimized_parameters} for the final results. Figure~\ref{fig:unfolded_data_results_all_rounds} presents the unfolded $M_{3\pi}$ distributions for data in the three regions.
 
 % 添加结果图（四个数据周期，三个物理区域）
 \begin{figure}[htbp]
@@ -372,3 +372,83 @@ Using the corrected migration matrix $A_{ij}^{\text{corr}}$, the unfolding of th
 \caption{Unfolded $M_{3\pi}$ distributions after applying the corrected response matrix, shown for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). The results are shown only within the nominal mass ranges defined in Tab.~\ref{tab:optimized_parameters}.}
 \label{fig:unfolded_data_results_all_rounds}
 \end{figure}
+
+\clearpage
+\subsection{Calculation of cross sections}
+From the unfolding procedure described in the previous section, we obtain the unfolded $M_{3\pi}$ mass spectrum $\left( \frac{dN}{dm} \right)^{\text{gen}}$ for each data-taking period. The relationship between the unfolded mass spectrum and the dressed cross section $\sigma_{3\pi}^{\text{dress}}(m)$ is given by:
+\begin{equation}
+    \left( \frac{dN}{dm} \right)^{\text{gen}} = \sigma_{3\pi}^{\text{dress}}(m) \cdot \frac{dL}{dm} \cdot \mathcal{B}(\pi^{0} \to \gamma\gamma)
+    \label{eq:cross_section_relation_noeff}
+\end{equation}
+where $\frac{dL}{dm}$ is the effective luminosity per unit mass, and $\mathcal{B}(\pi^{0} \to \gamma\gamma) = (98.823 \pm 0.034)\%$ is the branching fraction of $\pi^{0} \to \gamma\gamma$ as quoted by the Particle Data Group (PDG)~\cite{PDG2024}. The complete formula for calculating $\frac{dL}{dm}$ is provided in Sec.~\ref{sec:bkg_stu}.
+
+Using Eq.~\ref{eq:cross_section_relation_noeff}, we obtain four independent dressed cross section results $\sigma_{3\pi}^{\text{dress}}(m)$ corresponding to the four data-taking periods: Round~03/04, Round~15, Round~16, and Round~17. These results are presented in Fig.~\ref{fig:sigma_dress_results_all_rounds}. For each period, the unfolding procedure yields not only the unfolded mass spectrum but also its corresponding covariance matrix, which fully describes the uncertainties and correlations of $\left( \frac{dN}{dm} \right)^{\text{gen}}$. Consequently, all subsequent uncertainties in the dressed cross section are propagated from these covariance matrices.
+
+% \begin{figure}[htbp]
+%     \centering
+
+%     % === Row 1: Round 03/04 ===
+%     \subfloat[Round 03/04, $\omega(782)$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round0304_omega.eps}
+%         \label{fig:sigma_dress_round0304_omega}
+%     }\hfill
+%     \subfloat[Round 03/04, $\phi(1020)$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round0304_phi.eps}
+%         \label{fig:sigma_dress_round0304_phi}
+%     }\hfill
+%     \subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round0304_high.eps}
+%         \label{fig:sigma_dress_round0304_high}
+%     }
+
+%     \vspace{0.5\baselineskip}
+
+%     % === Row 2: Round 15 ===
+%     \subfloat[Round 15, $\omega(782)$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round15_omega.eps}
+%         \label{fig:sigma_dress_round15_omega}
+%     }\hfill
+%     \subfloat[Round 15, $\phi(1020)$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round15_phi.eps}
+%         \label{fig:sigma_dress_round15_phi}
+%     }\hfill
+%     \subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round15_high.eps}
+%         \label{fig:sigma_dress_round15_high}
+%     }
+
+%     \vspace{0.5\baselineskip}
+
+%     % === Row 3: Round 16 ===
+%     \subfloat[Round 16, $\omega(782)$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round16_omega.eps}
+%         \label{fig:sigma_dress_round16_omega}
+%     }\hfill
+%     \subfloat[Round 16, $\phi(1020)$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round16_phi.eps}
+%         \label{fig:sigma_dress_round16_phi}
+%     }\hfill
+%     \subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round16_high.eps}
+%         \label{fig:sigma_dress_round16_high}
+%     }
+
+%     \vspace{0.5\baselineskip}
+
+%     % === Row 4: Round 17 ===
+%     \subfloat[Round 17, $\omega(782)$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round17_omega.eps}
+%         \label{fig:sigma_dress_round17_omega}
+%     }\hfill
+%     \subfloat[Round 17, $\phi(1020)$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round17_phi.eps}
+%         \label{fig:sigma_dress_round17_phi}
+%     }\hfill
+%     \subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+%         \includegraphics[width=0.32\textwidth]{fig/sigma_dress_round17_high.eps}
+%         \label{fig:sigma_dress_round17_high}
+%     }
+
+%     \caption{Dressed cross section $\sigma_{3\pi}^{\text{dress}}(m)$ results for the four independent data-taking periods (Round~03/04, Round~15, Round~16, and Round~17). The uncertainties are derived from the covariance matrices obtained from the unfolding procedure, which fully describe the correlations of the unfolded mass spectrum.}
+%     \label{fig:sigma_dress_results_all_rounds}
+% \end{figure}
