@@ -2,7 +2,7 @@
 \section{Systematic Uncertainties}
 \label{sec:sysU}
 
-In this chapter, we discuss the systematic uncertainties considered in this analysis. The primary systematic uncertainty comes from the efficiency correction applied in the unfolding procedure. Additional uncertainties are associated with the 4C kinematic fit, ... 
+In this chapter, we discuss the systematic uncertainties considered in this analysis. The primary systematic uncertainty comes from the efficiency correction applied in the unfolding procedure. Additional uncertainties are associated with the requirement on E/p, the 4C kinematic fit, background estimate and the $\piz$ veto.
 
 \subsection{Efficiency correction uncertainties}
 
@@ -12,7 +12,7 @@ The correction factors are grouped into seven independent sources:
 \[
 c_{\text{NLO}}(j),\; c_{\text{trk}}(\pi^+),\; c_{\text{pid}}(\pi^+),\; c_{\text{trk}}(\pi^-),\; c_{\text{pid}}(\pi^-),\; c_{\pi^0},\; c_{\gamma_{\text{ISR}}}.
 \]
-Each factor has an associated uncertainty, derived from auxiliary measurements or theoretical calculations. To propagate these uncertainties to the unfolded spectrum, we perform a toy Monte Carlo procedure.
+Each factor has an associated uncertainty, derived from auxiliary measurements or theoretical calculations. To propagate these uncertainties to the unfolded spectrum, we perform a toy MC procedure.
 
 For each toy variation $k = 1, \dots, N_{\text{toy}}$, we independently sample all seven correction factors according to their respective uncertainty distributions (Gaussian with widths given by the factor's uncertainty). This yields a set of seven parameters:
 \[
@@ -95,3 +95,76 @@ where $u_i^{\text{nom}}$ is the nominal unfolded spectrum. The diagonal elements
 \caption{Diagonal relative systematic uncertainties (per bin) from efficiency corrections, shown for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). For each bin, the relative uncertainty is computed as $\sqrt{\Sigma_{ii}^{\text{sys}}} / u_i$, where $u_i$ is the unfolded yield.}
 \label{fig:syst_efficiency_diag}
 \end{figure}
+
+\subsection{The detector resolution effects in unfolding}
+
+\subsection{The requirement on E/p}
+
+To evaluate the systematic uncertainty associated with the $E/p < 0.8$ requirement in the $e^+e^- \to \pi^+\pi^-\pi^0$ process, we adopt a linear approximation as a function of the $3\pi$ invariant mass $M_{3\pi}$. The motivation is that as $M_{3\pi}$ increases, the kinematic range of the individual $\pi^+$ or $\pi^-$ momenta broadens significantly, which in turn affects the response of the $E/p$ selector differently in data and MC. Therefore, the data--MC efficiency ratio of the $E/p$ cut is expected to vary smoothly with $M_{3\pi}$.
+
+We calibrate this dependence using two control samples. The first is the $\omega \to \pi^+\pi^-\pi^0$ region at low $M_{3\pi}$, where we use the selection criteria and samples described in Sec.~\ref{pi0_eff} to select clean $e^+e^- \to \omega \pi^0$ events. The efficiency of the $E/p < 0.8$ requirement is defined as the fraction of events retained after applying the cut. The relative difference between data and MC is quantified as:
+
+\[
+\delta_{E/p} = \frac{\varepsilon_{\text{Data}}}{\varepsilon_{\text{MC}}} - 1.
+\]
+
+Table~\ref{tab:ep_omega} summarizes the results for the Round~16 dataset in the $\omega$ signal region.
+
+\begin{table}[htbp]
+    \begin{center}
+        \caption{The $E/p<0.8$ efficiencies in data and MC for the $\omega$ signal region, and the relative difference $\varepsilon_{\text{Data}}/\varepsilon_{\text{MC}}-1$ (Round~16).}
+        \vspace{4mm}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{c | c | c | c}
+            \hline \hline
+            Sample & $N_{\text{without }E/p}$ & $N_{\text{with }E/p}$ & $\varepsilon$ \\
+            \hline
+            Data   & 20294.00  & 18165.00  & $0.8951$ \\
+            \hline
+            MC     & 19949.43  & 17878.60  & $0.8962$ \\
+            \hline \hline
+            \multicolumn{4}{c}{$\varepsilon_{\text{Data}}/\varepsilon_{\text{MC}}-1 = -0.123\%$} \\
+            \hline
+        \end{tabular}
+        \label{tab:ep_omega}
+    \end{center}
+\end{table}
+
+For the high-$M_{3\pi}$ region, we use the control sample of $e^+e^- \to \pi^+\pi^-\pi^0$ near the $J/\psi$ mass, following the analysis in Ref.~\cite{BESIII_MEMO_1606}. From that study, the relative difference between data and MC due to the $E/p$ requirement is:
+
+\[
+\delta_{E/p}^{J/\psi} = \frac{0.9}{93.28} = +0.965\%.
+\]
+
+Assuming a linear dependence of $\delta_{E/p}$ on $M_{3\pi}$ between the $\omega$ and $J/\psi$ reference points, the systematic uncertainty for an intermediate $M_{3\pi}$ is obtained by linear interpolation:
+
+\[
+\delta_{E/p}(M_{3\pi}) = \delta_{E/p}^{\omega} + 
+\frac{\delta_{E/p}^{J/\psi} - \delta_{E/p}^{\omega}}{M_{J/\psi} - M_{\omega}}
+\cdot (M_{3\pi} - M_{\omega}),
+\]
+
+where $M_{\omega} = 0.782$~GeV and $M_{J/\psi} = 3.097$~GeV. For $M_{3\pi}$ below the $\omega$ or above the $J/\psi$, we conservatively take the value of the nearest reference point (constant extrapolation). The resulting data--MC difference in percentage is then taken as the systematic uncertainty for the given $3\pi$ mass bin.
+
+This percentage directly applies to the generated spectrum $\left( \frac{dN}{dm} \right)^{\text{gen}}$, since the efficiency $\varepsilon$ is already incorporated in the unfolding procedure, as first shown in Eq.~\ref{eq:cross_section_relation}:
+\[
+\left( \frac{dN}{dm} \right)^{\text{gen}} = \sigma_{3\pi}^{\text{dress}}(m) \cdot \frac{dL}{dm} \cdot \varepsilon \cdot \mathcal{B}(\pi^0 \to \gamma\gamma).
+\]
+Unlike the statistical uncertainty from unfolding, which yields a correlated covariance matrix, this systematic source is assumed to be uncorrelated among mass bins. Therefore, it is implemented as a diagonal covariance matrix and added in quadrature to the total covariance matrix of the cross section measurement.
+
+\subsection{The 4C kinematic fit}
+
+The nominal results for both the measured spectrum $\left( \frac{dN}{dm} \right)$ and the response matrix used in the unfolding procedure are obtained with the $\chi^2_{\text{corr}} < 50$ requirement applied in the 4C kinematic fit. To evaluate the associated systematic uncertainty, we repeat the entire analysis chain — including the estimation of $\left( \frac{dN}{dm} \right)$ and the unfolding procedure — after disabling the correction of the helix parameters for charged tracks in the kinematic fit. The difference between the unfolded spectrum $\left( \frac{dN}{dm} \right)^{\text{gen}}$ obtained with this alternative configuration and the nominal one is taken as the systematic uncertainty due to the 4C kinematic fit.
+
+The uncertainty is evaluated bin by bin, and correlations among bins are not considered. Consequently, this systematic source is implemented as a diagonal covariance matrix and added in quadrature to the total covariance matrix of the cross section measurement.
+
+\subsection{Background estimate}
+
+The background in the $\pi^+\pi^-\pi^0$ sample consists mainly of two components. The dominant background arises from the $e^+e^- \to \pi^+\pi^-\pi^0\pi^0$ process. Its contribution is estimated using a data-driven method, where the background level in each $3\pi$ mass bin is evaluated and accompanied by a statistical uncertainty. In the fit to extract the $3\pi$ yield, this background component is constrained via a Gaussian penalty term that incorporates its uncertainty. Therefore, no additional systematic uncertainty is assigned for this dominant background.
+
+For all other remaining background processes, a first- or second-order polynomial is used in the nominal fit, with all parameters left floating. The main systematic uncertainty associated with these backgrounds comes from their shape. To evaluate this effect, we perform an alternative fit in which the background shape is taken from the inclusive MC sample, and the normalization is constrained via a Gaussian term fixed to the expected yield based on the integrated luminosity. The resulting $3\pi$ yield after the alternative fit is then propagated through the full unfolding procedure. 
+
+The uncertainty is evaluated bin by bin, and correlations among bins are not considered. Consequently, this systematic source is implemented as a diagonal covariance matrix and added in quadrature to the total covariance matrix of the cross section measurement.
+
+
+\subsection{The $\piz$ veto}
