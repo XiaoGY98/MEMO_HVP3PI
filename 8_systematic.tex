@@ -98,6 +98,45 @@ where $u_i^{\text{nom}}$ is the nominal unfolded spectrum. The diagonal elements
 
 \subsection{The detector resolution effects in unfolding}
 
+The migration of events between neighboring mass bins due to detector resolution is quantified by the response matrix \(P_{ij}\) constructed from MC simulations. As an example, Fig.~\ref{fig:reco_resolution_example} shows the distribution of reconstructed \(m_{3\pi}\) for events generated in the truth bin \([0.785, 0.790]~\text{GeV}/c^2\) using the round 16 MC sample. A clear broadening is observed around the \(\omega\) meson peak, which reflects the detector resolution as modeled in the MC simulation.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.45\textwidth]{fig/reco_for_truth_bin_0.785-0.790.eps}
+    \caption{Distribution of reconstructed $m_{3\pi}$ for MC events generated in the truth bin $[0.785, 0.790]~\text{GeV}/c^2$ (round 16). The spread illustrates the detector resolution effect as modeled in MC, which causes migrations to neighboring bins.}
+    \label{fig:reco_resolution_example}
+\end{figure}
+
+The observed yield in each mass bin is related to the generator-level yield through the response matrix:
+\begin{equation}
+    \left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_{j} P_{ij} \left( \frac{dN}{dm} \right)_{j}^{\text{gen}}
+    \label{eq:response_matrix}
+\end{equation}
+where \(P_{ij}\) is constructed entirely from MC simulations. Both data and MC events suffer from detector resolution broadening, but the response matrix only contains the MC-predicted migration pattern. A key concern is whether the detector resolution in data differs from that in MC, as any mismatch would bias the unfolded cross section.
+
+To quantify this potential discrepancy, we introduce a calibrated response matrix \(P_{ij}^{\text{cal}}(\delta, \kappa)\) that parameterizes the differences between data and MC. For each truth bin \(j\), the mean and standard deviation of the reconstructed mass distribution from MC are defined as:
+\begin{equation}
+    \mu_{0,j} = \frac{\sum_i m_i P_{ij}}{\sum_i P_{ij}}, \qquad 
+    \sigma_{0,j} = \sqrt{\frac{\sum_i (m_i - \mu_{0,j})^2 P_{ij}}{\sum_i P_{ij}}}
+    \label{eq:mc_mean_sigma}
+\end{equation}
+where \(m_i\) is the center of reconstructed bin \(i\). The data response is then modeled by applying a global shift \(\delta\) and a broadening factor \(\kappa\) to these MC-derived parameters:
+\begin{equation}
+    \mu_j = \mu_{0,j} + \delta, \qquad \sigma_j = \kappa \sigma_{0,j}
+    \label{eq:calibrated_params}
+\end{equation}
+These calibrated parameters define a Gaussian smearing kernel \(G_{ik}^{(j)}(\delta, \kappa)\) for each truth bin \(j\), which is then convolved with the original MC response matrix to obtain the calibrated transfer matrix:
+\begin{equation}
+    P_{ij}^{\text{cal}}(\delta, \kappa) = \sum_k G_{ik}^{(j)}(\delta, \kappa) P_{kj}^{(0)}
+    \label{eq:calibrated_matrix}
+\end{equation}
+where \(P_{kj}^{(0)}\) is the nominal MC response matrix. The observed data distribution is then modeled as:
+\begin{equation}
+    \left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_j P_{ij}^{\text{cal}}(\delta, \kappa) \left( \frac{dN}{dm} \right)_{j}^{\text{VMD}}
+    \label{eq:fit_model}
+\end{equation}
+By fitting Eq.~\eqref{eq:fit_model} to the observed data using the known VMD lineshape as the true spectrum, the fitted parameters \(\delta\) and \(\kappa\) directly quantify the shift and broadening differences between data and MC in the response matrix. This approach provides a data-driven estimate of the systematic uncertainty arising from detector resolution effects.
+
 \subsection{The requirement on E/p}
 
 To evaluate the systematic uncertainty associated with the $E/p < 0.8$ requirement in the $e^+e^- \to \pi^+\pi^-\pi^0$ process, we adopt a linear approximation as a function of the $3\pi$ invariant mass $M_{3\pi}$. The motivation is that as $M_{3\pi}$ increases, the kinematic range of the individual $\pi^+$ or $\pi^-$ momenta broadens significantly, which in turn affects the response of the $E/p$ selector differently in data and MC. Therefore, the data--MC efficiency ratio of the $E/p$ cut is expected to vary smoothly with $M_{3\pi}$.
