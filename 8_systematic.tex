@@ -5,6 +5,7 @@
 In this chapter, we discuss the systematic uncertainties considered in this analysis. The primary systematic uncertainty comes from the efficiency correction applied in the unfolding procedure. Additional uncertainties are associated with the requirement on E/p, the 4C kinematic fit, background estimate and the $\piz$ veto.
 
 \subsection{Efficiency correction uncertainties}
+\label{sec:eff_sys}
 
 The corrections applied to the MC events in the unfolding procedure are designed to mitigate discrepancies between data and simulation, including the NLO ISR photon production rate and the reconstruction efficiencies for tracking, PID, $\pi^0$ reconstruction, and ISR photon detection. The finite precision of these corrections introduces systematic uncertainties in the unfolded results.
 
@@ -192,18 +193,68 @@ This percentage directly applies to the generated spectrum $\left( \frac{dN}{dm}
 Unlike the statistical uncertainty from unfolding, which yields a correlated covariance matrix, this systematic source is assumed to be uncorrelated among mass bins. Therefore, it is implemented as a diagonal covariance matrix and added in quadrature to the total covariance matrix of the cross section measurement.
 
 \subsection{The 4C kinematic fit}
+\label{sec:kmfit_sys}
 
-The nominal results for both the measured spectrum $\left( \frac{dN}{dm} \right)$ and the response matrix used in the unfolding procedure are obtained with the $\chi^2_{\text{corr}} < 50$ requirement applied in the 4C kinematic fit. To evaluate the associated systematic uncertainty, we repeat the entire analysis chain — including the estimation of $\left( \frac{dN}{dm} \right)$ and the unfolding procedure — after disabling the correction of the helix parameters for charged tracks in the kinematic fit. The difference between the unfolded spectrum $\left( \frac{dN}{dm} \right)^{\text{gen}}$ obtained with this alternative configuration and the nominal one is taken as the systematic uncertainty due to the 4C kinematic fit.
+The nominal results for both the measured spectrum $\left( \frac{dN}{dm} \right)$ and the response matrix used in the unfolding procedure are obtained with the $\chi^2_{\text{corr}} < 50$ requirement applied in the 4C kinematic fit. To evaluate the associated systematic uncertainty, we repeat the entire analysis chain — including the estimation of $\left( \frac{dN}{dm} \right)$ and the unfolding procedure — after disabling the correction of the helix parameters for charged tracks in the kinematic fit.
 
-The uncertainty is evaluated bin by bin, and correlations among bins are not considered. Consequently, this systematic source is implemented as a diagonal covariance matrix and added in quadrature to the total covariance matrix of the cross section measurement.
+In principle, one could vary the helix parameter corrections according to their uncertainties and repeat the unfolding multiple times to extract the covariance matrix, as described in Sec.~\ref{sec:eff_sys}. However, the uncertainties on these corrections are very small, and such an approach would likely lead to an underestimate of the systematic uncertainty. To be conservative, we instead take half of the difference between the unfolded spectra obtained with the alternative and nominal configurations as the systematic uncertainty for each bin. To account for bin-to-bin correlations, we construct the full covariance matrix as described below.
+
+Let $\Delta_i$ be the difference between the alternative and nominal unfolded spectra in bin $i$:
+
+\begin{equation}
+\Delta_i = \left( \frac{dN}{dm} \right)^{\text{alt}}_i - \left( \frac{dN}{dm} \right)^{\text{nom}}_i
+\end{equation}
+
+The diagonal elements of the covariance matrix are given by:
+
+\begin{equation}
+\text{Cov}_{ii} = \left( \frac{1}{2} \Delta_i \right)^2
+\end{equation}
+
+The off-diagonal elements are constructed as:
+\[
+\operatorname{Cov}_{ij} = s_i \cdot s_j \cdot \sqrt{\operatorname{Cov}_{ii} \cdot \operatorname{Cov}_{jj}},
+\]
+where $s_i = \operatorname{sign}(\Delta_i)$.
+
+This procedure yields a complete covariance matrix that accounts for bin-to-bin correlations: bins with the same sign are assumed to be fully positively correlated ($+1$), while bins with opposite signs are fully anti-correlated ($-1$). The resulting covariance matrix is then added in quadrature to the total covariance matrix of the cross section measurement.
 
 \subsection{Background estimate}
 
 The background in the $\pi^+\pi^-\pi^0$ sample consists mainly of two components. The dominant background arises from the $e^+e^- \to \pi^+\pi^-\pi^0\pi^0$ process. Its contribution is estimated using a data-driven method, where the background level in each $3\pi$ mass bin is evaluated and accompanied by a statistical uncertainty. In the fit to extract the $3\pi$ yield, this background component is constrained via a Gaussian penalty term that incorporates its uncertainty. Therefore, no additional systematic uncertainty is assigned for this dominant background.
 
-For all other remaining background processes, a first- or second-order polynomial is used in the nominal fit, with all parameters left floating. The main systematic uncertainty associated with these backgrounds comes from their shape. To evaluate this effect, we perform an alternative fit in which the background shape is taken from the inclusive MC sample, and the normalization is constrained via a Gaussian term fixed to the expected yield based on the integrated luminosity. The resulting $3\pi$ yield after the alternative fit is then propagated through the full unfolding procedure. 
+For all other remaining background processes, a first- or second-order polynomial is used in the nominal fit, with all parameters left floating. The main systematic uncertainty associated with these backgrounds comes from their shape. To evaluate this effect, we perform an alternative fit in which the background shape is taken from the inclusive MC sample, and the normalization is constrained via a Gaussian term fixed to the expected yield based on the integrated luminosity. The resulting $3\pi$ yield after the alternative fit is then propagated through the full unfolding procedure.
 
-The uncertainty is evaluated bin by bin, and correlations among bins are not considered. Consequently, this systematic source is implemented as a diagonal covariance matrix and added in quadrature to the total covariance matrix of the cross section measurement.
+Following the same procedure described in Sec.~\ref{sec:kmfit_sys}, we construct a covariance matrix using $\Delta_i$ (the difference between the alternative and nominal unfolded spectra) instead of $\frac{1}{2}\Delta_i$ for the diagonal elements. The diagonal elements of the covariance matrix are given by:
+
+\[
+\operatorname{Cov}_{ii} = \Delta_i^2
+\]
+
+The off-diagonal elements are constructed as:
+
+\[
+\operatorname{Cov}_{ij} = s_i \cdot s_j \cdot \sqrt{\operatorname{Cov}_{ii} \cdot \operatorname{Cov}_{jj}},
+\]
+
+where $s_i = \operatorname{sign}(\Delta_i)$. This covariance matrix is then added in quadrature to the total covariance matrix of the cross section measurement.
 
 
-\subsection{The $\piz$ veto}
+\subsection{The $\pi^0$ veto}
+
+The $\pi^0$ veto condition is applied only in the high-mass region of the spectrum. To evaluate the associated systematic uncertainty, we repeat the analysis — including the unfolding procedure — after removing this veto condition, focusing specifically on the third mass interval where the veto is originally applied.
+
+Following the same procedure described in Sec.~\ref{sec:kmfit_sys}, we construct a covariance matrix using $\Delta_i$ (the difference between the unfolded spectra obtained without and with the $\pi^0$ veto) for the diagonal elements:
+
+\[
+\operatorname{Cov}_{ii} = \Delta_i^2
+\]
+
+The off-diagonal elements are constructed as:
+
+\[
+\operatorname{Cov}_{ij} = s_i \cdot s_j \cdot \sqrt{\operatorname{Cov}_{ii} \cdot \operatorname{Cov}_{jj}},
+\]
+
+where $s_i = \operatorname{sign}(\Delta_i)$. This covariance matrix is then added in quadrature to the total covariance matrix of the cross section measurement.
+
