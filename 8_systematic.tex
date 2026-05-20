@@ -2,7 +2,7 @@
 \section{Systematic Uncertainties}
 \label{sec:sysU}
 
-In this chapter, we discuss the systematic uncertainties considered in this analysis. The primary systematic uncertainty comes from the efficiency correction applied in the unfolding procedure. Additional uncertainties are associated with the requirement on E/p, the 4C kinematic fit, background estimate and the $\piz$ veto.
+In this chapter, we discuss the systematic uncertainties considered in this analysis. The primary systematic uncertainty comes from the efficiency correction applied in the unfolding procedure. Additional uncertainties are associated with the requirement on E/p, unfolding resolution, the 4C kinematic fit, background shape and the $\piz$ veto.
 
 \subsection{Efficiency correction uncertainties}
 \label{sec:eff_sys}
@@ -140,57 +140,69 @@ By fitting Eq.~\eqref{eq:fit_model} to the observed data using the known VMD lin
 
 \subsection{The requirement on E/p}
 
-To evaluate the systematic uncertainty associated with the $E/p < 0.8$ requirement in the $e^+e^- \to \pi^+\pi^-\pi^0$ process, we adopt a linear approximation as a function of the $3\pi$ invariant mass $M_{3\pi}$. The motivation is that as $M_{3\pi}$ increases, the kinematic range of the individual $\pi^+$ or $\pi^-$ momenta broadens significantly, which in turn affects the response of the $E/p$ selector differently in data and MC. Therefore, the data--MC efficiency ratio of the $E/p$ cut is expected to vary smoothly with $M_{3\pi}$.
+To evaluate the systematic uncertainty associated with the \(E/p < 0.8\) requirement in the \(e^+e^- \to \pi^+\pi^-\pi^0\) process, we adopt a linear approximation as a function of the \(3\pi\) invariant mass \(M_{3\pi}\). The data--MC efficiency ratio of the \(E/p\) cut is expected to vary smoothly with \(M_{3\pi}\).
 
-We calibrate this dependence using two control samples. The first is the $\omega \to \pi^+\pi^-\pi^0$ region at low $M_{3\pi}$, where we use the selection criteria and samples described in Sec.~\ref{pi0_eff} to select clean $e^+e^- \to \omega \pi^0$ events. The efficiency of the $E/p < 0.8$ requirement is defined as the fraction of events retained after applying the cut. The relative difference between data and MC is quantified as:
+We calibrate this dependence using \(\omega \to \pi^+\pi^-\pi^0\) events in four independent data-taking periods (Round~0304, Round~15, Round~16, and Round~17). The combined result from the \(\omega\) region gives:
 
 \[
-\delta_{E/p} = \frac{\varepsilon_{\text{Data}}}{\varepsilon_{\text{MC}}} - 1.
+\delta_{E/p}^{\omega} = -0.105\% \pm 0.922\%.
 \]
 
-Table~\ref{tab:ep_omega} summarizes the results for the Round~16 dataset in the $\omega$ signal region.
-
-\begin{table}[htbp]
-    \begin{center}
-        \caption{The $E/p<0.8$ efficiencies in data and MC for the $\omega$ signal region, and the relative difference $\varepsilon_{\text{Data}}/\varepsilon_{\text{MC}}-1$ (Round~16).}
-        \vspace{4mm}
-        \renewcommand{\arraystretch}{1.3}
-        \begin{tabular}{c | c | c | c}
-            \hline \hline
-            Sample & $N_{\text{without }E/p}$ & $N_{\text{with }E/p}$ & $\varepsilon$ \\
-            \hline
-            Data   & 20294.00  & 18165.00  & $0.8951$ \\
-            \hline
-            MC     & 19949.43  & 17878.60  & $0.8962$ \\
-            \hline \hline
-            \multicolumn{4}{c}{$\varepsilon_{\text{Data}}/\varepsilon_{\text{MC}}-1 = -0.123\%$} \\
-            \hline
-        \end{tabular}
-        \label{tab:ep_omega}
-    \end{center}
-\end{table}
-
-For the high-$M_{3\pi}$ region, we use the control sample of $e^+e^- \to \pi^+\pi^-\pi^0$ near the $J/\psi$ mass, following the analysis in Ref.~\cite{BESIII_MEMO_1606}. From that study, the relative difference between data and MC due to the $E/p$ requirement is:
+For the high-\(M_{3\pi}\) region, we use the control sample of \(e^+e^- \to \pi^+\pi^-\pi^0\) near the \(J/\psi\) mass following Ref.~\cite{BESIII_MEMO_1606}, which gives:
 
 \[
-\delta_{E/p}^{J/\psi} = \frac{0.9}{93.28} = +0.965\%.
+\delta_{E/p}^{J/\psi} = 0.9173\% \pm 0.0010\%.
 \]
 
-Assuming a linear dependence of $\delta_{E/p}$ on $M_{3\pi}$ between the $\omega$ and $J/\psi$ reference points, the systematic uncertainty for an intermediate $M_{3\pi}$ is obtained by linear interpolation:
+To obtain a conservative systematic uncertainty, we take the absolute value of the central value plus its absolute uncertainty at each reference point:
 
 \[
-\delta_{E/p}(M_{3\pi}) = \delta_{E/p}^{\omega} + 
-\frac{\delta_{E/p}^{J/\psi} - \delta_{E/p}^{\omega}}{M_{J/\psi} - M_{\omega}}
+\sigma_{\text{sys}}^{\omega} = |\delta_{E/p}^{\omega}| + |\sigma_{\delta}^{\omega}| = 0.105\% + 0.922\% = 1.027\%,
+\]
+\[
+\sigma_{\text{sys}}^{J/\psi} = |\delta_{E/p}^{J/\psi}| + |\sigma_{\delta}^{J/\psi}| = 0.9173\% + 0.0010\% = 0.9183\%.
+\]
+
+We then assume a fully linear dependence of \(\sigma_{\text{sys}}^{E/p}\) on \(M_{3\pi}\) between these two reference points. For a given \(M_{3\pi}\), the systematic uncertainty is obtained by linear interpolation:
+
+\[
+\sigma_{\text{sys}}^{E/p}(M_{3\pi}) = \sigma_{\text{sys}}^{\omega} + 
+\frac{\sigma_{\text{sys}}^{J/\psi} - \sigma_{\text{sys}}^{\omega}}{M_{J/\psi} - M_{\omega}}
 \cdot (M_{3\pi} - M_{\omega}),
 \]
 
-where $M_{\omega} = 0.782$~GeV and $M_{J/\psi} = 3.097$~GeV. For $M_{3\pi}$ below the $\omega$ or above the $J/\psi$, we conservatively take the value of the nearest reference point (constant extrapolation). The resulting data--MC difference in percentage is then taken as the systematic uncertainty for the given $3\pi$ mass bin.
+where \(M_{\omega} = 0.782\)~GeV and \(M_{J/\psi} = 3.097\)~GeV. This linear dependence is applied across the entire mass range, including regions below \(M_{\omega}\) and above \(M_{J/\psi}\) (i.e., no constant extrapolation).
 
-This percentage directly applies to the generated spectrum $\left( \frac{dN}{dm} \right)^{\text{gen}}$, since the efficiency $\varepsilon$ is already incorporated in the unfolding procedure, as first shown in Eq.~\ref{eq:cross_section_relation}:
-\[
-\left( \frac{dN}{dm} \right)^{\text{gen}} = \sigma_{3\pi}^{\text{dress}}(m) \cdot \frac{dL}{dm} \cdot \varepsilon \cdot \mathcal{B}(\pi^0 \to \gamma\gamma).
-\]
-Unlike the statistical uncertainty from unfolding, which yields a correlated covariance matrix, this systematic source is assumed to be uncorrelated among mass bins. Therefore, it is implemented as a diagonal covariance matrix and added in quadrature to the total covariance matrix of the cross section measurement.
+This percentage directly applies to the generated spectrum \(\left( \frac{dN}{dm} \right)^{\text{gen}}\), as the efficiency \(\varepsilon\) is already incorporated in the unfolding procedure (see Eq.~\ref{eq:cross_section_relation}). This systematic source is assumed to be uncorrelated among mass bins and is added in quadrature to the total covariance matrix of the cross section measurement.
+
+The results for representative mass bins are shown in Table~\ref{tab:ep_systematic} and Figure~\ref{fig:ep_sys}.
+
+\begin{table}[htbp]
+    \begin{center}
+        \caption{Systematic uncertainties from the \(E/p\) requirement, obtained from linear interpolation between \(\omega\) and \(J/\psi\) using \(\sigma_{\text{sys}} = |\delta| + |\sigma_{\delta}|\).}
+        \vspace{4mm}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{c | c}
+            \hline \hline
+            \(M_{3\pi}\) range [GeV] & \(\sigma_{\text{sys}}^{E/p}\) [\%] \\
+            \hline
+            \(< 0.782\) & (linearly extrapolated) \\
+            \(0.782\) (at \(\omega\)) & \(1.027\) \\
+            \(1.500\) & (interpolated) \\
+            \(3.097\) (at \(J/\psi\)) & \(0.918\) \\
+            \(> 3.097\) & (linearly extrapolated) \\
+            \hline \hline
+        \end{tabular}
+        \label{tab:ep_systematic}
+    \end{center}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{fig/E_p_systematic_uncertainty_Comparison.pdf}
+    \caption{Systematic uncertainties from the \(E/p\) requirement, obtained from linear interpolation between \(\omega\) and \(J/\psi\) using \(\sigma_{\text{sys}} = |\delta| + |\sigma_{\delta}|\).}
+    \label{fig:ep_sys}
+\end{figure}
 
 \subsection{The 4C kinematic fit}
 \label{sec:kmfit_sys}
