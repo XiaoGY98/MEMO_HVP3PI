@@ -140,69 +140,138 @@ By fitting Eq.~\eqref{eq:fit_model} to the observed data using the known VMD lin
 
 \subsection{The requirement on E/p}
 
-To evaluate the systematic uncertainty associated with the \(E/p < 0.8\) requirement in the \(e^+e^- \to \pi^+\pi^-\pi^0\) process, we adopt a linear approximation as a function of the \(3\pi\) invariant mass \(M_{3\pi}\). The data--MC efficiency ratio of the \(E/p\) cut is expected to vary smoothly with \(M_{3\pi}\).
+To evaluate the systematic uncertainty associated with the \(E/p < 0.8\) requirement in the \(e^+e^- \to \pi^+\pi^-\pi^0\) process, we adopt a data-driven approach using the control sample of \(e^+e^- \to \pi^+\pi^-\pi^0\) near the \(J/\psi\) mass following Ref.~\cite{BESIII_MEMO_1606}. Instead of assuming a smooth dependence on \(M_{3\pi}\), we directly study the efficiency discrepancy as a function of the pion momenta.
 
-We calibrate this dependence using \(\omega \to \pi^+\pi^-\pi^0\) events in four independent data-taking periods (Round~0304, Round~15, Round~16, and Round~17). The combined result from the \(\omega\) region gives:
-
-\[
-\delta_{E/p}^{\omega} = -0.105\% \pm 0.922\%.
-\]
-
-For the high-\(M_{3\pi}\) region, we use the control sample of \(e^+e^- \to \pi^+\pi^-\pi^0\) near the \(J/\psi\) mass following Ref.~\cite{BESIII_MEMO_1606}, which gives:
+The efficiency of the \(E/p < 0.8\) cut is defined as:
 
 \[
-\delta_{E/p}^{J/\psi} = 0.9173\% \pm 0.0010\%.
+\varepsilon(p) = \frac{N_{\text{pass}}(p)}{N_{\text{total}}(p)},
 \]
 
-To obtain a conservative systematic uncertainty, we take the absolute value of the central value plus its absolute uncertainty at each reference point:
+where \(N_{\text{total}}(p)\) is the number of events in a given momentum bin before the \(E/p\) cut, and \(N_{\text{pass}}(p)\) is the number after the cut. For data, the signal yield in each bin is obtained from the \(J/\psi\) control sample, denoted as \(N_{\text{pass}}^{\text{data}}(p)\) and \(N_{\text{total}}^{\text{data}}(p)\) for the passed and total samples, respectively. For signal MC, the efficiency is:
 
 \[
-\sigma_{\text{sys}}^{\omega} = |\delta_{E/p}^{\omega}| + |\sigma_{\delta}^{\omega}| = 0.105\% + 0.922\% = 1.027\%,
+\varepsilon_{\text{MC}}(p) = \frac{N_{\text{pass}}^{\text{sig}}(p)}{N_{\text{total}}^{\text{sig}}(p)},
 \]
+
+where \(N_{\text{total}}^{\text{sig}}(p)\) and \(N_{\text{pass}}^{\text{sig}}(p)\) are the numbers of signal MC events before and after the cut.
+
+The efficiency ratio between data and MC is defined as:
+
 \[
-\sigma_{\text{sys}}^{J/\psi} = |\delta_{E/p}^{J/\psi}| + |\sigma_{\delta}^{J/\psi}| = 0.9173\% + 0.0010\% = 0.9183\%.
+R(p) = \frac{\varepsilon_{\text{data}}(p)}{\varepsilon_{\text{MC}}(p)},
 \]
 
-We then assume a fully linear dependence of \(\sigma_{\text{sys}}^{E/p}\) on \(M_{3\pi}\) between these two reference points. For a given \(M_{3\pi}\), the systematic uncertainty is obtained by linear interpolation:
+which serves as a correction factor for the MC efficiency. A value of \(R(p) \neq 1\) indicates a discrepancy between data and simulation.
+
+For the statistical uncertainty of the MC efficiency, we use the binomial error formula:
 
 \[
-\sigma_{\text{sys}}^{E/p}(M_{3\pi}) = \sigma_{\text{sys}}^{\omega} + 
-\frac{\sigma_{\text{sys}}^{J/\psi} - \sigma_{\text{sys}}^{\omega}}{M_{J/\psi} - M_{\omega}}
-\cdot (M_{3\pi} - M_{\omega}),
+\sigma_{\varepsilon_{\text{MC}}} = \sqrt{\frac{\varepsilon_{\text{MC}}(1 - \varepsilon_{\text{MC}})}{N_{\text{total}}^{\text{sig}}}}.
 \]
 
-where \(M_{\omega} = 0.782\)~GeV and \(M_{J/\psi} = 3.097\)~GeV. This linear dependence is applied across the entire mass range, including regions below \(M_{\omega}\) and above \(M_{J/\psi}\) (i.e., no constant extrapolation).
+For data, the uncertainty \(\sigma_{\varepsilon_{\text{data}}}\) is propagated from the uncertainties of the extracted signal yields from the \(J/\psi\) control sample. The uncertainty of the ratio \(R(p)\) is then obtained via standard error propagation:
 
-This percentage directly applies to the generated spectrum \(\left( \frac{dN}{dm} \right)^{\text{gen}}\), as the efficiency \(\varepsilon\) is already incorporated in the unfolding procedure (see Eq.~\ref{eq:cross_section_relation}). This systematic source is assumed to be uncorrelated among mass bins and is added in quadrature to the total covariance matrix of the cross section measurement.
+\[
+\left(\frac{\sigma_R}{R}\right)^2 = \left(\frac{\sigma_{\varepsilon_{\text{data}}}}{\varepsilon_{\text{data}}}\right)^2 + \left(\frac{\sigma_{\varepsilon_{\text{MC}}}}{\varepsilon_{\text{MC}}}\right)^2,
+\]
 
-The results for representative mass bins are shown in Table~\ref{tab:ep_systematic} and Figure~\ref{fig:ep_sys}.
+or equivalently:
+
+\[
+\sigma_R = R \cdot \sqrt{ \left(\frac{\sigma_{\varepsilon_{\text{data}}}}{\varepsilon_{\text{data}}}\right)^2 + \left(\frac{\sigma_{\varepsilon_{\text{MC}}}}{\varepsilon_{\text{MC}}}\right)^2 }.
+\]
+
+We study both the \(\pi^+\) and \(\pi^-\) separately, as their \(E/p\) distributions may have different behaviors due to detector asymmetries. The momentum range is divided into eight bins: \(<0.2\), \(0.2-0.4\), \(0.4-0.6\), \(0.6-0.8\), \(0.8-1.0\), \(1.0-1.2\), \(1.2-1.4\), and \(>1.4\)~GeV/\(c\). For each bin, we compute the efficiency ratio \(R(p)\) and its uncertainty.
+
+The results for \(\pi^+\) (studying \(E/p_{\pi^+}<0.8\) with \(E/p_{\pi^-}<0.8\) fixed) are shown in Table~\ref{tab:eop1_efficiency_pip}. The results for \(\pi^-\) (studying \(E/p_{\pi^-}<0.8\) with \(E/p_{\pi^+}<0.8\) fixed) are shown in Table~\ref{tab:eop2_efficiency_pim}.
 
 \begin{table}[htbp]
     \begin{center}
-        \caption{Systematic uncertainties from the \(E/p\) requirement, obtained from linear interpolation between \(\omega\) and \(J/\psi\) using \(\sigma_{\text{sys}} = |\delta| + |\sigma_{\delta}|\).}
+        \caption{Efficiency of the \(E/p_{\pi^+}<0.8\) cut as a function of \(\pi^+\) momentum, with \(E/p_{\pi^-}<0.8\) fixed. The efficiency ratio \(R = \varepsilon_{\text{data}}/\varepsilon_{\text{MC}}\) and its uncertainty are shown.}
         \vspace{4mm}
         \renewcommand{\arraystretch}{1.3}
-        \begin{tabular}{c | c}
+        \begin{tabular}{c | c c c c c}
             \hline \hline
-            \(M_{3\pi}\) range [GeV] & \(\sigma_{\text{sys}}^{E/p}\) [\%] \\
+            \(p_{\pi^+}\) [GeV/\(c\)] & \(\varepsilon_{\text{data}}\) [\%] & \(\sigma_{\varepsilon_{\text{data}}}\) [\%] & \(\varepsilon_{\text{MC}}\) [\%] & \(\sigma_{\varepsilon_{\text{MC}}}\) [\%] & \(R\) \\
             \hline
-            \(< 0.782\) & (linearly extrapolated) \\
-            \(0.782\) (at \(\omega\)) & \(1.027\) \\
-            \(1.500\) & (interpolated) \\
-            \(3.097\) (at \(J/\psi\)) & \(0.918\) \\
-            \(> 3.097\) & (linearly extrapolated) \\
+            \(<0.2\)   & \(99.63\) & \(0.74\) & \(99.69\) & \(0.94\) & \(0.9994\pm0.0147\) \\
+            \(0.2-0.4\) & \(89.52\) & \(0.27\) & \(88.79\) & \(0.32\) & \(1.0082\pm0.0061\) \\
+            \(0.4-0.6\) & \(90.37\) & \(0.19\) & \(91.85\) & \(0.23\) & \(0.9839\pm0.0039\) \\
+            \(0.6-0.8\) & \(94.62\) & \(0.17\) & \(96.57\) & \(0.20\) & \(0.9798\pm0.0033\) \\
+            \(0.8-1.0\) & \(96.18\) & \(0.17\) & \(97.78\) & \(0.20\) & \(0.9836\) & \(0.0032\) \\
+            \(1.0-1.2\) & \(97.08\) & \(0.20\) & \(98.19\) & \(0.22\) & \(0.9887\) & \(0.0037\) \\
+            \(1.2-1.4\) & \(97.58\) & \(0.20\) & \(98.55\) & \(0.24\) & \(0.9902\) & \(0.0039\) \\
+            \(>1.4\)    & \(93.50\) & \(0.14\) & \(98.85\) & \(0.17\) & \(0.9459\) & \(0.0025\) \\
             \hline \hline
         \end{tabular}
-        \label{tab:ep_systematic}
+        \label{tab:eop1_efficiency_pip}
     \end{center}
 \end{table}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.85\textwidth]{fig/E_p_systematic_uncertainty_Comparison.pdf}
-    \caption{Systematic uncertainties from the \(E/p\) requirement, obtained from linear interpolation between \(\omega\) and \(J/\psi\) using \(\sigma_{\text{sys}} = |\delta| + |\sigma_{\delta}|\).}
-    \label{fig:ep_sys}
-\end{figure}
+\begin{table}[htbp]
+    \begin{center}
+        \caption{Efficiency of the \(E/p_{\pi^-}<0.8\) cut as a function of \(\pi^-\) momentum, with \(E/p_{\pi^+}<0.8\) fixed. The efficiency ratio \(R = \varepsilon_{\text{data}}/\varepsilon_{\text{MC}}\) and its uncertainty are shown.}
+        \vspace{4mm}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{c | c c c c c}
+            \hline \hline
+            \(p_{\pi^-}\) [GeV/\(c\)] & \(\varepsilon_{\text{data}}\) [\%] & \(\sigma_{\varepsilon_{\text{data}}}\) [\%] & \(\varepsilon_{\text{MC}}\) [\%] & \(\sigma_{\varepsilon_{\text{MC}}}\) [\%] & \(R\) \\
+            \hline
+            \(<0.2\)   & \(98.96\) & \(0.74\) & \(98.67\) & \(0.94\) & \(1.0029\) & \(0.0147\) \\
+            \(0.2-0.4\) & \(93.32\) & \(0.28\) & \(91.44\) & \(0.33\) & \(1.0206\) & \(0.0062\) \\
+            \(0.4-0.6\) & \(97.39\) & \(0.20\) & \(96.73\) & \(0.23\) & \(1.0068\) & \(0.0041\) \\
+            \(0.6-0.8\) & \(97.91\) & \(0.17\) & \(97.81\) & \(0.20\) & \(1.0010\) & \(0.0035\) \\
+            \(0.8-1.0\) & \(98.42\) & \(0.17\) & \(98.31\) & \(0.20\) & \(1.0011\) & \(0.0035\) \\
+            \(1.0-1.2\) & \(98.66\) & \(0.20\) & \(98.54\) & \(0.22\) & \(1.0012\) & \(0.0040\) \\
+            \(1.2-1.4\) & \(98.61\) & \(0.20\) & \(98.87\) & \(0.24\) & \(0.9974\) & \(0.0042\) \\
+            \(>1.4\)    & \(94.54\) & \(0.15\) & \(99.09\) & \(0.17\) & \(0.9541\) & \(0.0026\) \\
+            \hline \hline
+        \end{tabular}
+        \label{tab:eop2_efficiency_pim}
+    \end{center}
+\end{table}
+
+To propagate the uncertainty of the \(E/p\) requirement to the cross section measurement, we follow the same toy MC procedure described in Sec.~\ref{sec:eff_sys}. The efficiency ratio \(R(p)\) is treated as an additional correction factor applied to the MC events. For each toy variation, the combined correction factor for an event is:
+
+\[
+c_{E/p}^{(k)} = \sqrt{R_{\pi^+}^{(k)}(p_{\pi^+}) \cdot R_{\pi^-}^{(k)}(p_{\pi^-})},
+\]
+
+where \(R_{\pi^+}^{(k)}(p_{\pi^+})\) and \(R_{\pi^-}^{(k)}(p_{\pi^-})\) are sampled independently for each momentum bin according to Gaussian distributions with means \(R(p)\) and widths \(\sigma_R(p)\). For events where the pion momentum falls outside the defined bins, we apply the correction from the nearest bin.
+
+This correction factor is incorporated into the migration matrix construction alongside the other efficiency corrections. The toy migration matrix is then:
+
+\[
+A_{ij}^{\text{corr},(k)} = \sum_{m \in \text{events}} w_m \cdot c_{E/p}^{(k)}(\text{event}_m) \cdot \mathbb{1}(\text{reco bin } i, \text{truth bin } j),
+\]
+
+where \(w_m\) includes all other correction factors (NLO ISR, tracking, PID, \(\pi^0\) reconstruction, etc.). The unfolding is performed for each toy, and the covariance matrix of the unfolded spectra is calculated as described in Sec.~\ref{sec:eff_sys}. This covariance matrix is taken as the systematic uncertainty contribution from the \(E/p\) requirement.
+
+% This systematic source is treated as uncorrelated with other efficiency corrections since it is derived from an independent control sample measurement. The resulting per-bin systematic uncertainties from the \(E/p\) requirement are shown in Table~\ref{tab:ep_systematic} and Figure~\ref{fig:ep_sys}.
+
+% \begin{table}[htbp]
+%     \begin{center}
+%         \caption{Systematic uncertainties from the \(E/p\) requirement, obtained from the toy MC propagation of the momentum-dependent efficiency ratios for \(\pi^+\) and \(\pi^-\).}
+%         \vspace{4mm}
+%         \renewcommand{\arraystretch}{1.3}
+%         \begin{tabular}{c | c}
+%             \hline \hline
+%             \(M_{3\pi}\) range [GeV] & \(\sigma_{\text{sys}}^{E/p}\) [\%] \\
+%             \hline
+%             (to be filled from toy MC results) \\
+%             \hline \hline
+%         \end{tabular}
+%         \label{tab:ep_systematic}
+%     \end{center}
+% \end{table}
+
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=0.85\textwidth]{fig/E_p_systematic_uncertainty_Comparison.pdf}
+%     \caption{Systematic uncertainties from the \(E/p\) requirement, propagated from the momentum-dependent efficiency ratios using the toy MC method described in Sec.~\ref{sec:eff_sys}.}
+%     \label{fig:ep_sys}
+% \end{figure}
 
 \subsection{The 4C kinematic fit}
 \label{sec:kmfit_sys}

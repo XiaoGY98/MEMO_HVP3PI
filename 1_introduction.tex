@@ -1,3 +1,54 @@
 \section{Introduction}
 \label{sec:intro}
-to fill
+
+The anomalous magnetic moment of the muon, \(a_\mu = (g-2)/2\), is a cornerstone quantity for testing the Standard Model (SM) and probing new physics. In 2025, the Muon \(g-2\) Experiment at Fermilab released its final measurement~\cite{Aguillard2025,Driutti2025} based on the complete Run 1--6 dataset, yielding a world average experimental value combining with the BNL E821 result~\cite{Bennett2006} of
+
+\[
+a_\mu^{\mathrm{exp}} = 116\,592\,072(1.5) \times 10^{-11} \quad (124\ \mathrm{ppb}).
+\]
+
+Within the Standard Model, \(a_\mu^{\mathrm{SM}}\) is decomposed into several contributions:
+
+\[
+a_\mu^{\mathrm{SM}} = a_\mu^{\mathrm{QED}} + a_\mu^{\mathrm{EW}} + a_\mu^{\mathrm{HVP}} + a_\mu^{\mathrm{HLbL}},
+\]
+
+where \(a_\mu^{\mathrm{QED}}\) denotes the quantum electrodynamics contribution (computed to five loops), \(a_\mu^{\mathrm{EW}}\) the electroweak contribution, \(a_\mu^{\mathrm{HVP}}\) the hadronic vacuum polarization, and \(a_\mu^{\mathrm{HLbL}}\) the hadronic light-by-light scattering. Among these, the hadronic contributions --- particularly \(a_\mu^{\mathrm{HVP}}\) --- dominate the theoretical uncertainty.
+
+The largest uncertainty in the SM prediction comes from the leading-order hadronic vacuum polarization (LO-HVP) contribution, \(a_\mu^{\mathrm{HVP}}\), which cannot be computed perturbatively. In the traditional data-driven dispersive approach, \(a_\mu^{\mathrm{HVP}}\) is obtained via the dispersion integral~\cite{Brodsky1968,Lautrup1968}
+
+\[
+a_\mu^{\mathrm{HVP}} = \frac{\alpha^2}{3\pi^2} \int_{4m_\pi^2}^{\infty} \frac{ds}{s} K(s) \, R(s),
+\]
+
+where \(R(s) = \sigma(e^+e^-\to \mathrm{hadrons}) / \sigma(e^+e^-\to \mu^+\mu^-)\) is the hadronic \(R\)-ratio, and \(K(s)\) is a known QED kernel function that peaks at low energies. Consequently, high-precision measurements of exclusive hadronic cross sections at \(e^+e^-\) colliders are indispensable for a reliable SM prediction.
+
+The WP2020~\cite{WP2020} evaluation by the Muon \(g-2\) Theory Initiative relied on this data-driven method. It yielded a SM prediction of
+
+\[
+a_\mu^{\mathrm{SM}}(\mathrm{WP2020}) = 116\,591\,810(43) \times 10^{-11},
+\]
+
+which, when compared with the then-available experimental value, resulted in a \(>5\sigma\) deviation, fueling intense interest in possible new physics.
+
+However, the theoretical landscape has undergone a fundamental shift with the publication of the 2025 White Paper (WP2025)~\cite{WP2025}. Persistent tensions among different \(e^+e^-\to\pi^+\pi^-\) measurements --- in particular the higher \(\pi\pi\) cross section reported by the CMD-3 experiment~\cite{CMD3_Ignatov2024} compared to other earlier experiments --- have made it impossible to produce a meaningful combined data-driven average. In contrast, lattice QCD~\cite{Borsanyi2021} calculations of the LO-HVP have reached sub-percent precision and show good internal consistency among different collaborations.
+
+Consequently, WP2025 adopts a consolidated lattice-QCD average as its central value for the LO-HVP contribution, rather than the data-driven result used in WP2020. This change shifts the total SM prediction upward to
+
+\[
+a_\mu^{\mathrm{SM}}(\mathrm{WP2025}) = 116\,592\,033(62) \times 10^{-11}.
+\]
+
+The comparison between theory and experiment now yields:
+
+\[
+a_\mu^{\mathrm{exp}} - a_\mu^{\mathrm{SM}}(\mathrm{WP2025}) = 38(63) \times 10^{-11},
+\]
+
+corresponding to a negligible deviation of approximately \(0.6\sigma\). The long-standing \(>5\sigma\) discrepancy has effectively been resolved with the updated SM prediction. Nevertheless, this resolution does not imply that the problem is fully understood. The disagreement between the data-driven and lattice-QCD evaluations of the LO-HVP term remains unresolved, as does the tension between CMD-3 and other \(e^+e^-\to\pi^+\pi^-\) experiments. Resolving these discrepancies requires new, independent, high-precision measurements of the key hadronic cross sections, particularly those with the largest contributions to \(a_\mu^{\mathrm{HVP}}\).
+
+% Among all exclusive channels, the \(2\pi\) final state dominates, contributing \(\sim 70\%\) of the total HVP. The second most important channel is \(e^+e^-\to\pi^+\pi^-\pi^0\) (\(3\pi\)), which contributes \(\sim 10\%\) but is a major source of systematic uncertainty due to its complex resonance structure (dominated by \(\omega\) and \(\phi\)). 
+
+For the \(3\pi\) channel, the Belle II experiment reported a new measurement in 2024~\cite{BelleII_3pi_2024}. However, concerns have been raised regarding the reliability of its uncertainty estimation, leading some recent SM theory compilations to explicitly exclude Belle II data from their averages. This situation highlights the urgent need for independent cross section measurements from other facilities.
+
+The BESIII experiment, with its large data samples, is ideally suited to provide a reliable and independent measurement of the \(e^+e^- \to \pi^+\pi^-\pi^0\) cross section in the low-energy region critical for \(a_\mu^{\mathrm{HVP}}\). In this memo, we use an \(e^+e^-\) collision sample corresponding to an integrated luminosity of 20~fb\(^{-1}\) collected at a center-of-mass energy of 3.773~GeV. We present a measurement based on the initial-state radiation (ISR) technique using the process \(e^+e^- \to \pi^+\pi^-\pi^0 \gamma_{\mathrm{ISR}}\), which allows access to the \(3\pi\) hadronic cross section from continuum production without energy scanning. This work aims to provide a valid and systematically well-controlled measurement, thereby adding reliable experimental input for the \(3\pi\) channel and contributing to the ongoing effort to reconcile the data-driven and lattice-QCD approaches.
