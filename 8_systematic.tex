@@ -140,49 +140,15 @@ By fitting Eq.~\eqref{eq:fit_model} to the observed data using the known VMD lin
 
 \subsection{The requirement on E/p}
 
-To evaluate the systematic uncertainty associated with the \(E/p < 0.8\) requirement in the \(e^+e^- \to \pi^+\pi^-\pi^0\) process, we adopt a data-driven approach using the control sample of \(e^+e^- \to \pi^+\pi^-\pi^0\) near the \(J/\psi\) mass following Ref.~\cite{BESIII_MEMO_1606}. Instead of assuming a smooth dependence on \(M_{3\pi}\), we directly study the efficiency discrepancy as a function of the pion momenta.
+To evaluate the systematic uncertainty associated with the \(E/p < 0.8\) requirement in the \(e^+e^- \to \pi^+\pi^-\pi^0\) process, we adopt a data-driven approach using the control sample of \(e^+e^- \to \pi^+\pi^-\pi^0\) near the \(J/\psi\) mass following Ref.~\cite{BESIII_MEMO_1606}. Based on this work, we study the efficiency discrepancy between data and MC as a function of pion momentum, treating \(\pi^+\) and \(\pi^-\) independently due to possible detector asymmetries. The momentum range is divided into eight bins: \(<0.2\), \(0.2-0.4\), \(0.4-0.6\), \(0.6-0.8\), \(0.8-1.0\), \(1.0-1.2\), \(1.2-1.4\), and \(>1.4\)~GeV/\(c\).
 
-The efficiency of the \(E/p < 0.8\) cut is defined as:
+The efficiency of the \(E/p < 0.8\) cut in a given momentum bin is defined as:
 
 \[
 \varepsilon(p) = \frac{N_{\text{pass}}(p)}{N_{\text{total}}(p)},
 \]
 
-where \(N_{\text{total}}(p)\) is the number of events in a given momentum bin before the \(E/p\) cut, and \(N_{\text{pass}}(p)\) is the number after the cut. For data, the signal yield in each bin is obtained from the \(J/\psi\) control sample, denoted as \(N_{\text{pass}}^{\text{data}}(p)\) and \(N_{\text{total}}^{\text{data}}(p)\) for the passed and total samples, respectively. For signal MC, the efficiency is:
-
-\[
-\varepsilon_{\text{MC}}(p) = \frac{N_{\text{pass}}^{\text{sig}}(p)}{N_{\text{total}}^{\text{sig}}(p)},
-\]
-
-where \(N_{\text{total}}^{\text{sig}}(p)\) and \(N_{\text{pass}}^{\text{sig}}(p)\) are the numbers of signal MC events before and after the cut.
-
-The efficiency ratio between data and MC is defined as:
-
-\[
-R(p) = \frac{\varepsilon_{\text{data}}(p)}{\varepsilon_{\text{MC}}(p)},
-\]
-
-which serves as a correction factor for the MC efficiency. A value of \(R(p) \neq 1\) indicates a discrepancy between data and simulation.
-
-For the statistical uncertainty of the MC efficiency, we use the binomial error formula:
-
-\[
-\sigma_{\varepsilon_{\text{MC}}} = \sqrt{\frac{\varepsilon_{\text{MC}}(1 - \varepsilon_{\text{MC}})}{N_{\text{total}}^{\text{sig}}}}.
-\]
-
-For data, the uncertainty \(\sigma_{\varepsilon_{\text{data}}}\) is propagated from the uncertainties of the extracted signal yields from the \(J/\psi\) control sample. The uncertainty of the ratio \(R(p)\) is then obtained via standard error propagation:
-
-\[
-\left(\frac{\sigma_R}{R}\right)^2 = \left(\frac{\sigma_{\varepsilon_{\text{data}}}}{\varepsilon_{\text{data}}}\right)^2 + \left(\frac{\sigma_{\varepsilon_{\text{MC}}}}{\varepsilon_{\text{MC}}}\right)^2,
-\]
-
-or equivalently:
-
-\[
-\sigma_R = R \cdot \sqrt{ \left(\frac{\sigma_{\varepsilon_{\text{data}}}}{\varepsilon_{\text{data}}}\right)^2 + \left(\frac{\sigma_{\varepsilon_{\text{MC}}}}{\varepsilon_{\text{MC}}}\right)^2 }.
-\]
-
-We study both the \(\pi^+\) and \(\pi^-\) separately, as their \(E/p\) distributions may have different behaviors due to detector asymmetries. The momentum range is divided into eight bins: \(<0.2\), \(0.2-0.4\), \(0.4-0.6\), \(0.6-0.8\), \(0.8-1.0\), \(1.0-1.2\), \(1.2-1.4\), and \(>1.4\)~GeV/\(c\). For each bin, we compute the efficiency ratio \(R(p)\) and its uncertainty.
+where \(N_{\text{total}}(p)\) is the number of events before the \(E/p\) cut, and \(N_{\text{pass}}(p)\) is the number after the cut. We compute this efficiency separately for data using the \(J/\psi\) control sample and for signal MC. The efficiency ratio \(R(p) = \varepsilon_{\text{data}}(p)/\varepsilon_{\text{MC}}(p)\) serves as a correction factor.
 
 The results for \(\pi^+\) (studying \(E/p_{\pi^+}<0.8\) with \(E/p_{\pi^-}<0.8\) fixed) are shown in Table~\ref{tab:eop1_efficiency_pip}. The results for \(\pi^-\) (studying \(E/p_{\pi^-}<0.8\) with \(E/p_{\pi^+}<0.8\) fixed) are shown in Table~\ref{tab:eop2_efficiency_pim}.
 
@@ -191,18 +157,18 @@ The results for \(\pi^+\) (studying \(E/p_{\pi^+}<0.8\) with \(E/p_{\pi^-}<0.8\)
         \caption{Efficiency of the \(E/p_{\pi^+}<0.8\) cut as a function of \(\pi^+\) momentum, with \(E/p_{\pi^-}<0.8\) fixed. The efficiency ratio \(R = \varepsilon_{\text{data}}/\varepsilon_{\text{MC}}\) and its uncertainty are shown.}
         \vspace{4mm}
         \renewcommand{\arraystretch}{1.3}
-        \begin{tabular}{c | c c c c c}
+        \begin{tabular}{c | c c c c}
             \hline \hline
-            \(p_{\pi^+}\) [GeV/\(c\)] & \(\varepsilon_{\text{data}}\) [\%] & \(\sigma_{\varepsilon_{\text{data}}}\) [\%] & \(\varepsilon_{\text{MC}}\) [\%] & \(\sigma_{\varepsilon_{\text{MC}}}\) [\%] & \(R\) \\
+            \(p_{\pi^+}\) [GeV/\(c\)] & \(\varepsilon_{\text{data}}\) [\%] & \(\varepsilon_{\text{MC}}\) [\%] & \(R\) \\
             \hline
-            \(<0.2\)   & \(99.63\) & \(0.74\) & \(99.69\) & \(0.94\) & \(0.9994\pm0.0147\) \\
-            \(0.2-0.4\) & \(89.52\) & \(0.27\) & \(88.79\) & \(0.32\) & \(1.0082\pm0.0061\) \\
-            \(0.4-0.6\) & \(90.37\) & \(0.19\) & \(91.85\) & \(0.23\) & \(0.9839\pm0.0039\) \\
-            \(0.6-0.8\) & \(94.62\) & \(0.17\) & \(96.57\) & \(0.20\) & \(0.9798\pm0.0033\) \\
-            \(0.8-1.0\) & \(96.18\) & \(0.17\) & \(97.78\) & \(0.20\) & \(0.9836\) & \(0.0032\) \\
-            \(1.0-1.2\) & \(97.08\) & \(0.20\) & \(98.19\) & \(0.22\) & \(0.9887\) & \(0.0037\) \\
-            \(1.2-1.4\) & \(97.58\) & \(0.20\) & \(98.55\) & \(0.24\) & \(0.9902\) & \(0.0039\) \\
-            \(>1.4\)    & \(93.50\) & \(0.14\) & \(98.85\) & \(0.17\) & \(0.9459\) & \(0.0025\) \\
+            \(<0.2\)   & \(99.63\pm0.74\) & \(99.69\pm0.94\) & \(0.9994\pm0.0147\) \\
+            \(0.2-0.4\) & \(89.52\pm0.27\) & \(88.79\pm0.32\) & \(1.0082\pm0.0061\) \\
+            \(0.4-0.6\) & \(90.37\pm0.19\) & \(91.85\pm0.23\) & \(0.9839\pm0.0039\) \\
+            \(0.6-0.8\) & \(94.62\pm0.17\) & \(96.57\pm0.20\) & \(0.9798\pm0.0033\) \\
+            \(0.8-1.0\) & \(96.18\pm0.17\) & \(97.78\pm0.20\) & \(0.9836\pm0.0032\) \\
+            \(1.0-1.2\) & \(97.08\pm0.20\) & \(98.19\pm0.22\) & \(0.9887\pm0.0037\) \\
+            \(1.2-1.4\) & \(97.58\pm0.20\) & \(98.55\pm0.24\) & \(0.9902\pm0.0039\) \\
+            \(>1.4\)    & \(93.50\pm0.14\) & \(98.85\pm0.17\) & \(0.9459\pm0.0025\) \\
             \hline \hline
         \end{tabular}
         \label{tab:eop1_efficiency_pip}
@@ -214,18 +180,18 @@ The results for \(\pi^+\) (studying \(E/p_{\pi^+}<0.8\) with \(E/p_{\pi^-}<0.8\)
         \caption{Efficiency of the \(E/p_{\pi^-}<0.8\) cut as a function of \(\pi^-\) momentum, with \(E/p_{\pi^+}<0.8\) fixed. The efficiency ratio \(R = \varepsilon_{\text{data}}/\varepsilon_{\text{MC}}\) and its uncertainty are shown.}
         \vspace{4mm}
         \renewcommand{\arraystretch}{1.3}
-        \begin{tabular}{c | c c c c c}
+        \begin{tabular}{c | c c c c}
             \hline \hline
-            \(p_{\pi^-}\) [GeV/\(c\)] & \(\varepsilon_{\text{data}}\) [\%] & \(\sigma_{\varepsilon_{\text{data}}}\) [\%] & \(\varepsilon_{\text{MC}}\) [\%] & \(\sigma_{\varepsilon_{\text{MC}}}\) [\%] & \(R\) \\
+            \(p_{\pi^-}\) [GeV/\(c\)] & \(\varepsilon_{\text{data}}\) [\%] & \(\varepsilon_{\text{MC}}\) [\%] & \(R\) \\
             \hline
-            \(<0.2\)   & \(98.96\) & \(0.74\) & \(98.67\) & \(0.94\) & \(1.0029\) & \(0.0147\) \\
-            \(0.2-0.4\) & \(93.32\) & \(0.28\) & \(91.44\) & \(0.33\) & \(1.0206\) & \(0.0062\) \\
-            \(0.4-0.6\) & \(97.39\) & \(0.20\) & \(96.73\) & \(0.23\) & \(1.0068\) & \(0.0041\) \\
-            \(0.6-0.8\) & \(97.91\) & \(0.17\) & \(97.81\) & \(0.20\) & \(1.0010\) & \(0.0035\) \\
-            \(0.8-1.0\) & \(98.42\) & \(0.17\) & \(98.31\) & \(0.20\) & \(1.0011\) & \(0.0035\) \\
-            \(1.0-1.2\) & \(98.66\) & \(0.20\) & \(98.54\) & \(0.22\) & \(1.0012\) & \(0.0040\) \\
-            \(1.2-1.4\) & \(98.61\) & \(0.20\) & \(98.87\) & \(0.24\) & \(0.9974\) & \(0.0042\) \\
-            \(>1.4\)    & \(94.54\) & \(0.15\) & \(99.09\) & \(0.17\) & \(0.9541\) & \(0.0026\) \\
+            \(<0.2\)   & \(98.96\pm0.74\) & \(98.67\pm0.94\) & \(1.0029\pm0.0147\) \\
+            \(0.2-0.4\) & \(93.32\pm0.28\) & \(91.44\pm0.33\) & \(1.0206\pm0.0062\) \\
+            \(0.4-0.6\) & \(97.39\pm0.20\) & \(96.73\pm0.23\) & \(1.0068\pm0.0041\) \\
+            \(0.6-0.8\) & \(97.91\pm0.17\) & \(97.81\pm0.20\) & \(1.0010\pm0.0035\) \\
+            \(0.8-1.0\) & \(98.42\pm0.17\) & \(98.31\pm0.20\) & \(1.0011\pm0.0035\) \\
+            \(1.0-1.2\) & \(98.66\pm0.20\) & \(98.54\pm0.22\) & \(1.0012\pm0.0040\) \\
+            \(1.2-1.4\) & \(98.61\pm0.20\) & \(98.87\pm0.24\) & \(0.9974\pm0.0042\) \\
+            \(>1.4\)    & \(94.54\pm0.15\) & \(99.09\pm0.17\) & \(0.9541\pm0.0026\) \\
             \hline \hline
         \end{tabular}
         \label{tab:eop2_efficiency_pim}
@@ -238,15 +204,11 @@ To propagate the uncertainty of the \(E/p\) requirement to the cross section mea
 c_{E/p}^{(k)} = \sqrt{R_{\pi^+}^{(k)}(p_{\pi^+}) \cdot R_{\pi^-}^{(k)}(p_{\pi^-})},
 \]
 
-where \(R_{\pi^+}^{(k)}(p_{\pi^+})\) and \(R_{\pi^-}^{(k)}(p_{\pi^-})\) are sampled independently for each momentum bin according to Gaussian distributions with means \(R(p)\) and widths \(\sigma_R(p)\). For events where the pion momentum falls outside the defined bins, we apply the correction from the nearest bin.
-
-This correction factor is incorporated into the migration matrix construction alongside the other efficiency corrections. The toy migration matrix is then:
-
+where \(R_{\pi^+}^{(k)}(p_{\pi^+})\) and \(R_{\pi^-}^{(k)}(p_{\pi^-})\) are sampled independently for each momentum bin according to Gaussian distributions. After processing all $N_{\text{toy}}$ toys, the covariance matrix of the systematic uncertainty arising from the efficiency corrections is estimated as:
 \[
-A_{ij}^{\text{corr},(k)} = \sum_{m \in \text{events}} w_m \cdot c_{E/p}^{(k)}(\text{event}_m) \cdot \mathbb{1}(\text{reco bin } i, \text{truth bin } j),
+\Sigma_{ij}^{\text{sys}} = \frac{1}{N_{\text{toy}} - 1} \sum_{k=1}^{N_{\text{toy}}} \left( u_i^{(k)} - u_i^{\text{nom}} \right) \left( u_j^{(k)} - u_j^{\text{nom}} \right),
 \]
-
-where \(w_m\) includes all other correction factors (NLO ISR, tracking, PID, \(\pi^0\) reconstruction, etc.). The unfolding is performed for each toy, and the covariance matrix of the unfolded spectra is calculated as described in Sec.~\ref{sec:eff_sys}. This covariance matrix is taken as the systematic uncertainty contribution from the \(E/p\) requirement.
+where $u_i^{\text{nom}}$ is the nominal unfolded spectrum. This covariance matrix is taken as the systematic uncertainty contribution.
 
 % This systematic source is treated as uncorrelated with other efficiency corrections since it is derived from an independent control sample measurement. The resulting per-bin systematic uncertainties from the \(E/p\) requirement are shown in Table~\ref{tab:ep_systematic} and Figure~\ref{fig:ep_sys}.
 
