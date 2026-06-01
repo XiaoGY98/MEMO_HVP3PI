@@ -1,26 +1,18 @@
 
-\clearpage
+% \clearpage
 \section{Background Study}
 \label{sec:bkg_stu}
-In the study of background processes, the main backgrounds are categorized into $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$, $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$, QED processes, and others. The dominant contributions arise from processes with additional $\pi^{0}$, particularly $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$, while $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ is not dominant but shares the same underlying mechanism as a background to our signal. In the inclusive analysis, the cross sections used for these two processes were not correctly configured.
+% In the study of background processes, the main backgrounds are categorized into $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$, $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$, QED processes, and others. The dominant contributions arise from processes with additional $\pi^{0}$, particularly $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$, while $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$ is not dominant but shares the same underlying mechanism as a background to our signal. In the inclusive analysis, the cross sections used for these two processes were not correctly configured.
+MC studies show that the main backgrounds include $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$, $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}\gamma_{\text{ISR}}$, and various QED processes.
 
-To verify that these processes constitute the primary backgrounds, the
-$\mathcal{L} \times \sigma_{\text{hadron}}$ method is employed, where
-$\mathcal{L}$ is the integrated luminosity and $\sigma_{\text{hadron}}$ is the
-hadronic cross section. The luminosity values for each data-taking period are
-listed in Table~\ref{tab:datalumi}. The background yield is estimated as a
-function of the $\pi^{+}\pi^{-}\pi^{0}$ invariant mass ($m$) using the
-effective luminosity spectrum, which is related to the mass spectrum via:
-
+To verify that these processes constitute the primary backgrounds, a rough estimate is obtained by multiplying the integrated luminosity $\mathcal{L}$ by the hadronic cross section $\sigma_{\text{hadron}}$. The luminosity values for each data-taking period are listed in Table~\ref{tab:datalumi}. The background yield is estimated as a function of the $\pi^{+}\pi^{-}\pi^{0}$ invariant mass ($m$) using the effective luminosity spectrum, which is related to the mass spectrum via:
 \begin{equation}
     \frac{d L_{\text{eff}}}{d m} = \frac{2 m}{s} \cdot F(s, m) \cdot \mathcal{L}_{\text{int}},
 \end{equation}
-
 where $s = 4E^{2}$, $E$ is the beam energy, $\mathcal{L}_{\text{int}}$ is the
 total integrated luminosity, and $F(s, m)$ is the probability function for
 initial-state photon emission. This function can be written
 as~\cite{Kuraev1985}:
-
 \begin{align}
     \beta                        & = \frac{2\alpha}{\pi} \left[ \ln\left( \frac{s}{m_e^{2}} \right) - 1 \right],                                                                              \\
     x                            & = 1 - \frac{m^{2}}{s},                                                                                                                                     \\
@@ -28,8 +20,7 @@ as~\cite{Kuraev1985}:
                                  & \quad + \beta^{2} \left( \frac{37}{96} - \frac{\pi^{2}}{12} - \frac{1}{72} \ln \frac{s}{m_e^{2}} \right) \Bigg] \nonumber                                  \\
                                  & \quad - \beta \left(1 - \frac{x}{2}\right) \ln\frac{1}{x} - \frac{1+3(1-x)^{2}}{x} \ln(1-x) - 6 + x \Bigg\} \cdot \mathcal{L}_{\text{int}},
 \end{align}
-
-where $\alpha = 1/137$ is the fine-structure constant, $m_e = 0.5110034 \times
+where $\alpha$ is the fine-structure constant, $m_e = 0.5110034 \times
     10^{-3}~\text{GeV}/c^{2}$ is the electron mass, and $\sqrt{s} =
     3.773~\text{GeV}$ is the center-of-mass energy of the primary $e^{+}e^{-}$
 system.
@@ -137,7 +128,7 @@ significance is also observed for Rounds~03/04, 15, and 17 with the same cut.
     \label{fig:chisq_optimization_rounds}
 \end{figure}
 
-Based on the optimal $\chi^2_{\mathrm{KF}}$ selection, the invariant mass
+After applying the optimal $\chi^2_{\mathrm{KF}}$ selection, the invariant mass
 spectrum of the $3\pi$ system ($M_{3\pi}$) can be divided into three distinct
 regions for further study: the $\omega(782)$ region, the $\phi(1020)$ region,
 and a higher-mass region associated with possible
@@ -234,7 +225,7 @@ in the fit.
     \label{fig:r17_omegaprime}
 }
 
-\caption{Invariant mass spectra $M_{3\pi}$ for different data rounds and mass regions with $N_{\pi^0}=1$ (other columns no $\pi^0$ multiplicity cut).}
+\caption{Invariant mass spectra $M_{3\pi}$ for different data rounds and mass regions, $N_{\pi^0}=1$ is applied for the $\omega^{\prime}/\omega^{\prime\prime}$ mass region.}
 \label{fig:all_rounds_3pi}
 \end{figure}
 % The $3\pi$ invariant mass distribution obtained with the $\chi^{2}_{\mathrm{KF}} < 50$ selection is presented in Fig.~\ref{fig:mass3pi_stacked}. This plot, using the Round~16 data sample, displays the data in comparison with the stacked MC predictions for the signal and background components.
@@ -247,79 +238,50 @@ in the fit.
 % \end{figure}
 
 \clearpage
-\subsection{Estimate of $\ee\to\pip\pim\piz\piz$}
-In estimating the $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ background, the
-following strategy was adopted:
+\subsection{Estimate of $\ee\to\pip\pim\piz\piz$ backgrounds} 
 
-It is assumed that the total yield of $e^{+}e^{-} \to
-    \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events produced in the data is a fixed quantity.
-This process enters our signal region primarily when a photon from one of the
-$\pi^{0}$ decays is misidentified as an initial-state radiation photon
-($\gamma_{\text{ISR}}$). Consequently, two distinct selection efficiencies can
-be calculated: $\epsilon_{\text{sig}}$ (the efficiency for $e^{+}e^{-} \to
-    \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events to be selected as signal candidates) and
-$\epsilon_{\text{bkg}}$ (the efficiency for the same process to enter the
-$3\pi$ signal region as background).
+It is assumed that the total yield of $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events produced in the data is a fixed quantity. This process can contribute background to the $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\gamma_{\text{ISR}}$ process when a photon from one of the $\pi^{0}$ decays is misidentified as the initial-state radiation photon ($\gamma_{\text{ISR}}$). The combined selection proceeds as follows.
 
-When $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events are selected as
-signal, the same analysis procedure as for the signal is applied to construct
-the $3\pi$ invariant mass spectrum, thereby obtaining the distribution of this
-process in data. Using the ratio of these two efficiencies, $R =
-    \epsilon_{\text{bkg}} / \epsilon_{\text{sig}}$, the observed $e^{+}e^{-} \to
-    \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ signal distribution can be converted into an
-estimate of its background distribution in the signal region. Specifically:
-\begin{equation}
-    N_{\text{bkg}} = R \times N_{\text{sig}}^{\text{obs}} = \frac{\epsilon_{\text{bkg}}}{\epsilon_{\text{sig}}} \times N_{\text{sig}}^{\text{obs}},
-\end{equation}
-where $N_{\text{sig}}^{\text{obs}}$ is the number of observed $e^{+}e^{-} \to
-    \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ signal events in data, and $N_{\text{bkg}}$ is
-the estimated number of background events from this process in the signal
-region.
+First, the full $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ selection is applied:
 
-This method provides a data-driven conversion from the observed signal
-distribution to the background distribution through efficiency correction.
-
-When treating $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ as the signal, the
-selection criteria are designed such that the same event sample also satisfies
-a loose selection for $e^{+}e^{-} \to
-    \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$. This ensures that the invariant
-mass of the three-pion system is automatically defined within the latter
-process.
-
-The combined selection proceeds as follows: events are required to meet the
-criteria for both processes. The first step applies the full $e^{+}e^{-} \to
-    \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ selection:
 \begin{itemize}
     \item \textbf{$\pi^{+}\pi^{-}\pi^{0}\pi^{0}$ Candidate Selection:}
-          \begin{itemize}
-              \item Exactly two good charged tracks.
-              \item $\text{nPi0} \geq 2$ \& \& $\text{nGoodShowers} \geq 4$ (ensuring at least two $\pi^{0}$s).
-              \item Application of a total 4-momentum constraint to the initial $e^{+}e^{-}$
-                    collision (4C kinematic fit).
-              \item The candidate with the minimum $\chi_{\mathrm{4C}}^2$ is chosen.
-              \item A requirement of $\chi_{\mathrm{KF}}^{2} < 10$ on the kinematic fit.
-          \end{itemize}
+    \begin{itemize}
+        \item Exactly two good charged tracks.
+        \item $\text{nPi0} \geq 2$ and $\text{nGoodShowers} \geq 4$ (ensuring at least two $\pi^{0}$s).
+        \item Application of a total 4-momentum constraint to the initial $e^{+}e^{-}$ collision (4C kinematic fit).
+        \item Looping over all combinations of $\pi^0$ candidates, the combination with the minimum $\chi_{\mathrm{4C}}^2$ is chosen.
+        \item A requirement of $\chi_{\mathrm{KF}}^{2} < 10$ on the kinematic fit.
+    \end{itemize}
 \end{itemize}
 
-Subsequently, within the same event, a candidate for $e^{+}e^{-} \to
-    \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ is formed by reinterpreting one of
-the $\pi^{0}$s as the $\gamma_{\mathrm{ISR}}$:
+Subsequently, within the same event, a loose selection for $e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ is applied to reconstruct the $3\pi$ invariant mass spectrum:
+
 \begin{itemize}
-    \item \textbf{$\gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ Candidate Selection:}
-          \begin{itemize}
-              \item The same two good charged tracks.
-              \item $\text{nPi0} \geq 1$ \& \& $\text{nGoodShowers} \geq 3$ (ensuring at least one $\pi^{0}$ and one photon assigned as $\gamma_{\mathrm{ISR}}$).
-              \item Application of the same total 4-momentum constraint to the initial $e^{+}e^{-}$
-                    collision (4C kinematic fit).
-              \item The candidate with the minimum $\chi_{\mathrm{4C}}^2$ is chosen.
-              \item No additional kinematic fit $\chi^2$ requirement is applied at this stage.
-          \end{itemize}
+    \item \textbf{Loose $\gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ Candidate Selection:}
+    \begin{itemize}
+        \item The same two good charged tracks.
+        \item $\text{nPi0} \geq 1$ and $\text{nGoodShowers} \geq 3$ (ensuring at least one $\pi^{0}$ and one photon assigned as $\gamma_{\mathrm{ISR}}$).
+        \item Application of the same total 4-momentum constraint to the initial $e^{+}e^{-}$ collision (4C kinematic fit).
+        \item Looping over all combinations of $\pi^0$ candidates and EMC showers, the combination with the minimum $\chi_{\mathrm{4C}}^2$ is chosen.
+        \item No additional kinematic fit $\chi^2$ requirement is applied at this stage.
+    \end{itemize}
 \end{itemize}
 
-This dual-tag strategy guarantees that the reconstructed $3\pi$ system from the
-$e^{+}e^{-} \to \gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ hypothesis is
-kinematically well-defined, and its invariant mass can be reliably calculated
-for the subsequent analysis.
+To estimate the background from $4\pi$ events to the $3\pi$ signal region, two efficiencies are defined using MC based on the selections above:
+
+\begin{itemize}
+    \item $\epsilon_{\text{sig}}$: the efficiency for $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events to pass the nominal $4\pi$ selection (thereby allowing the yield of this process in data to be measured), and then to additionally satisfy the loose $\gamma_{\mathrm{ISR}}\pi^{+}\pi^{-}\pi^{0}$ selection for reconstructing the $3\pi$ invariant mass spectrum.
+    \item $\epsilon_{\text{bkg}}$: the efficiency for the same $4\pi$ events to pass the $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\gamma_{\text{ISR}}$ selection described in Sec.~\ref{sec:selections}, i.e., to be misreconstructed as background in the $3\pi$ mass region.
+\end{itemize}
+
+The observed distribution of $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ candidates in data (selected under the nominal $4\pi$ criteria) can be converted into an estimate of its background contribution in the signal region using the efficiency ratio $R = \epsilon_{\text{bkg}} / \epsilon_{\text{sig}}$:
+
+\begin{equation}
+    N_{\text{bkg}} = R \times N_{4\pi}^{\text{obs}} = \frac{\epsilon_{\text{bkg}}}{\epsilon_{\text{sig}}} \times N_{4\pi}^{\text{obs}},
+\end{equation}
+
+where $N_{4\pi}^{\text{obs}}$ is the number of observed $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events selected under the nominal $4\pi$ criteria, and $N_{\text{bkg}}$ is the estimated number of background events from this process in the $\pi^{+}\pi^{-}\pi^{0}$ invariant mass region.
 
 The selection described above results in a highly pure sample of $e^{+}e^{-}
 \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ events. The invariant mass spectrum of the
@@ -358,9 +320,7 @@ efficiency ratio $R = \epsilon_{\text{bkg}} / \epsilon_{\text{sig}}$ to
 estimate the final background contribution of this process in the signal region
 of the measurement channel. As established and shown in
 Fig.~\ref{fig:4pi_background_spectrum}, the background contamination within
-this selected sample is negligible. Therefore, we subtract the inclusive
-background histogram from the data histogram in a symbolic manner to obtain the
-pure $e^{+}e^{-} \to \pi^{+}\pi^{-}\pi^{0}\pi^{0}$ event yield. The resulting
+this selected sample is negligible. The resulting
 background-subtracted signal distributions in the three $3\pi$ invariant mass
 regions are presented in Fig.~\ref{fig:nonisr4pi_all_rounds_regions}. All other
 backgrounds will be subtracted directly.
@@ -520,12 +480,7 @@ each subdivided into multiple bins for detailed study:
           ($1.05$–$2.0~\text{GeV}/c^{2}$), divided into 76 bins.
 \end{itemize}
 
-For each small $M_{3\pi}$ interval, the signal yield is extracted through an
-extended unbinned maximum-likelihood fit to the $U_{\text{miss}}$ distribution,
-where $U_{\text{miss}}$ is defined as the difference between the missing energy
-and the magnitude of the missing momentum ($U_{\text{miss}} = E_{\text{miss}} -
-    |\vec{p}_{\text{miss}}|$). The fit model incorporates probability density
-functions (PDFs) representing the signal and all background components.
+For each small $M_{3\pi}$ interval, the signal yield is extracted through an extended unbinned maximum-likelihood fit to the $U_{\text{miss}}$ distribution, where $U_{\text{miss}} = E_{\text{miss}} - |\vec{p}_{\text{miss}}|$ is computed from the missing four-momentum after removing the $\pi^+$, $\pi^-$, $\pi^0$, and $\gamma_{\text{ISR}}$ from the initial $e^+e^-$ system. These quantities are calculated using the measured momenta without any kinematic fit update. The fit model incorporates probability density functions (PDFs) representing the signal and all background components.
 
 To illustrate the composition of $U_{\text{miss}}$ distributions across
 different $M_{3\pi}$ regions, the inclusive MC simulation is examined.

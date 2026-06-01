@@ -111,7 +111,6 @@ The migration of events between neighboring mass bins due to detector resolution
 The observed yield in each mass bin is related to the generator-level yield through the response matrix:
 \begin{equation}
     \left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_{j} P_{ij} \left( \frac{dN}{dm} \right)_{j}^{\text{gen}}
-    \label{eq:response_matrix}
 \end{equation}
 where \(P_{ij}\) is constructed entirely from MC simulations. Both data and MC events suffer from detector resolution broadening, but the response matrix only contains the MC-predicted migration pattern. A key concern is whether the detector resolution in data differs from that in MC, as any mismatch would bias the unfolded cross section.
 
@@ -136,18 +135,16 @@ where \(P_{kj}^{(0)}\) is the nominal MC response matrix. The observed data dist
     \left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_j P_{ij}^{\text{cal}}(\delta, \kappa) \left( \frac{dN}{dm} \right)_{j}^{\text{VMD}}
     \label{eq:fit_model}
 \end{equation}
-By fitting Eq.~\eqref{eq:fit_model} to the observed data using the known VMD lineshape as the true spectrum, the fitted parameters \(\delta\) and \(\kappa\) directly quantify the shift and broadening differences between data and MC in the response matrix. This approach provides a data-driven estimate of the systematic uncertainty arising from detector resolution effects.
+By fitting Eq.~\eqref{eq:fit_model} to the observed data using the known VMD lineshape as the true spectrum~\cite{Achasov2003,Czyz2006}, the fitted parameters \(\delta\) and \(\kappa\) directly quantify the shift and broadening differences between data and MC in the response matrix. Both fitted values are found to be well below the bin width, rendering the associated systematic uncertainty from detector resolution effects negligible.
 
 \subsection{The requirement on E/p}
 
 To evaluate the systematic uncertainty associated with the \(E/p < 0.8\) requirement in the \(e^+e^- \to \pi^+\pi^-\pi^0\) process, we adopt a data-driven approach using the control sample of \(e^+e^- \to \pi^+\pi^-\pi^0\) near the \(J/\psi\) mass following Ref.~\cite{BESIII_MEMO_1606}. Based on this work, we study the efficiency discrepancy between data and MC as a function of pion momentum, treating \(\pi^+\) and \(\pi^-\) independently due to possible detector asymmetries. The momentum range is divided into eight bins: \(<0.2\), \(0.2-0.4\), \(0.4-0.6\), \(0.6-0.8\), \(0.8-1.0\), \(1.0-1.2\), \(1.2-1.4\), and \(>1.4\)~GeV/\(c\).
 
 The efficiency of the \(E/p < 0.8\) cut in a given momentum bin is defined as:
-
 \[
 \varepsilon(p) = \frac{N_{\text{pass}}(p)}{N_{\text{total}}(p)},
 \]
-
 where \(N_{\text{total}}(p)\) is the number of events before the \(E/p\) cut, and \(N_{\text{pass}}(p)\) is the number after the cut. We compute this efficiency separately for data using the \(J/\psi\) control sample and for signal MC. The efficiency ratio \(R(p) = \varepsilon_{\text{data}}(p)/\varepsilon_{\text{MC}}(p)\) serves as a correction factor.
 
 The results for \(\pi^+\) (studying \(E/p_{\pi^+}<0.8\) with \(E/p_{\pi^-}<0.8\) fixed) are shown in Table~\ref{tab:eop1_efficiency_pip}. The results for \(\pi^-\) (studying \(E/p_{\pi^-}<0.8\) with \(E/p_{\pi^+}<0.8\) fixed) are shown in Table~\ref{tab:eop2_efficiency_pim}.
@@ -199,11 +196,9 @@ The results for \(\pi^+\) (studying \(E/p_{\pi^+}<0.8\) with \(E/p_{\pi^-}<0.8\)
 \end{table}
 
 To propagate the uncertainty of the \(E/p\) requirement to the cross section measurement, we follow the same toy MC procedure described in Sec.~\ref{sec:eff_sys}. The efficiency ratio \(R(p)\) is treated as an additional correction factor applied to the MC events. For each toy variation, the combined correction factor for an event is:
-
 \[
 c_{E/p}^{(k)} = \sqrt{R_{\pi^+}^{(k)}(p_{\pi^+}) \cdot R_{\pi^-}^{(k)}(p_{\pi^-})},
 \]
-
 where \(R_{\pi^+}^{(k)}(p_{\pi^+})\) and \(R_{\pi^-}^{(k)}(p_{\pi^-})\) are sampled independently for each momentum bin according to Gaussian distributions. After processing all $N_{\text{toy}}$ toys, the covariance matrix of the systematic uncertainty arising from the efficiency corrections is estimated as:
 \[
 \Sigma_{ij}^{\text{sys}} = \frac{1}{N_{\text{toy}} - 1} \sum_{k=1}^{N_{\text{toy}}} \left( u_i^{(k)} - u_i^{\text{nom}} \right) \left( u_j^{(k)} - u_j^{\text{nom}} \right),
@@ -269,17 +264,14 @@ The background in the $\pi^+\pi^-\pi^0$ sample consists mainly of two components
 For all other remaining background processes, a first- or second-order polynomial is used in the nominal fit, with all parameters left floating. The main systematic uncertainty associated with these backgrounds comes from their shape. To evaluate this effect, we perform an alternative fit in which the background shape is taken from the inclusive MC sample, and the normalization is constrained via a Gaussian term fixed to the expected yield based on the integrated luminosity. The resulting $3\pi$ yield after the alternative fit is then propagated through the full unfolding procedure.
 
 Following the same procedure described in Sec.~\ref{sec:kmfit_sys}, we construct a covariance matrix using $\Delta_i$ (the difference between the alternative and nominal unfolded spectra) instead of $\frac{1}{2}\Delta_i$ for the diagonal elements. The diagonal elements of the covariance matrix are given by:
-
 \[
-\operatorname{Cov}_{ii} = \Delta_i^2
+\operatorname{Cov}_{ii} = \Delta_i^2,
 \]
 
 The off-diagonal elements are constructed as:
-
 \[
 \operatorname{Cov}_{ij} = s_i \cdot s_j \cdot \sqrt{\operatorname{Cov}_{ii} \cdot \operatorname{Cov}_{jj}},
 \]
-
 where $s_i = \operatorname{sign}(\Delta_i)$. This covariance matrix is then added in quadrature to the total covariance matrix of the cross section measurement.
 
 
@@ -288,16 +280,13 @@ where $s_i = \operatorname{sign}(\Delta_i)$. This covariance matrix is then adde
 The $\pi^0$ veto condition is applied only in the high-mass region of the spectrum. To evaluate the associated systematic uncertainty, we repeat the analysis — including the unfolding procedure — after removing this veto condition, focusing specifically on the third mass interval where the veto is originally applied.
 
 Following the same procedure described in Sec.~\ref{sec:kmfit_sys}, we construct a covariance matrix using $\Delta_i$ (the difference between the unfolded spectra obtained without and with the $\pi^0$ veto) for the diagonal elements:
-
 \[
-\operatorname{Cov}_{ii} = \Delta_i^2
+\operatorname{Cov}_{ii} = \Delta_i^2,
 \]
 
 The off-diagonal elements are constructed as:
-
 \[
 \operatorname{Cov}_{ij} = s_i \cdot s_j \cdot \sqrt{\operatorname{Cov}_{ii} \cdot \operatorname{Cov}_{jj}},
 \]
-
 where $s_i = \operatorname{sign}(\Delta_i)$. This covariance matrix is then added in quadrature to the total covariance matrix of the cross section measurement.
 

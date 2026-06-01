@@ -6,7 +6,7 @@ To extract the dressed cross section $\sigma_{3\pi}^{\text{dress}}(m)$, we need
 the generator-level yield $\left( \frac{dN}{dm} \right)^{\text{gen}}$, which is
 related to the cross section within each mass interval by:
 \begin{equation}
-    \left( \frac{dN}{dm} \right)^{\text{gen}} = \sigma_{3\pi}^{\text{dress}}(m) \cdot \frac{dL}{dm} \cdot \varepsilon \cdot \mathcal{B}(\pi^0 \to \gamma\gamma)
+    \left( \frac{dN}{dm} \right)^{\text{gen}} = \sigma_{3\pi}^{\text{dress}}(m) \cdot \frac{dL}{dm} \cdot \varepsilon \cdot \mathcal{B}(\pi^0 \to \gamma\gamma),
     \label{eq:cross_section_relation}
 \end{equation}
 where $\frac{dL}{dm}$ is the integrated luminosity in that interval, and $\mathcal{B}(\pi^0 \to \gamma\gamma)$ is the branching fraction of the $\pi^0 \to \gamma\gamma$ decay.
@@ -20,7 +20,7 @@ Eq.~\eqref{eq:cross_section_relation}. The migration is described by the
 response matrix $P_{ij}$, which relates the observed yield in bin $i$ to the
 generator-level yield in bin $j$:
 \begin{equation}
-    \left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_{j} P_{ij} \left( \frac{dN}{dm} \right)_{j}^{\text{gen}}
+    \left( \frac{dN}{dm} \right)_{i}^{\text{obs}} = \sum_{j} P_{ij} \left( \frac{dN}{dm} \right)_{j}^{\text{gen}},
     \label{eq:response_matrix}
 \end{equation}
 The generator-level yields \(\left( \frac{dN}{dm}
@@ -163,6 +163,11 @@ The efficiencies in data and MC are then computed as:
     \varepsilon_{\text{MC}}(p) = \frac{N_{\text{MC}}^{\text{matched}}(p)}{N_{\text{MC}}^{\text{total}}(p)}.
     \label{eq:pi0_efficiency}
 \end{equation}
+The statistical uncertainty on each efficiency is given by the binomial error:
+\begin{equation}
+    \sigma_{\varepsilon} = \sqrt{\frac{\varepsilon(1-\varepsilon)}{N_{\text{total}}}},
+\end{equation}
+where $N_{\text{total}}$ is the total number of events in the corresponding sample.
 
 The correction factor for $\pi^0$ reconstruction is then derived as the ratio of data efficiency to MC efficiency:
 \begin{equation}
@@ -311,6 +316,11 @@ The efficiencies in data and MC are then computed as:
     \varepsilon_{\text{MC}}(E) = \frac{N_{\text{MC}}^{\text{matched}}(E)}{N_{\text{MC}}^{\text{total}}(E)}.
     \label{eq:isr_efficiency}
 \end{equation}
+The statistical uncertainty on each efficiency is given by the binomial error:
+\begin{equation}
+    \sigma_{\varepsilon} = \sqrt{\frac{\varepsilon(1-\varepsilon)}{N_{\text{total}}}},
+\end{equation}
+where $N_{\text{total}}$ is the total number of events in the corresponding sample.
 
 The correction factor for photon detection is then derived as the ratio of data efficiency to MC efficiency:
 \begin{equation}
@@ -352,7 +362,7 @@ The calculated efficiencies and correction factors are presented in Table~\ref{t
 
 \subsection{PHOKHARA Extra Photon Fraction}
 
-A BaBar study of the PHOKHARA generator used for signal simulation found a 20\% excess of events with an additional energetic ISR photon along the beam line, relative to data in their \( e^+e^- \to \pi^+\pi^- \) process~\cite{PhysRevD.108.L111103}. The ISR-based analysis at BaBar is not impacted as it relied on a different generator, but given that our signal process \( e^+e^- \to \pi^+\pi^-\pi^0 \) is also simulated using PHOKHARA and involves ISR photon emission, this discrepancy warrants a cross-check in our analysis.
+A BaBar study of the PHOKHARA generator used for signal simulation found a 20\% excess of events with an additional energetic ISR photon along the beam line, relative to data in their \( e^+e^- \to \pi^+\pi^- \) process~\cite{PhysRevD.108.L111103}. The ISR-based analysis at BaBar is not affected as it relied on a different generator, but given that our signal process \( e^+e^- \to \pi^+\pi^-\pi^0 \) is also simulated using PHOKHARA and involves ISR photon emission, this discrepancy warrants a cross-check in our analysis.
 
 To investigate this effect in our channel, we examine the fraction of events with an additional ISR photon directly within our signal process \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}} \). This corresponds to studying events of the type \( e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}\gamma_{\text{NLO}} \), where two ISR photons are present in the final state. NNLO contributions are not considered, as their production probability is significantly lower and the additional photons are typically too soft to be reliably identified given our detector resolution and event statistics. Moreover, the limited data sample size does not provide sufficient statistical power to meaningfully extract an NNLO contribution.
 
@@ -448,31 +458,25 @@ Using the PHOKHARA MC sample, we first classify events at generator level accord
 For each category, we determine the overall selection efficiency $\varepsilon_i$ from the PHOKHARA MC sample, defined as the fraction of generator-level events in that category that pass the corresponding reconstruction and selection criteria described in the previous sections. These efficiencies are assumed to be consistent between data and MC.
 
 The yields in data for each category ($N_i^{\text{Data, reco}}$) are obtained from the fits described in Sections~\ref{sec:nlo_la} and~\ref{sec:nlo_sa} for NLO LA and SA categories, while the LO yield in data is taken from the nominal signal selection (4C fit $\chi^2 < 50$ with a single ISR photon). Using the MC-determined efficiencies, we can obtain the generator-level yields in data:
-
 \[
-    N_i^{\text{Data, gen}} = \frac{N_i^{\text{Data, reco}}}{\varepsilon_i}
+    N_i^{\text{Data, gen}} = \frac{N_i^{\text{Data, reco}}}{\varepsilon_i},
 \]
-
 where $i$ denotes the event category (LO, NLO LA, or NLO SA). The total number of generated events in data is then the sum over all categories:
-
 \[
-    N_{\text{total}}^{\text{Data, gen}} = \sum_i N_i^{\text{Data, gen}}
+    N_{\text{total}}^{\text{Data, gen}} = \sum_i N_i^{\text{Data, gen}}.
 \]
 
 The fraction of events in each category at generator level is then calculated as:
-
 \[
-    f_i^{\text{Data}} = \frac{N_i^{\text{Data, gen}}}{N_{\text{total}}^{\text{Data, gen}}}
+    f_i^{\text{Data}} = \frac{N_i^{\text{Data, gen}}}{N_{\text{total}}^{\text{Data, gen}}}.
 \]
 
 These fractions represent the true production rates of LO, NLO LA, and NLO SA events in data, corrected for selection efficiencies.
 
 For comparison, we directly compute the generator-level fractions from the PHOKHARA MC sample using the truth-level classification (including the same $M(3\pi)$ requirement):
-
 \[
-    f_i^{\text{MC}} = \frac{N_i^{\text{MC, gen}}}{N_{\text{total}}^{\text{MC, gen}}}
+    f_i^{\text{MC}} = \frac{N_i^{\text{MC, gen}}}{N_{\text{total}}^{\text{MC, gen}}}.
 \]
-
 where $N_i^{\text{MC, gen}}$ are the counts of MC events in each truth category satisfying the $M(3\pi)$ requirement, and $N_{\text{total}}^{\text{MC, gen}}$ is the total number of generated MC events within the same $M(3\pi)$ range.
 
 Table~\ref{tab:nlo_fraction} presents the comparison between data and MC for the three categories. The statistical uncertainties on $f_i^{\text{Data}}$ are propagated from the uncertainties on the fitted yields and the statistical uncertainties on the efficiencies. The uncertainties on $f_i^{\text{MC}}$ are purely statistical from the MC sample size.
