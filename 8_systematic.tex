@@ -20,48 +20,48 @@ For each toy variation $k = 1, \dots, N_{\text{toy}}$, we independently sample a
 \bigl( c_{\text{NLO}}^{(k)}(j),\; c_{\text{trk}}^{(k)}(\pi^+),\; c_{\text{pid}}^{(k)}(\pi^+),\; c_{\text{trk}}^{(k)}(\pi^-),\; c_{\text{pid}}^{(k)}(\pi^-),\; c_{\pi^0}^{(k)},\; c_{\gamma_{\text{ISR}}}^{(k)} \bigr).
 \]
 
-For each such parameter set, we recompute the corrected migration matrix $A_{ij}^{\text{corr},(k)}$ following the prescription in Sec.~\ref{sec:corr_signal_kmfit}, then derive the normalized response matrix and perform the unfolding to obtain a toy unfolded spectrum $\{ u_i^{(k)} \}$, where $i$ indexes the truth bins.
+For each such parameter set, we recompute the corrected migration matrix $A_{ij}^{\text{corr},(k)}$ following the prescription in Sec.~\ref{sec:corr_signal}, then derive the normalized response matrix and perform the unfolding to obtain a toy unfolded spectrum $\{ u_i^{(k)} \}$, where $i$ indexes the truth bins.
 
 After processing all $N_{\text{toy}}$ toys, the covariance matrix of the systematic uncertainty arising from the efficiency corrections is estimated as:
 \[
 \Sigma_{ij}^{\text{sys}} = \frac{1}{N_{\text{toy}} - 1} \sum_{k=1}^{N_{\text{toy}}} \left( u_i^{(k)} - u_i^{\text{nom}} \right) \left( u_j^{(k)} - u_j^{\text{nom}} \right),
 \]
-where $u_i^{\text{nom}}$ is the nominal unfolded spectrum. The diagonal elements $\sqrt{\Sigma_{ii}^{\text{sys}}}$ provide the uncertainty per bin, while the off-diagonal elements quantify correlations between bins induced by the uncertainties in the correction factors. This covariance matrix is taken as the systematic uncertainty contribution from the efficiency corrections in the final results. This procedure is performed independently for each data-taking period (rounds 0304, 15, 16, and 17) and for each $M_{3\pi}$ region. The resulting diagonal systematic uncertainties per bin, expressed as relative uncertainties, are shown in Fig.~\ref{fig:syst_efficiency_diag} for all periods and regions.
+where $u_i^{\text{nom}}$ is the nominal unfolded spectrum. The diagonal elements $\sqrt{\Sigma_{ii}^{\text{sys}}}$ provide the uncertainty per bin, while the off-diagonal elements quantify correlations between bins induced by the uncertainties in the correction factors. This covariance matrix is taken as the systematic uncertainty contribution from the efficiency corrections in the final results. This procedure is performed independently for each data-taking period (rounds 0304, 15, 16, and 17) and for each $M_{3\pi}$ region. The resulting diagonal systematic uncertainties per bin, expressed as relative uncertainties, are shown in Fig.~\ref{fig:syst_efficiency_diag} for all regions of round 16.
 
 \begin{figure}[htbp]
 \centering
 
-% === Row 1: Round 03/04 ===
-\subfloat[Round 03/04, $\omega(782)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round0304.eps}
-    \label{fig:systematic_errors_relative_omega_r0304}
-}\hfill
-\subfloat[Round 03/04, $\phi(1020)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round0304.eps}
-    \label{fig:systematic_errors_relative_phi_r0304}
-}\hfill
-\subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round0304.eps}
-    \label{fig:systematic_errors_relative_high_r0304}
-}
+% % === Row 1: Round 03/04 ===
+% \subfloat[Round 03/04, $\omega(782)$ region]{
+%     \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round0304.eps}
+%     \label{fig:systematic_errors_relative_omega_r0304}
+% }\hfill
+% \subfloat[Round 03/04, $\phi(1020)$ region]{
+%     \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round0304.eps}
+%     \label{fig:systematic_errors_relative_phi_r0304}
+% }\hfill
+% \subfloat[Round 03/04, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+%     \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round0304.eps}
+%     \label{fig:systematic_errors_relative_high_r0304}
+% }
 
-\vspace{0.5\baselineskip}
+% \vspace{0.5\baselineskip}
 
-% === Row 2: Round 15 ===
-\subfloat[Round 15, $\omega(782)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round15.eps}
-    \label{fig:systematic_errors_relative_omega_r15}
-}\hfill
-\subfloat[Round 15, $\phi(1020)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round15.eps}
-    \label{fig:systematic_errors_relative_phi_r15}
-}\hfill
-\subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round15.eps}
-    \label{fig:systematic_errors_relative_high_r15}
-}
+% % === Row 2: Round 15 ===
+% \subfloat[Round 15, $\omega(782)$ region]{
+%     \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round15.eps}
+%     \label{fig:systematic_errors_relative_omega_r15}
+% }\hfill
+% \subfloat[Round 15, $\phi(1020)$ region]{
+%     \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round15.eps}
+%     \label{fig:systematic_errors_relative_phi_r15}
+% }\hfill
+% \subfloat[Round 15, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+%     \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round15.eps}
+%     \label{fig:systematic_errors_relative_high_r15}
+% }
 
-\vspace{0.5\baselineskip}
+% \vspace{0.5\baselineskip}
 
 % === Row 3: Round 16 ===
 \subfloat[Round 16, $\omega(782)$ region]{
@@ -79,22 +79,23 @@ where $u_i^{\text{nom}}$ is the nominal unfolded spectrum. The diagonal elements
 
 \vspace{0.5\baselineskip}
 
-% === Row 4: Round 17 ===
-\subfloat[Round 17, $\omega(782)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round17.eps}
-    \label{fig:systematic_errors_relative_omega_r17}
-}\hfill
-\subfloat[Round 17, $\phi(1020)$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round17.eps}
-    \label{fig:systematic_errors_relative_phi_r17}
-}\hfill
-\subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
-    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round17.eps}
-    \label{fig:systematic_errors_relative_high_r17}
-}
+% % === Row 4: Round 17 ===
+% \subfloat[Round 17, $\omega(782)$ region]{
+%     \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_omega_round17.eps}
+%     \label{fig:systematic_errors_relative_omega_r17}
+% }\hfill
+% \subfloat[Round 17, $\phi(1020)$ region]{
+%     \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_phi_round17.eps}
+%     \label{fig:systematic_errors_relative_phi_r17}
+% }\hfill
+% \subfloat[Round 17, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+%     \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_high_round17.eps}
+%     \label{fig:systematic_errors_relative_high_r17}
+% }
 
-\caption{Diagonal relative systematic uncertainties (per bin) from efficiency corrections, shown for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). For each bin, the relative uncertainty is computed as $\sqrt{\Sigma_{ii}^{\text{sys}}} / u_i$, where $u_i$ is the unfolded yield.}
-\label{fig:syst_efficiency_diag}
+% \caption{Diagonal relative systematic uncertainties (per bin) from efficiency corrections, shown for four data-taking periods. Each row corresponds to a different round: (a)--(c) Round~03/04, (d)--(f) Round~15, (g)--(i) Round~16, and (j)--(l) Round~17. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). For each bin, the relative uncertainty is computed as $\sqrt{\Sigma_{ii}^{\text{sys}}} / u_i$, where $u_i$ is the unfolded yield.}
+
+\caption{Diagonal relative systematic uncertainties (per bin) from efficiency corrections, shown for Round 16. The three columns represent different $3\pi$ invariant mass regions: $\omega(782)$ region (left), $\phi(1020)$ region (center), and higher-mass $\omega^{\prime}/\omega^{\prime\prime}$ region (right). For each bin, the relative uncertainty is computed as $\sqrt{\Sigma_{ii}^{\text{sys}}} / u_i$, where $u_i$ is the unfolded yield.}\label{fig:syst_efficiency_diag}
 \end{figure}
 
 \subsection{The detector resolution effects in unfolding}
@@ -199,41 +200,62 @@ To propagate the uncertainty of the \(E/p\) requirement to the cross section mea
 \[
 c_{E/p}^{(k)} = \sqrt{R_{\pi^+}^{(k)}(p_{\pi^+}) \cdot R_{\pi^-}^{(k)}(p_{\pi^-})},
 \]
-where \(R_{\pi^+}^{(k)}(p_{\pi^+})\) and \(R_{\pi^-}^{(k)}(p_{\pi^-})\) are sampled independently for each momentum bin according to Gaussian distributions. After processing all $N_{\text{toy}}$ toys, the covariance matrix of the systematic uncertainty arising from the efficiency corrections is estimated as:
+where \(R_{\pi^+}^{(k)}(p_{\pi^+})\) and \(R_{\pi^-}^{(k)}(p_{\pi^-})\) are sampled independently for each momentum bin according to Gaussian distributions. After processing all \(N_{\text{toy}}\) toys, the covariance matrix of the systematic uncertainty arising from the \(E/p\) correction is estimated as:
 \[
 \Sigma_{ij}^{\text{sys}} = \frac{1}{N_{\text{toy}} - 1} \sum_{k=1}^{N_{\text{toy}}} \left( u_i^{(k)} - u_i^{\text{nom}} \right) \left( u_j^{(k)} - u_j^{\text{nom}} \right),
 \]
-where $u_i^{\text{nom}}$ is the nominal unfolded spectrum. This covariance matrix is taken as the systematic uncertainty contribution.
+where \(u_i^{\text{nom}}\) is the nominal unfolded spectrum. The diagonal elements \(\sqrt{\Sigma_{ii}^{\text{sys}}}\) provide the uncertainty per bin, while the off-diagonal elements quantify correlations between bins induced by the uncertainties in the \(E/p\) efficiency ratio. This covariance matrix is taken as the systematic uncertainty contribution from the \(E/p\) requirement in the final results. This procedure is performed independently for each data-taking period (rounds 0304, 15, 16, and 17) and for each \(M_{3\pi}\) region. The resulting diagonal systematic uncertainties per bin, expressed as relative uncertainties, are shown in Fig.~\ref{fig:syst_ep_diag} for all regions of round 16.
 
-% This systematic source is treated as uncorrelated with other efficiency corrections since it is derived from an independent control sample measurement. The resulting per-bin systematic uncertainties from the \(E/p\) requirement are shown in Table~\ref{tab:ep_systematic} and Figure~\ref{fig:ep_sys}.
+\begin{figure}[htbp]
+\centering
 
-% \begin{table}[htbp]
-%     \begin{center}
-%         \caption{Systematic uncertainties from the \(E/p\) requirement, obtained from the toy MC propagation of the momentum-dependent efficiency ratios for \(\pi^+\) and \(\pi^-\).}
-%         \vspace{4mm}
-%         \renewcommand{\arraystretch}{1.3}
-%         \begin{tabular}{c | c}
-%             \hline \hline
-%             \(M_{3\pi}\) range [GeV] & \(\sigma_{\text{sys}}^{E/p}\) [\%] \\
-%             \hline
-%             (to be filled from toy MC results) \\
-%             \hline \hline
-%         \end{tabular}
-%         \label{tab:ep_systematic}
-%     \end{center}
-% \end{table}
+% === Row: Round 16 ===
+\subfloat[Round 16, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_eop_r1.eps}
+    \label{fig:systematic_errors_relative_ep_omega_r16}
+}\hfill
+\subfloat[Round 16, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_eop_r2.eps}
+    \label{fig:systematic_errors_relative_phi_r16}
+}\hfill
+\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/systematic_errors_relative_eop_r3.eps}
+    \label{fig:systematic_errors_relative_high_r16}
+}
 
-% \begin{figure}[htbp]
-%     \centering
-%     \includegraphics[width=0.85\textwidth]{fig/E_p_systematic_uncertainty_Comparison.pdf}
-%     \caption{Systematic uncertainties from the \(E/p\) requirement, propagated from the momentum-dependent efficiency ratios using the toy MC method described in Sec.~\ref{sec:eff_sys}.}
-%     \label{fig:ep_sys}
-% \end{figure}
+\vspace{0.5\baselineskip}
+
+\caption{Diagonal relative systematic uncertainties (per bin) from the \(E/p\) requirement, shown for Round 16. The three columns represent different \(3\pi\) invariant mass regions: \(\omega(782)\) region (left), \(\phi(1020)\) region (center), and higher-mass \(\omega^{\prime}/\omega^{\prime\prime}\) region (right). For each bin, the relative uncertainty is computed as \(\sqrt{\Sigma_{ii}^{\text{sys}}} / u_i\), where \(u_i\) is the unfolded yield.}
+\label{fig:syst_ep_diag}
+\end{figure}
 
 \subsection{The 4C kinematic fit}
 \label{sec:kmfit_sys}
 
-The nominal results for both the measured spectrum $\left( \frac{dN}{dm} \right)$ and the response matrix used in the unfolding procedure are obtained with the $\chi^2_{\text{corr}} < 50$ requirement applied in the 4C kinematic fit. To evaluate the associated systematic uncertainty, we repeat the entire analysis chain — including the estimation of $\left( \frac{dN}{dm} \right)$ and the unfolding procedure — after disabling the correction of the helix parameters for charged tracks in the kinematic fit.
+The nominal results for both the measured spectrum $\left( \frac{dN}{dm} \right)$ and the response matrix used in the unfolding procedure are obtained with the $\chi^2_{\text{corr}} < 50$ requirement applied in the 4C kinematic fit. To evaluate the associated systematic uncertainty, we repeat the entire analysis chain — including the estimation of $\left( \frac{dN}{dm} \right)$ and the unfolding procedure — after disabling the correction of the helix parameters for charged tracks in the kinematic fit. The differences between the alternative and nominal unfolded spectra, defined as $\Delta_i = \left( \frac{dN}{dm} \right)^{\text{alt}}_i - \left( \frac{dN}{dm} \right)^{\text{nom}}_i$, are shown in Fig.~\ref{fig:kmfit_delta} for all three $M_{3\pi}$ regions of round 16.
+
+\begin{figure}[htbp]
+\centering
+
+% === Row: Round 16 ===
+\subfloat[Round 16, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/kmfit_delta_omega_round16.eps}
+    \label{fig:kmfit_delta_omega_r16}
+}\hfill
+\subfloat[Round 16, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/kmfit_delta_phi_round16.eps}
+    \label{fig:kmfit_delta_phi_r16}
+}\hfill
+\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/kmfit_delta_high_round16.eps}
+    \label{fig:kmfit_delta_high_r16}
+}
+
+\vspace{0.5\baselineskip}
+
+\caption{Differences $\Delta_i$ between the alternative and nominal unfolded spectra for Round 16.}
+\label{fig:kmfit_delta}
+\end{figure}
 
 In principle, one could vary the helix parameter corrections according to their uncertainties and repeat the unfolding multiple times to extract the covariance matrix, as described in Sec.~\ref{sec:eff_sys}. However, the uncertainties on these corrections are very small, and such an approach would likely lead to an underestimate of the systematic uncertainty. To be conservative, we instead take half of the difference between the unfolded spectra obtained with the alternative and nominal configurations as the systematic uncertainty for each bin. To account for bin-to-bin correlations, we construct the full covariance matrix as described below.
 
@@ -261,7 +283,30 @@ This procedure yields a complete covariance matrix that accounts for bin-to-bin 
 
 The background in the $\pi^+\pi^-\pi^0$ sample consists mainly of two components. The dominant background arises from the $e^+e^- \to \pi^+\pi^-\pi^0\pi^0$ process. Its contribution is estimated using a data-driven method, where the background level in each $3\pi$ mass bin is evaluated and accompanied by a statistical uncertainty. In the fit to extract the $3\pi$ yield, this background component is constrained via a Gaussian penalty term that incorporates its uncertainty. Therefore, no additional systematic uncertainty is assigned for this dominant background.
 
-For all other remaining background processes, a first- or second-order polynomial is used in the nominal fit, with all parameters left floating. The main systematic uncertainty associated with these backgrounds comes from their shape. To evaluate this effect, we perform an alternative fit in which the background shape is taken from the inclusive MC sample, and the normalization is constrained via a Gaussian term fixed to the expected yield based on the integrated luminosity. The resulting $3\pi$ yield after the alternative fit is then propagated through the full unfolding procedure.
+For all other remaining background processes, a first- or second-order polynomial is used in the nominal fit, with all parameters left floating. The main systematic uncertainty associated with these backgrounds comes from their shape. To evaluate this effect, we perform an alternative fit in which the background shape is taken from the inclusive MC sample, and the normalization is constrained via a Gaussian term fixed to the expected yield based on the integrated luminosity. The resulting $3\pi$ yield after the alternative fit is then propagated through the full unfolding procedure. The differences between the alternative and nominal unfolded spectra, defined as $\Delta_i = \left( \frac{dN}{dm} \right)^{\text{alt}}_i - \left( \frac{dN}{dm} \right)^{\text{nom}}_i$, are shown in Fig.~\ref{fig:background_delta} for all three $M_{3\pi}$ regions of round 16.
+
+\begin{figure}[htbp]
+\centering
+
+% === Row: Round 16 ===
+\subfloat[Round 16, $\omega(782)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/background_delta_omega_round16.eps}
+    \label{fig:background_delta_omega_r16}
+}\hfill
+\subfloat[Round 16, $\phi(1020)$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/background_delta_phi_round16.eps}
+    \label{fig:background_delta_phi_r16}
+}\hfill
+\subfloat[Round 16, $\omega^{\prime}/\omega^{\prime\prime}$ region]{
+    \includegraphics[width=0.32\textwidth]{fig/background_delta_high_round16.eps}
+    \label{fig:background_delta_high_r16}
+}
+
+\vspace{0.5\baselineskip}
+
+\caption{Differences $\Delta_i$ between the alternative and nominal unfolded spectra for Round 16.}
+\label{fig:background_delta}
+\end{figure}
 
 Following the same procedure described in Sec.~\ref{sec:kmfit_sys}, we construct a covariance matrix using $\Delta_i$ (the difference between the alternative and nominal unfolded spectra) instead of $\frac{1}{2}\Delta_i$ for the diagonal elements. The diagonal elements of the covariance matrix are given by:
 \[
@@ -277,7 +322,25 @@ where $s_i = \operatorname{sign}(\Delta_i)$. This covariance matrix is then adde
 
 \subsection{The $\pi^0$ veto}
 
-The $\pi^0$ veto condition is applied only in the high-mass region of the spectrum. To evaluate the associated systematic uncertainty, we repeat the analysis — including the unfolding procedure — after removing this veto condition, focusing specifically on the third mass interval where the veto is originally applied.
+The $\pi^0$ veto condition is applied only in the high-mass region of the spectrum. To evaluate the associated systematic uncertainty, we repeat the analysis — including the unfolding procedure — after removing this veto condition, focusing specifically on the third mass interval where the veto is originally applied. The comparison between the unfolded spectra obtained with and without the $\pi^0$ veto, as well as their relative differences $\Delta_i = \left( \frac{dN}{dm} \right)^{\text{no veto}}_i - \left( \frac{dN}{dm} \right)^{\text{veto}}_i$, are shown in Fig.~\ref{fig:pi0veto_comparison} for the high-mass region of round 16.
+
+\begin{figure}[htbp]
+\centering
+
+\subfloat[Comparison of unfolded spectra with and without $\pi^0$ veto]{
+    \includegraphics[width=0.48\textwidth]{fig/pi0veto_spectrum_comparison_round16.eps}
+    \label{fig:pi0veto_spectrum_comparison}
+}\hfill
+\subfloat[Relative differences]{
+    \includegraphics[width=0.48\textwidth]{fig/pi0veto_relative_difference_round16.eps}
+    \label{fig:pi0veto_relative_difference}
+}
+
+\vspace{0.5\baselineskip}
+
+\caption{Systematic uncertainty from the $\pi^0$ veto in the high-mass region of Round 16. The left panel shows the unfolded spectra obtained with (nominal) and without (alternative) the $\pi^0$ veto condition. The right panel shows the relative differences $\Delta_i / u_i^{\text{nom}}$, where $\Delta_i = u_i^{\text{no veto}} - u_i^{\text{veto}}$.}
+\label{fig:pi0veto_comparison}
+\end{figure}
 
 Following the same procedure described in Sec.~\ref{sec:kmfit_sys}, we construct a covariance matrix using $\Delta_i$ (the difference between the unfolded spectra obtained without and with the $\pi^0$ veto) for the diagonal elements:
 \[

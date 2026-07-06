@@ -1,6 +1,5 @@
 \clearpage
 \section{Correction of Signal Efficiency}
-\label{sec:corr_signal}
 
 To extract the dressed cross section $\sigma_{3\pi}^{\text{dress}}(m)$, we need
 the generator-level yield $\left( \frac{dN}{dm} \right)^{\text{gen}}$, which is
@@ -447,7 +446,9 @@ The fitted NLO SA signal yield is $771 \pm 53$.
 
 Following the selection procedures described above for both LA and SA categories, we obtain samples of events containing an identified NLO ISR photon in data. To compare the production rates between data and the PHOKHARA generator, we need to account for the overall selection efficiency that encompasses both detector effects and reconstruction requirements.
 
-Using the PHOKHARA MC sample, we first classify events at generator level according to the criteria defined as follows, with an additional requirement on the invariant mass of the three pions consistent with our analysis region:
+Unlike the simplified approach where each truth category is assumed to only pass its corresponding selection, we adopt a more rigorous method that accounts for cross-contamination between categories. Using the PHOKHARA MC sample, we construct an efficiency matrix $\mathcal{A}$ that describes the probability for events of each truth category to pass each of the three selection criteria.
+
+We first classify events at generator level according to the following truth definitions, with an additional requirement on the invariant mass of the three pions consistent with our analysis region:
 \begin{itemize}
     \item The invariant mass $M(\pi^+\pi^-\pi^0)$ must be within the range $0.7 < M(3\pi) < 2.0$~GeV/$c^2$.
     \item \textbf{LO events}: Events with no NLO photon, or where the NLO photon energy is below 0.05~GeV.
@@ -455,54 +456,99 @@ Using the PHOKHARA MC sample, we first classify events at generator level accord
     \item \textbf{NLO SA events}: Events with a NLO photon of energy $\ge$ 0.05~GeV and $|\cos\theta_{\gamma_{\text{NLO}}}| > 0.99$.
 \end{itemize}
 
-For each category, we determine the overall selection efficiency $\varepsilon_i$ from the PHOKHARA MC sample, defined as the fraction of generator-level events in that category that pass the corresponding reconstruction and selection criteria described in the previous sections. These efficiencies are assumed to be consistent between data and MC.
-
-The yields in data for each category ($N_i^{\text{Data, reco}}$) are obtained from the fits described in Sections~\ref{sec:nlo_la} and~\ref{sec:nlo_sa} for NLO LA and SA categories, while the LO yield in data is taken from the nominal signal selection (4C fit $\chi^2 < 50$ with a single ISR photon). Using the MC-determined efficiencies, we can obtain the generator-level yields in data:
-\[
-    N_i^{\text{Data, gen}} = \frac{N_i^{\text{Data, reco}}}{\varepsilon_i},
-\]
-where $i$ denotes the event category (LO, NLO LA, or NLO SA). The total number of generated events in data is then the sum over all categories:
-\[
-    N_{\text{total}}^{\text{Data, gen}} = \sum_i N_i^{\text{Data, gen}}.
-\]
-
-The fraction of events in each category at generator level is then calculated as:
-\[
-    f_i^{\text{Data}} = \frac{N_i^{\text{Data, gen}}}{N_{\text{total}}^{\text{Data, gen}}}.
-\]
-
-These fractions represent the true production rates of LO, NLO LA, and NLO SA events in data, corrected for selection efficiencies.
-
-For comparison, we directly compute the generator-level fractions from the PHOKHARA MC sample using the truth-level classification (including the same $M(3\pi)$ requirement):
-\[
-    f_i^{\text{MC}} = \frac{N_i^{\text{MC, gen}}}{N_{\text{total}}^{\text{MC, gen}}}.
-\]
-where $N_i^{\text{MC, gen}}$ are the counts of MC events in each truth category satisfying the $M(3\pi)$ requirement, and $N_{\text{total}}^{\text{MC, gen}}$ is the total number of generated MC events within the same $M(3\pi)$ range.
-
-Table~\ref{tab:nlo_fraction} presents the comparison between data and MC for the three categories. The statistical uncertainties on $f_i^{\text{Data}}$ are propagated from the uncertainties on the fitted yields and the statistical uncertainties on the efficiencies. The uncertainties on $f_i^{\text{MC}}$ are purely statistical from the MC sample size.
+For each truth category, we determine the number of MC events that pass each of the three reconstruction-level selection criteria: the LO selection (nominal signal selection with 4C fit $\chi^2 < 50$ and a single ISR photon), the NLO LA selection, and the NLO SA selection. The resulting efficiency matrix is presented in Table~\ref{tab:efficiency_matrix}.
 
 \begin{table}[htbp]
     \centering
-    \caption{Selection efficiencies and generator-level event fractions for LO, NLO LA, and NLO SA categories. The efficiencies are determined from PHOKHARA MC and represent the fraction of generator-level events that pass the corresponding reconstruction and selection criteria. The MC fractions are normalized such that $f_{\text{LO}} + f_{\text{NLO LA}} + f_{\text{NLO SA}} = 100\%$.}
+    \caption{Efficiency matrix $\mathcal{A}$ from PHOKHARA MC. Each entry shows the number of events passing each reconstruction-level selection, with the corresponding efficiency (in percentage) given in parentheses. The ``Truth Total'' column gives the total number of generated events in each category within the $M(3\pi)$ requirement.}
     \vspace{4mm}
-    \begin{tabular}{lcccc}
+    \begin{tabular}{lrrrrr}
         \hline
-        Category & Efficiency (\%)   & $f_i^{\text{MC}}$ (\%) & $f_i^{\text{Data}}$ (\%) & $c_{\text{NLO}}$          \\
+        Truth Type & Truth Total & Reco Total & Pass LO & Pass NLO LA & Pass NLO SA \\
         \hline
-        LO       & $3.092 \pm 0.006$ & $76.879 \pm 0.032$     & $87.422 \pm 0.903$       & $1.137 \pm 0.012$ \\
-        NLO LA   & $0.275 \pm 0.006$ & $6.543 \pm 0.007$      & $5.370 \pm 0.852$        & $0.821 \pm 0.130$ \\
-        NLO SA   & $0.417 \pm 0.004$ & $16.578 \pm 0.012$     & $7.207 \pm 0.471$        & $0.435 \pm 0.028$ \\
+        LO     & 10,437,260 & 474,675 & 310,295 (2.9730\%) & 65 (0.0006\%) & 260 (0.0025\%) \\
+        NLO LA & 888,289    & 31,295  & 3,669 (0.4130\%)  & 2,304 (0.2594\%) & 385 (0.0433\%) \\
+        NLO SA & 2,250,612  & 60,327  & 8,135 (0.3615\%)  & 73 (0.0032\%) & 8,723 (0.3876\%) \\
         \hline
     \end{tabular}
-
-    \label{tab:nlo_fraction}
+    \label{tab:efficiency_matrix}
 \end{table}
-The ratios $f_i^{\text{Data}} / f_i^{\text{MC}}$ reveal a discrepancy between data and the PHOKHARA generator simulation. We observe that PHOKHARA overestimates the production rate of events with additional ISR photons, consistent with the findings from the BaBar study~\cite{PhysRevD.108.L111103}. This discrepancy will be corrected in the unfolding procedure through the response matrix.
 
+The purity of each selection, defined as the fraction of passing events with the correct truth type, is also evaluated. The LO selection purity is $96.34\%$, while the NLO LA and NLO SA selections achieve purities of $94.35\%$ and $93.11\%$, respectively. These purities indicate that while each selection is largely dominated by its corresponding truth category, there is non-negligible cross-contamination that must be accounted for in the unfolding.
+
+The yields in data for each selection category ($b_{\text{LO}}$, $b_{\text{NLO LA}}$, $b_{\text{NLO SA}}$) are obtained from the fits described in Sections~\ref{sec:nlo_la} and~\ref{sec:nlo_sa} for the NLO LA and SA categories, while the LO yield in data has been previously studied in Fig.~\ref{fig:signal_yields}. These observed yields are related to the unknown generator-level yields $x_i$ (where $i$ denotes LO, NLO LA, or NLO SA) through the efficiency matrix:
+\[
+    b_j = \sum_i \mathcal{A}_{ji} x_i,
+\]
+where $\mathcal{A}_{ji}$ is the probability for a truth-type $i$ event to pass selection $j$. This forms a $3 \times 3$ linear system that can be solved for $x_i$:
+\[
+    x = \mathcal{A}^{-1} b.
+\]
+
+Solving this system using the data yields gives the unfolded generator-level event counts in data, as summarized in Table~\ref{tab:yields_comparison}. For comparison, the generator-level fractions from the PHOKHARA MC sample, computed directly from the truth-level classification (including the same $M(3\pi)$ requirement), are also presented alongside the data fractions.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Generator-level event yields and fractions in data after unfolding with the efficiency matrix, compared with the truth-level fractions from PHOKHARA MC.}
+    \vspace{4mm}
+    \begin{tabular}{lccc}
+        \hline
+        \multirow{2}{*}{Category} & \multicolumn{2}{c}{Data} & \multirow{2}{*}{MC Fraction (\%)} \\
+        \cline{2-3}
+        & Yield & Fraction (\%) & \\
+        \hline
+        LO       & $1,117,269.7 \pm 9,461.1$ & $77.88 \pm 1.45$ & 76.88 \\
+        NLO LA   & $141,352.0 \pm 24,327.7$ & $9.85 \pm 1.57$ & 6.54 \\
+        NLO SA   & $175,919.2 \pm 13,966.1$ & $12.26 \pm 0.92$ & 16.58 \\
+        \hline
+        Total    & $1,434,540.9$ & $100.00$ & 100.00 \\
+        \hline
+    \end{tabular}
+    \label{tab:yields_comparison}
+\end{table}
+
+Table~\ref{tab:nlo_fraction_unfolded} presents the comparison between data and MC for the three categories. The uncertainties on the unfolded data fractions are propagated from the uncertainties on the fitted yields through the matrix inversion.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Comparison of generator-level event fractions between data and PHOKHARA MC after unfolding with the efficiency matrix. The correction factor is defined as the ratio of data to MC fractions and will be applied in the unfolding procedure.}
+    \vspace{4mm}
+    \begin{tabular}{lccc}
+        \hline
+        Category & MC Fraction (\%) & Data Fraction (\%) & Correction factors (Data/MC) \\
+        \hline
+        LO       & 76.88 & $77.88 \pm 1.45$ & $1.013 \pm 0.019$ \\
+        NLO LA   & 6.54  & $9.85 \pm 1.57$  & $1.506 \pm 0.240$ \\
+        NLO SA   & 16.58 & $12.26 \pm 0.92$ & $0.740 \pm 0.056$ \\
+        \hline
+    \end{tabular}
+    \label{tab:nlo_fraction_unfolded}
+\end{table}
+
+The ratios $f_i^{\text{Data}} / f_i^{\text{MC}}$ reveal a discrepancy between data and the PHOKHARA generator simulation. We observe that PHOKHARA significantly overestimates the production rate of NLO SA events while underestimating NLO LA events. The derived correction factors will be applied in the unfolding procedure through the response matrix to account for this mismodeling of the NLO photon fractions.
+
+\subsection{The $\chi^2_{4C}$ distribution and correcting the signal yields}
+\label{sec:corr_kmfit}
+The discrepancy in the $\chi^2_{4C}$ distribution between data and MC is corrected following the method established in a dedicated study using $e^+e^- \to K^+K^-\pi^+\pi^-$ events~\cite{BESIII_chisq4C_correction_2025}. That analysis, performed under BOSS version 7.1.2, investigated the differences in helix parameters between data and MC simulation across various data-taking periods at the center-of-mass energy of 3.773~GeV. For the signal process $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$, we apply helix parameter corrections to the charged tracks. Figures~\ref{fig:chisq4c_before} and~\ref{fig:chisq4c_after} show the comparison of $\chi^2_{4C}$ distributions between data and MC before and after the correction, respectively. As illustrated, a slight improvement in the agreement between data and MC is observed in the low $\chi^2_{4C}$ region, where the majority of events are populated, after applying the helix parameter corrections. With these corrections applied to the signal MC, we subsequently impose a selection requirement of $\chi^2_{4C} < 50$ and fit the signal yields in each $M_{3\pi}$ interval (Sec.~\ref{DataYields}).
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[Before correction]{
+        \includegraphics[width=0.48\textwidth]{fig/LO_kmfit4C_comparison_comparison.eps}
+        \label{fig:chisq4c_before}
+    }
+    \hfill
+    \subfloat[After correction]{
+        \includegraphics[width=0.48\textwidth]{fig/LO_kmfit4C_corr_comparison_comparison.eps}
+        \label{fig:chisq4c_after}
+    }
+    \caption{Comparison of $\chi^2_{4C}$ distributions between data and MC for the $e^+e^- \to \pi^+\pi^-\pi^0\gamma_{\text{ISR}}$ process (a) before and (b) after applying helix parameter corrections.}
+    \label{fig:chisq4c_comparison}
+\end{figure}
 
 \subsection{Correcting the signal yields}
-\label{sec:corr_signal_kmfit}
-To construct the migration matrix for unfolding, we start from the signal MC samples that have been corrected for helix parameters and satisfy the $\chi^2_{4C} < 50$ selection requirement. The migration matrix element $A_{ij}$ is intended to represent the number of events that truly belong to bin $j$ and are reconstructed in bin $i$. The MC simulation does not perfectly describe data; discrepancies arise from the NLO ISR photon production rate and from the efficiencies of tracking, PID, $\pi^0$ reconstruction, and ISR photon detection. These must be corrected before the matrix can be used for unfolding.
+\label{sec:corr_signal}
+The migration matrix element $A_{ij}$ is intended to represent the number of events that truly belong to bin $j$ and are reconstructed in bin $i$. The MC simulation does not perfectly describe data; discrepancies arise from the NLO ISR photon production rate and from the efficiencies of tracking, PID, $\pi^0$ reconstruction, and ISR photon detection. These must be corrected before the matrix can be used for unfolding.
 
 Two types of corrections are applied to the MC events. The first correction addresses the discrepancy in the NLO ISR photon production rate. For each event from truth bin $j$, we assign a weight:
 \[
